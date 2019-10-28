@@ -1,0 +1,13 @@
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\PVenta.DAL.dll.config
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\PVenta.DAL.dll
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\PVenta.DAL.pdb
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\EntityFramework.dll
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\PVenta.Models.dll
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\PVenta.Models.pdb
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\EntityFramework.xml
+C:\DesaVisual\PVenta\PVenta.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.csprojAssemblyReference.cache
+C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.csproj.CopyComplete
+C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.dll
+C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.pdb

@@ -1,0 +1,5 @@
+C:\DesaVisual\PVenta\PVenta.Services\bin\Debug\PVenta.Services.dll
+C:\DesaVisual\PVenta\PVenta.Services\bin\Debug\PVenta.Services.pdb
+C:\DesaVisual\PVenta\PVenta.Services\obj\Debug\PVenta.Services.csprojAssemblyReference.cache
+C:\DesaVisual\PVenta\PVenta.Services\obj\Debug\PVenta.Services.dll
+C:\DesaVisual\PVenta\PVenta.Services\obj\Debug\PVenta.Services.pdb
