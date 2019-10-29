@@ -11,6 +11,12 @@ namespace PVenta.Models.Model
 {
     public class PermisosRol
     {
+
+        [Key]
+        [Column("ID", TypeName = "varchar")]
+        [MaxLength(50)]
+        public string ID { get; set; }
+
         [DisplayName("ID Rol Usuario")]
         [Column("RolId", TypeName = "varchar")]
         [MaxLength(50)]

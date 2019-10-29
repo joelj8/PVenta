@@ -20,7 +20,12 @@ namespace PVenta.Models.Model
         [Required(ErrorMessage = "Cuadre Header es requerida")]
         [MaxLength(50)]
         [DisplayName("Header del Cuadre")]
+        
         public string CuadreHID { get; set; }
+
+        [NotMapped]
+        [ForeignKey("CuadreHID")]
+        public CuadreHeader CuadreH { get; set; }
 
         [Column("MonedaId", TypeName = "varchar")]
         [Required(ErrorMessage = "Moneda es requerida")]
@@ -30,12 +35,12 @@ namespace PVenta.Models.Model
 
         public Moneda Moneda { get; set; }
 
-        [Column("Cantidad", TypeName = "decimal(8,0)")]
+        [Column("Cantidad" )]
         [Required(ErrorMessage = "Cantidad es requerida")]
         [DisplayName("Cantidad de Moneda")]
         public decimal Cantidad { get; set; }
 
-        [Column("Valor", TypeName = "decimal(16,2)")]
+        [Column("Valor")]
         [Required(ErrorMessage = "Valor Moneda es requerido")]
         [DisplayName("Valor de la Moneda")]
         public decimal Valor { get; set; }

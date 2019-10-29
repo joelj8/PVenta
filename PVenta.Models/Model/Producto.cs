@@ -27,7 +27,7 @@ namespace PVenta.Models.Model
         [DisplayName("Nombre Corte Producto")]
         public string NombreCorto { get; set; }
 
-        [Column("Precio", TypeName = "decimal(16,2)")]
+        [Column("Precio")]
         [DisplayName("Precio Producto")]
         public string Precio { get; set; }
 
@@ -37,6 +37,7 @@ namespace PVenta.Models.Model
         public string CategoriaId { get; set; }
 
         [NotMapped]
+        [ForeignKey("CategoriaId")]
         public virtual Categoria Categoria { get; set; }
 
         [DisplayName("Imprimir Comanda")]

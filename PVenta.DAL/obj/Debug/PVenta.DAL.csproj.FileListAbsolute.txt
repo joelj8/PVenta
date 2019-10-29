@@ -11,3 +11,5 @@ C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.csprojAssemblyReference.cac
 C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.csproj.CopyComplete
 C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.dll
 C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.pdb
+C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.Migrations.initialMig.resources
+C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.csproj.GenerateResource.cache

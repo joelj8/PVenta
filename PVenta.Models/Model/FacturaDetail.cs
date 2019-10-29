@@ -22,6 +22,10 @@ namespace PVenta.Models.Model
         [DisplayName("Header de Factura")]
         public string FacturaHID { get; set; }
 
+        [NotMapped]
+        [ForeignKey("FacturaHID")]
+        public FacturaHeader FacturaHeader { get; set; }
+
         [Column("ProductoID", TypeName = "varchar")]
         [Required(ErrorMessage = "Producto es requerido")]
         [MaxLength(50)]
@@ -31,12 +35,12 @@ namespace PVenta.Models.Model
         [NotMapped]
         public virtual Producto producto { get; set; }
 
-        [Column("Cantidad", TypeName = "decimal(8,0)")]
+        [Column("Cantidad")]
         [Required(ErrorMessage = "Cantidad es requerida")]
         [DisplayName("Cantidad del Producto")]
         public decimal Cantidad { get; set; }
 
-        [Column("Precio", TypeName = "decimal(16,2)")]
+        [Column("Precio")]
         [Required(ErrorMessage = "Precio es requerido")]
         [DisplayName("Precio del Producto")]
         public decimal Precio { get; set; }

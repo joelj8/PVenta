@@ -26,7 +26,7 @@ namespace PVenta.Models.Model
         [Required(ErrorMessage = "Fecha de Cuadre es requerida")]
         public DateTime Fecha { get; set; }
 
-        [Column("MontoInicial", TypeName = "decimal(16,2)")]
+        [Column("MontoInicial")]
         [DisplayName("Monto Inicial Cuadre")]
         public decimal MontoInicial { get; set; }
 
@@ -43,7 +43,9 @@ namespace PVenta.Models.Model
         public string Comentario { get; set; }
         public bool Inactivo { get; set; }
 
-
+        [NotMapped]
+        [ForeignKey("CuadreHID")]
+        public ICollection<CuadreDetail> CuadreDetails { get; set; } 
 
     }
 }

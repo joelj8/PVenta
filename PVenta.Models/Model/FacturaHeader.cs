@@ -38,13 +38,13 @@ namespace PVenta.Models.Model
 
         public bool Itbis { get; set; }
 
-        [Column("ItbisPorc", TypeName = "decimal(8,2)")]
+        [Column("ItbisPorc")]
         public decimal ItbisPorc { get; set; }
 
-        [Column("DescMonto", TypeName = "decimal(16,2)")]
+        [Column("DescMonto")]
         public decimal DescMonto { get; set; }
 
-        [Column("DescPorc", TypeName = "decimal(8,2)")]
+        [Column("DescPorc")]
         public decimal DescPorc { get; set; }
 
         [DataType(DataType.Date)]
@@ -56,6 +56,13 @@ namespace PVenta.Models.Model
 
         public bool Inactivo { get; set; }
 
+        [NotMapped]
+        [ForeignKey("FacturaHID")]
+        public ICollection<FacturaDetail> FacturaDetails { get; set; }
+
+        [NotMapped]
+        [ForeignKey("FacturaHID")]
+        public ICollection<FacturaPayment> FacturaPayments { get; set; }
 
     }
 }

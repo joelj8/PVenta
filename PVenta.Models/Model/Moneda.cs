@@ -20,7 +20,7 @@ namespace PVenta.Models.Model
         [Required(ErrorMessage = "Descripción es requerida")]
         public string Descripcion { get; set; }
 
-        [Column("Valor", TypeName = "decimal(16,2)")]
+        [Column("Valor")]
         public decimal Valor { get; set; }
 
         public bool Inactivo { get; set; }
