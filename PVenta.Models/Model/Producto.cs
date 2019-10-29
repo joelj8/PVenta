@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
+    [Table("Productos")]
     public class Producto
     {
         [Key]

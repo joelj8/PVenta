@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiModels\ApiLogEvento.cs" />
+    <Compile Include="ApiModels\ApiRol.cs" />
+    <Compile Include="ApiModels\ApiUsuario.cs" />
     <Compile Include="Model\Categoria.cs" />
     <Compile Include="Model\CuadreDetail.cs" />
     <Compile Include="Model\CuadreHeader.cs" />
@@ -59,7 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApiModels\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,4 @@
 C:\DesaVisual\PVenta\PVenta.Models\bin\Debug\PVenta.Models.dll
 C:\DesaVisual\PVenta\PVenta.Models\bin\Debug\PVenta.Models.pdb
-C:\DesaVisual\PVenta\PVenta.Models\obj\Debug\PVenta.Models.csprojAssemblyReference.cache
 C:\DesaVisual\PVenta\PVenta.Models\obj\Debug\PVenta.Models.dll
 C:\DesaVisual\PVenta\PVenta.Models\obj\Debug\PVenta.Models.pdb

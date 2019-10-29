@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
+ 
+    [Table("LogEventos")]
     public class LogEvento
     {
         [Key]
@@ -26,6 +28,9 @@ namespace PVenta.Models.Model
         [Column("UserId", TypeName = "varchar")]
         [MaxLength(50)]
         public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual Usuario Usuario { get; set; }
 
         [DisplayName("Tipo Evento")]
         [Column("TipoEvento", TypeName = "varchar")]

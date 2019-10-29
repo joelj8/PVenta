@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
+    [Table("Mesas")]
     public class Mesa
     {
         [Key]

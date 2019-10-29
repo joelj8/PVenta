@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
+    [Table("Roles")]
     public class Rol
     {
         [Key]

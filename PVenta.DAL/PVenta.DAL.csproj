@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBPVentaContext.cs" />
-    <Compile Include="Migrations\201910291500453_initialMig.cs" />
-    <Compile Include="Migrations\201910291500453_initialMig.designer.cs">
-      <DependentUpon>201910291500453_initialMig.cs</DependentUpon>
+    <Compile Include="Migrations\201910291924040_JEv00.cs" />
+    <Compile Include="Migrations\201910291924040_JEv00.designer.cs">
+      <DependentUpon>201910291924040_JEv00.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910291500453_initialMig.resx">
-      <DependentUpon>201910291500453_initialMig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910291924040_JEv00.resx">
+      <DependentUpon>201910291924040_JEv00.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

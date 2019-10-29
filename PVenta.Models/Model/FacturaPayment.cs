@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
+    [Table("FacturaPayments")]
     public class FacturaPayment
     {
         [Key]

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
+    [Table("CuadreHeaders")]
     public class CuadreHeader
     {
         [Key]
