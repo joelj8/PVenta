@@ -14,6 +14,7 @@ namespace PVenta.WebApi.Repository
         {
             CreateMap<OpcionesSist, ApiOpcionesSist>()
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.ID))
+                .ForMember(dest => dest.Codigo, opts => opts.MapFrom(src => src.Codigo))
                 .ForMember(dest => dest.Descripcion, opts => opts.MapFrom(src => src.Descripcion))
                 .ForMember(dest => dest.Inactivo, opts => opts.MapFrom(src => src.Inactivo));
         }

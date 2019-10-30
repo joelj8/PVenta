@@ -55,6 +55,7 @@ namespace PVenta.Services
                 OpcionesSist opcionesSistUpdate = GetOpcionesSist(opcionesSistUpd.ID);
                 if (opcionesSistUpdate != null)
                 {
+                    opcionesSistUpdate.Codigo = opcionesSistUpd.Codigo;
                     opcionesSistUpdate.Descripcion = opcionesSistUpd.Descripcion;
                     _dbcontext.Entry(opcionesSistUpdate).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();

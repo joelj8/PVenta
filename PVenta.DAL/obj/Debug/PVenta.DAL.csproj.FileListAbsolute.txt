@@ -16,3 +16,4 @@ C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.csproj.GenerateResource.cac
 C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.Migrations.JEv002.resources
 C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.Migrations.JEv003.resources
 C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.Migrations.JEv004.resources
+C:\DesaVisual\PVenta\PVenta.DAL\obj\Debug\PVenta.DAL.Migrations.JEv005.resources
