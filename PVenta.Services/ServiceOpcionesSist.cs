@@ -50,28 +50,44 @@ namespace PVenta.Services
         public bool UpdateOpcionesSist(OpcionesSist opcionesSistUpd)
         {
             bool resultUpdate = false;
-            OpcionesSist opcionesSistUpdate = GetOpcionesSist(opcionesSistUpd.ID);
-            if (opcionesSistUpdate != null)
+            try
             {
-                opcionesSistUpdate.Descripcion = opcionesSistUpd.Descripcion;
-                _dbcontext.Entry(opcionesSistUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                resultUpdate = true;
+                OpcionesSist opcionesSistUpdate = GetOpcionesSist(opcionesSistUpd.ID);
+                if (opcionesSistUpdate != null)
+                {
+                    opcionesSistUpdate.Descripcion = opcionesSistUpd.Descripcion;
+                    _dbcontext.Entry(opcionesSistUpdate).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    resultUpdate = true;
+                }
             }
+            catch (Exception)
+            {
+                // Registrar en el log de Errores
+            }
+
             return resultUpdate;
         }
 
         public bool DeleteOpcionesSist(string id)
         {
             bool resultDelete = false;
-            OpcionesSist opcionesSistDelete = GetOpcionesSist(id);
-            if (opcionesSistDelete != null)
+            try
             {
-                opcionesSistDelete.Inactivo = true;
-                _dbcontext.Entry(opcionesSistDelete).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                resultDelete = true;
+                OpcionesSist opcionesSistDelete = GetOpcionesSist(id);
+                if (opcionesSistDelete != null)
+                {
+                    opcionesSistDelete.Inactivo = true;
+                    _dbcontext.Entry(opcionesSistDelete).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    resultDelete = true;
+                }
             }
+            catch (Exception)
+            {
+                // Registrar en el log de Errores
+            }
+
             return resultDelete;
         }
 

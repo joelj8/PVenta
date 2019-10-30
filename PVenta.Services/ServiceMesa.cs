@@ -51,14 +51,22 @@ namespace PVenta.Services
         public bool UpdateMesa(Mesa mesaUpd)
         {
             bool resultUpdate = false;
-            Mesa mesaUpdate = GetMesa(mesaUpd.ID);
-            if (mesaUpdate != null)
+            try
             {
-                mesaUpdate.Descripcion = mesaUpd.Descripcion;
-                _dbcontext.Entry(mesaUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                resultUpdate = true;
+                Mesa mesaUpdate = GetMesa(mesaUpd.ID);
+                if (mesaUpdate != null)
+                {
+                    mesaUpdate.Descripcion = mesaUpd.Descripcion;
+                    _dbcontext.Entry(mesaUpdate).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    resultUpdate = true;
+                }
             }
+            catch (Exception)
+            {
+                // Registrar en el log de Errores
+            }
+
 
             return resultUpdate;
         }
@@ -66,14 +74,22 @@ namespace PVenta.Services
         public bool DeleteMesa(string id)
         {
             bool resultDelete = false;
-            Mesa mesaDelete = GetMesa(id);
-            if (mesaDelete != null)
+            try
             {
-                mesaDelete.Inactivo = true;
-                _dbcontext.Entry(mesaDelete).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                resultDelete = true;
+                Mesa mesaDelete = GetMesa(id);
+                if (mesaDelete != null)
+                {
+                    mesaDelete.Inactivo = true;
+                    _dbcontext.Entry(mesaDelete).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    resultDelete = true;
+                }
             }
+            catch (Exception)
+            {
+                // Registrar en el log de Errores
+            }
+
             return resultDelete;
         }
     }
