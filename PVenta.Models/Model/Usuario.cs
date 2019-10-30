@@ -45,6 +45,7 @@ namespace PVenta.Models.Model
         public string RolId { get; set; }
 
         [NotMapped]
+        [ForeignKey("RolId")]
         public virtual Rol Rol { get; set; }
 
         [DisplayName("Usuario es Cajero")]

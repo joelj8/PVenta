@@ -19,13 +19,13 @@ namespace PVenta.Services
 
         public List<Usuario> GetUsuarios()
         {
-            var result = _dbcontext.Usuarios.Where(x => !x.Inactivo).ToList();
+            var result = _dbcontext.Usuarios.Include("Rol").Where(x => !x.Inactivo).ToList();
             return result;
         }
 
         public Usuario GetUsuario(string id)
         {
-            var result = _dbcontext.Usuarios.FirstOrDefault(x => x.ID == id && !x.Inactivo);
+            var result = _dbcontext.Usuarios.Include("Rol").FirstOrDefault(x => x.ID == id && !x.Inactivo);
             return result;
         }
 
@@ -54,16 +54,19 @@ namespace PVenta.Services
             try
             {
                 Usuario UsuarioUpdate = GetUsuario(UsuarioUpd.ID);
-                UsuarioUpdate.Nombre = UsuarioUpd.Nombre;
-                UsuarioUpdate.Pwduser = UsuarioUpd.Pwduser;
-                UsuarioUpdate.RolId = UsuarioUpd.RolId;
-                UsuarioUpdate.UserId = UsuarioUpd.UserId;
-                UsuarioUpdate.Email = UsuarioUpd.Email;
-                UsuarioUpdate.esCajero = UsuarioUpd.esCajero;
+                if (UsuarioUpdate != null) 
+                { 
+                    UsuarioUpdate.Nombre = UsuarioUpd.Nombre;
+                    UsuarioUpdate.Pwduser = UsuarioUpd.Pwduser;
+                    UsuarioUpdate.RolId = UsuarioUpd.RolId;
+                    UsuarioUpdate.UserId = UsuarioUpd.UserId;
+                    UsuarioUpdate.Email = UsuarioUpd.Email;
+                    UsuarioUpdate.esCajero = UsuarioUpd.esCajero;
                 
-                _dbcontext.Entry(UsuarioUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                result = true;
+                    _dbcontext.Entry(UsuarioUpdate).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
             }
             catch (Exception ex)
             {
@@ -81,11 +84,14 @@ namespace PVenta.Services
 
             try
             {
-                Usuario UsuarioUpdate = GetUsuario(id);
-                UsuarioUpdate.Inactivo = true;
-                _dbcontext.Entry(UsuarioUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                result = true;
+                Usuario UsuarioDelete = GetUsuario(id);
+                if (UsuarioDelete != null)
+                {
+                    UsuarioDelete.Inactivo = true;
+                    _dbcontext.Entry(UsuarioDelete).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
             }
             catch (Exception ex)
             {

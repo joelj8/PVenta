@@ -33,7 +33,6 @@ namespace PVenta.WebApi.Controllers
             objMapper = new MapperConfiguration(i => i.AddProfiles(profileList));
         }
 
-
         public JsonResult<List<ApiUsuario>> GetUsuarios()
         {
             List<Usuario> usuariosLista = serviceUsuario.GetUsuarios();

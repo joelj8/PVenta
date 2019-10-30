@@ -54,11 +54,14 @@ namespace PVenta.Services
             try
             {
                 Rol rolUpdate = GetRol(rolUpd.ID);
-                rolUpdate.Nombre = rolUpd.Nombre;
-                rolUpdate.Modificable = rolUpd.Modificable;
-                _dbcontext.Entry(rolUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                result = true;
+                if (rolUpdate != null)
+                {
+                    rolUpdate.Nombre = rolUpd.Nombre;
+                    rolUpdate.Modificable = rolUpd.Modificable;
+                    _dbcontext.Entry(rolUpdate).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
             }
             catch (Exception ex)
             {
@@ -76,18 +79,20 @@ namespace PVenta.Services
 
             try
             {
-                Rol rolUpdate = GetRol(id);
-                rolUpdate.Inactivo = true;
-                _dbcontext.Entry(rolUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                result = true;
+                Rol rolDelete = GetRol(id);
+                if (rolDelete != null)
+                {
+                    rolDelete.Inactivo = true;
+                    _dbcontext.Entry(rolDelete).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
             }
             catch (Exception ex)
             {
 
                 // Registrar en el log de errores
             }
-
 
             return result;
         }

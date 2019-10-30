@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiModels\ApiLogEvento.cs" />
+    <Compile Include="ApiModels\ApiOpcionesSist.cs" />
+    <Compile Include="ApiModels\ApiPermisosRol.cs" />
     <Compile Include="ApiModels\ApiRol.cs" />
     <Compile Include="ApiModels\ApiUsuario.cs" />
     <Compile Include="Model\Categoria.cs" />

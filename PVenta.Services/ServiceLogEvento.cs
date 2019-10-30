@@ -54,13 +54,16 @@ namespace PVenta.Services
             try
             {
                 LogEvento logEventoUpdate = GetLogEvento(logEventoUpd.ID);
-                logEventoUpdate.Fecha = logEventoUpd.Fecha;
-                logEventoUpdate.UserId = logEventoUpd.UserId;
-                logEventoUpdate.TipoEvento = logEventoUpd.TipoEvento;
-                logEventoUpdate.Evento = logEventoUpd.Evento;
-                _dbcontext.Entry(logEventoUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                result = true;
+                if (logEventoUpdate != null)
+                {
+                    logEventoUpdate.Fecha = logEventoUpd.Fecha;
+                    logEventoUpdate.UserId = logEventoUpd.UserId;
+                    logEventoUpdate.TipoEvento = logEventoUpd.TipoEvento;
+                    logEventoUpdate.Evento = logEventoUpd.Evento;
+                    _dbcontext.Entry(logEventoUpdate).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
             }
             catch (Exception ex)
             {

@@ -24,11 +24,19 @@ namespace PVenta.Models.Model
         [Required(ErrorMessage = "Rol del Usuario es requerido")]
         public string RolId { get; set; }
 
+        [NotMapped]
+        [ForeignKey("RolId")]
+        public virtual Rol Rol { get; set; }
+
         [DisplayName("ID Opción Sistema")]
         [Column("OpcionId", TypeName = "varchar")]
         [MaxLength(50)]
         [Required(ErrorMessage = "Opción del Sistema es requerida")]
         public string OpcionId { get; set; }
+
+        [NotMapped]
+        [ForeignKey("OpcionId")]
+        public virtual OpcionesSist OpcionesSist { get; set; }
 
         public bool Inactivo { get; set; }
     }
