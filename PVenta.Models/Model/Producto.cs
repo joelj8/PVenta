@@ -37,7 +37,6 @@ namespace PVenta.Models.Model
         [DisplayName("Categoria Producto")]
         public string CategoriaId { get; set; }
 
-        [NotMapped]
         [ForeignKey("CategoriaId")]
         public virtual Categoria Categoria { get; set; }
 
