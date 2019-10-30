@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ApiModels\ApiLogEvento.cs" />
     <Compile Include="ApiModels\ApiMesa.cs" />
+    <Compile Include="ApiModels\ApiMoneda.cs" />
     <Compile Include="ApiModels\ApiOpcionesSist.cs" />
     <Compile Include="ApiModels\ApiPermisosRol.cs" />
     <Compile Include="ApiModels\ApiRol.cs" />
