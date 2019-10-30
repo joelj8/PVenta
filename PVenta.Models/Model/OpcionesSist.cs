@@ -16,8 +16,13 @@ namespace PVenta.Models.Model
         [MaxLength(50)]
         public string ID { get; set; }
 
-        [Column("Descripcion", TypeName = "varchar")]
+        [Column("Codigo", TypeName = "varchar")]
         [MaxLength(30)]
+        [Required(ErrorMessage = "Código es requerido")]
+        public string Codigo { get; set; }
+
+        [Column("Descripcion", TypeName = "varchar")]
+        [MaxLength(50)]
         [Required(ErrorMessage = "Descripción es requerida")]
         public string Descripcion { get; set; }
 
