@@ -44,7 +44,6 @@ namespace PVenta.Models.Model
         [Required(ErrorMessage = "Rol ID es requerido")]
         public string RolId { get; set; }
 
-        [NotMapped]
         [ForeignKey("RolId")]
         public virtual Rol Rol { get; set; }
 

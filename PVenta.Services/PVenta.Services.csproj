@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLogEvento.cs" />
+    <Compile Include="ServiceMesa.cs" />
     <Compile Include="ServiceOpcionesSist.cs" />
     <Compile Include="ServicePermisosRol.cs" />
     <Compile Include="ServiceRol.cs" />
