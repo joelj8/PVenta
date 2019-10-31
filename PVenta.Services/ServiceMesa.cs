@@ -32,17 +32,21 @@ namespace PVenta.Services
         public bool InsertMesa(Mesa mesaNew)
         {
             bool resultInsert = false;
-            try
+            List<Mesa> listMesaByName = findMesaName(mesaNew);
+            if (listMesaByName != null && listMesaByName.Count == 0)
             {
-                Guid newId = Guid.NewGuid();
-                mesaNew.ID = newId.ToString();
-                _dbcontext.Mesas.Add(mesaNew);
-                _dbcontext.SaveChanges();
-                resultInsert = true;
-            }
-            catch (Exception ex)
-            {
-                // Registrar en el log de Errores
+                try
+                {
+                    Guid newId = Guid.NewGuid();
+                    mesaNew.ID = newId.ToString();
+                    _dbcontext.Mesas.Add(mesaNew);
+                    _dbcontext.SaveChanges();
+                    resultInsert = true;
+                }
+                catch (Exception ex)
+                {
+                    // Registrar en el log de Errores
+                }
             }
 
             return resultInsert;
@@ -51,21 +55,26 @@ namespace PVenta.Services
         public bool UpdateMesa(Mesa mesaUpd)
         {
             bool resultUpdate = false;
-            try
+            List<Mesa> listMesaByName = findMesaName(mesaUpd);
+            if (listMesaByName != null && listMesaByName.Count == 0)
             {
-                Mesa mesaUpdate = GetMesa(mesaUpd.ID);
-                if (mesaUpdate != null)
+                try
                 {
-                    mesaUpdate.Descripcion = mesaUpd.Descripcion;
-                    _dbcontext.Entry(mesaUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    resultUpdate = true;
+                    Mesa mesaUpdate = GetMesa(mesaUpd.ID);
+                    if (mesaUpdate != null)
+                    {
+                        mesaUpdate.Descripcion = mesaUpd.Descripcion;
+                        _dbcontext.Entry(mesaUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        resultUpdate = true;
+                    }
+                }
+                catch (Exception)
+                {
+                    // Registrar en el log de Errores
                 }
             }
-            catch (Exception)
-            {
-                // Registrar en el log de Errores
-            }
+            
 
 
             return resultUpdate;
@@ -91,6 +100,21 @@ namespace PVenta.Services
             }
 
             return resultDelete;
+        }
+
+        private List<Mesa> findMesaName(Mesa mesafind)
+        {
+            List<Mesa> resultList = null;
+            try
+            {
+                resultList = _dbcontext.Mesas.Where(x => !x.Inactivo && x.ID != mesafind.ID &&
+                                                    x.Descripcion.Equals(mesafind.Descripcion)).ToList();
+            }
+            catch (Exception ex)
+            {
+                // Registrar en el log de Errores
+            }
+            return resultList;
         }
     }
 }
