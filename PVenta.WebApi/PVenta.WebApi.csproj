@@ -168,6 +168,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogEventoController.cs" />
     <Compile Include="Controllers\OpcionesSistController.cs" />
+    <Compile Include="Controllers\PermisosRolController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -178,9 +179,11 @@
     <Compile Include="Repository\LogEventoProfile.cs" />
     <Compile Include="Repository\MLogEventoProfile.cs" />
     <Compile Include="Repository\MOpcionesSistProfile.cs" />
+    <Compile Include="Repository\MPermisosRolProfile.cs" />
     <Compile Include="Repository\MRolProfile.cs" />
     <Compile Include="Repository\MUsuarioProfile.cs" />
     <Compile Include="Repository\OpcionesSistProfile.cs" />
+    <Compile Include="Repository\PermisosRolProfile.cs" />
     <Compile Include="Repository\RolProfile.cs" />
     <Compile Include="Repository\UsuarioProfile.cs" />
   </ItemGroup>
