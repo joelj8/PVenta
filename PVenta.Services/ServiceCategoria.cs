@@ -32,18 +32,23 @@ namespace PVenta.Services
         public bool InsertCategoria(Categoria categoriaNew)
         {
             bool resultInsert = false;
-            try
+            List<Categoria> listCategoriaByDescripcion = findCategoriaDescripcion(categoriaNew);
+            if (listCategoriaByDescripcion != null && listCategoriaByDescripcion.Count == 0)
             {
-                Guid newId = Guid.NewGuid();
-                categoriaNew.ID = newId.ToString();
-                _dbcontext.Categorias.Add(categoriaNew);
-                _dbcontext.SaveChanges();
-                resultInsert = true;
+                try
+                {
+                    Guid newId = Guid.NewGuid();
+                    categoriaNew.ID = newId.ToString();
+                    _dbcontext.Categorias.Add(categoriaNew);
+                    _dbcontext.SaveChanges();
+                    resultInsert = true;
+                }
+                catch (Exception)
+                {
+                    // Registrar en el log de Errores
+                }
             }
-            catch (Exception)
-            {
-                // Registrar en el log de Errores
-            }
+          
 
             return resultInsert;
         }
@@ -51,22 +56,27 @@ namespace PVenta.Services
         public bool UpdateCategoria(Categoria categoriaUpd)
         {
             bool resultUpdate = false;
-            try
+            List<Categoria> listCategoriaByDescripcion = findCategoriaDescripcion(categoriaUpd);
+            if (listCategoriaByDescripcion != null && listCategoriaByDescripcion.Count == 0)
             {
-                Categoria categoriaUpdate = GetCategoria(categoriaUpd.ID);
-                if (categoriaUpdate != null)
+                try
                 {
-                    categoriaUpdate.Descripcion = categoriaUpd.Descripcion;
-                    categoriaUpdate.ImpComanda = categoriaUpd.ImpComanda;
-                    _dbcontext.Entry(categoriaUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    resultUpdate = true;
+                    Categoria categoriaUpdate = GetCategoria(categoriaUpd.ID);
+                    if (categoriaUpdate != null)
+                    {
+                        categoriaUpdate.Descripcion = categoriaUpd.Descripcion;
+                        categoriaUpdate.ImpComanda = categoriaUpd.ImpComanda;
+                        _dbcontext.Entry(categoriaUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        resultUpdate = true;
+                    }
+                }
+                catch (Exception)
+                {
+                    // Registrar en el log de errores
                 }
             }
-            catch (Exception)
-            {
-                // Registrar en el log de errores
-            }
+            
 
             return resultUpdate;
         }
@@ -91,6 +101,21 @@ namespace PVenta.Services
             }
             return resultDelete;
         }
-        
+
+        public List<Categoria> findCategoriaDescripcion(Categoria categoriafind)
+        {
+            List<Categoria> categoriaLista = null;
+            try
+            {
+                categoriaLista = _dbcontext.Categorias.Where(x => !x.Inactivo && x.ID != categoriafind.ID &&
+                                                          x.Descripcion.Equals(categoriafind.Descripcion)).ToList();
+            }
+            catch (Exception)
+            {
+                // Registrar en el log de errores
+            }
+
+            return categoriaLista;
+        }
     }
 }
