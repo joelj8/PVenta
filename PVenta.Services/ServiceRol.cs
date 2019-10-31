@@ -32,43 +32,50 @@ namespace PVenta.Services
         public bool InsertRol(Rol rolNew)
         {
             bool result = false;
-            try
+            List<Rol> listRolByNombre = findRolNombre(rolNew);
+            if (listRolByNombre != null && listRolByNombre.Count == 0)
             {
-                Guid newId = Guid.NewGuid();
-                rolNew.ID = newId.ToString();
-                _dbcontext.Rols.Add(rolNew);
-                _dbcontext.SaveChanges();
-                result = true;
+                try
+                {
+                    Guid newId = Guid.NewGuid();
+                    rolNew.ID = newId.ToString();
+                    _dbcontext.Rols.Add(rolNew);
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
+                catch (Exception ex)
+                {
+                    // Registrar en el log de Errores
+                }
             }
-            catch (Exception ex)
-            {
-                // Registrar en el log de Errores
-            }
+         
             return result;
         }
 
         public bool UpdateRol(Rol rolUpd)
         {
             bool result = false;
-
-            try
-            {
-                Rol rolUpdate = GetRol(rolUpd.ID);
-                if (rolUpdate != null)
+            List<Rol> listRolByNombre = findRolNombre(rolUpd);
+            if (listRolByNombre != null && listRolByNombre.Count == 0)
+            { 
+                try
                 {
-                    rolUpdate.Nombre = rolUpd.Nombre;
-                    rolUpdate.Modificable = rolUpd.Modificable;
-                    _dbcontext.Entry(rolUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    result = true;
+                    Rol rolUpdate = GetRol(rolUpd.ID);
+                    if (rolUpdate != null)
+                    {
+                        rolUpdate.Nombre = rolUpd.Nombre;
+                        rolUpdate.Modificable = rolUpd.Modificable;
+                        _dbcontext.Entry(rolUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        result = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    // Registrar en el log de errores
                 }
             }
-            catch (Exception ex)
-            {
-
-                // Registrar en el log de errores
-            }
-
 
             return result;
         }
@@ -95,6 +102,22 @@ namespace PVenta.Services
             }
 
             return result;
+        }
+
+        public List<Rol> findRolNombre(Rol rolfind)
+        {
+            List<Rol> rolLista = null;
+            try
+            {
+                rolLista = _dbcontext.Rols.Where(x => !x.Inactivo && x.ID != rolfind.ID &&
+                                                 x.Nombre.Equals(rolfind.Nombre)).ToList();
+
+            }
+            catch (Exception)
+            {
+                // Registrar en el log de errores
+            }
+            return rolLista;
         }
 
     }

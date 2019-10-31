@@ -32,47 +32,56 @@ namespace PVenta.Services
         public bool InsertUsuario(Usuario UsuarioNew)
         {
             bool result = false;
-            try
+            List<Usuario> listaUsuarioByUserId = findUserId(UsuarioNew);
+            if (listaUsuarioByUserId != null && listaUsuarioByUserId.Count == 0)
             {
-                Guid newId = Guid.NewGuid();
-                UsuarioNew.ID = newId.ToString();
-                _dbcontext.Usuarios.Add(UsuarioNew);
-                _dbcontext.SaveChanges();
-                result = true;
+                try
+                {
+                    Guid newId = Guid.NewGuid();
+                    UsuarioNew.ID = newId.ToString();
+                    _dbcontext.Usuarios.Add(UsuarioNew);
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
+                catch (Exception ex)
+                {
+                    // Registrar en el log de Errores
+                }
             }
-            catch (Exception ex)
-            {
-                // Registrar en el log de Errores
-            }
+            
             return result;
         }
 
         public bool UpdateUsuario(Usuario UsuarioUpd)
         {
             bool result = false;
-
-            try
+            List<Usuario> listaUsuarioByUserId = findUserId(UsuarioUpd);
+            if (listaUsuarioByUserId != null && listaUsuarioByUserId.Count == 0)
             {
-                Usuario UsuarioUpdate = GetUsuario(UsuarioUpd.ID);
-                if (UsuarioUpdate != null) 
-                { 
-                    UsuarioUpdate.Nombre = UsuarioUpd.Nombre;
-                    UsuarioUpdate.Pwduser = UsuarioUpd.Pwduser;
-                    UsuarioUpdate.RolId = UsuarioUpd.RolId;
-                    UsuarioUpdate.UserId = UsuarioUpd.UserId;
-                    UsuarioUpdate.Email = UsuarioUpd.Email;
-                    UsuarioUpdate.esCajero = UsuarioUpd.esCajero;
-                
-                    _dbcontext.Entry(UsuarioUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    result = true;
+                try
+                {
+                    Usuario UsuarioUpdate = GetUsuario(UsuarioUpd.ID);
+                    if (UsuarioUpdate != null)
+                    {
+                        UsuarioUpdate.Nombre = UsuarioUpd.Nombre;
+                        UsuarioUpdate.Pwduser = UsuarioUpd.Pwduser;
+                        UsuarioUpdate.RolId = UsuarioUpd.RolId;
+                        UsuarioUpdate.UserId = UsuarioUpd.UserId;
+                        UsuarioUpdate.Email = UsuarioUpd.Email;
+                        UsuarioUpdate.esCajero = UsuarioUpd.esCajero;
+
+                        _dbcontext.Entry(UsuarioUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        result = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    // Registrar en el log de errores
                 }
             }
-            catch (Exception ex)
-            {
-
-                // Registrar en el log de errores
-            }
+                
 
 
             return result;
@@ -101,6 +110,23 @@ namespace PVenta.Services
 
 
             return result;
+        }
+   
+        public List<Usuario> findUserId(Usuario findusuario)
+        {
+            List<Usuario> usuarioLista = null;
+            try
+            {
+                usuarioLista = _dbcontext.Usuarios.Where(x => !x.Inactivo && x.ID != findusuario.ID &&
+                                                                x.UserId.Equals(findusuario.UserId)).ToList();
+            }
+            catch (Exception)
+            {
+                // Registrar en el log de errores
+            }
+
+
+            return usuarioLista;
         }
     }
 }

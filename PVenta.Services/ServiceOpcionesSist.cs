@@ -32,39 +32,48 @@ namespace PVenta.Services
         public bool InsertOpcionesSist(OpcionesSist opcionesSistNew)
         {
             bool result = false;
-            try
+            List<OpcionesSist> listaOpcionesSistByDescripcion = findOpcionesSist(opcionesSistNew);
+            if (listaOpcionesSistByDescripcion != null && listaOpcionesSistByDescripcion.Count == 0)
             {
-                Guid newId = Guid.NewGuid();
-                opcionesSistNew.ID = newId.ToString();
-                _dbcontext.OpcionesSists.Add(opcionesSistNew);
-                _dbcontext.SaveChanges();
-                result = true;
+                try
+                {
+                    Guid newId = Guid.NewGuid();
+                    opcionesSistNew.ID = newId.ToString();
+                    _dbcontext.OpcionesSists.Add(opcionesSistNew);
+                    _dbcontext.SaveChanges();
+                    result = true;
+                }
+                catch (Exception ex)
+                {
+                    // Registrar en el log de Errores
+                }
             }
-            catch (Exception ex)
-            {
-                // Registrar en el log de Errores
-            }
+            
             return result;
         }
 
         public bool UpdateOpcionesSist(OpcionesSist opcionesSistUpd)
         {
             bool resultUpdate = false;
-            try
+            List<OpcionesSist> listaOpcionesSistByDescripcion = findOpcionesSist(opcionesSistUpd);
+            if (listaOpcionesSistByDescripcion != null && listaOpcionesSistByDescripcion.Count == 0)
             {
-                OpcionesSist opcionesSistUpdate = GetOpcionesSist(opcionesSistUpd.ID);
-                if (opcionesSistUpdate != null)
+                try
                 {
-                    opcionesSistUpdate.Codigo = opcionesSistUpd.Codigo;
-                    opcionesSistUpdate.Descripcion = opcionesSistUpd.Descripcion;
-                    _dbcontext.Entry(opcionesSistUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    resultUpdate = true;
+                    OpcionesSist opcionesSistUpdate = GetOpcionesSist(opcionesSistUpd.ID);
+                    if (opcionesSistUpdate != null)
+                    {
+                        opcionesSistUpdate.Codigo = opcionesSistUpd.Codigo;
+                        opcionesSistUpdate.Descripcion = opcionesSistUpd.Descripcion;
+                        _dbcontext.Entry(opcionesSistUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        resultUpdate = true;
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                // Registrar en el log de Errores
+                catch (Exception)
+                {
+                    // Registrar en el log de Errores
+                }
             }
 
             return resultUpdate;
@@ -90,6 +99,23 @@ namespace PVenta.Services
             }
 
             return resultDelete;
+        }
+
+        public List<OpcionesSist> findOpcionesSist(OpcionesSist findOpcionesSist)
+        {
+            List<OpcionesSist> opcionesSistLista = null;
+            try
+            {
+                opcionesSistLista = _dbcontext.OpcionesSists.Where(x => !x.Inactivo && x.ID != findOpcionesSist.ID &&
+                                                                (x.Descripcion.Equals(findOpcionesSist.Descripcion) ||
+                                                                 x.Codigo.Equals(findOpcionesSist.Codigo))).ToList();
+            }
+            catch (Exception)
+            {
+                // Registrar en el log de errores
+            }
+
+            return opcionesSistLista;
         }
 
 
