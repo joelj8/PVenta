@@ -67,7 +67,7 @@ namespace PVenta.WebApi.Controllers
             if (ModelState.IsValid)
             {
                 PermisosRol permisosRolUpdate = objMapper.CreateMapper().Map<PermisosRol>(permisosRolUpd);
-                resultUpdate = servicePermisosRol.InsertPermisosRol(permisosRolUpdate);
+                resultUpdate = servicePermisosRol.UpdatePermisosRol(permisosRolUpdate);
             }
 
             return resultUpdate;
