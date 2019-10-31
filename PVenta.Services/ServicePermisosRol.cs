@@ -35,11 +35,19 @@ namespace PVenta.Services
            
             try
             {
-                Guid newId = Guid.NewGuid();
-                permisosRolNew.ID = newId.ToString();
-                _dbcontext.PermisosRols.Add(permisosRolNew);
-                _dbcontext.SaveChanges();
-                resultInsert = true;
+                var findRegistr = _dbcontext.PermisosRols
+                    .Where(x => x.OpcionId == permisosRolNew.OpcionId &&
+                           x.RolId == permisosRolNew.RolId && !x.Inactivo).FirstOrDefault();
+
+                if (findRegistr == null)
+                {
+                    Guid newId = Guid.NewGuid();
+                    permisosRolNew.ID = newId.ToString();
+                    _dbcontext.PermisosRols.Add(permisosRolNew);
+                    _dbcontext.SaveChanges();
+                    resultInsert = true;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -51,14 +59,22 @@ namespace PVenta.Services
         public bool UpdatePermisosRol(PermisosRol permisosRolUpd)
         {
             bool resultUpdate = false;
-            PermisosRol permisosRolUpdate = GetPermisosRol(permisosRolUpd.ID);
-            if (permisosRolUpdate != null)
+            var findRegistr = _dbcontext.PermisosRols
+                    .Where(x => x.OpcionId == permisosRolUpd.OpcionId &&
+                           x.RolId == permisosRolUpd.RolId && 
+                           x.ID != permisosRolUpd.ID &&
+                           !x.Inactivo).FirstOrDefault();
+            if (findRegistr == null)
             {
-                permisosRolUpdate.OpcionId = permisosRolUpd.OpcionId;
-                permisosRolUpdate.RolId = permisosRolUpd.RolId;
-                _dbcontext.Entry(permisosRolUpdate).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                resultUpdate = true;
+                PermisosRol permisosRolUpdate = GetPermisosRol(permisosRolUpd.ID);
+                if (permisosRolUpdate != null)
+                {
+                    permisosRolUpdate.OpcionId = permisosRolUpd.OpcionId;
+                    permisosRolUpdate.RolId = permisosRolUpd.RolId;
+                    _dbcontext.Entry(permisosRolUpdate).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    resultUpdate = true;
+                }
             }
 
             return resultUpdate;
