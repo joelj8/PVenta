@@ -22,6 +22,7 @@ namespace PVenta.Models.Model
         public string Descripcion { get; set; }
 
         [Column("Valor")]
+        [Range(0.01, 999999999, ErrorMessage = "Valor debe ser mayor a 0.00")]
         public decimal Valor { get; set; }
 
         public bool Inactivo { get; set; }

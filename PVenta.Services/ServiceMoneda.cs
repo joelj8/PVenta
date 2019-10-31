@@ -32,18 +32,23 @@ namespace PVenta.Services
         public bool InsertMoneda(Moneda monedaNew)
         {
             bool resultInsert = false;
-            try
+            List<Moneda> listMonedaByDescripcion = findMonedaDescripcion(monedaNew);
+            if (listMonedaByDescripcion != null && listMonedaByDescripcion.Count == 0)
             {
-                Guid newId = Guid.NewGuid();
-                monedaNew.ID = newId.ToString();
-                _dbcontext.Monedas.Add(monedaNew);
-                _dbcontext.SaveChanges();
-                resultInsert = true;
+                try
+                {
+                    Guid newId = Guid.NewGuid();
+                    monedaNew.ID = newId.ToString();
+                    _dbcontext.Monedas.Add(monedaNew);
+                    _dbcontext.SaveChanges();
+                    resultInsert = true;
+                }
+                catch (Exception ex)
+                {
+                    // Registrar en el log de Errores
+                }
             }
-            catch (Exception ex)
-            {
-                // Registrar en el log de Errores
-            }
+            
 
             return resultInsert;
         }
@@ -51,23 +56,27 @@ namespace PVenta.Services
         public bool UpdateMoneda(Moneda monedaUpd)
         {
             bool resultUpdate = false;
-            try
+            List<Moneda> listMonedaByDescripcion = findMonedaDescripcion(monedaUpd);
+            if (listMonedaByDescripcion != null && listMonedaByDescripcion.Count == 0)
             {
-                Moneda monedaUpdate = GetMoneda(monedaUpd.ID);
-                if (monedaUpdate != null)
+                try
                 {
-                    monedaUpdate.Descripcion = monedaUpd.Descripcion;
-                    monedaUpdate.Valor = monedaUpd.Valor;
-                    _dbcontext.Entry(monedaUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    resultUpdate = true;
+                    Moneda monedaUpdate = GetMoneda(monedaUpd.ID);
+                    if (monedaUpdate != null)
+                    {
+                        monedaUpdate.Descripcion = monedaUpd.Descripcion;
+                        monedaUpdate.Valor = monedaUpd.Valor;
+                        _dbcontext.Entry(monedaUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        resultUpdate = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Registrar en el log de errores
                 }
             }
-            catch (Exception ex)
-            {
-
-                // Registrar en el log de errores
-            }
+               
             return resultUpdate;
         }
 
@@ -94,6 +103,22 @@ namespace PVenta.Services
             return resultDelete;
         }
 
+        public List<Moneda> findMonedaDescripcion(Moneda monedafind)
+        {
+            List<Moneda> monedaLista = null;
+            try
+            {
+                monedaLista = _dbcontext.Monedas.Where(x => !x.Inactivo && x.ID != monedafind.ID &&
+                                                       (x.Descripcion.Equals(monedafind.Descripcion) ||
+                                                        x.Valor.Equals(monedafind.Valor))).ToList();
+            }
+            catch (Exception)
+            {
+                // Registrar en el log de errores
+            }
+
+            return monedaLista;
+        }
     
     }
 }
