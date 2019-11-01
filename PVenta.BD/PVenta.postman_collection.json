@@ -1,0 +1,1487 @@
+{
+	"info": {
+		"_postman_id": "7e49bb97-4b77-49cb-bd0f-b80312323369",
+		"name": "PVenta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetRoles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Rol/getRoles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Rol",
+						"getRoles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRol",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Rol/getRol/dd4a7cc0-4799-49a6-93e8-c862dd5996a4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Rol",
+						"getRol",
+						"dd4a7cc0-4799-49a6-93e8-c862dd5996a4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateRol",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"ID\": \"f9a4dfd5-bf16-4e70-9df8-d1dd684a9b28\",\r\n        \"Nombre\": \"Administrador II\",\r\n        \"Modificable\": true,\r\n        \"Inactivo\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Rol/UpdateRol",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Rol",
+						"UpdateRol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertRol",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Nombre\": \"Adm\",\n\t\"Modificable\": \"true\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Rol/Insertrol",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Rol",
+						"Insertrol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRol",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Rol/DeleteRol/754df835-ee34-4a8f-a659-7e824437742b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Rol",
+						"DeleteRol",
+						"754df835-ee34-4a8f-a659-7e824437742b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Usuario/getUsuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Usuario",
+						"getUsuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Usuario/GetUsuario/08aa9765-76e5-4347-9392-ac447fdf835b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Usuario",
+						"GetUsuario",
+						"08aa9765-76e5-4347-9392-ac447fdf835b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertUsuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"UserId\": \"Adm\"\n\t\"Nombre\": \"Administrador\",\n\t\"Pwduser\": \"*********\",\n\t\"Email\": \"Adm@pventa.com.do\",\n\t\"RolId\": \"754df835-ee34-4a8f-a659-7e824437742b\",\n\t\"esCajero\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Usuario/InsertUsuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Usuario",
+						"InsertUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUsuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n  {\n        \"ID\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n        \"UserId\": \"Adm\",\n        \"Nombre\": \"Administrador\",\n        \"Pwduser\": \"---------\",\n        \"Email\": \"Adm@pventa.com.do\",\n        \"RolId\": \"754df835-ee34-4a8f-a659-7e824437742b\",\n        \"esCajero\": \"False\",\n        \"Inactivo\": \"False\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Usuario/UpdateUsuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Usuario",
+						"UpdateUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUsuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"f293b8da-038e-43c4-ad02-db71def78cfa\",\n\t\"UserId\": \"Adm\",\n\t\"Nombre\": \"Administrador\",\n\t\"Pwduser\": \"---------\",\n\t\"Email\": \"Adm@pventa.com.do\",\n\t\"RolId\": \"754df835-ee34-4a8f-a659-7e824437742b\",\n\t\"esCajero\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Usuario/DeleteUsuario/8ae53267-bf6b-492d-93a2-972c399cd3f0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Usuario",
+						"DeleteUsuario",
+						"8ae53267-bf6b-492d-93a2-972c399cd3f0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertLogEvento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Inicializando el Sistema\"\n\t\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/LogEvento/InsertLogEvento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"LogEvento",
+						"InsertLogEvento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLogEventos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Inicializando el Sistema\"\n\t\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/LogEvento/GetLogEventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"LogEvento",
+						"GetLogEventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLogEvento",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Inicializando el Sistema\"\n\t\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/LogEvento/GetLogEvento/76b83931-acda-4858-9480-8d54e8645bf1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"LogEvento",
+						"GetLogEvento",
+						"76b83931-acda-4858-9480-8d54e8645bf1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateLogEvento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"76b83931-acda-4858-9480-8d54e8645bf1\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Finalizando el Sistema\"\n\t\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/LogEvento/UpdateLogEvento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"LogEvento",
+						"UpdateLogEvento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOpcionesSist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/OpcionesSist/getOpcionesSist/d11e5192-8ae8-4c02-b1f9-f3aafd778353",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"OpcionesSist",
+						"getOpcionesSist",
+						"d11e5192-8ae8-4c02-b1f9-f3aafd778353"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOpcionesSists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/OpcionesSist/getOpcionesSists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"OpcionesSist",
+						"getOpcionesSists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertOpcionesSists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"ID\": \"\",\r\n        \"Codigo\": \"ADM002\",\r\n        \"Descripcion\": \"Actualizar Roles\",\r\n        \"Inactivo\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/OpcionesSist/InsertOpcionesSist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"OpcionesSist",
+						"InsertOpcionesSist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOpcionesSists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"ID\": \"ec041fe1-5682-4408-9b60-a5ab2273ec86\",\r\n        \"Codigo\": \"ADM001\",\r\n        \"Descripcion\": \"Creación de Roles\",\r\n        \"Inactivo\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/OpcionesSist/UpdateOpcionesSist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"OpcionesSist",
+						"UpdateOpcionesSist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOpcionesSists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/OpcionesSist/DeleteOpcionesSist/aba3f9e1-292e-4237-aa46-ecc98f8f11a6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"OpcionesSist",
+						"DeleteOpcionesSist",
+						"aba3f9e1-292e-4237-aa46-ecc98f8f11a6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPermisosRoles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/PermisosRol/GetPermisosRoles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"PermisosRol",
+						"GetPermisosRoles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPermisosRol",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/PermisosRol/GetPermisosRol/14b95630-b50e-4f1d-8b44-9ef0772f7dc9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"PermisosRol",
+						"GetPermisosRol",
+						"14b95630-b50e-4f1d-8b44-9ef0772f7dc9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertPermisosRol",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\r\n  \"OpcionId\": \"d11e5192-8ae8-4c02-b1f9-f3aafd778353\",\r\n  \"Inactivo\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/PermisosRol/InsertPermisosRol",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"PermisosRol",
+						"InsertPermisosRol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePermisosRol",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"041ec019-7e2a-4013-af7b-21a7f388a657\",\r\n  \"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\r\n  \"OpcionId\": \"f2f0fb0a-06ed-4222-8b5c-57770da39d2a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/PermisosRol/UpdatePermisosRol",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"PermisosRol",
+						"UpdatePermisosRol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePermisosRol",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/PermisosRol/DeletePermisosRol/f95449fd-745d-4421-a8fb-e885cc9e9153",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"PermisosRol",
+						"DeletePermisosRol",
+						"f95449fd-745d-4421-a8fb-e885cc9e9153"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMesas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/Mesa/GetMesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Mesa",
+						"GetMesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMesa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/Mesa/GetMesa/8f0192cb-f074-4e09-81b0-0bfa79894025",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Mesa",
+						"GetMesa",
+						"8f0192cb-f074-4e09-81b0-0bfa79894025"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertMesa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"Mesa V\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Mesa/InsertMesa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Mesa",
+						"InsertMesa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateMesa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"8f0192cb-f074-4e09-81b0-0bfa79894025\",\r\n  \"Descripcion\": \"Mesa 5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Mesa/UpdateMesa/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Mesa",
+						"UpdateMesa",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteMesa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Mesa/DeleteMesa/86a231ab-64cc-424e-9532-42ca83b0f5fc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Mesa",
+						"DeleteMesa",
+						"86a231ab-64cc-424e-9532-42ca83b0f5fc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMonedas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/Moneda/GetMonedas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Moneda",
+						"GetMonedas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMoneda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/Moneda/GetMoneda/2525",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Moneda",
+						"GetMoneda",
+						"2525"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertMoneda",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"5,000 Pesos Dominicano\",\r\n  \"Valor\": 1.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Moneda/InsertMoneda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Moneda",
+						"InsertMoneda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateMoneda",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"ID\": \"373cda21-cf9a-49d3-8d96-c06f4b071996\",\r\n        \"Descripcion\": \"25 Pesos Dominicano\",\r\n        \"Valor\": 25.00\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Moneda/UpdateMoneda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Moneda",
+						"UpdateMoneda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteMoneda",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Moneda/DeleteMoneda/8e20d686-8f73-4542-a697-62138e214577",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Moneda",
+						"DeleteMoneda",
+						"8e20d686-8f73-4542-a697-62138e214577"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategorias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/Categoria/GetCategorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Categoria",
+						"GetCategorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategoria",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Categoria/GetCategoria/0d1ac144-5525-40de-b5f1-f8431b882f70",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Categoria",
+						"GetCategoria",
+						"0d1ac144-5525-40de-b5f1-f8431b882f70"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertCategoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"Bebidas\",\r\n  \"ImpComanda\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Categoria/InsertCategoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Categoria",
+						"InsertCategoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCategoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"16a7c8e1-24ae-42dc-988f-27a2c7b2c294\",\r\n  \"Descripcion\": \"Prueba Borrar\",\r\n  \"ImpComanda\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Categoria/UpdateCategoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Categoria",
+						"UpdateCategoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCategoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Categoria/DeleteCategoria/16a7c8e1-24ae-42dc-988f-27a2c7b2c294",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Categoria",
+						"DeleteCategoria",
+						"16a7c8e1-24ae-42dc-988f-27a2c7b2c294"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetErrorLists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/ErrorList/GetErrorLists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"ErrorList",
+						"GetErrorLists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetErrorList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/ErrorList/GetErrorList/2525",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"ErrorList",
+						"GetErrorList",
+						"2525"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertErrorList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": \"\",\r\n    \"Codigo\": \"RH00001\",\r\n    \"MsgError\": \"Registrado Duplicado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/ErrorList/InsertErrorList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"ErrorList",
+						"InsertErrorList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateErrorList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": \"8e3ff9f0-3cc8-481f-9d08-d612cc21b958\",\r\n    \"Codigo\": \"XXXXXX\",\r\n    \"MsgError\": \"B O R R A R   R E G I S T R O\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/ErrorList/UpdateErrorList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"ErrorList",
+						"UpdateErrorList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteErrorList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": \"8e3ff9f0-3cc8-481f-9d08-d612cc21b958\",\r\n    \"Codigo\": \"XXXXXX\",\r\n    \"MsgError\": \"B O R R A R   R E G I S T R O\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/ErrorList/UpdateErrorList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"ErrorList",
+						"UpdateErrorList"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

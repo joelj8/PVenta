@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -48,9 +49,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertRol(ApiRol rol)
+        public MessageApp InsertRol(ApiRol rol)
         {
-            bool resultinsert = false;
+            MessageApp resultinsert = null;
             if (ModelState.IsValid)
             {
                 Rol rolInsert = objMapper.CreateMapper().Map<Rol>(rol);

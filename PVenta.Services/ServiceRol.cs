@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +20,36 @@ namespace PVenta.Services
 
         public List<Rol> GetRoles()
         {
-            var result = _dbcontext.Rols.Where(x => !x.Inactivo).ToList();
+            List<Rol> result = null;
+            try
+            {
+                result = _dbcontext.Rols.Where(x => !x.Inactivo).ToList();
+            }
+            catch (Exception)
+            {
+                // Registrar en el log de errores
+            }
+
             return result;
         }
 
         public Rol GetRol(string id)
         {
-            var result = _dbcontext.Rols.FirstOrDefault(x => x.ID == id && !x.Inactivo);
+            Rol result = null;
+            try
+            {
+                result = _dbcontext.Rols.FirstOrDefault(x => x.ID == id && !x.Inactivo);
+            }
+            catch (Exception ex)
+            {
+                // Registrar en el log de errores
+            }
             return result;
         }
 
-        public bool InsertRol(Rol rolNew)
+        public MessageApp InsertRol(Rol rolNew)
         {
-            bool result = false;
+            MessageApp result = null;
             List<Rol> listRolByNombre = findRolNombre(rolNew);
             if (listRolByNombre != null && listRolByNombre.Count == 0)
             {
@@ -41,14 +59,19 @@ namespace PVenta.Services
                     rolNew.ID = newId.ToString();
                     _dbcontext.Rols.Add(rolNew);
                     _dbcontext.SaveChanges();
-                    result = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
                 catch (Exception ex)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                     // Registrar en el log de Errores
                 }
             }
-         
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
+            }
+
             return result;
         }
 
