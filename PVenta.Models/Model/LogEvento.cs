@@ -35,13 +35,23 @@ namespace PVenta.Models.Model
         [DisplayName("Tipo Evento")]
         [Column("TipoEvento", TypeName = "varchar")]
         [MaxLength(50)]
-        [Required(ErrorMessage = "Tipo Evento es Requerido")]
         public string TipoEvento { get; set; }
 
         [DisplayName("Evento")]
-        [Column("Evento", TypeName = "varchar")]
+        [Column("ErrorListId", TypeName = "varchar")]
+        [MaxLength(50)]
+        [Required(ErrorMessage = "Evento es Requerido")]
+        public string ErrorListId { get; set; }
+
+        [ForeignKey("ErrorListId")]
+        public virtual ErrorList ErrorList { get; set; }
+
+        [DisplayName("Mensaje Error")]
+        [Column("msgError", TypeName = "varchar")]
         [MaxLength(3000)]
-        public string Evento { get; set; }
+        public string msgError { get; set; }
+
+
 
     }
 }

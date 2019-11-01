@@ -80,6 +80,22 @@
     <Compile Include="Migrations\201910312107303_JEv007.designer.cs">
       <DependentUpon>201910312107303_JEv007.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911011211077_JEv008.cs" />
+    <Compile Include="Migrations\201911011211077_JEv008.designer.cs">
+      <DependentUpon>201911011211077_JEv008.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911011243242_JEv009.cs" />
+    <Compile Include="Migrations\201911011243242_JEv009.designer.cs">
+      <DependentUpon>201911011243242_JEv009.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911011249138_JEv010.cs" />
+    <Compile Include="Migrations\201911011249138_JEv010.designer.cs">
+      <DependentUpon>201911011249138_JEv010.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911011941226_JEv011.cs" />
+    <Compile Include="Migrations\201911011941226_JEv011.designer.cs">
+      <DependentUpon>201911011941226_JEv011.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,6 +130,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910312107303_JEv007.resx">
       <DependentUpon>201910312107303_JEv007.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911011211077_JEv008.resx">
+      <DependentUpon>201911011211077_JEv008.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911011243242_JEv009.resx">
+      <DependentUpon>201911011243242_JEv009.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911011249138_JEv010.resx">
+      <DependentUpon>201911011249138_JEv010.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911011941226_JEv011.resx">
+      <DependentUpon>201911011941226_JEv011.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

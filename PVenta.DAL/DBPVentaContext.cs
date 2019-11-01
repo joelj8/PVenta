@@ -29,6 +29,9 @@ namespace PVenta.DAL
         public virtual DbSet<FacturaPayment> FacturaPayments { get; set; }
         public virtual DbSet<CuadreHeader> CuadreHeaders { get; set; }
         public virtual DbSet<CuadreDetail> CuadreDetails { get; set; }
+        public virtual DbSet<ErrorList> ErrorLists { get; set; }
+
+        
 
 
 

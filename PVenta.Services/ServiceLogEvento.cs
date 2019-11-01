@@ -19,13 +19,13 @@ namespace PVenta.Services
 
         public List<LogEvento> GetLogEventos()
         {
-            var result = _dbcontext.LogEventos.Include("Usuario").ToList();
+            var result = _dbcontext.LogEventos.Include("Usuario").Include("ErrorList").ToList();
             return result;
         }
 
         public LogEvento GetLogEvento(string id)
         {
-            var result = _dbcontext.LogEventos.Include("Usuario").Where(x => x.ID == id).FirstOrDefault();
+            var result = _dbcontext.LogEventos.Include("Usuario").Include("ErrorList").Where(x => x.ID == id).FirstOrDefault();
             return result;
         }
 
@@ -59,7 +59,7 @@ namespace PVenta.Services
                     logEventoUpdate.Fecha = logEventoUpd.Fecha;
                     logEventoUpdate.UserId = logEventoUpd.UserId;
                     logEventoUpdate.TipoEvento = logEventoUpd.TipoEvento;
-                    logEventoUpdate.Evento = logEventoUpd.Evento;
+                    logEventoUpdate.ErrorListId = logEventoUpd.ErrorListId;
                     _dbcontext.Entry(logEventoUpdate).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
                     result = true;

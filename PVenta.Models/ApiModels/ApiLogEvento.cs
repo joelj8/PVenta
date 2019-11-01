@@ -18,6 +18,10 @@ namespace PVenta.Models.ApiModels
 
         public string TipoEvento { get; set; }
 
-        public string Evento { get; set; }
+        public string ErrorListId { get; set; }
+
+        public virtual ApiErrorList ErrorList { get; set; }
+
+        public string msgError { get; set; }
     }
 }

@@ -166,6 +166,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\ErrorListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogEventoController.cs" />
     <Compile Include="Controllers\MesaController.cs" />
@@ -180,8 +181,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoriaProfile.cs" />
+    <Compile Include="Repository\ErrorListProfile.cs" />
     <Compile Include="Repository\LogEventoProfile.cs" />
     <Compile Include="Repository\MCategoriaProfile.cs" />
+    <Compile Include="Repository\MErrorListProfile.cs" />
     <Compile Include="Repository\MesaProfile.cs" />
     <Compile Include="Repository\MLogEventoProfile.cs" />
     <Compile Include="Repository\MMesaProfile.cs" />
@@ -288,6 +291,10 @@
     <ProjectReference Include="..\PVenta.Services\PVenta.Services.csproj">
       <Project>{c9a3c52f-8562-4e98-9d8f-05a2eb5742ee}</Project>
       <Name>PVenta.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PVenta.Utility\PVenta.Utility.csproj">
+      <Project>{9C6371DE-5959-4155-AA39-B3170CAF2AE0}</Project>
+      <Name>PVenta.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

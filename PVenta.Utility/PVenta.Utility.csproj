@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10978844-8424-4D24-B557-C5D4510AB2D2}</ProjectGuid>
+    <ProjectGuid>{9C6371DE-5959-4155-AA39-B3170CAF2AE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PVenta.Models</RootNamespace>
-    <AssemblyName>PVenta.Models</AssemblyName>
+    <RootNamespace>PVenta.Utility</RootNamespace>
+    <AssemblyName>PVenta.Utility</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,35 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiModels\ApiCategoria.cs" />
-    <Compile Include="ApiModels\ApiErrorList.cs" />
-    <Compile Include="ApiModels\ApiLogEvento.cs" />
-    <Compile Include="ApiModels\ApiMesa.cs" />
-    <Compile Include="ApiModels\ApiMoneda.cs" />
-    <Compile Include="ApiModels\ApiOpcionesSist.cs" />
-    <Compile Include="ApiModels\ApiPermisosRol.cs" />
-    <Compile Include="ApiModels\ApiProducto.cs" />
-    <Compile Include="ApiModels\ApiRol.cs" />
-    <Compile Include="ApiModels\ApiUsuario.cs" />
-    <Compile Include="Model\Categoria.cs" />
-    <Compile Include="Model\CuadreDetail.cs" />
-    <Compile Include="Model\CuadreHeader.cs" />
-    <Compile Include="Model\ErrorList.cs" />
-    <Compile Include="Model\FacturaDetail.cs" />
-    <Compile Include="Model\FacturaHeader.cs" />
-    <Compile Include="Model\FacturaPayment.cs" />
-    <Compile Include="Model\LogEvento.cs" />
-    <Compile Include="Model\Mesa.cs" />
-    <Compile Include="Model\Moneda.cs" />
-    <Compile Include="Model\OpcionesSist.cs" />
-    <Compile Include="Model\PermisosRol.cs" />
-    <Compile Include="Model\Producto.cs" />
-    <Compile Include="Model\Rol.cs" />
-    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="MessageApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
+    <ProjectReference Include="..\PVenta.Models\PVenta.Models.csproj">
+      <Project>{10978844-8424-4d24-b557-c5d4510ab2d2}</Project>
+      <Name>PVenta.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

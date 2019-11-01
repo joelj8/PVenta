@@ -18,7 +18,9 @@ namespace PVenta.WebApi.Repository
                 .ForMember(dest => dest.UserId, opts => opts.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Usuario, opts => opts.MapFrom(src => src.Usuario))
                 .ForMember(dest => dest.TipoEvento, opts => opts.MapFrom(src => src.TipoEvento))
-                .ForMember(dest => dest.Evento, opts => opts.MapFrom(src => src.Evento));
+                .ForMember(dest => dest.ErrorListId, opts => opts.MapFrom(src => src.ErrorListId))
+                .ForMember(dest => dest.ErrorList, opts => opts.MapFrom(src => src.ErrorList))
+                .ForMember(dest => dest.msgError, opts => opts.MapFrom(src => src.msgError));
         }
     }
 }
