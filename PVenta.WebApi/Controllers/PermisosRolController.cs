@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -49,9 +50,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertPermisosRol(ApiPermisosRol permisosRolNew)
+        public MessageApp InsertPermisosRol(ApiPermisosRol permisosRolNew)
         {
-            bool resultInsert = false;
+            MessageApp resultInsert = null;
             if (ModelState.IsValid)
             {
                 PermisosRol permisosRolInsert = objMapper.CreateMapper().Map<PermisosRol>(permisosRolNew);
@@ -61,9 +62,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool UpdatePermisosRol(ApiPermisosRol permisosRolUpd)
+        public MessageApp UpdatePermisosRol(ApiPermisosRol permisosRolUpd)
         {
-            bool resultUpdate = false;
+            MessageApp resultUpdate = null;
             if (ModelState.IsValid)
             {
                 PermisosRol permisosRolUpdate = objMapper.CreateMapper().Map<PermisosRol>(permisosRolUpd);
@@ -74,14 +75,10 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool DeletePermisosRol(string id)
+        public MessageApp DeletePermisosRol(string id)
         {
-            bool resultDelete = false;
-            PermisosRol permisosRolDelete = servicePermisosRol.GetPermisosRol(id);
-            if (permisosRolDelete != null)
-            {
-                resultDelete = servicePermisosRol.DeletePermisosRol(id);
-            }
+            MessageApp resultDelete = null;
+            resultDelete = servicePermisosRol.DeletePermisosRol(id);
 
             return resultDelete;
         }

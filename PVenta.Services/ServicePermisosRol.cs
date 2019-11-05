@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertPermisosRol(PermisosRol permisosRolNew)
+        public MessageApp InsertPermisosRol(PermisosRol permisosRolNew)
         {
-            bool resultInsert = false;
+            MessageApp result = null;
            
             try
             {
@@ -45,20 +46,26 @@ namespace PVenta.Services
                     permisosRolNew.ID = newId.ToString();
                     _dbcontext.PermisosRols.Add(permisosRolNew);
                     _dbcontext.SaveChanges();
-                    resultInsert = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
+                } 
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
                 }
                 
             }
             catch (Exception ex)
             {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                 // Registrar en el log de Errores
             }
-            return resultInsert;
+
+            return result;
         }
 
-        public bool UpdatePermisosRol(PermisosRol permisosRolUpd)
+        public MessageApp UpdatePermisosRol(PermisosRol permisosRolUpd)
         {
-            bool resultUpdate = false;
+            MessageApp result = null;
             var findRegistr = _dbcontext.PermisosRols
                     .Where(x => x.OpcionId == permisosRolUpd.OpcionId &&
                            x.RolId == permisosRolUpd.RolId && 
@@ -69,29 +76,58 @@ namespace PVenta.Services
                 PermisosRol permisosRolUpdate = GetPermisosRol(permisosRolUpd.ID);
                 if (permisosRolUpdate != null)
                 {
-                    permisosRolUpdate.OpcionId = permisosRolUpd.OpcionId;
-                    permisosRolUpdate.RolId = permisosRolUpd.RolId;
-                    _dbcontext.Entry(permisosRolUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    resultUpdate = true;
+                    try
+                    {
+                        permisosRolUpdate.OpcionId = permisosRolUpd.OpcionId;
+                        permisosRolUpdate.RolId = permisosRolUpd.RolId;
+                        _dbcontext.Entry(permisosRolUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    }
+                    catch (Exception ex)
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
+                        // Registrar en el log de Errores
+                    }
+
+                } 
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
+            }
 
-            return resultUpdate;
+            return result;
         }
 
-        public bool DeletePermisosRol(string id)
+        public MessageApp DeletePermisosRol(string id)
         {
-            bool resultDelete = false;
+            MessageApp result = null;
             PermisosRol permisosRolDelete = GetPermisosRol(id);
             if (permisosRolDelete != null)
             {
-                permisosRolDelete.Inactivo = true;
-                _dbcontext.Entry(permisosRolDelete).State = System.Data.Entity.EntityState.Modified;
-                _dbcontext.SaveChanges();
-                resultDelete = true;
+                try
+                {
+                    permisosRolDelete.Inactivo = true;
+                    _dbcontext.Entry(permisosRolDelete).State = System.Data.Entity.EntityState.Modified;
+                    _dbcontext.SaveChanges();
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                }
+                catch (Exception ex)
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
+                    // Registrar en el log de Errores
+                }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
             }
-            return resultDelete;
+            return result;
         }
 
     }
