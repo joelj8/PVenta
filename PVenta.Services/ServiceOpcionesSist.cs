@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertOpcionesSist(OpcionesSist opcionesSistNew)
+        public MessageApp InsertOpcionesSist(OpcionesSist opcionesSistNew)
         {
-            bool result = false;
+            MessageApp result = null;
             List<OpcionesSist> listaOpcionesSistByDescripcion = findOpcionesSist(opcionesSistNew);
             if (listaOpcionesSistByDescripcion != null && listaOpcionesSistByDescripcion.Count == 0)
             {
@@ -41,20 +42,25 @@ namespace PVenta.Services
                     opcionesSistNew.ID = newId.ToString();
                     _dbcontext.OpcionesSists.Add(opcionesSistNew);
                     _dbcontext.SaveChanges();
-                    result = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
                 catch (Exception ex)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                     // Registrar en el log de Errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
             
             return result;
         }
 
-        public bool UpdateOpcionesSist(OpcionesSist opcionesSistUpd)
+        public MessageApp UpdateOpcionesSist(OpcionesSist opcionesSistUpd)
         {
-            bool resultUpdate = false;
+            MessageApp result = null;
             List<OpcionesSist> listaOpcionesSistByDescripcion = findOpcionesSist(opcionesSistUpd);
             if (listaOpcionesSistByDescripcion != null && listaOpcionesSistByDescripcion.Count == 0)
             {
@@ -67,21 +73,30 @@ namespace PVenta.Services
                         opcionesSistUpdate.Descripcion = opcionesSistUpd.Descripcion;
                         _dbcontext.Entry(opcionesSistUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
-                        resultUpdate = true;
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    }
+                    else
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                     }
                 }
                 catch (Exception)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
                     // Registrar en el log de Errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
 
-            return resultUpdate;
+            return result;
         }
 
-        public bool DeleteOpcionesSist(string id)
+        public MessageApp DeleteOpcionesSist(string id)
         {
-            bool resultDelete = false;
+            MessageApp result = null;
             try
             {
                 OpcionesSist opcionesSistDelete = GetOpcionesSist(id);
@@ -90,15 +105,20 @@ namespace PVenta.Services
                     opcionesSistDelete.Inactivo = true;
                     _dbcontext.Entry(opcionesSistDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    resultDelete = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                } 
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
             catch (Exception)
             {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
                 // Registrar en el log de Errores
             }
 
-            return resultDelete;
+            return result;
         }
 
         public List<OpcionesSist> findOpcionesSist(OpcionesSist findOpcionesSist)

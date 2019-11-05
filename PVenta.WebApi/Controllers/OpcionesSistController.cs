@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -44,9 +45,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertOpcionesSist(ApiOpcionesSist opcionesSist)
+        public MessageApp InsertOpcionesSist(ApiOpcionesSist opcionesSist)
         {
-            bool resultInsert = false;
+            MessageApp resultInsert = null;
             if (ModelState.IsValid)
             {
                 OpcionesSist opcionesSistInsert = objMapper.CreateMapper().Map<OpcionesSist>(opcionesSist);
@@ -57,9 +58,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool UpdateOpcionesSist(ApiOpcionesSist opcionesSist)
+        public MessageApp UpdateOpcionesSist(ApiOpcionesSist opcionesSist)
         {
-            bool resultUpdate = false;
+            MessageApp resultUpdate = null;
             if (ModelState.IsValid)
             {
                 OpcionesSist opcionesSistUpdate = objMapper.CreateMapper().Map<OpcionesSist>(opcionesSist);
@@ -69,9 +70,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool DeleteOpcionesSist(string id)
+        public MessageApp DeleteOpcionesSist(string id)
         {
-            bool resultDelete = false;
+            MessageApp resultDelete = null;
             OpcionesSist opcionesSistDelete = serviceOpcionesSist.GetOpcionesSist(id);
             if (opcionesSistDelete != null)
             {
