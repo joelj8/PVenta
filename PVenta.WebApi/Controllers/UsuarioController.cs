@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -48,9 +49,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertUsuario(ApiUsuario usuario)
+        public MessageApp InsertUsuario(ApiUsuario usuario)
         {
-            bool resultInsert = false;
+            MessageApp resultInsert = null;
             if (ModelState.IsValid) {
                 Usuario usuarioInsert = objMapper.CreateMapper().Map<Usuario>(usuario);
                 resultInsert = serviceUsuario.InsertUsuario(usuarioInsert);
@@ -60,9 +61,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool UpdateUsuario(ApiUsuario usuario)
+        public MessageApp UpdateUsuario(ApiUsuario usuario)
         {
-            bool resultUdpdate = false;
+            MessageApp resultUdpdate = null;
 
             if (ModelState.IsValid)
             {
@@ -74,14 +75,10 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool DeleteUsuario(string id)
+        public MessageApp DeleteUsuario(string id)
         {
-            bool resultDelete = false;
-            Usuario usuarioDelete = serviceUsuario.GetUsuario(id);
-            if (usuarioDelete != null)
-            {
-                resultDelete = serviceUsuario.DeleteUsuario(id);
-            }
+            MessageApp resultDelete = null;
+            resultDelete = serviceUsuario.DeleteUsuario(id);
 
             return resultDelete;
         }

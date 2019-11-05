@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertUsuario(Usuario UsuarioNew)
+        public MessageApp InsertUsuario(Usuario UsuarioNew)
         {
-            bool result = false;
+            MessageApp result = null;
             List<Usuario> listaUsuarioByUserId = findUserId(UsuarioNew);
             if (listaUsuarioByUserId != null && listaUsuarioByUserId.Count == 0)
             {
@@ -41,20 +42,25 @@ namespace PVenta.Services
                     UsuarioNew.ID = newId.ToString();
                     _dbcontext.Usuarios.Add(UsuarioNew);
                     _dbcontext.SaveChanges();
-                    result = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
                 catch (Exception ex)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                     // Registrar en el log de Errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
             
             return result;
         }
 
-        public bool UpdateUsuario(Usuario UsuarioUpd)
+        public MessageApp UpdateUsuario(Usuario UsuarioUpd)
         {
-            bool result = false;
+            MessageApp result = null;
             List<Usuario> listaUsuarioByUserId = findUserId(UsuarioUpd);
             if (listaUsuarioByUserId != null && listaUsuarioByUserId.Count == 0)
             {
@@ -72,14 +78,22 @@ namespace PVenta.Services
 
                         _dbcontext.Entry(UsuarioUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
-                        result = true;
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    } 
+                    else
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                     }
                 }
                 catch (Exception ex)
                 {
-
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
                     // Registrar en el log de errores
                 }
+            }
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
                 
 
@@ -87,9 +101,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool DeleteUsuario(string id)
+        public MessageApp DeleteUsuario(string id)
         {
-            bool result = false;
+            MessageApp result = null;
 
             try
             {
@@ -99,12 +113,16 @@ namespace PVenta.Services
                     UsuarioDelete.Inactivo = true;
                     _dbcontext.Entry(UsuarioDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    result = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                } 
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
             catch (Exception ex)
             {
-
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
                 // Registrar en el log de errores
             }
 
