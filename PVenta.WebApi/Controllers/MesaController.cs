@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -45,9 +46,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertMesa(ApiMesa mesa)
+        public MessageApp InsertMesa(ApiMesa mesa)
         {
-            bool resultinsert = false;
+            MessageApp resultinsert = null;
             if (ModelState.IsValid)
             {
                 Mesa mesaInsert = objMapper.CreateMapper().Map<Mesa>(mesa);
@@ -57,9 +58,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool UpdateMesa(ApiMesa mesa)
+        public MessageApp UpdateMesa(ApiMesa mesa)
         {
-            bool resultUpdate = false;
+            MessageApp resultUpdate = null;
             if (ModelState.IsValid)
             {
                 Mesa mesaUpdate = objMapper.CreateMapper().Map<Mesa>(mesa);
@@ -69,14 +70,10 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool DeleteMesa(string id)
+        public MessageApp DeleteMesa(string id)
         {
-            bool resultDelete = false;
-            Mesa mesaDelete = serviceMesa.GetMesa(id);
-            if (mesaDelete != null)
-            {
-                resultDelete = serviceMesa.DeleteMesa(id);
-            }
+            MessageApp resultDelete = null;
+            resultDelete = serviceMesa.DeleteMesa(id);
             return resultDelete;
         }
 

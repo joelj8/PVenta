@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertMesa(Mesa mesaNew)
+        public MessageApp InsertMesa(Mesa mesaNew)
         {
-            bool resultInsert = false;
+            MessageApp result = null;
             List<Mesa> listMesaByName = findMesaName(mesaNew);
             if (listMesaByName != null && listMesaByName.Count == 0)
             {
@@ -41,20 +42,25 @@ namespace PVenta.Services
                     mesaNew.ID = newId.ToString();
                     _dbcontext.Mesas.Add(mesaNew);
                     _dbcontext.SaveChanges();
-                    resultInsert = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
                 catch (Exception ex)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                     // Registrar en el log de Errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
 
-            return resultInsert;
+            return result;
         }
 
-        public bool UpdateMesa(Mesa mesaUpd)
+        public MessageApp UpdateMesa(Mesa mesaUpd)
         {
-            bool resultUpdate = false;
+            MessageApp result = null;
             List<Mesa> listMesaByName = findMesaName(mesaUpd);
             if (listMesaByName != null && listMesaByName.Count == 0)
             {
@@ -66,23 +72,30 @@ namespace PVenta.Services
                         mesaUpdate.Descripcion = mesaUpd.Descripcion;
                         _dbcontext.Entry(mesaUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
-                        resultUpdate = true;
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    } 
+                    else
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                     }
                 }
                 catch (Exception)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
                     // Registrar en el log de Errores
                 }
             }
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
+            }
             
-
-
-            return resultUpdate;
+            return result;
         }
 
-        public bool DeleteMesa(string id)
+        public MessageApp DeleteMesa(string id)
         {
-            bool resultDelete = false;
+            MessageApp result = null;
             try
             {
                 Mesa mesaDelete = GetMesa(id);
@@ -91,15 +104,20 @@ namespace PVenta.Services
                     mesaDelete.Inactivo = true;
                     _dbcontext.Entry(mesaDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    resultDelete = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                } 
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
             catch (Exception)
             {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
                 // Registrar en el log de Errores
             }
 
-            return resultDelete;
+            return result;
         }
 
         private List<Mesa> findMesaName(Mesa mesafind)
