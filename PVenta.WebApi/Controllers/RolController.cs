@@ -61,9 +61,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool UpdateRol(ApiRol rol)
+        public MessageApp UpdateRol(ApiRol rol)
         {
-            bool resultUpdate = false;
+            MessageApp resultUpdate = null;
             if (ModelState.IsValid)
             {
                 Rol rolUpdate = objMapper.CreateMapper().Map<Rol>(rol);
@@ -75,15 +75,11 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool DeleteRol(string id)
+        public MessageApp DeleteRol(string id)
         {
-            bool resultDelete = false;
-            Rol rolDelete = serviceRol.GetRol(id);
-            if (rolDelete != null)
-            {
-                resultDelete = serviceRol.DeleteRol(id);
-            }
-            
+            MessageApp resultDelete = null;
+            resultDelete = serviceRol.DeleteRol(id);
+           
             return resultDelete;
         }
 

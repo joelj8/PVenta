@@ -75,9 +75,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool UpdateRol(Rol rolUpd)
+        public MessageApp UpdateRol(Rol rolUpd)
         {
-            bool result = false;
+            MessageApp result = null;
             List<Rol> listRolByNombre = findRolNombre(rolUpd);
             if (listRolByNombre != null && listRolByNombre.Count == 0)
             { 
@@ -90,22 +90,30 @@ namespace PVenta.Services
                         rolUpdate.Modificable = rolUpd.Modificable;
                         _dbcontext.Entry(rolUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
-                        result = true;
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    }
+                    else
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                     }
                 }
                 catch (Exception ex)
                 {
-
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
                     // Registrar en el log de errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
 
             return result;
         }
 
-        public bool DeleteRol(string id)
+        public MessageApp DeleteRol(string id)
         {
-            bool result = false;
+            MessageApp result = null;
 
             try
             {
@@ -115,14 +123,19 @@ namespace PVenta.Services
                     rolDelete.Inactivo = true;
                     _dbcontext.Entry(rolDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    result = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                }
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
             catch (Exception ex)
             {
-
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
                 // Registrar en el log de errores
             }
+            
 
             return result;
         }
