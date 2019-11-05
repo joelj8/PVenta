@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace PVenta.WebApi.Controllers
             objMapper = new MapperConfiguration(i => i.AddProfiles(profileList));
         }
 
-
         public JsonResult<List<ApiCategoria>> GetCategorias()
         {
             List<Categoria> categoriasLista = serviceCategoria.GetCategorias();
@@ -45,9 +45,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertCategoria(ApiCategoria categoria)
+        public MessageApp InsertCategoria(ApiCategoria categoria)
         {
-            bool resultInsert = false;
+            MessageApp resultInsert = null;
             if (ModelState.IsValid)
             {
                 Categoria categoriaInsert = objMapper.CreateMapper().Map<Categoria>(categoria);
@@ -56,11 +56,10 @@ namespace PVenta.WebApi.Controllers
             return resultInsert;
         }
 
-
         [HttpPost]
-        public bool UpdateCategoria(ApiCategoria categoria)
+        public MessageApp UpdateCategoria(ApiCategoria categoria)
         {
-            bool resultUpdate = false;
+            MessageApp resultUpdate = null;
             if (ModelState.IsValid)
             {
                 Categoria categoriaUpdate = objMapper.CreateMapper().Map<Categoria>(categoria);
@@ -70,15 +69,11 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool DeleteCategoria(string id)
+        public MessageApp DeleteCategoria(string id)
         {
-            bool resultDelete = false;
-            Categoria categoriaDelete = serviceCategoria.GetCategoria(id);
-
-            if (categoriaDelete != null)
-            {
-                resultDelete = serviceCategoria.DeleteCategoria(id);
-            }
+            MessageApp resultDelete = null;
+            resultDelete = serviceCategoria.DeleteCategoria(id);
+            
             return resultDelete;
         }
 

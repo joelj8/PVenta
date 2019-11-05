@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertCategoria(Categoria categoriaNew)
+        public MessageApp InsertCategoria(Categoria categoriaNew)
         {
-            bool resultInsert = false;
+            MessageApp result = null;
             List<Categoria> listCategoriaByDescripcion = findCategoriaDescripcion(categoriaNew);
             if (listCategoriaByDescripcion != null && listCategoriaByDescripcion.Count == 0)
             {
@@ -41,21 +42,25 @@ namespace PVenta.Services
                     categoriaNew.ID = newId.ToString();
                     _dbcontext.Categorias.Add(categoriaNew);
                     _dbcontext.SaveChanges();
-                    resultInsert = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
                 catch (Exception)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                     // Registrar en el log de Errores
                 }
             }
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
+            }
           
-
-            return resultInsert;
+            return result;
         }
 
-        public bool UpdateCategoria(Categoria categoriaUpd)
+        public MessageApp UpdateCategoria(Categoria categoriaUpd)
         {
-            bool resultUpdate = false;
+            MessageApp result = null;
             List<Categoria> listCategoriaByDescripcion = findCategoriaDescripcion(categoriaUpd);
             if (listCategoriaByDescripcion != null && listCategoriaByDescripcion.Count == 0)
             {
@@ -68,22 +73,30 @@ namespace PVenta.Services
                         categoriaUpdate.ImpComanda = categoriaUpd.ImpComanda;
                         _dbcontext.Entry(categoriaUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
-                        resultUpdate = true;
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    }
+                    else
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                     }
                 }
                 catch (Exception)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
                     // Registrar en el log de errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
             
-
-            return resultUpdate;
+            return result;
         }
 
-        public bool DeleteCategoria(string id)
+        public MessageApp DeleteCategoria(string id)
         {
-            bool resultDelete = false;
+            MessageApp result = null;
             try
             {
                 Categoria categoriaDelete = GetCategoria(id);
@@ -92,14 +105,19 @@ namespace PVenta.Services
                     categoriaDelete.Inactivo = true;
                     _dbcontext.Entry(categoriaDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    resultDelete = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                }
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
                 // Registrar en el log de errores
             }
-            return resultDelete;
+            return result;
         }
 
         public List<Categoria> findCategoriaDescripcion(Categoria categoriafind)
