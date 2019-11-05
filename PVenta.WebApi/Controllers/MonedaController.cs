@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -44,9 +45,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertMoneda(ApiMoneda moneda)
+        public MessageApp InsertMoneda(ApiMoneda moneda)
         {
-            bool resultInsert = false;
+            MessageApp resultInsert = null;
             if (ModelState.IsValid)
             {
                 Moneda monedaInsert = objMapper.CreateMapper().Map<Moneda>(moneda);
@@ -57,9 +58,9 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool UpdateMoneda(ApiMoneda moneda)
+        public MessageApp UpdateMoneda(ApiMoneda moneda)
         {
-            bool resultUpdate = false;
+            MessageApp resultUpdate = null;
             if (ModelState.IsValid)
             {
                 Moneda monedaUpdate = objMapper.CreateMapper().Map<Moneda>(moneda);
@@ -69,15 +70,10 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool DeleteMoneda(string id)
+        public MessageApp DeleteMoneda(string id)
         {
-            bool resultDelete = false;
-            Moneda monedaDelete = serviceMoneda.GetMoneda(id);
-            if (monedaDelete != null)
-            {
-                resultDelete = serviceMoneda.DeleteMoneda(id); 
-            }
-
+            MessageApp resultDelete = null;
+            resultDelete = serviceMoneda.DeleteMoneda(id); 
 
             return resultDelete;
         }

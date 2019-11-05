@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertMoneda(Moneda monedaNew)
+        public MessageApp InsertMoneda(Moneda monedaNew)
         {
-            bool resultInsert = false;
+            MessageApp result = null;
             List<Moneda> listMonedaByDescripcion = findMonedaDescripcion(monedaNew);
             if (listMonedaByDescripcion != null && listMonedaByDescripcion.Count == 0)
             {
@@ -41,21 +42,26 @@ namespace PVenta.Services
                     monedaNew.ID = newId.ToString();
                     _dbcontext.Monedas.Add(monedaNew);
                     _dbcontext.SaveChanges();
-                    resultInsert = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
                 catch (Exception ex)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                     // Registrar en el log de Errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
             
 
-            return resultInsert;
+            return result;
         }
 
-        public bool UpdateMoneda(Moneda monedaUpd)
+        public MessageApp UpdateMoneda(Moneda monedaUpd)
         {
-            bool resultUpdate = false;
+            MessageApp result = null;
             List<Moneda> listMonedaByDescripcion = findMonedaDescripcion(monedaUpd);
             if (listMonedaByDescripcion != null && listMonedaByDescripcion.Count == 0)
             {
@@ -68,21 +74,30 @@ namespace PVenta.Services
                         monedaUpdate.Valor = monedaUpd.Valor;
                         _dbcontext.Entry(monedaUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
-                        resultUpdate = true;
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    }
+                    else
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                     }
                 }
                 catch (Exception ex)
                 {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
                     // Registrar en el log de errores
                 }
+            } 
+            else
+            {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
                
-            return resultUpdate;
+            return result;
         }
 
-        public bool DeleteMoneda(string id)
+        public MessageApp DeleteMoneda(string id)
         {
-            bool resultDelete = false;
+            MessageApp result = null;
             try
             {
                 Moneda monedaDelete = GetMoneda(id);
@@ -92,15 +107,19 @@ namespace PVenta.Services
                     monedaDelete.Inactivo = true;
                     _dbcontext.Entry(monedaDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    resultDelete = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                }
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
             catch (Exception ex)
             {
-
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
                 // Registrar en el log de errores
             }
-            return resultDelete;
+            return result;
         }
 
         public List<Moneda> findMonedaDescripcion(Moneda monedafind)
