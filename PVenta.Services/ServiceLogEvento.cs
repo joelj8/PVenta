@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,27 +30,29 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertLogEvento(LogEvento logEventoNew)
+        public MessageApp InsertLogEvento(LogEvento logEventoNew)
         {
-            bool result = false;
+            MessageApp result = null;
             try
             {
                 Guid newId = Guid.NewGuid();
                 logEventoNew.ID = newId.ToString();
                 _dbcontext.LogEventos.Add(logEventoNew);
                 _dbcontext.SaveChanges();
-                result = true;
+                result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
             }
             catch (Exception ex)
             {
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                 // Registrar en el log de Errores
             }
+
             return result;
         }
     
-        public bool UpdateLogEvento(LogEvento logEventoUpd)
+        public MessageApp UpdateLogEvento(LogEvento logEventoUpd)
         {
-            bool result = false;
+            MessageApp result = null;
 
             try
             {
@@ -62,12 +65,16 @@ namespace PVenta.Services
                     logEventoUpdate.ErrorListId = logEventoUpd.ErrorListId;
                     _dbcontext.Entry(logEventoUpdate).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    result = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                } 
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
             catch (Exception ex)
             {
-
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
                 // Registrar en el log de errores
             }
 

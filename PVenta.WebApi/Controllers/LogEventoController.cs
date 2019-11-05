@@ -2,6 +2,7 @@
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
+using PVenta.Utility;
 using PVenta.WebApi.Repository;
 using System;
 using System.Collections.Generic;
@@ -49,18 +50,18 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public bool InsertLogEvento(ApiLogEvento logEvento)
+        public MessageApp InsertLogEvento(ApiLogEvento logEvento)
         {
-            bool resultinsert = false;
+            MessageApp resultinsert = null;
             LogEvento logEventoInsert = objMapper.CreateMapper().Map<LogEvento>(logEvento);
             resultinsert = serviceLogEvento.InsertLogEvento(logEventoInsert);
             return resultinsert;
         }
 
         [HttpPost]
-        public bool UpdateLogEvento(ApiLogEvento logEvento)
+        public MessageApp UpdateLogEvento(ApiLogEvento logEvento)
         {
-            bool resultUpdate = false;
+            MessageApp resultUpdate = null;
 
             LogEvento logEventoUpdate = objMapper.CreateMapper().Map<LogEvento>(logEvento);
             resultUpdate = serviceLogEvento.UpdateLogEvento(logEventoUpdate);
