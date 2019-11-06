@@ -34,6 +34,7 @@ namespace PVenta.WebApi.Controllers
         {
             List<Categoria> categoriasLista = serviceCategoria.GetCategorias();
             List<ApiCategoria> categorias = objMapper.CreateMapper().Map<List<ApiCategoria>>(categoriasLista);
+            
             return Json<List<ApiCategoria>>(categorias);
         }
 
@@ -41,6 +42,7 @@ namespace PVenta.WebApi.Controllers
         {
             Categoria categoriaLista = serviceCategoria.GetCategoria(id);
             ApiCategoria categoria = objMapper.CreateMapper().Map<ApiCategoria>(categoriaLista);
+
             return Json<ApiCategoria>(categoria);
         }
 
@@ -53,6 +55,7 @@ namespace PVenta.WebApi.Controllers
                 Categoria categoriaInsert = objMapper.CreateMapper().Map<Categoria>(categoria);
                 resultInsert = serviceCategoria.InsertCategoria(categoriaInsert);
             }
+
             return resultInsert;
         }
 
@@ -65,6 +68,7 @@ namespace PVenta.WebApi.Controllers
                 Categoria categoriaUpdate = objMapper.CreateMapper().Map<Categoria>(categoria);
                 resultUpdate = serviceCategoria.UpdateCategoria(categoriaUpdate);
             }
+
             return resultUpdate;
         }
 
@@ -73,12 +77,9 @@ namespace PVenta.WebApi.Controllers
         {
             MessageApp resultDelete = null;
             resultDelete = serviceCategoria.DeleteCategoria(id);
-            
+
             return resultDelete;
         }
-
-
-
 
     }
 }

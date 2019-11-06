@@ -54,7 +54,6 @@ namespace PVenta.Services
             {
                 result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
-          
             return result;
         }
 
@@ -90,7 +89,6 @@ namespace PVenta.Services
             {
                 result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
-            
             return result;
         }
 
