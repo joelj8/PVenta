@@ -1,5 +1,6 @@
 ﻿using PVenta.DAL;
 using PVenta.Models.Model;
+using PVenta.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,54 +30,77 @@ namespace PVenta.Services
             return result;
         }
 
-        public bool InsertProducto(Producto productoNew)
+        public MessageApp InsertProducto(Producto productoNew)
         {
-            bool resultInsert = false;
-            try
+            MessageApp resultInsert = null;
+            List<Producto> listProductoByName = findProductoName(productoNew);
+            if (listProductoByName != null && listProductoByName.Count == 0)
             {
-                Guid newId = Guid.NewGuid();
-                productoNew.ID = newId.ToString();
-                _dbcontext.Productos.Add(productoNew);
-                _dbcontext.SaveChanges();
-                resultInsert = true;
+                try
+                {
+                    Guid newId = Guid.NewGuid();
+                    productoNew.ID = newId.ToString();
+                    _dbcontext.Productos.Add(productoNew);
+                    _dbcontext.SaveChanges();
+                    resultInsert = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
+                }
+                catch (Exception ex)
+                {
+                    resultInsert = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
+                    // Registrar en el log de errores
+                }
             }
-            catch (Exception)
+            else
             {
-                // Registrar en el log de errores
+                resultInsert = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
+
             return resultInsert;
         }
 
-        public bool UpdateProducto(Producto productoUpd)
+        public MessageApp UpdateProducto(Producto productoUpd)
         {
-            bool resultUpdate = false;
-            try
+            MessageApp result = null;
+            List<Producto> listProductoByName = findProductoName(productoUpd);
+            if (listProductoByName != null && listProductoByName.Count == 0)
             {
-                Producto productoUpdate = GetProducto(productoUpd.ID);
-                if (productoUpdate != null)
+                try
                 {
-                    productoUpdate.Nombre = productoUpd.Nombre;
-                    productoUpdate.NombreCorto = productoUpd.NombreCorto;
-                    productoUpdate.Precio = productoUpd.Precio;
-                    productoUpdate.CategoriaId = productoUpd.CategoriaId;
-                    productoUpdate.esAdicional = productoUpd.esAdicional;
-                    productoUpdate.ImpComanda = productoUpd.ImpComanda;
-                    _dbcontext.Entry(productoUpdate).State = System.Data.Entity.EntityState.Modified;
-                    _dbcontext.SaveChanges();
-                    resultUpdate = true;
+                    Producto productoUpdate = GetProducto(productoUpd.ID);
+                    if (productoUpdate != null)
+                    {
+                        productoUpdate.Nombre = productoUpd.Nombre;
+                        productoUpdate.NombreCorto = productoUpd.NombreCorto;
+                        productoUpdate.Precio = productoUpd.Precio;
+                        productoUpdate.CategoriaId = productoUpd.CategoriaId;
+                        productoUpdate.esAdicional = productoUpd.esAdicional;
+                        productoUpdate.ImpComanda = productoUpd.ImpComanda;
+                        _dbcontext.Entry(productoUpdate).State = System.Data.Entity.EntityState.Modified;
+                        _dbcontext.SaveChanges();
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
+                    }
+                    else
+                    {
+                        result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
+                    }
+                }
+                catch (Exception)
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
+                    // Registrar en el log de errores
                 }
             }
-            catch (Exception)
+            else
             {
-
-                // Registrar en el log de errores
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
-            return resultUpdate;
+           
+            return result;
         }
 
-        public bool DeleteProducto(string id)
+        public MessageApp DeleteProducto(string id)
         {
-            bool resultDelete = false;
+            MessageApp result = null;
             try
             {
                 Producto productoDelete = GetProducto(id);
@@ -85,17 +109,36 @@ namespace PVenta.Services
                     productoDelete.Inactivo = true;
                     _dbcontext.Entry(productoDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
-                    resultDelete = true;
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
+                } 
+                else
+                {
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00001"));
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
                 // Registrar en el log de errores
             }
-            return resultDelete;
+
+            return result;
         }
 
-
+        private List<Producto> findProductoName(Producto productoFind)
+        {
+            List<Producto> resultList = null;
+            try
+            {
+                resultList = _dbcontext.Productos.Where(x => !x.Inactivo && x.ID != productoFind.ID &&
+                                                    (x.Nombre.Equals(productoFind.Nombre) ||
+                                                     x.NombreCorto.Equals(productoFind.NombreCorto))).ToList();
+            }
+            catch (Exception ex)
+            {
+                // Registrar en el log de Errores
+            }
+            return resultList;
+        }
     }
 }
