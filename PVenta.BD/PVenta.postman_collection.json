@@ -100,7 +100,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"ID\": \"f9a4dfd5-bf16-4e70-9df8-d1dd684a9b28\",\r\n        \"Nombre\": \"Administrador II\",\r\n        \"Modificable\": true,\r\n        \"Inactivo\": false\r\n    }",
+					"raw": "    {\r\n        \"ID\": \"754df835-ee34-4a8f-a659-7e824437742b\",\r\n        \"Nombre\": \"Prueba Adm\",\r\n        \"Modificable\": true,\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -137,7 +137,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"\",\n\t\"Nombre\": \"Adm\",\n\t\"Modificable\": \"true\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Nombre\": \"Prueba\",\n\t\"Modificable\": \"true\",\n\t\"Inactivo\": \"False\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -281,7 +281,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"\",\n\t\"UserId\": \"Adm\"\n\t\"Nombre\": \"Administrador\",\n\t\"Pwduser\": \"*********\",\n\t\"Email\": \"Adm@pventa.com.do\",\n\t\"RolId\": \"754df835-ee34-4a8f-a659-7e824437742b\",\n\t\"esCajero\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"UserId\": \"Adm\",\n\t\"Nombre\": \"Administrador\",\n\t\"Pwduser\": \"*********\",\n\t\"Email\": \"Adm@pventa.com.do\",\n\t\"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"esCajero\": \"False\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1477,6 +1477,277 @@
 						"api",
 						"ErrorList",
 						"UpdateErrorList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:44343/api/Producto/GetProductos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Producto",
+						"GetProductos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProducto",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Producto/GetProducto/67040759-abe3-4d08-9e1a-d1d0889c1892",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Producto",
+						"GetProducto",
+						"67040759-abe3-4d08-9e1a-d1d0889c1892"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertProductos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Nombre\": \"Cerveza Corona\",\r\n  \"NombreCorto\": \"Cerveza Corona\",\r\n  \"Precio\": 200.00,\r\n  \"CategoriaId\": \"0d1ac144-5525-40de-b5f1-f8431b882f70\",\r\n  \"ImpComanda\": false,\r\n  \"esAdicional\": false\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Producto/InsertProducto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Producto",
+						"InsertProducto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProductos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n    \"Nombre\": \"Deditos de Mozarella\",\r\n    \"NombreCorto\": \"Deditos de Mozarella\",\r\n    \"Precio\": \"150.00\",\r\n    \"CategoriaId\": \"5245f873-c743-4096-a0f6-e358014685d6\",\r\n    \"ImpComanda\": true,\r\n    \"esAdicional\": false,\r\n    \"Inactivo\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Producto/UpdateProducto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Producto",
+						"UpdateProducto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProductos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Producto/DeleteProducto/7f41a11d-69cf-44b6-9f86-fcf6b3f7b2f7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Producto",
+						"DeleteProducto",
+						"7f41a11d-69cf-44b6-9f86-fcf6b3f7b2f7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Order/getOrders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Order",
+						"getOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrder",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Order/getOrder/2525",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Order",
+						"getOrder",
+						"2525"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"Fecha\": \"10/02/2019\",\r\n\t\"UserId\": \"\",\r\n\t\"MesaId\": \"c27dadcc-3b7c-4bb5-928b-66427037d930\",\r\n\t\"ClientePrincipal\": \"Carlos Perez\",\r\n\t\"itbis\": true,\r\n\t\"itbisPorc\": 18,\r\n\t\"DescMonto\": 0,\r\n\t\"DescPorc\": 0,\r\n\t\"FechaRegistro\" : \"11/08/2019\",\r\n\t\"impreso\": false,\r\n\t\"inactivo\": false,\r\n\t\"OrderDetails\": [ \r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n\t\t\t\"Cantidad\": 1, \r\n\t\t\t\"Precio\": 50,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Carlos Perez\", \r\n\t\t\t\"Impreso\": false\r\n\t\t}\r\n\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Order/InsertOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Order",
+						"InsertOrder"
 					]
 				}
 			},

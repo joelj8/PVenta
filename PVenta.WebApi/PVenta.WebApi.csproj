@@ -64,6 +64,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -172,6 +173,7 @@
     <Compile Include="Controllers\MesaController.cs" />
     <Compile Include="Controllers\MonedaController.cs" />
     <Compile Include="Controllers\OpcionesSistController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PermisosRolController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\RolController.cs" />
@@ -192,11 +194,15 @@
     <Compile Include="Repository\MMonedaProfile.cs" />
     <Compile Include="Repository\MonedaProfile.cs" />
     <Compile Include="Repository\MOpcionesSistProfile.cs" />
+    <Compile Include="Repository\MOrderDetailProfile.cs" />
+    <Compile Include="Repository\MOrderHeaderProfile.cs" />
     <Compile Include="Repository\MPermisosRolProfile.cs" />
     <Compile Include="Repository\MProductoProfile.cs" />
     <Compile Include="Repository\MRolProfile.cs" />
     <Compile Include="Repository\MUsuarioProfile.cs" />
     <Compile Include="Repository\OpcionesSistProfile.cs" />
+    <Compile Include="Repository\OrderDetailProfile.cs" />
+    <Compile Include="Repository\OrderHeaderProfile.cs" />
     <Compile Include="Repository\PermisosRolProfile.cs" />
     <Compile Include="Repository\ProductoProfile.cs" />
     <Compile Include="Repository\RolProfile.cs" />

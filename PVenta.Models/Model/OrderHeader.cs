@@ -9,21 +9,13 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
-    [Table("FacturaHeaders")]
-    public class FacturaHeader
+    [Table("OrderHeaders")]
+    public class OrderHeader
     {
         [Key]
         [Column("ID", TypeName = "varchar")]
         [MaxLength(50)]
         public string ID { get; set; }
-
-        [Column("OrderHID", TypeName = "varchar")]
-        [MaxLength(50)]
-        [DisplayName("Header de Orden")]
-        public string OrderHID { get; set; }
-
-        [ForeignKey("OrderHID")]
-        public OrderHeader OrderHeader { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
@@ -39,6 +31,9 @@ namespace PVenta.Models.Model
         [Column("MesaId", TypeName = "varchar")]
         [MaxLength(50)]
         public string MesaId { get; set; }
+
+        [ForeignKey("MesaId")]
+        public Mesa Mesa { get; set; }
 
         [Column("ClientePrinc", TypeName = "varchar")]
         [MaxLength(50)]
@@ -65,13 +60,9 @@ namespace PVenta.Models.Model
 
         public bool Inactivo { get; set; }
 
-        [NotMapped]
-        [ForeignKey("FacturaHID")]
-        public ICollection<FacturaDetail> FacturaDetails { get; set; }
 
-        [NotMapped]
-        [ForeignKey("FacturaHID")]
-        public ICollection<FacturaPayment> FacturaPayments { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+
 
     }
 }

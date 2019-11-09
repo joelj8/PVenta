@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,6 +51,8 @@
     <Compile Include="ApiModels\ApiMesa.cs" />
     <Compile Include="ApiModels\ApiMoneda.cs" />
     <Compile Include="ApiModels\ApiOpcionesSist.cs" />
+    <Compile Include="ApiModels\ApiOrderDetail.cs" />
+    <Compile Include="ApiModels\ApiOrderHeader.cs" />
     <Compile Include="ApiModels\ApiPermisosRol.cs" />
     <Compile Include="ApiModels\ApiProducto.cs" />
     <Compile Include="ApiModels\ApiRol.cs" />
@@ -63,6 +68,8 @@
     <Compile Include="Model\Mesa.cs" />
     <Compile Include="Model\Moneda.cs" />
     <Compile Include="Model\OpcionesSist.cs" />
+    <Compile Include="Model\OrderDetail.cs" />
+    <Compile Include="Model\OrderHeader.cs" />
     <Compile Include="Model\PermisosRol.cs" />
     <Compile Include="Model\Producto.cs" />
     <Compile Include="Model\Rol.cs" />
@@ -71,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

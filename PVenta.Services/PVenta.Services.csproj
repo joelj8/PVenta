@@ -59,6 +59,7 @@
     <Compile Include="ServiceMesa.cs" />
     <Compile Include="ServiceMoneda.cs" />
     <Compile Include="ServiceOpcionesSist.cs" />
+    <Compile Include="ServiceOrder.cs" />
     <Compile Include="ServicePermisosRol.cs" />
     <Compile Include="ServiceProducto.cs" />
     <Compile Include="ServiceRol.cs" />

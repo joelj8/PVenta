@@ -20,19 +20,36 @@ namespace PVenta.Services
 
         public List<Producto> GetProductos()
         {
-            var result = _dbcontext.Productos.Include("Categoria").Where(x => !x.Inactivo).ToList();
+            List<Producto> result = null;
+            try
+            {
+                result = _dbcontext.Productos.Include("Categoria").Where(x => !x.Inactivo).ToList();
+            }
+            catch (Exception ex)
+            {
+                // Registrar en el log de errores
+            }
+            
             return result;
         }
 
         public Producto GetProducto(string id)
         {
-            var result = _dbcontext.Productos.Include("Categoria").FirstOrDefault(x => !x.Inactivo && x.ID == id);
+            Producto result = null;
+            try
+            {
+                result = _dbcontext.Productos.Include("Categoria").FirstOrDefault(x => !x.Inactivo && x.ID == id);
+            }
+            catch (Exception ex)
+            {
+                // Registrar en el log de errores
+            }
             return result;
         }
 
         public MessageApp InsertProducto(Producto productoNew)
         {
-            MessageApp resultInsert = null;
+            MessageApp result = null;
             List<Producto> listProductoByName = findProductoName(productoNew);
             if (listProductoByName != null && listProductoByName.Count == 0)
             {
@@ -42,20 +59,20 @@ namespace PVenta.Services
                     productoNew.ID = newId.ToString();
                     _dbcontext.Productos.Add(productoNew);
                     _dbcontext.SaveChanges();
-                    resultInsert = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
                 catch (Exception ex)
                 {
-                    resultInsert = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("ER00001"));
                     // Registrar en el log de errores
                 }
             }
             else
             {
-                resultInsert = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
+                result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
             }
 
-            return resultInsert;
+            return result;
         }
 
         public MessageApp UpdateProducto(Producto productoUpd)

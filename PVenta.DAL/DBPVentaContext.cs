@@ -24,6 +24,9 @@ namespace PVenta.DAL
         public virtual DbSet<Moneda> Monedas { get; set; }
         public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Producto> Productos { get; set; }
+        public virtual DbSet<OrderHeader> OrderHeaders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+
         public virtual DbSet<FacturaHeader> FacturaHeaders { get; set; }
         public virtual DbSet<FacturaDetail> FacturaDetails { get; set; }
         public virtual DbSet<FacturaPayment> FacturaPayments { get; set; }
