@@ -21,9 +21,12 @@ namespace PVenta.WebApi.Controllers
     {
         private readonly AutoMapper.MapperConfiguration objMapper;
         private readonly ServiceOrder serviceOrder;
+        private readonly JsonSerializerSettings jsonsettings;
 
         public OrderController()
         {
+            jsonsettings = new JsonSerializerSettings();
+            jsonsettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             serviceOrder = new ServiceOrder();
 
             List<Profile> profileList = new List<Profile>();
@@ -45,7 +48,8 @@ namespace PVenta.WebApi.Controllers
         {
             List<OrderHeader> orderLista = serviceOrder.GetOrderHeaders();
             List<ApiOrderHeader> order = objMapper.CreateMapper().Map<List<ApiOrderHeader>>(orderLista);
-            return Json<List<ApiOrderHeader>>(order);
+            
+            return Json<List<ApiOrderHeader>>(order,jsonsettings);
         }
 
         public JsonResult<ApiOrderHeader> GetOrder(string id)
@@ -62,7 +66,10 @@ namespace PVenta.WebApi.Controllers
 
             //var result = Json(Newtonsoft.Json.JsonConvert.SerializeObject(order));
             */
-            return Json<ApiOrderHeader>(order);
+            // JsonSerializerSettings settings = GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling.;
+            // GlobalConfiguration.Configuration.Formatters.JsonFormatter
+            return Json<ApiOrderHeader>(order,jsonsettings);
+
         }
 
         [HttpPost]

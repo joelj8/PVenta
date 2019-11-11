@@ -11,11 +11,12 @@ namespace PVenta.WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            
-            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
-
-
+    
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -25,6 +26,9 @@ namespace PVenta.WebApi
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            
+            
         }
     }
 }

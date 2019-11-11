@@ -34,10 +34,12 @@ namespace PVenta.Services
 
         public OrderHeader GetOrderHeader(string id)
         {
+
             OrderHeader result = null;
             try
             {
-                result = _dbcontext.OrderHeaders.Include("OrderDetails").Include("Mesa").FirstOrDefault(x => !x.Inactivo && x.ID.Equals(id));
+                result = _dbcontext.OrderHeaders.Include("OrderDetails")
+                    .Where(x => !x.Inactivo && x.ID.Equals(id)).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -95,18 +97,47 @@ namespace PVenta.Services
                     orderHeaderUpdate.Impreso = orderHeader.Impreso;
                     orderHeaderUpdate.Itbis = orderHeader.Itbis;
                     orderHeaderUpdate.ItbisPorc = orderHeader.ItbisPorc;
-                    orderHeaderUpdate.OrderDetails = orderHeader.OrderDetails;
+                    orderHeaderUpdate.MesaId = orderHeader.MesaId;
+                    //orderHeaderUpdate.OrderDetails = orderHeader.OrderDetails;
 
-                    foreach (OrderDetail od in orderHeaderUpdate.OrderDetails)
+                    foreach(OrderDetail ordExist in orderHeaderUpdate.OrderDetails)
                     {
-                        if (od.ID == null || od.ID == string.Empty)
+                        string idUpdate = ordExist.ID;
+                        bool regUpdated = false;
+                        foreach(OrderDetail orderData in orderHeader.OrderDetails)
+                        {
+                            // En caso de algun cambio
+                            if (orderData.ID.Equals(idUpdate))
+                            {
+                                ordExist.Cantidad = orderData.Cantidad;
+                                ordExist.ClientePedido = orderData.ClientePedido;
+                                ordExist.Precio = orderData.Precio;
+                                ordExist.ProductoID = orderData.ProductoID;
+                                regUpdated = true;
+                            }
+                        }
+
+                        if (!regUpdated)
+                        {
+                            // Borrando los registros eliminados
+                            ordExist.Inactivo = true;
+                        }
+
+                        // En caso de un nuevo registro
+                        if (idUpdate == null || idUpdate == string.Empty)
                         {
                             newIdDetail = Guid.NewGuid().ToString();
-                            od.ID = newIdDetail;
+                            ordExist.ID = newIdDetail;
                         }
                     }
 
+                    
+                    
+                    
+
+
                     _dbcontext.Entry(orderHeaderUpdate).State = System.Data.Entity.EntityState.Modified;
+                    
                     _dbcontext.SaveChanges();
                     result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
                 }
