@@ -24,7 +24,16 @@ namespace PVenta.Services
             try
             {
                 result = _dbcontext.OrderHeaders.Include("OrderDetails").Include("Mesa").Where(x => !x.Inactivo).ToList();
-                
+                foreach(OrderHeader ordEvalua in result)
+                {
+                    // Preparar la lista de OrderDetail con los registros que no estan inactivos
+                    List<OrderDetail> listDetail = (from ordDet in ordEvalua.OrderDetails
+                                                    where !ordDet.Inactivo
+                                                    select ordDet).ToList();
+
+                    // Reasignar la lista de OrderDetails con la lista de previamente creada
+                    ordEvalua.OrderDetails = listDetail;
+                }
             }
             catch (Exception)
             {
@@ -37,11 +46,18 @@ namespace PVenta.Services
         {
 
             OrderHeader result = null;
+            
             try
             {
-                result = _dbcontext.OrderHeaders.Include("OrderDetails").Include("Mesa")
-                    .Where(x => !x.Inactivo && x.ID.Equals(id)).FirstOrDefault();
-                //result.OrderDetails = result.OrderDetails.Where(x => !x.Inactivo).ToList(); // Idea para el filtro
+                result = GetOrderHeaderORG(id);
+
+                // Preparar la lista de OrderDetail con los registros que no estan inactivos
+                List<OrderDetail> listDetail = (from ordDet in result.OrderDetails
+                                                where !ordDet.Inactivo
+                                                select ordDet).ToList();
+
+                // Reasignar la lista de OrderDetails con la lista de previamente creada
+                result.OrderDetails = listDetail;
             }
             catch (Exception ex)
             {
@@ -49,7 +65,24 @@ namespace PVenta.Services
             }
             return result;
         }
-    
+
+        public OrderHeader GetOrderHeaderORG(string id)
+        {
+
+            OrderHeader result = null;
+
+            try
+            {
+                result = _dbcontext.OrderHeaders.Include("OrderDetails").Include("Mesa")
+                    .Where(x => !x.Inactivo && x.ID.Equals(id)).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                // Registrar en el log de errores
+            }
+            return result;
+        }
+
         public MessageApp InsertOrderHeader(OrderHeader orderHeader)
         {
             MessageApp result = null;
@@ -87,10 +120,10 @@ namespace PVenta.Services
 
             try
             {
-                OrderHeader orderHeaderUpdate = GetOrderHeader(orderHeader.ID);
+                OrderHeader orderHeaderUpdate = GetOrderHeaderORG(orderHeader.ID);
                 if (orderHeaderUpdate != null)
                 {
-                    string newId = orderHeader.ID;
+                    string updatedHeaderId = orderHeader.ID;
                     string newIdDetail;
                     orderHeaderUpdate.ClientePrincipal = orderHeader.ClientePrincipal;
                     orderHeaderUpdate.DescMonto = orderHeader.DescMonto;
@@ -109,11 +142,12 @@ namespace PVenta.Services
                         foreach(OrderDetail orderData in orderHeader.OrderDetails)
                         {
                             // En caso de algun cambio
-                            if (orderData.ID.Equals(idUpdate))
+                            if (orderData.ID.Equals(idUpdate) && !orderData.Inactivo)
                             {
                                 ordExist.Cantidad = orderData.Cantidad;
                                 ordExist.ClientePedido = orderData.ClientePedido;
                                 ordExist.Precio = orderData.Precio;
+                                ordExist.ImpComanda = orderData.ImpComanda;
                                 ordExist.ProductoID = orderData.ProductoID;
                                 regUpdated = true;
                             }
@@ -121,25 +155,28 @@ namespace PVenta.Services
 
                         if (!regUpdated)
                         {
-                            // Borrando los registros eliminados
+                            // Inactivando el registro que no fue encontrado y/o eliminados
                             ordExist.Inactivo = true;
                         }
+                    
+                    }
 
+                    // Adding New Register for OrderDetail
+                    foreach (OrderDetail orderNew in orderHeader.OrderDetails)
+                    {
+                        string idNew = orderNew.ID;
                         // En caso de un nuevo registro
-                        if (idUpdate == null || idUpdate == string.Empty)
+                        if (idNew == null || idNew == string.Empty)
                         {
                             newIdDetail = Guid.NewGuid().ToString();
-                            ordExist.ID = newIdDetail;
+                            orderNew.ID = newIdDetail;
+                            orderNew.OrderHID = updatedHeaderId;
+                            orderHeaderUpdate.OrderDetails.Add(orderNew);
                         }
                     }
 
-                    
-                    
-                    
-
 
                     _dbcontext.Entry(orderHeaderUpdate).State = System.Data.Entity.EntityState.Modified;
-                    
                     _dbcontext.SaveChanges();
                     result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
                 }

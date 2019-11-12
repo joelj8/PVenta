@@ -58,7 +58,7 @@ namespace PVenta.WebApi.Controllers
             return Json<List<ApiOrderHeader>>(order,jsonsettings);
         }
 
-        private JsonResult<ApiOrderHeader> GetOrder(string id)
+        public JsonResult<ApiOrderHeader> GetOrder(string id)
         {
             OrderHeader orderLista = serviceOrder.GetOrderHeader(id);
             ApiOrderHeader order = objMapper.CreateMapper().Map<ApiOrderHeader>(orderLista);
@@ -67,7 +67,7 @@ namespace PVenta.WebApi.Controllers
 
         }
 
-        public ApiOrderHeader Getprueba(string id)
+        private ApiOrderHeader Getprueba(string id)
         {   
             // 2019.11.12 - Este metodo no se utiliza, solo es para pruebas
             // Este es un ejemplo retornando una clase que será convertida a Json

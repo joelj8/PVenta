@@ -12,7 +12,7 @@ namespace PVenta.DAL
     {
         public DBPVentaContext(): base("PVentaDB")
         {
-
+           
         }
 
         public virtual DbSet<Rol> Rols { get; set; }
