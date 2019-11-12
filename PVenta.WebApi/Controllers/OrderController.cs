@@ -48,32 +48,32 @@ namespace PVenta.WebApi.Controllers
         {
             List<OrderHeader> orderLista = serviceOrder.GetOrderHeaders();
             List<ApiOrderHeader> order = objMapper.CreateMapper().Map<List<ApiOrderHeader>>(orderLista);
-            
+            // 2019.11.12 
+            // Este es un ejemplo retornando un JsonResult de una clase 
+            // que al convertirla utilizará los parametros de configuracion de un objecto de JsonSerializerSettings
+            // JsonSerializerSettings jsonsettings = new JsonSerializerSettings();
+            // jsonsettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            // Este codigo Ignora los Loop en las clases que se hacen referencias una a otra, evitando redundancia.
+
             return Json<List<ApiOrderHeader>>(order,jsonsettings);
         }
 
-        public JsonResult<ApiOrderHeader> GetOrder(string id)
+        private JsonResult<ApiOrderHeader> GetOrder(string id)
         {
             OrderHeader orderLista = serviceOrder.GetOrderHeader(id);
             ApiOrderHeader order = objMapper.CreateMapper().Map<ApiOrderHeader>(orderLista);
-            /*
-            string preserveReferenacesAll = JsonConvert.SerializeObject(order, Formatting.Indented, new JsonSerializerSettings
-            {
-                PreserveReferencesHandling = PreserveReferencesHandling.All
-            });
 
-            JObject json = JObject.Parse(preserveReferenacesAll);
-
-            //var result = Json(Newtonsoft.Json.JsonConvert.SerializeObject(order));
-            */
-            // JsonSerializerSettings settings = GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling.;
-            // GlobalConfiguration.Configuration.Formatters.JsonFormatter
             return Json<ApiOrderHeader>(order,jsonsettings);
 
         }
 
         public ApiOrderHeader Getprueba(string id)
-        {
+        {   
+            // 2019.11.12 - Este metodo no se utiliza, solo es para pruebas
+            // Este es un ejemplo retornando una clase que será convertida a Json
+            // y al convertirla utilizará los parametros de configuracion del WebApiConfig.cs
+            // config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Error;
+            // Este codigo Ignora los Loop en las clases que se hacen referencias una a otra, evitando redundancia.
             OrderHeader orderLista = serviceOrder.GetOrderHeader(id);
             ApiOrderHeader order = objMapper.CreateMapper().Map<ApiOrderHeader>(orderLista);
 

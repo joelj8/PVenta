@@ -14,7 +14,7 @@ namespace PVenta.WebApi
 
             //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             //json.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Error;
-            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Error;
     
 
             // Web API routes
