@@ -72,6 +72,15 @@ namespace PVenta.WebApi.Controllers
 
         }
 
+        public ApiOrderHeader Getprueba(string id)
+        {
+            OrderHeader orderLista = serviceOrder.GetOrderHeader(id);
+            ApiOrderHeader order = objMapper.CreateMapper().Map<ApiOrderHeader>(orderLista);
+
+            return order;
+
+        }
+
         [HttpPost]
         public MessageApp InsertOrder(ApiOrderHeader orderHeader)
         {

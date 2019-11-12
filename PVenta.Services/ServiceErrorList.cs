@@ -25,7 +25,7 @@ namespace PVenta.Services
             {
                 result = _dbcontext.ErrorLists.Where(x => !x.Inactivo).ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // Registrar en el log de errores
             }

@@ -24,6 +24,7 @@ namespace PVenta.Services
             try
             {
                 result = _dbcontext.OrderHeaders.Include("OrderDetails").Include("Mesa").Where(x => !x.Inactivo).ToList();
+                
             }
             catch (Exception)
             {
@@ -38,8 +39,9 @@ namespace PVenta.Services
             OrderHeader result = null;
             try
             {
-                result = _dbcontext.OrderHeaders.Include("OrderDetails")
+                result = _dbcontext.OrderHeaders.Include("OrderDetails").Include("Mesa")
                     .Where(x => !x.Inactivo && x.ID.Equals(id)).FirstOrDefault();
+                //result.OrderDetails = result.OrderDetails.Where(x => !x.Inactivo).ToList(); // Idea para el filtro
             }
             catch (Exception ex)
             {
