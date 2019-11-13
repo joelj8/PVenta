@@ -57,6 +57,7 @@
     <Compile Include="ServiceEventApp.cs" />
     <Compile Include="ServiceFormaPago.cs" />
     <Compile Include="ServiceLogEvento.cs" />
+    <Compile Include="ServiceLogin.cs" />
     <Compile Include="ServiceMesa.cs" />
     <Compile Include="ServiceMoneda.cs" />
     <Compile Include="ServiceOpcionesSist.cs" />

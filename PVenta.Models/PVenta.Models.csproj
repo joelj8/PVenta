@@ -49,6 +49,7 @@
     <Compile Include="ApiModels\ApiErrorList.cs" />
     <Compile Include="ApiModels\ApiFormaPago.cs" />
     <Compile Include="ApiModels\ApiLogEvento.cs" />
+    <Compile Include="ApiModels\ApiLogin.cs" />
     <Compile Include="ApiModels\ApiMesa.cs" />
     <Compile Include="ApiModels\ApiMoneda.cs" />
     <Compile Include="ApiModels\ApiOpcionesSist.cs" />

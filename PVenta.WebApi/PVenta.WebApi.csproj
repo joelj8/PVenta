@@ -171,6 +171,7 @@
     <Compile Include="Controllers\FormaPagoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogEventoController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MesaController.cs" />
     <Compile Include="Controllers\MonedaController.cs" />
     <Compile Include="Controllers\OpcionesSistController.cs" />
