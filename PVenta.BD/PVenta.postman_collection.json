@@ -1637,9 +1637,6 @@
 		},
 		{
 			"name": "GetOrders",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -1650,15 +1647,6 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:44343/api/Order/getOrders",
 					"protocol": "http",
@@ -1700,7 +1688,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Order/getOrder/2525",
+					"raw": "http://localhost:44343/api/Order/getOrder/e92cbeae-18d5-4403-8616-4da067e2f4a2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1710,7 +1698,7 @@
 						"api",
 						"Order",
 						"getOrder",
-						"2525"
+						"e92cbeae-18d5-4403-8616-4da067e2f4a2"
 					]
 				}
 			},
@@ -1730,7 +1718,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"Fecha\": \"10/02/2019\",\r\n\t\"UserId\": \"\",\r\n\t\"MesaId\": \"c27dadcc-3b7c-4bb5-928b-66427037d930\",\r\n\t\"ClientePrincipal\": \"Carlos Perez\",\r\n\t\"itbis\": true,\r\n\t\"itbisPorc\": 18,\r\n\t\"DescMonto\": 0,\r\n\t\"DescPorc\": 0,\r\n\t\"FechaRegistro\" : \"11/08/2019\",\r\n\t\"impreso\": false,\r\n\t\"inactivo\": false,\r\n\t\"OrderDetails\": [ \r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n\t\t\t\"Cantidad\": 1, \r\n\t\t\t\"Precio\": 50,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Carlos Perez\", \r\n\t\t\t\"Impreso\": false\r\n\t\t}\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"Fecha\": \"10/02/2019\",\r\n\t\"UserId\": \"\",\r\n\t\"MesaId\": \"c27dadcc-3b7c-4bb5-928b-66427037d930\",\r\n\t\"ClientePrincipal\": \"Carlos Perez\",\r\n\t\"itbis\": true,\r\n\t\"itbisPorc\": 18,\r\n\t\"DescMonto\": 0,\r\n\t\"DescPorc\": 0,\r\n\t\"FechaRegistro\" : \"11/08/2019\",\r\n\t\"impreso\": false,\r\n\t\"inactivo\": false,\r\n\t\"OrderDetails\": [ \r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n\t\t\t\"Cantidad\": 2, \r\n\t\t\t\"Precio\": 250,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Juan Santos\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n\t\t\t\"Cantidad\": 1, \r\n\t\t\t\"Precio\": 300,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Juan Santos\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"9ac83e5f-417c-4b81-b10f-2c6ea3a3d4fa\",\r\n\t\t\t\"Cantidad\": 1, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Manuel Santos\", \r\n\t\t\t\"Impreso\": false\r\n\t\t}\t\t\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1748,6 +1736,270 @@
 						"api",
 						"Order",
 						"InsertOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n    \"Fecha\": \"2019-10-02\",\r\n    \"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\r\n    \"MesaId\": \"00c814a2-fcac-48dc-b377-eb157ad1b2ce\",\r\n    \"ClientePrincipal\": \"Felipe Gonzalez\",\r\n    \"Itbis\": true,\r\n    \"ItbisPorc\": 18.00,\r\n    \"DescMonto\": 0.00,\r\n    \"DescPorc\": 0.00,\r\n    \"FechaRegistro\": \"2019-11-11\",\r\n    \"Impreso\": false,\r\n    \"Inactivo\": false,\r\n    \"OrderDetails\": [\r\n    \t{\r\n            \"ID\": \"7afa0075-b76a-4c61-bc3b-4c3d2ae3812c\",\r\n            \"OrderHID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n            \"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n            \"Cantidad\": 3.00,\r\n            \"Precio\": 175.00,\r\n            \"ImpComanda\": false,\r\n            \"ClientePedido\": \"Rafael Fernandez\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false\r\n        },\r\n\t\t{\r\n            \"ID\": \"86afdcae-b985-4b9c-bdae-14bc9a4a32af\",\r\n            \"OrderHID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n            \"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n            \"Cantidad\": 2.00,\r\n            \"Precio\": 200.00,\r\n            \"ImpComanda\": true,\r\n            \"ClientePedido\": \"Carlos Santana\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false\r\n        },\r\n        {\r\n            \"ID\": \"4fa7d3ab-d17c-40f1-9e52-d01db7b16aa9\",\r\n            \"OrderHID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n            \"ProductoID\": \"7f41a11d-69cf-44b6-9f86-fcf6b3f7b2f7\",\r\n            \"Cantidad\": 8.00,\r\n            \"Precio\": 200.00,\r\n            \"ImpComanda\": false,\r\n            \"ClientePedido\": \"Luis Santana\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/Order/UpdateOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Order",
+						"UpdateOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Order/DeleteOrder/25ab94a6-c5bf-49f0-a48c-1d4752fa3336",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Order",
+						"DeleteOrder",
+						"25ab94a6-c5bf-49f0-a48c-1d4752fa3336"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFormaPagos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/FormaPago/GetFormaPagos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"FormaPago",
+						"GetFormaPagos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFormaPago",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/FormaPago/GetFormaPago/73e0dc4a-aaa8-4f14-a05d-fb21df4302a6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"FormaPago",
+						"GetFormaPago",
+						"73e0dc4a-aaa8-4f14-a05d-fb21df4302a6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertFormaPago",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"Cheque\",\r\n  \"MonedaID\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/FormaPago/InsertFormaPago",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"FormaPago",
+						"InsertFormaPago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateFormaPago",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"73e0dc4a-aaa8-4f14-a05d-fb21df4302a6\",\r\n  \"Descripcion\": \"Tarjetas\",\r\n  \"MonedaID\": \"83ce7ed0-1014-45d5-9431-374525a0db9b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:44343/api/FormaPago/UpdateFormaPago",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"FormaPago",
+						"UpdateFormaPago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteFormaPago",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/FormaPago/DeleteFormaPago/9a133aad-5708-42db-a41b-b4b81bf76c0f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"FormaPago",
+						"DeleteFormaPago",
+						"9a133aad-5708-42db-a41b-b4b81bf76c0f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:44343/api/Login/singin?usuario=Adm&password=*********",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"api",
+						"Login",
+						"singin"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "Adm"
+						},
+						{
+							"key": "password",
+							"value": "*********"
+						}
 					]
 				}
 			},

@@ -14,6 +14,8 @@ namespace PVenta.Models.ApiModels
 
         public string NombreCorto { get; set; }
 
+        public string Referencia { get; set; }
+
         public string Precio { get; set; }
 
         public string CategoriaId { get; set; }

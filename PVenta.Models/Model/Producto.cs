@@ -28,6 +28,12 @@ namespace PVenta.Models.Model
         [DisplayName("Nombre Corte Producto")]
         public string NombreCorto { get; set; }
 
+        [Column("Referencia", TypeName = "varchar")]
+        [MaxLength(20)]
+        [Required(ErrorMessage = "Referencia del Producto es requerido")]
+        [DisplayName("Referencia Producto")]
+        public string Referencia { get; set; }
+
         [Column("Precio")]
         [DisplayName("Precio Producto")]
         public string Precio { get; set; }
