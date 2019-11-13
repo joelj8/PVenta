@@ -26,15 +26,15 @@ namespace PVenta.DAL
         public virtual DbSet<Producto> Productos { get; set; }
         public virtual DbSet<OrderHeader> OrderHeaders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-
         public virtual DbSet<FacturaHeader> FacturaHeaders { get; set; }
         public virtual DbSet<FacturaDetail> FacturaDetails { get; set; }
         public virtual DbSet<FacturaPayment> FacturaPayments { get; set; }
         public virtual DbSet<CuadreHeader> CuadreHeaders { get; set; }
         public virtual DbSet<CuadreDetail> CuadreDetails { get; set; }
         public virtual DbSet<ErrorList> ErrorLists { get; set; }
+        public virtual DbSet<FormaPago> FormaPagos { get; set; }
 
-        
+
 
 
 

@@ -20,12 +20,16 @@ namespace PVenta.Models.Model
         [Column("FacturaHID", TypeName = "varchar")]
         [Required(ErrorMessage = "Factura Header es requerida")]
         [MaxLength(50)]
-        [DisplayName("Header de Factura")]
+        [DisplayName("ID Header de Factura")]
         public string FacturaHID { get; set; }
 
-        [NotMapped]
         [ForeignKey("FacturaHID")]
         public FacturaHeader FacturaHeader { get; set; }
+
+        [Column("OrderDID", TypeName = "varchar")]
+        [MaxLength(50)]
+        [DisplayName("ID Detail de Order")]
+        public string OrderDID { get; set; }
 
         [Column("ProductoID", TypeName = "varchar")]
         [Required(ErrorMessage = "Producto es requerido")]
@@ -33,7 +37,6 @@ namespace PVenta.Models.Model
         [DisplayName("Producto de Factura")]
         public string ProductoID { get; set; }
 
-        [NotMapped]
         public virtual Producto producto { get; set; }
 
         [Column("Cantidad")]

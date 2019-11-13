@@ -32,6 +32,7 @@ namespace PVenta.WebApi.Controllers
 
         public JsonResult<List<ApiMoneda>> GetMonedas()
         {
+           
             List<Moneda> monedaLista = serviceMoneda.GetMonedas();
             List<ApiMoneda> moneda = objMapper.CreateMapper().Map<List<ApiMoneda>>(monedaLista);
             return Json<List<ApiMoneda>>(moneda);
@@ -47,35 +48,35 @@ namespace PVenta.WebApi.Controllers
         [HttpPost]
         public MessageApp InsertMoneda(ApiMoneda moneda)
         {
-            MessageApp resultInsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Moneda monedaInsert = objMapper.CreateMapper().Map<Moneda>(moneda);
-                resultInsert = serviceMoneda.InsertMoneda(monedaInsert);
+                result = serviceMoneda.InsertMoneda(monedaInsert);
             }
 
-            return resultInsert;
+            return result;
         }
 
         [HttpPost]
         public MessageApp UpdateMoneda(ApiMoneda moneda)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Moneda monedaUpdate = objMapper.CreateMapper().Map<Moneda>(moneda);
-                resultUpdate = serviceMoneda.UpdateMoneda(monedaUpdate);
+                result = serviceMoneda.UpdateMoneda(monedaUpdate);
             }
-            return resultUpdate;
+            return result;
         }
 
         [HttpPost]
         public MessageApp DeleteMoneda(string id)
         {
-            MessageApp resultDelete = null;
-            resultDelete = serviceMoneda.DeleteMoneda(id); 
+            MessageApp result = null;
+            result = serviceMoneda.DeleteMoneda(id); 
 
-            return resultDelete;
+            return result;
         }
 
     }

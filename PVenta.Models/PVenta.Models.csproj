@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ApiModels\ApiCategoria.cs" />
     <Compile Include="ApiModels\ApiErrorList.cs" />
+    <Compile Include="ApiModels\ApiFormaPago.cs" />
     <Compile Include="ApiModels\ApiLogEvento.cs" />
     <Compile Include="ApiModels\ApiMesa.cs" />
     <Compile Include="ApiModels\ApiMoneda.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Model\FacturaDetail.cs" />
     <Compile Include="Model\FacturaHeader.cs" />
     <Compile Include="Model\FacturaPayment.cs" />
+    <Compile Include="Model\FormaPago.cs" />
     <Compile Include="Model\LogEvento.cs" />
     <Compile Include="Model\Mesa.cs" />
     <Compile Include="Model\Moneda.cs" />
