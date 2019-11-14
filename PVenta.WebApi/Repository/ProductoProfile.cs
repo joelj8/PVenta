@@ -16,6 +16,7 @@ namespace PVenta.WebApi.Repository
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.ID))
                 .ForMember(dest => dest.Nombre, opts => opts.MapFrom(src => src.Nombre))
                 .ForMember(dest => dest.NombreCorto, opts => opts.MapFrom(src => src.NombreCorto))
+                .ForMember(dest => dest.Referencia, opts => opts.MapFrom(src => src.Referencia))
                 .ForMember(dest => dest.Precio, opts => opts.MapFrom(src => src.Precio))
                 .ForMember(dest => dest.CategoriaId, opts => opts.MapFrom(src => src.CategoriaId))
                 .ForMember(dest => dest.Categoria, opts => opts.MapFrom(src => src.Categoria))

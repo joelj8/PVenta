@@ -88,6 +88,7 @@ namespace PVenta.Services
                     {
                         productoUpdate.Nombre = productoUpd.Nombre;
                         productoUpdate.NombreCorto = productoUpd.NombreCorto;
+                        productoUpdate.Referencia = productoUpd.Referencia;
                         productoUpdate.Precio = productoUpd.Precio;
                         productoUpdate.CategoriaId = productoUpd.CategoriaId;
                         productoUpdate.esAdicional = productoUpd.esAdicional;
@@ -148,8 +149,9 @@ namespace PVenta.Services
             try
             {
                 resultList = _dbcontext.Productos.Where(x => !x.Inactivo && x.ID != productoFind.ID &&
-                                                    (x.Nombre.Equals(productoFind.Nombre) ||
-                                                     x.NombreCorto.Equals(productoFind.NombreCorto))).ToList();
+                                                    (x.Nombre.ToLower().Equals(productoFind.Nombre.ToLower()) ||
+                                                     x.NombreCorto.ToLower().Equals(productoFind.NombreCorto.ToLower()) ||
+                                                     x.Referencia.ToLower().Equals(productoFind.Referencia.ToLower()))).ToList();
             }
             catch (Exception ex)
             {
