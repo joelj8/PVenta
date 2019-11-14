@@ -1,4 +1,5 @@
 ﻿using PVenta.Models.ApiModels;
+using PVenta.Models.ViewModel;
 using PVenta.Services;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,9 @@ namespace PVenta.WebApi.Controllers
             serviceLogin = new ServiceLogin();
         }
 
-        public ApiLogin SingIn(string usuario, string password)
+        public ApiLogin SingIn(ApiSignIn userlogin )
         {
-            ApiLogin result = serviceLogin.LoginUser(usuario, password);
+            ApiLogin result = serviceLogin.LoginUser(userlogin.Usuario, userlogin.Password);
             return result;
         }
     }

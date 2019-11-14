@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PVenta.WebApi", "PVenta.Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PVenta.Utility", "PVenta.Utility\PVenta.Utility.csproj", "{9C6371DE-5959-4155-AA39-B3170CAF2AE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PVenta.WindForm", "PVenta.WindForm\PVenta.WindForm.csproj", "{CECDD75C-6B0C-412E-B2F1-6AFAAF11CF79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9C6371DE-5959-4155-AA39-B3170CAF2AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C6371DE-5959-4155-AA39-B3170CAF2AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C6371DE-5959-4155-AA39-B3170CAF2AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECDD75C-6B0C-412E-B2F1-6AFAAF11CF79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECDD75C-6B0C-412E-B2F1-6AFAAF11CF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECDD75C-6B0C-412E-B2F1-6AFAAF11CF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECDD75C-6B0C-412E-B2F1-6AFAAF11CF79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

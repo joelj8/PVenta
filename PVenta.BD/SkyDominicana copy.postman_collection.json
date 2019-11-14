@@ -1,0 +1,711 @@
+{
+	"info": {
+		"_postman_id": "3c0c4d4b-7ca6-4e1a-bb4c-c6c5a1d2f76e",
+		"name": "SkyDominicana copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sky V2",
+			"item": []
+		},
+		{
+			"name": "Consulta_Sky",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Api HMAC",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "da9ba960-fcb9-4460-a23a-0d7ffe39c448",
+						"exec": [
+							"// Set Date\r",
+							"pm.environment.set(\"date\", new Date().toUTCString());\r",
+							"//pm.environment.set(\"date\", \"Thu, 16 May 2019 14:00:43 GMT\");\r",
+							"var date = pm.environment.get(\"date\");\r",
+							"\r",
+							"// Get Environment variables\r",
+							"var publicKey = '243fe439bd150fc775d2afe96b19f1aa'; //pm.environment.get(\"public_key\");\r",
+							"var privateKey = 'Fr/3lUUBF8j8uwmxD1IKuozf3eHTFppxUrNtnSgXgQ+uuJri/5mWU6eF2qw2sn/EPFuANxTLm4kStDfq1465RA==';//pm.environment.get(\"private_key\");\r",
+							"\r",
+							"// Set your headers here\r",
+							"var headersMap = new Map();\r",
+							"headersMap.set('date', date);\r",
+							"headersMap.set('content-type', 'application/json');\r",
+							"\r",
+							"// iterate over the headers map and create the header string\r",
+							"var headersArr = [];\r",
+							"var headersNames = [];\r",
+							"headersMap.forEach(function(value, key) {\r",
+							"    headersArr.push(key + ': ' + value);\r",
+							"    headersNames.push(key);\r",
+							"});\r",
+							"var sHeaders = headersArr.join('\\n');\r",
+							"var headersLabel = headersNames.join(' ');\r",
+							"\r",
+							"// sign the header string\r",
+							"//var signature = generateSignature(sHeaders, privateKey);\r",
+							"var signature = generateSignature('application/json,,/account,'+date, privateKey);\r",
+							"//signature = 'v1yi0YfWxCBTmxAndsDmX0ScpO8=';\r",
+							"\r",
+							"// generate authorization string\r",
+							"//var authorization = 'Signature keyid=\"' + publicKey + '\",algorithm=\"hmac-sha1\",headers=\"' + headersLabel + '\",signature=\"' + signature + '\"';\r",
+							"var authorization = 'APIAuth '+ publicKey +':'+ signature;\r",
+							"// log results for debugging\r",
+							"console.log('signature: ' + signature);\r",
+							"console.log('authorization: ' + authorization);\r",
+							"\r",
+							"// finally, set the authorization signature\r",
+							"pm.environment.set(\"authString\", authorization);\r",
+							"\r",
+							"// functions\r",
+							"function generateSignature(message, key) {\r",
+							"    console.log('generateSignature(\"' + message + '\", ' + key + ');');\r",
+							"    var enc = CryptoJS.HmacSHA1(message, key).toString(CryptoJS.enc.Base64);\r",
+							"    return enc;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Signature keyid=\"243fe439bd150fc775d2afe96b19f1aa\",algorithm=\"hmac-sha1\",headers=\"date content-type\",signature=\"QFcf+ey+7M80NCX3EZHdsXzyy7U=\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.regalii.v1.6+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-MD5",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{date}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authString}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.staging.arcusapi.com/account",
+					"protocol": "https",
+					"host": [
+						"api",
+						"staging",
+						"arcusapi",
+						"com"
+					],
+					"path": [
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "da9ba960-fcb9-4460-a23a-0d7ffe39c448",
+						"exec": [
+							"// Set Date\r",
+							"pm.environment.set(\"date\", new Date().toUTCString());\r",
+							"//pm.environment.set(\"date\", \"Thu, 16 May 2019 14:00:43 GMT\");\r",
+							"var date = pm.environment.get(\"date\");\r",
+							"\r",
+							"// Get Environment variables\r",
+							"var publicKey = '243fe439bd150fc775d2afe96b19f1aa'; //pm.environment.get(\"public_key\");\r",
+							"var privateKey = 'Fr/3lUUBF8j8uwmxD1IKuozf3eHTFppxUrNtnSgXgQ+uuJri/5mWU6eF2qw2sn/EPFuANxTLm4kStDfq1465RA==';//pm.environment.get(\"private_key\");\r",
+							"\r",
+							"// Set your headers here\r",
+							"var headersMap = new Map();\r",
+							"headersMap.set('date', date);\r",
+							"headersMap.set('content-type', 'application/json');\r",
+							"\r",
+							"// iterate over the headers map and create the header string\r",
+							"var headersArr = [];\r",
+							"var headersNames = [];\r",
+							"headersMap.forEach(function(value, key) {\r",
+							"    headersArr.push(key + ': ' + value);\r",
+							"    headersNames.push(key);\r",
+							"});\r",
+							"var sHeaders = headersArr.join('\\n');\r",
+							"var headersLabel = headersNames.join(' ');\r",
+							"\r",
+							"// sign the header string\r",
+							"//var signature = generateSignature(sHeaders, privateKey);\r",
+							"var signature = generateSignature('application/json,,/bill/consult,'+date, privateKey);\r",
+							"//signature = 'v1yi0YfWxCBTmxAndsDmX0ScpO8=';\r",
+							"\r",
+							"// generate authorization string\r",
+							"//var authorization = 'Signature keyid=\"' + publicKey + '\",algorithm=\"hmac-sha1\",headers=\"' + headersLabel + '\",signature=\"' + signature + '\"';\r",
+							"var authorization = 'APIAuth '+ publicKey +':'+ signature;\r",
+							"// log results for debugging\r",
+							"console.log('signature: ' + signature);\r",
+							"console.log('authorization: ' + authorization);\r",
+							"\r",
+							"// finally, set the authorization signature\r",
+							"pm.environment.set(\"authString\", authorization);\r",
+							"\r",
+							"// functions\r",
+							"function generateSignature(message, key) {\r",
+							"    console.log('generateSignature(\"' + message + '\", ' + key + ');');\r",
+							"    var enc = CryptoJS.HmacSHA1(message, key).toString(CryptoJS.enc.Base64);\r",
+							"    return enc;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Signature keyid=\"243fe439bd150fc775d2afe96b19f1aa\",algorithm=\"hmac-sha1\",headers=\"date content-type\",signature=\"QFcf+ey+7M80NCX3EZHdsXzyy7U=\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.regalii.v1.6+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-MD5",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{date}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authString}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"biller_id\": 6891,\r\n  \"account_number\": \"501137463144\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "https://api.staging.arcusapi.com/bill/consult",
+					"protocol": "https",
+					"host": [
+						"api",
+						"staging",
+						"arcusapi",
+						"com"
+					],
+					"path": [
+						"bill",
+						"consult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pago",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "db1adb6e-a5fa-4333-a902-34c30dad31d8",
+						"exec": [
+							"// Set Date\r",
+							"pm.environment.set(\"date\", new Date().toUTCString());\r",
+							"//pm.environment.set(\"date\", \"Thu, 16 May 2019 14:00:43 GMT\");\r",
+							"var date = pm.environment.get(\"date\");\r",
+							"\r",
+							"// Get Environment variables\r",
+							"var publicKey = '243fe439bd150fc775d2afe96b19f1aa'; //pm.environment.get(\"public_key\");\r",
+							"var privateKey = 'Fr/3lUUBF8j8uwmxD1IKuozf3eHTFppxUrNtnSgXgQ+uuJri/5mWU6eF2qw2sn/EPFuANxTLm4kStDfq1465RA==';//pm.environment.get(\"private_key\");\r",
+							"\r",
+							"// Set your headers here\r",
+							"var headersMap = new Map();\r",
+							"headersMap.set('date', date);\r",
+							"headersMap.set('content-type', 'application/json');\r",
+							"\r",
+							"// iterate over the headers map and create the header string\r",
+							"var headersArr = [];\r",
+							"var headersNames = [];\r",
+							"headersMap.forEach(function(value, key) {\r",
+							"    headersArr.push(key + ': ' + value);\r",
+							"    headersNames.push(key);\r",
+							"});\r",
+							"var sHeaders = headersArr.join('\\n');\r",
+							"var headersLabel = headersNames.join(' ');\r",
+							"\r",
+							"// sign the header string\r",
+							"//var signature = generateSignature(sHeaders, privateKey);\r",
+							"var signature = generateSignature('application/json,,/bill/pay,'+date, privateKey);\r",
+							"//signature = 'v1yi0YfWxCBTmxAndsDmX0ScpO8=';\r",
+							"\r",
+							"// generate authorization string\r",
+							"//var authorization = 'Signature keyid=\"' + publicKey + '\",algorithm=\"hmac-sha1\",headers=\"' + headersLabel + '\",signature=\"' + signature + '\"';\r",
+							"var authorization = 'APIAuth '+ publicKey +':'+ signature;\r",
+							"// log results for debugging\r",
+							"console.log('signature: ' + signature);\r",
+							"console.log('authorization: ' + authorization);\r",
+							"\r",
+							"// finally, set the authorization signature\r",
+							"pm.environment.set(\"authString\", authorization);\r",
+							"\r",
+							"// functions\r",
+							"function generateSignature(message, key) {\r",
+							"    console.log('generateSignature(\"' + message + '\", ' + key + ');');\r",
+							"    var enc = CryptoJS.HmacSHA1(message, key).toString(CryptoJS.enc.Base64);\r",
+							"    return enc;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Signature keyid=\"243fe439bd150fc775d2afe96b19f1aa\",algorithm=\"hmac-sha1\",headers=\"date content-type\",signature=\"QFcf+ey+7M80NCX3EZHdsXzyy7U=\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.regalii.v1.6+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-MD5",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{date}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authString}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"biller_id\": 6891,\r\n  \"account_number\": \"501137463144\",\r\n  \"amount\": 200.000,\r\n  \"currency\": \"DOP\",\r\n  \"external_id\": \"84bce950-c878-483e-aeca-41217f969301\",\r\n  \"pos_number\": \"IBP\",\r\n  \"payment_method\": \"001\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.staging.arcusapi.com/bill/pay",
+					"protocol": "https",
+					"host": [
+						"api",
+						"staging",
+						"arcusapi",
+						"com"
+					],
+					"path": [
+						"bill",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reverso",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5e791a1e-901d-45c1-83f3-23fa922d68cb",
+						"exec": [
+							"// Set Date\r",
+							"pm.environment.set(\"date\", new Date().toUTCString());\r",
+							"//pm.environment.set(\"date\", \"Thu, 16 May 2019 14:00:43 GMT\");\r",
+							"var date = pm.environment.get(\"date\");\r",
+							"\r",
+							"// Get Environment variables\r",
+							"var publicKey = '243fe439bd150fc775d2afe96b19f1aa'; //pm.environment.get(\"public_key\");\r",
+							"var privateKey = 'Fr/3lUUBF8j8uwmxD1IKuozf3eHTFppxUrNtnSgXgQ+uuJri/5mWU6eF2qw2sn/EPFuANxTLm4kStDfq1465RA==';//pm.environment.get(\"private_key\");\r",
+							"\r",
+							"// Set your headers here\r",
+							"var headersMap = new Map();\r",
+							"headersMap.set('date', date);\r",
+							"headersMap.set('content-type', 'application/json');\r",
+							"\r",
+							"// iterate over the headers map and create the header string\r",
+							"var headersArr = [];\r",
+							"var headersNames = [];\r",
+							"headersMap.forEach(function(value, key) {\r",
+							"    headersArr.push(key + ': ' + value);\r",
+							"    headersNames.push(key);\r",
+							"});\r",
+							"var sHeaders = headersArr.join('\\n');\r",
+							"var headersLabel = headersNames.join(' ');\r",
+							"\r",
+							"// sign the header string\r",
+							"//var signature = generateSignature(sHeaders, privateKey);\r",
+							"var signature = generateSignature('application/json,,/transaction/cancel,'+date, privateKey);\r",
+							"//signature = 'v1yi0YfWxCBTmxAndsDmX0ScpO8=';\r",
+							"\r",
+							"// generate authorization string\r",
+							"//var authorization = 'Signature keyid=\"' + publicKey + '\",algorithm=\"hmac-sha1\",headers=\"' + headersLabel + '\",signature=\"' + signature + '\"';\r",
+							"var authorization = 'APIAuth '+ publicKey +':'+ signature;\r",
+							"// log results for debugging\r",
+							"console.log('signature: ' + signature);\r",
+							"console.log('authorization: ' + authorization);\r",
+							"\r",
+							"// finally, set the authorization signature\r",
+							"pm.environment.set(\"authString\", authorization);\r",
+							"\r",
+							"// functions\r",
+							"function generateSignature(message, key) {\r",
+							"    console.log('generateSignature(\"' + message + '\", ' + key + ');');\r",
+							"    var enc = CryptoJS.HmacSHA1(message, key).toString(CryptoJS.enc.Base64);\r",
+							"    return enc;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.regalii.v1.6+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-MD5",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{date}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authString}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 70096\r\n}"
+				},
+				"url": {
+					"raw": "https://api.staging.arcusapi.com/transaction/cancel",
+					"protocol": "https",
+					"host": [
+						"api",
+						"staging",
+						"arcusapi",
+						"com"
+					],
+					"path": [
+						"transaction",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "utilities",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0acc131f-9037-40d9-ab2a-e49dccf74ad5",
+						"exec": [
+							"// Set Date\r",
+							"pm.environment.set(\"date\", new Date().toUTCString());\r",
+							"//pm.environment.set(\"date\", \"Thu, 16 May 2019 14:00:43 GMT\");\r",
+							"var date = pm.environment.get(\"date\");\r",
+							"\r",
+							"// Get Environment variables\r",
+							"var publicKey = '243fe439bd150fc775d2afe96b19f1aa'; //pm.environment.get(\"public_key\");\r",
+							"var privateKey = 'Fr/3lUUBF8j8uwmxD1IKuozf3eHTFppxUrNtnSgXgQ+uuJri/5mWU6eF2qw2sn/EPFuANxTLm4kStDfq1465RA==';//pm.environment.get(\"private_key\");\r",
+							"\r",
+							"// Set your headers here\r",
+							"var headersMap = new Map();\r",
+							"headersMap.set('date', date);\r",
+							"headersMap.set('content-type', 'application/json');\r",
+							"\r",
+							"// iterate over the headers map and create the header string\r",
+							"var headersArr = [];\r",
+							"var headersNames = [];\r",
+							"headersMap.forEach(function(value, key) {\r",
+							"    headersArr.push(key + ': ' + value);\r",
+							"    headersNames.push(key);\r",
+							"});\r",
+							"var sHeaders = headersArr.join('\\n');\r",
+							"var headersLabel = headersNames.join(' ');\r",
+							"\r",
+							"// sign the header string\r",
+							"//var signature = generateSignature(sHeaders, privateKey);\r",
+							"var signature = generateSignature('application/json,,/billers/utilities,'+date, privateKey);\r",
+							"//signature = 'v1yi0YfWxCBTmxAndsDmX0ScpO8=';\r",
+							"\r",
+							"// generate authorization string\r",
+							"//var authorization = 'Signature keyid=\"' + publicKey + '\",algorithm=\"hmac-sha1\",headers=\"' + headersLabel + '\",signature=\"' + signature + '\"';\r",
+							"var authorization = 'APIAuth '+ publicKey +':'+ signature;\r",
+							"// log results for debugging\r",
+							"console.log('signature: ' + signature);\r",
+							"console.log('authorization: ' + authorization);\r",
+							"\r",
+							"// finally, set the authorization signature\r",
+							"pm.environment.set(\"authString\", authorization);\r",
+							"\r",
+							"// functions\r",
+							"function generateSignature(message, key) {\r",
+							"    console.log('generateSignature(\"' + message + '\", ' + key + ');');\r",
+							"    var enc = CryptoJS.HmacSHA1(message, key).toString(CryptoJS.enc.Base64);\r",
+							"    return enc;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.regalii.v1.6+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-MD5",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{date}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authString}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.staging.arcusapi.com/billers/utilities",
+					"protocol": "https",
+					"host": [
+						"api",
+						"staging",
+						"arcusapi",
+						"com"
+					],
+					"path": [
+						"billers",
+						"utilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ef3b204a-a60d-4787-b296-71a0875d74c9",
+						"exec": [
+							"// Set Date\r",
+							"pm.environment.set(\"date\", new Date().toUTCString());\r",
+							"//pm.environment.set(\"date\", \"Thu, 16 May 2019 14:00:43 GMT\");\r",
+							"var date = pm.environment.get(\"date\");\r",
+							"\r",
+							"// Get Environment variables\r",
+							"var publicKey = '243fe439bd150fc775d2afe96b19f1aa'; //pm.environment.get(\"public_key\");\r",
+							"var privateKey = 'Fr/3lUUBF8j8uwmxD1IKuozf3eHTFppxUrNtnSgXgQ+uuJri/5mWU6eF2qw2sn/EPFuANxTLm4kStDfq1465RA==';//pm.environment.get(\"private_key\");\r",
+							"\r",
+							"// Set your headers here\r",
+							"var headersMap = new Map();\r",
+							"headersMap.set('date', date);\r",
+							"headersMap.set('content-type', 'application/json');\r",
+							"\r",
+							"// iterate over the headers map and create the header string\r",
+							"var headersArr = [];\r",
+							"var headersNames = [];\r",
+							"headersMap.forEach(function(value, key) {\r",
+							"    headersArr.push(key + ': ' + value);\r",
+							"    headersNames.push(key);\r",
+							"});\r",
+							"var sHeaders = headersArr.join('\\n');\r",
+							"var headersLabel = headersNames.join(' ');\r",
+							"\r",
+							"// sign the header string\r",
+							"//var signature = generateSignature(sHeaders, privateKey);\r",
+							"var signature = generateSignature('application/json,,/bill/check,'+date, privateKey);\r",
+							"//signature = 'v1yi0YfWxCBTmxAndsDmX0ScpO8=';\r",
+							"\r",
+							"// generate authorization string\r",
+							"//var authorization = 'Signature keyid=\"' + publicKey + '\",algorithm=\"hmac-sha1\",headers=\"' + headersLabel + '\",signature=\"' + signature + '\"';\r",
+							"var authorization = 'APIAuth '+ publicKey +':'+ signature;\r",
+							"// log results for debugging\r",
+							"console.log('signature: ' + signature);\r",
+							"console.log('authorization: ' + authorization);\r",
+							"\r",
+							"// finally, set the authorization signature\r",
+							"pm.environment.set(\"authString\", authorization);\r",
+							"\r",
+							"// functions\r",
+							"function generateSignature(message, key) {\r",
+							"    console.log('generateSignature(\"' + message + '\", ' + key + ');');\r",
+							"    var enc = CryptoJS.HmacSHA1(message, key).toString(CryptoJS.enc.Base64);\r",
+							"    return enc;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Signature keyid=\"243fe439bd150fc775d2afe96b19f1aa\",algorithm=\"hmac-sha1\",headers=\"date content-type\",signature=\"QFcf+ey+7M80NCX3EZHdsXzyy7U=\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.regalii.v1.6+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-MD5",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{date}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authString}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"biller_id\": 6891,\r\n \"account_number\":\"501137463144\",\r\n \"amount\": 10\r\n\t\r\n}"
+				},
+				"url": {
+					"raw": "https://api.staging.arcusapi.com/bill/check",
+					"protocol": "https",
+					"host": [
+						"api",
+						"staging",
+						"arcusapi",
+						"com"
+					],
+					"path": [
+						"bill",
+						"check"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -23,7 +23,7 @@ namespace PVenta.Services
             try
             {
                var userReg = _dbcontext.Usuarios.Where(x => !x.Inactivo && x.UserId.Equals(userid) &&
-                                          x.Pwduser.Equals(pssword)).FirstOrDefault();
+                                          x.Pwduser.Equals(pssword,StringComparison.Ordinal)).FirstOrDefault();
                 if(userReg != null)
                 {
                     result = new ApiLogin();

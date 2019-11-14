@@ -30,12 +30,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Rol/getRoles",
+					"raw": "http://{{domain}}/api/Rol/getRoles",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Rol",
@@ -70,12 +69,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Rol/getRol/dd4a7cc0-4799-49a6-93e8-c862dd5996a4",
+					"raw": "http://{{domain}}/api/Rol/getRol/dd4a7cc0-4799-49a6-93e8-c862dd5996a4",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Rol",
@@ -100,7 +98,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"ID\": \"754df835-ee34-4a8f-a659-7e824437742b\",\r\n        \"Nombre\": \"Prueba Adm\",\r\n        \"Modificable\": true,\r\n        \"Inactivo\": false\r\n    }",
+					"raw": "{\r\n        \"ID\": \"c7ec70dc-7d60-4a93-8a75-8cc9e7379e40\",\r\n        \"Nombre\": \"Prueba Error\",\r\n        \"Modificable\": true,\r\n        \"Inactivo\": true\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -108,12 +106,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Rol/UpdateRol",
+					"raw": "http://{{domain}}/api/Rol/UpdateRol",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Rol",
@@ -145,12 +142,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Rol/Insertrol",
+					"raw": "http://{{domain}}/api/Rol/Insertrol",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Rol",
@@ -182,17 +178,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Rol/DeleteRol/754df835-ee34-4a8f-a659-7e824437742b",
+					"raw": "http://{{domain}}/api/Rol/DeleteRol/c7ec70dc-7d60-4a93-8a75-8cc9e7379e40",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Rol",
 						"DeleteRol",
-						"754df835-ee34-4a8f-a659-7e824437742b"
+						"c7ec70dc-7d60-4a93-8a75-8cc9e7379e40"
 					]
 				}
 			},
@@ -223,12 +218,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Usuario/getUsuarios",
+					"raw": "http://{{domain}}/api/Usuario/getUsuarios",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Usuario",
@@ -1488,12 +1482,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/Producto/GetProductos",
+					"raw": "http://{{domain}}/api/Producto/GetProductos",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Producto",
@@ -1546,7 +1539,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Nombre\": \"Cerveza Corona\",\r\n  \"NombreCorto\": \"Cerveza Corona\",\r\n  \"Precio\": 200.00,\r\n  \"CategoriaId\": \"0d1ac144-5525-40de-b5f1-f8431b882f70\",\r\n  \"ImpComanda\": false,\r\n  \"esAdicional\": false\r\n  \r\n}",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Nombre\": \"Cerveza Heineken\",\r\n  \"NombreCorto\": \"Cerveza Heineken\",\r\n  \"Referencia\": \"B004\",\r\n  \"Precio\": 200.00,\r\n  \"CategoriaId\": \"0d1ac144-5525-40de-b5f1-f8431b882f70\",\r\n  \"ImpComanda\": false,\r\n  \"esAdicional\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1554,12 +1547,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Producto/InsertProducto",
+					"raw": "http://{{domain}}/api/Producto/InsertProducto",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Producto",
@@ -1583,7 +1575,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n    \"Nombre\": \"Deditos de Mozarella\",\r\n    \"NombreCorto\": \"Deditos de Mozarella\",\r\n    \"Precio\": \"150.00\",\r\n    \"CategoriaId\": \"5245f873-c743-4096-a0f6-e358014685d6\",\r\n    \"ImpComanda\": true,\r\n    \"esAdicional\": false,\r\n    \"Inactivo\": false\r\n}",
+					"raw": "    {\r\n        \"ID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n        \"Nombre\": \"Deditos de Mozarella\",\r\n        \"NombreCorto\": \"Deditos de Mozarella\",\r\n        \"Referencia\": \"E001\",\r\n        \"Precio\": \"150.00\",\r\n        \"CategoriaId\": \"5245f873-c743-4096-a0f6-e358014685d6\",\r\n        \"ImpComanda\": true,\r\n        \"esAdicional\": false,\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1979,27 +1971,25 @@
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Usuario\": \"Adm\",\n\t\"Password\": \"ADm\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:44343/api/Login/singin?usuario=Adm&password=*********",
+					"raw": "http://{{domain}}/api/Login/singin",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Login",
 						"singin"
-					],
-					"query": [
-						{
-							"key": "usuario",
-							"value": "Adm"
-						},
-						{
-							"key": "password",
-							"value": "*********"
-						}
 					]
 				}
 			},
