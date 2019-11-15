@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Newtonsoft.Json;
 using PVenta.Models.ApiModels;
 using PVenta.Models.Model;
 using PVenta.Services;
@@ -18,10 +19,13 @@ namespace PVenta.WebApi.Controllers
     {
         private readonly AutoMapper.MapperConfiguration objMapper;
         private readonly ServiceLogEvento serviceLogEvento;
+        private readonly JsonSerializerSettings jsonsettings;
 
         public LogEventoController()
         {
             serviceLogEvento = new ServiceLogEvento();
+            jsonsettings = new JsonSerializerSettings();
+            jsonsettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 
             List<Profile> profileList = new List<Profile>();
             profileList.Add(new LogEventoProfile());
@@ -30,6 +34,8 @@ namespace PVenta.WebApi.Controllers
             profileList.Add(new MUsuarioProfile());
             profileList.Add(new RolProfile());
             profileList.Add(new MRolProfile());
+            profileList.Add(new ErrorListProfile());
+            profileList.Add(new MErrorListProfile());
 
             objMapper = new MapperConfiguration(i => i.AddProfiles(profileList));
 
@@ -39,14 +45,14 @@ namespace PVenta.WebApi.Controllers
         {
             List<LogEvento> logEventosLista = serviceLogEvento.GetLogEventos();
             List<ApiLogEvento> logEventos = objMapper.CreateMapper().Map<List<ApiLogEvento>>(logEventosLista);
-            return Json<List<ApiLogEvento>>(logEventos);
+            return Json<List<ApiLogEvento>>(logEventos,jsonsettings);
         }
 
         public JsonResult<ApiLogEvento> GetLogEvento(string id)
         {
             LogEvento logEventosLista = serviceLogEvento.GetLogEvento(id);
             ApiLogEvento logEventos = objMapper.CreateMapper().Map<ApiLogEvento>(logEventosLista);
-            return Json<ApiLogEvento>(logEventos);
+            return Json<ApiLogEvento>(logEventos,jsonsettings);
         }
 
         [HttpPost]

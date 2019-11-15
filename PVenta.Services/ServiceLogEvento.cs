@@ -63,6 +63,7 @@ namespace PVenta.Services
                     logEventoUpdate.UserId = logEventoUpd.UserId;
                     logEventoUpdate.TipoEvento = logEventoUpd.TipoEvento;
                     logEventoUpdate.ErrorListId = logEventoUpd.ErrorListId;
+                    logEventoUpdate.msgError = logEventoUpd.msgError;
                     _dbcontext.Entry(logEventoUpdate).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
                     result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
