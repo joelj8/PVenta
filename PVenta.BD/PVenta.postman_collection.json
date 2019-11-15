@@ -134,7 +134,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"\",\n\t\"Nombre\": \"Prueba\",\n\t\"Modificable\": \"true\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"true\",\n\t\"Inactivo\": \"False\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -168,15 +168,6 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://{{domain}}/api/Rol/DeleteRol/c7ec70dc-7d60-4a93-8a75-8cc9e7379e40",
 					"protocol": "http",
@@ -245,17 +236,16 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Usuario/GetUsuario/08aa9765-76e5-4347-9392-ac447fdf835b",
+					"raw": "http://{{domain}}/api/Usuario/GetUsuario/4a123d40-fdc6-4723-b341-bb2cec1ef255",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Usuario",
 						"GetUsuario",
-						"08aa9765-76e5-4347-9392-ac447fdf835b"
+						"4a123d40-fdc6-4723-b341-bb2cec1ef255"
 					]
 				}
 			},
@@ -283,12 +273,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Usuario/InsertUsuario",
+					"raw": "http://{{domain}}/api/Usuario/InsertUsuario",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Usuario",
@@ -312,7 +301,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "\n  {\n        \"ID\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n        \"UserId\": \"Adm\",\n        \"Nombre\": \"Administrador\",\n        \"Pwduser\": \"---------\",\n        \"Email\": \"Adm@pventa.com.do\",\n        \"RolId\": \"754df835-ee34-4a8f-a659-7e824437742b\",\n        \"esCajero\": \"False\",\n        \"Inactivo\": \"False\"\n    }",
+					"raw": "  {\r\n        \"ID\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\r\n        \"UserId\": \"Adm\",\r\n        \"Nombre\": \"Administrador\",\r\n        \"Pwduser\": \"adm\",\r\n        \"Email\": \"Adm@pventa.com.do\",\r\n        \"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\r\n        \"esCajero\": false,\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -320,12 +309,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Usuario/UpdateUsuario",
+					"raw": "http://{{domain}}/api/Usuario/UpdateUsuario",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Usuario",
@@ -357,54 +345,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Usuario/DeleteUsuario/8ae53267-bf6b-492d-93a2-972c399cd3f0",
+					"raw": "http://{{domain}}/api/Usuario/DeleteUsuario/8ae53267-bf6b-492d-93a2-972c399cd3f0",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Usuario",
 						"DeleteUsuario",
 						"8ae53267-bf6b-492d-93a2-972c399cd3f0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "InsertLogEvento",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Inicializando el Sistema\"\n\t\n\t\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:44343/api/LogEvento/InsertLogEvento",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "44343",
-					"path": [
-						"api",
-						"LogEvento",
-						"InsertLogEvento"
 					]
 				}
 			},
@@ -435,12 +385,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/LogEvento/GetLogEventos",
+					"raw": "http://{{domain}}/api/LogEvento/GetLogEventos",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"LogEvento",
@@ -475,17 +424,52 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/LogEvento/GetLogEvento/76b83931-acda-4858-9480-8d54e8645bf1",
+					"raw": "http://{{domain}}/api/LogEvento/GetLogEvento/76b83931-acda-4858-9480-8d54e8645bf1",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"LogEvento",
 						"GetLogEvento",
 						"76b83931-acda-4858-9480-8d54e8645bf1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertLogEvento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Inicializando el Sistema\"\n\t\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/LogEvento/InsertLogEvento",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"LogEvento",
+						"InsertLogEvento"
 					]
 				}
 			},
@@ -513,57 +497,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/LogEvento/UpdateLogEvento",
+					"raw": "http://{{domain}}/api/LogEvento/UpdateLogEvento",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"LogEvento",
 						"UpdateLogEvento"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetOpcionesSist",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:44343/api/OpcionesSist/getOpcionesSist/d11e5192-8ae8-4c02-b1f9-f3aafd778353",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "44343",
-					"path": [
-						"api",
-						"OpcionesSist",
-						"getOpcionesSist",
-						"d11e5192-8ae8-4c02-b1f9-f3aafd778353"
 					]
 				}
 			},
@@ -594,16 +536,55 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/OpcionesSist/getOpcionesSists",
+					"raw": "http://{{domain}}/api/OpcionesSist/getOpcionesSists",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"OpcionesSist",
 						"getOpcionesSists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOpcionesSist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/OpcionesSist/getOpcionesSist/f93e1ecc-390e-4c12-ad36-5a8f45200f3d",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"OpcionesSist",
+						"getOpcionesSist",
+						"f93e1ecc-390e-4c12-ad36-5a8f45200f3d"
 					]
 				}
 			},
@@ -623,7 +604,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"ID\": \"\",\r\n        \"Codigo\": \"ADM002\",\r\n        \"Descripcion\": \"Actualizar Roles\",\r\n        \"Inactivo\": false\r\n    }",
+					"raw": "    {\r\n        \"ID\": \"\",\r\n        \"Codigo\": \"PR0001\",\r\n        \"Descripcion\": \"Prueba Opcion Para Roles\",\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -631,12 +612,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/OpcionesSist/InsertOpcionesSist",
+					"raw": "http://{{domain}}/api/OpcionesSist/InsertOpcionesSist",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"OpcionesSist",
@@ -660,7 +640,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"ID\": \"ec041fe1-5682-4408-9b60-a5ab2273ec86\",\r\n        \"Codigo\": \"ADM001\",\r\n        \"Descripcion\": \"Creación de Roles\",\r\n        \"Inactivo\": false\r\n    }",
+					"raw": "{\r\n    \"ID\": \"f93e1ecc-390e-4c12-ad36-5a8f45200f3d\",\r\n    \"Codigo\": \"PR0001\",\r\n    \"Descripcion\": \"Prueba Opcion de  Roles\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -668,12 +648,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/OpcionesSist/UpdateOpcionesSist",
+					"raw": "http://{{domain}}/api/OpcionesSist/UpdateOpcionesSist",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"OpcionesSist",
@@ -705,17 +684,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/OpcionesSist/DeleteOpcionesSist/aba3f9e1-292e-4237-aa46-ecc98f8f11a6",
+					"raw": "http://{{domain}}/api/OpcionesSist/DeleteOpcionesSist/f93e1ecc-390e-4c12-ad36-5a8f45200f3d",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"OpcionesSist",
 						"DeleteOpcionesSist",
-						"aba3f9e1-292e-4237-aa46-ecc98f8f11a6"
+						"f93e1ecc-390e-4c12-ad36-5a8f45200f3d"
 					]
 				}
 			},
@@ -727,12 +705,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/PermisosRol/GetPermisosRoles",
+					"raw": "http://{{domain}}/api/PermisosRol/GetPermisosRoles",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"PermisosRol",
@@ -748,17 +725,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/PermisosRol/GetPermisosRol/14b95630-b50e-4f1d-8b44-9ef0772f7dc9",
+					"raw": "http://{{domain}}/api/PermisosRol/GetPermisosRol/936315c0-992c-49da-9e74-aad2c5b1ecfc",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"PermisosRol",
 						"GetPermisosRol",
-						"14b95630-b50e-4f1d-8b44-9ef0772f7dc9"
+						"936315c0-992c-49da-9e74-aad2c5b1ecfc"
 					]
 				}
 			},
@@ -778,7 +754,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"\",\r\n  \"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\r\n  \"OpcionId\": \"d11e5192-8ae8-4c02-b1f9-f3aafd778353\",\r\n  \"Inactivo\": false\r\n}",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\r\n  \"OpcionId\": \"ec041fe1-5682-4408-9b60-a5ab2273ec86\",\r\n  \"Inactivo\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -786,12 +762,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/PermisosRol/InsertPermisosRol",
+					"raw": "http://{{domain}}/api/PermisosRol/InsertPermisosRol",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"PermisosRol",
@@ -815,7 +790,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"041ec019-7e2a-4013-af7b-21a7f388a657\",\r\n  \"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\r\n  \"OpcionId\": \"f2f0fb0a-06ed-4222-8b5c-57770da39d2a\"\r\n}",
+					"raw": "{\r\n    \"ID\": \"936315c0-992c-49da-9e74-aad2c5b1ecfc\",\r\n    \"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\r\n    \"OpcionId\": \"ec041fe1-5682-4408-9b60-a5ab2273ec86\",\r\n    \"Inactivo\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -823,12 +798,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/PermisosRol/UpdatePermisosRol",
+					"raw": "http://{{domain}}/api/PermisosRol/UpdatePermisosRol",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"PermisosRol",
@@ -851,12 +825,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/PermisosRol/DeletePermisosRol/f95449fd-745d-4421-a8fb-e885cc9e9153",
+					"raw": "http://{{domain}}/api/PermisosRol/DeletePermisosRol/f95449fd-745d-4421-a8fb-e885cc9e9153",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"PermisosRol",
@@ -873,12 +846,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/Mesa/GetMesas",
+					"raw": "http://{{domain}}/api/Mesa/GetMesas",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Mesa",
@@ -894,12 +866,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/Mesa/GetMesa/8f0192cb-f074-4e09-81b0-0bfa79894025",
+					"raw": "http://{{domain}}/api/Mesa/GetMesa/8f0192cb-f074-4e09-81b0-0bfa79894025",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Mesa",
@@ -932,12 +903,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Mesa/InsertMesa",
+					"raw": "http://{{domain}}/api/Mesa/InsertMesa",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Mesa",
@@ -961,7 +931,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"8f0192cb-f074-4e09-81b0-0bfa79894025\",\r\n  \"Descripcion\": \"Mesa 5\"\r\n}",
+					"raw": "    {\r\n        \"ID\": \"5f0ac3a2-c752-4a6f-bcad-fc2875699405\",\r\n        \"Descripcion\": \"Mesa V Eliminar\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -969,12 +939,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Mesa/UpdateMesa/",
+					"raw": "http://{{domain}}/api/Mesa/UpdateMesa/",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Mesa",
@@ -1007,17 +976,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Mesa/DeleteMesa/86a231ab-64cc-424e-9532-42ca83b0f5fc",
+					"raw": "http://{{domain}}/api/Mesa/DeleteMesa/5f0ac3a2-c752-4a6f-bcad-fc2875699405",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Mesa",
 						"DeleteMesa",
-						"86a231ab-64cc-424e-9532-42ca83b0f5fc"
+						"5f0ac3a2-c752-4a6f-bcad-fc2875699405"
 					]
 				}
 			},
@@ -1029,12 +997,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/Moneda/GetMonedas",
+					"raw": "http://{{domain}}/api/Moneda/GetMonedas",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Moneda",
@@ -1050,17 +1017,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/Moneda/GetMoneda/2525",
+					"raw": "http://{{domain}}/api/Moneda/GetMoneda/0548452c-5848-496c-b793-f1c6498e35b7",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Moneda",
 						"GetMoneda",
-						"2525"
+						"0548452c-5848-496c-b793-f1c6498e35b7"
 					]
 				}
 			},
@@ -1080,7 +1046,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"5,000 Pesos Dominicano\",\r\n  \"Valor\": 1.0\r\n}",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"5,000 Pesos Dominicano\",\r\n  \"Valor\": 5000.0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1088,12 +1054,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Moneda/InsertMoneda",
+					"raw": "http://{{domain}}/api/Moneda/InsertMoneda",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Moneda",
@@ -1117,7 +1082,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"ID\": \"373cda21-cf9a-49d3-8d96-c06f4b071996\",\r\n        \"Descripcion\": \"25 Pesos Dominicano\",\r\n        \"Valor\": 25.00\r\n    }",
+					"raw": " {\r\n        \"ID\": \"460313fe-9adb-48b2-b849-588de2e5dd92\",\r\n        \"Descripcion\": \"Registro Borrar\",\r\n        \"Valor\": 5000.00,\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1125,12 +1090,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Moneda/UpdateMoneda",
+					"raw": "http://{{domain}}/api/Moneda/UpdateMoneda",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Moneda",
@@ -1153,17 +1117,16 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Moneda/DeleteMoneda/8e20d686-8f73-4542-a697-62138e214577",
+					"raw": "http://{{domain}}/api/Moneda/DeleteMoneda/460313fe-9adb-48b2-b849-588de2e5dd92",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Moneda",
 						"DeleteMoneda",
-						"8e20d686-8f73-4542-a697-62138e214577"
+						"460313fe-9adb-48b2-b849-588de2e5dd92"
 					]
 				}
 			},
@@ -1175,12 +1138,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/Categoria/GetCategorias",
+					"raw": "http://{{domain}}/api/Categoria/GetCategorias",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Categoria",
@@ -1203,12 +1165,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Categoria/GetCategoria/0d1ac144-5525-40de-b5f1-f8431b882f70",
+					"raw": "http://{{domain}}/api/Categoria/GetCategoria/0d1ac144-5525-40de-b5f1-f8431b882f70",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Categoria",
@@ -1233,7 +1194,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"Bebidas\",\r\n  \"ImpComanda\": false\r\n}",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"Postres\",\r\n  \"ImpComanda\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1241,12 +1202,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Categoria/InsertCategoria",
+					"raw": "http://{{domain}}/api/Categoria/InsertCategoria",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Categoria",
@@ -1270,7 +1230,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"16a7c8e1-24ae-42dc-988f-27a2c7b2c294\",\r\n  \"Descripcion\": \"Prueba Borrar\",\r\n  \"ImpComanda\": false\r\n}",
+					"raw": "  {\r\n        \"ID\": \"e769ce16-0e6a-4af5-ba69-0c666e350b8c\",\r\n        \"Descripcion\": \"Postres Borrar\",\r\n        \"ImpComanda\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1278,12 +1238,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Categoria/UpdateCategoria",
+					"raw": "http://{{domain}}/api/Categoria/UpdateCategoria",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Categoria",
@@ -1306,17 +1265,16 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Categoria/DeleteCategoria/16a7c8e1-24ae-42dc-988f-27a2c7b2c294",
+					"raw": "http://{{domain}}/api/Categoria/DeleteCategoria/e769ce16-0e6a-4af5-ba69-0c666e350b8c",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Categoria",
 						"DeleteCategoria",
-						"16a7c8e1-24ae-42dc-988f-27a2c7b2c294"
+						"e769ce16-0e6a-4af5-ba69-0c666e350b8c"
 					]
 				}
 			},
@@ -1328,12 +1286,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/ErrorList/GetErrorLists",
+					"raw": "http://{{domain}}/api/ErrorList/GetErrorLists",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"ErrorList",
@@ -1349,17 +1306,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44343/api/ErrorList/GetErrorList/2525",
+					"raw": "http://{{domain}}/api/ErrorList/GetErrorList/554e7066-0f9c-4387-b0d0-2758826d1240",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"ErrorList",
 						"GetErrorList",
-						"2525"
+						"554e7066-0f9c-4387-b0d0-2758826d1240"
 					]
 				}
 			},
@@ -1387,12 +1343,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/ErrorList/InsertErrorList",
+					"raw": "http://{{domain}}/api/ErrorList/InsertErrorList",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"ErrorList",
@@ -1416,7 +1371,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ID\": \"8e3ff9f0-3cc8-481f-9d08-d612cc21b958\",\r\n    \"Codigo\": \"XXXXXX\",\r\n    \"MsgError\": \"B O R R A R   R E G I S T R O\"\r\n}",
+					"raw": "{\r\n        \"ID\": \"554e7066-0f9c-4387-b0d0-2758826d1240\",\r\n        \"Codigo\": \"EL00002\",\r\n        \"MsgError\": \"Error, Este Codigo / Descripción  yá existe.\",\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1424,12 +1379,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/ErrorList/UpdateErrorList",
+					"raw": "http://{{domain}}/api/ErrorList/UpdateErrorList",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"ErrorList",
@@ -1461,16 +1415,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/ErrorList/UpdateErrorList",
+					"raw": "http://{{domain}}/api/ErrorList/DeleteErrorList/208eeee8-e781-4a25-9817-d52fd035b64f",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"ErrorList",
-						"UpdateErrorList"
+						"DeleteErrorList",
+						"208eeee8-e781-4a25-9817-d52fd035b64f"
 					]
 				}
 			},
@@ -1509,12 +1463,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Producto/GetProducto/67040759-abe3-4d08-9e1a-d1d0889c1892",
+					"raw": "http://{{domain}}/api/Producto/GetProducto/67040759-abe3-4d08-9e1a-d1d0889c1892",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Producto",
@@ -1583,12 +1536,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Producto/UpdateProducto",
+					"raw": "http://{{domain}}/api/Producto/UpdateProducto",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Producto",
@@ -1611,12 +1563,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Producto/DeleteProducto/7f41a11d-69cf-44b6-9f86-fcf6b3f7b2f7",
+					"raw": "http://{{domain}}/api/Producto/DeleteProducto/7f41a11d-69cf-44b6-9f86-fcf6b3f7b2f7",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Producto",
@@ -1640,12 +1591,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Order/getOrders",
+					"raw": "http://{{domain}}/api/Order/getOrders",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Order",
@@ -1680,17 +1630,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Order/getOrder/e92cbeae-18d5-4403-8616-4da067e2f4a2",
+					"raw": "http://{{domain}}/api/Order/getOrder/8bea282e-0922-4d36-816a-1c1a99802a23",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Order",
 						"getOrder",
-						"e92cbeae-18d5-4403-8616-4da067e2f4a2"
+						"8bea282e-0922-4d36-816a-1c1a99802a23"
 					]
 				}
 			},
@@ -1710,7 +1659,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"Fecha\": \"10/02/2019\",\r\n\t\"UserId\": \"\",\r\n\t\"MesaId\": \"c27dadcc-3b7c-4bb5-928b-66427037d930\",\r\n\t\"ClientePrincipal\": \"Carlos Perez\",\r\n\t\"itbis\": true,\r\n\t\"itbisPorc\": 18,\r\n\t\"DescMonto\": 0,\r\n\t\"DescPorc\": 0,\r\n\t\"FechaRegistro\" : \"11/08/2019\",\r\n\t\"impreso\": false,\r\n\t\"inactivo\": false,\r\n\t\"OrderDetails\": [ \r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n\t\t\t\"Cantidad\": 2, \r\n\t\t\t\"Precio\": 250,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Juan Santos\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n\t\t\t\"Cantidad\": 1, \r\n\t\t\t\"Precio\": 300,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Juan Santos\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"9ac83e5f-417c-4b81-b10f-2c6ea3a3d4fa\",\r\n\t\t\t\"Cantidad\": 1, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Manuel Santos\", \r\n\t\t\t\"Impreso\": false\r\n\t\t}\t\t\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"Fecha\": \"11/15/2019\",\r\n\t\"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\r\n\t\"MesaId\": \"8f0192cb-f074-4e09-81b0-0bfa79894025\",\r\n\t\"ClientePrincipal\": \"Ana Perez\",\r\n\t\"itbis\": true,\r\n\t\"itbisPorc\": 18,\r\n\t\"DescMonto\": 0,\r\n\t\"DescPorc\": 0,\r\n\t\"FechaRegistro\" : \"11/15/2019\",\r\n\t\"impreso\": false,\r\n\t\"inactivo\": false,\r\n\t\"OrderDetails\": [ \r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n\t\t\t\"Cantidad\": 2, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Ana Perez\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"b0e267d6-87c9-4064-932a-a0cac8252834\",\r\n\t\t\t\"Cantidad\": 4, \r\n\t\t\t\"Precio\": 300,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Jose Yan\", \r\n\t\t\t\"Impreso\": false\r\n\t\t}\t\t\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1718,12 +1667,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Order/InsertOrder",
+					"raw": "http://{{domain}}/api/Order/InsertOrder",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Order",
@@ -1747,7 +1695,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n    \"Fecha\": \"2019-10-02\",\r\n    \"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\r\n    \"MesaId\": \"00c814a2-fcac-48dc-b377-eb157ad1b2ce\",\r\n    \"ClientePrincipal\": \"Felipe Gonzalez\",\r\n    \"Itbis\": true,\r\n    \"ItbisPorc\": 18.00,\r\n    \"DescMonto\": 0.00,\r\n    \"DescPorc\": 0.00,\r\n    \"FechaRegistro\": \"2019-11-11\",\r\n    \"Impreso\": false,\r\n    \"Inactivo\": false,\r\n    \"OrderDetails\": [\r\n    \t{\r\n            \"ID\": \"7afa0075-b76a-4c61-bc3b-4c3d2ae3812c\",\r\n            \"OrderHID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n            \"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n            \"Cantidad\": 3.00,\r\n            \"Precio\": 175.00,\r\n            \"ImpComanda\": false,\r\n            \"ClientePedido\": \"Rafael Fernandez\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false\r\n        },\r\n\t\t{\r\n            \"ID\": \"86afdcae-b985-4b9c-bdae-14bc9a4a32af\",\r\n            \"OrderHID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n            \"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n            \"Cantidad\": 2.00,\r\n            \"Precio\": 200.00,\r\n            \"ImpComanda\": true,\r\n            \"ClientePedido\": \"Carlos Santana\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false\r\n        },\r\n        {\r\n            \"ID\": \"4fa7d3ab-d17c-40f1-9e52-d01db7b16aa9\",\r\n            \"OrderHID\": \"e92cbeae-18d5-4403-8616-4da067e2f4a2\",\r\n            \"ProductoID\": \"7f41a11d-69cf-44b6-9f86-fcf6b3f7b2f7\",\r\n            \"Cantidad\": 8.00,\r\n            \"Precio\": 200.00,\r\n            \"ImpComanda\": false,\r\n            \"ClientePedido\": \"Luis Santana\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false\r\n        }\r\n\r\n    ]\r\n}",
+					"raw": "{\r\n        \"ID\": \"8bea282e-0922-4d36-816a-1c1a99802a23\",\r\n        \"Fecha\": \"2019-11-15T00:00:00\",\r\n        \"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\r\n        \"MesaId\": \"8f0192cb-f074-4e09-81b0-0bfa79894025\",\r\n        \"ClientePrincipal\": \"Ana Jimenez\",\r\n        \"Itbis\": true,\r\n        \"ItbisPorc\": 18.00,\r\n        \"DescMonto\": 0.00,\r\n        \"DescPorc\": 0.00,\r\n        \"FechaRegistro\": \"2019-11-15T09:58:50.94\",\r\n        \"Impreso\": false,\r\n        \"Inactivo\": false,\r\n        \"OrderDetails\": [\r\n            {\r\n                \"ID\": \"0b82c2d1-b111-47be-ae5d-770e7e07037f\",\r\n                \"OrderHID\": \"8bea282e-0922-4d36-816a-1c1a99802a23\",\r\n                \"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n                \"Cantidad\": 2.00,\r\n                \"Precio\": 200.00,\r\n                \"ImpComanda\": true,\r\n                \"ClientePedido\": \"Ana Jimenez\",\r\n                \"Impreso\": false,\r\n                \"Inactivo\": false\r\n            },\r\n            {\r\n                \"ID\": \"32a4c349-37af-46f7-afb9-4dfdc13d82ba\",\r\n                \"OrderHID\": \"8bea282e-0922-4d36-816a-1c1a99802a23\",\r\n                \"ProductoID\": \"b0e267d6-87c9-4064-932a-a0cac8252834\",\r\n                \"Cantidad\": 2.00,\r\n                \"Precio\": 300.00,\r\n                \"ImpComanda\": true,\r\n                \"ClientePedido\": \"Jose Jimenez\",\r\n                \"Impreso\": false,\r\n                \"Inactivo\": false\r\n            }\r\n        ]\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1755,12 +1703,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/Order/UpdateOrder",
+					"raw": "http://{{domain}}/api/Order/UpdateOrder",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Order",
@@ -1783,17 +1730,16 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/Order/DeleteOrder/25ab94a6-c5bf-49f0-a48c-1d4752fa3336",
+					"raw": "http://{{domain}}/api/Order/DeleteOrder/8bea282e-0922-4d36-816a-1c1a99802a23",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"Order",
 						"DeleteOrder",
-						"25ab94a6-c5bf-49f0-a48c-1d4752fa3336"
+						"8bea282e-0922-4d36-816a-1c1a99802a23"
 					]
 				}
 			},
@@ -1812,12 +1758,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/FormaPago/GetFormaPagos",
+					"raw": "http://{{domain}}/api/FormaPago/GetFormaPagos",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"FormaPago",
@@ -1840,12 +1785,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/FormaPago/GetFormaPago/73e0dc4a-aaa8-4f14-a05d-fb21df4302a6",
+					"raw": "http://{{domain}}/api/FormaPago/GetFormaPago/73e0dc4a-aaa8-4f14-a05d-fb21df4302a6",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"FormaPago",
@@ -1878,12 +1822,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/FormaPago/InsertFormaPago",
+					"raw": "http://{{domain}}/api/FormaPago/InsertFormaPago",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"FormaPago",
@@ -1907,7 +1850,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"73e0dc4a-aaa8-4f14-a05d-fb21df4302a6\",\r\n  \"Descripcion\": \"Tarjetas\",\r\n  \"MonedaID\": \"83ce7ed0-1014-45d5-9431-374525a0db9b\"\r\n}",
+					"raw": "{\r\n        \"ID\": \"9a133aad-5708-42db-a41b-b4b81bf76c0f\",\r\n        \"Descripcion\": \"Cheque\",\r\n        \"MonedaID\": \"\",\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1915,12 +1858,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:44343/api/FormaPago/UpdateFormaPago",
+					"raw": "http://{{domain}}/api/FormaPago/UpdateFormaPago",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"FormaPago",
@@ -1943,12 +1885,11 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:44343/api/FormaPago/DeleteFormaPago/9a133aad-5708-42db-a41b-b4b81bf76c0f",
+					"raw": "http://{{domain}}/api/FormaPago/DeleteFormaPago/9a133aad-5708-42db-a41b-b4b81bf76c0f",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "44343",
 					"path": [
 						"api",
 						"FormaPago",
