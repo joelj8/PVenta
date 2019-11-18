@@ -34,6 +34,9 @@ namespace PVenta.WindForm
                 userApp.Email = flogin.userSignIn.Email;
                 userApp.esCajero = flogin.userSignIn.esCajero;
                 userApp.RolID = flogin.userSignIn.RolID;
+
+                muestraMenu();
+
             } 
             else
             {
@@ -42,6 +45,18 @@ namespace PVenta.WindForm
 
             flogin.Dispose();
 
+        }
+
+        private void muestraMenu()
+        {
+            if (userApp.esCajero)
+            {
+                // Mostrar el menu para los cajeros
+                menCajeros.Visible = true;
+            } else
+            {
+                menAdministrativo.Visible = true;
+            }
         }
     }
 }

@@ -106,7 +106,8 @@ namespace PVenta.WindForm.AdmForms
             if (e.KeyChar.Equals('\r') && txtUsuario.Text != string.Empty &&
                 txtPassword.Text != string.Empty)
             {
-                btnSignin_Click(sender, e);
+                this.btnSignin.PerformClick();
+                //btnSignin_Click(sender, e);
             }
         }
     }

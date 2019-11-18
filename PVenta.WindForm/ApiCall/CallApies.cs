@@ -107,7 +107,8 @@ namespace PVenta.WindForm.ApiCall
         {
             if (client.BaseAddress == null)
             {
-                client.BaseAddress = new Uri("http://localhost/API_PVenta/");
+                string setUrlApi = Properties.Settings.Default.ApiURLPVenta;
+                client.BaseAddress = new Uri(setUrlApi);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             }
