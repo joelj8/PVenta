@@ -80,6 +80,8 @@
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\viewLogin.cs" />
+    <Compile Include="ViewModel\viewMessageApp.cs" />
+    <Compile Include="ViewModel\viewRol.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

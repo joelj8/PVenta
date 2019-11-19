@@ -34,5 +34,29 @@ namespace PVenta.WindForm.Properties {
                 this["ApiURLPVenta"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..... Filtrar Información .....")]
+        public string TextoFiltro {
+            get {
+                return ((string)(this["TextoFiltro"]));
+            }
+            set {
+                this["TextoFiltro"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44343/")]
+        public string ApiURLPVentaDev {
+            get {
+                return ((string)(this["ApiURLPVentaDev"]));
+            }
+            set {
+                this["ApiURLPVentaDev"] = value;
+            }
+        }
     }
 }

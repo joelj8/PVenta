@@ -9,7 +9,10 @@ namespace PVenta.Utility
 {
     public class MessageApp
     {
-        
+        public MessageApp()
+        {
+
+        }
         public MessageApp(ErrorList errorList)
         {
             if (errorList != null)

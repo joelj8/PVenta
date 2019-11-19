@@ -58,6 +58,18 @@
     <Compile Include="AdmForms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdmForms\frmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmForms\frmRoles.Designer.cs">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdmForms\frmRolesAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmForms\frmRolesAdm.Designer.cs">
+      <DependentUpon>frmRolesAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApiCall\CallApies.cs" />
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -69,6 +81,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdmForms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdmForms\frmRoles.resx">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdmForms\frmRolesAdm.resx">
+      <DependentUpon>frmRolesAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -101,10 +119,17 @@
       <Project>{10978844-8424-4d24-b557-c5d4510ab2d2}</Project>
       <Name>PVenta.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PVenta.Utility\PVenta.Utility.csproj">
+      <Project>{9C6371DE-5959-4155-AA39-B3170CAF2AE0}</Project>
+      <Name>PVenta.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PVenta.WebApi\PVenta.WebApi.csproj">
       <Project>{f6eaa069-e3b1-42a1-95c2-76d25de3996b}</Project>
       <Name>PVenta.WebApi</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

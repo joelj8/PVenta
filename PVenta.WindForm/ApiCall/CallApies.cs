@@ -27,7 +27,7 @@ namespace PVenta.WindForm.ApiCall
         {
             setClient();
 
-            TRespond result = null;
+            TRespond result = null  ;
             
             try
             {
@@ -40,7 +40,9 @@ namespace PVenta.WindForm.ApiCall
                 if (response.IsSuccessStatusCode)
                 {
                     // Get the URI of the created resource.
-                    result = response.Content.ReadAsAsync<TRespond>().Result;
+                    var retornado = response.Content.ReadAsAsync<TRespond>().Result;
+                    //result = response.Content.ReadAsAsync<TRespond>().Result;
+                    result = retornado;
                 }
             }
             catch(Exception ex)

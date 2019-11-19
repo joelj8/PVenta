@@ -58,5 +58,12 @@ namespace PVenta.WindForm
                 menAdministrativo.Visible = true;
             }
         }
+
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRolesAdm fRolesAdm = new frmRolesAdm();
+            fRolesAdm.ShowDialog();
+            fRolesAdm.Dispose();
+        }
     }
 }

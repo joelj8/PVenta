@@ -18,6 +18,7 @@ namespace PVenta.Models.Model
 
         [Column("Nombre", TypeName = "varchar")]
         [MaxLength(50)]
+        [Required(ErrorMessage = "Debe indicar el Nombre del Rol")]
         public string Nombre { get; set; }
 
         public bool Modificable { get; set; }
