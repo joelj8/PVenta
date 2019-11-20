@@ -53,13 +53,33 @@ namespace PVenta.WindForm.AdmForms
         {
 
             string idrolseleted = dgvRoles.Rows[e.RowIndex].Cells["ColID"].Value.ToString();
+            string nombreRol = dgvRoles.Rows[e.RowIndex].Cells["ColNombre"].Value.ToString();
+            bool esModificable = (bool)dgvRoles.Rows[e.RowIndex].Cells["ColModificable"].Value;
+
             string columnClick = dgvRoles.Columns[e.ColumnIndex].HeaderText.ToString();
 
            // MessageBox.Show(string.Format("{1} el ID: {0}",idrolseleted, columnClick));
-            if (columnClick.ToUpper().Equals("EDITAR"))
+
+           if (esModificable)
             {
-                callRolEditar(idrolseleted);
+                switch (columnClick.ToUpper())
+                {
+                    case "EDITAR":
+                        callRolEditar(idrolseleted);
+                        break;
+                    case "ELIMINAR":
+                        callRolEliminar(idrolseleted);
+                        break;
+                    default:
+                        MessageBox.Show(string.Format("El parametro {0} no es valido...", columnClick), "Administración Rol");
+                        break;
+                }
+
+            } else
+            {
+                MessageBox.Show(string.Format("El rol {0} no se puede {1}...",nombreRol, columnClick.ToLower()), "Administración Rol");
             }
+
             
 
         }
@@ -124,11 +144,9 @@ namespace PVenta.WindForm.AdmForms
 
         private void callRolEditar(string idrolseleted)
         {
-            if (idrolseleted == null || idrolseleted == string.Empty)
-            {
-                MessageBox.Show("Error en el parametro enviado...","Editar Rol");
-            }
-            else
+            bool isValidated = Validations.validarID(idrolseleted, "Error en el parametro enviado...");
+
+            if (isValidated)
             {
                 frmRoles fRoles = new frmRoles();
                 fRoles.modo = Modo.Editar;
@@ -139,6 +157,28 @@ namespace PVenta.WindForm.AdmForms
                 cargaListaGRL();
             }
             
+        }
+
+        private void callRolEliminar(string idrolseleted)
+        {
+            bool isValidated = Validations.validarID(idrolseleted, "Error en el parametro enviado...");
+            if (isValidated)
+            {
+                ApiRol rol = new ApiRol();
+                CallApies<viewMessageApp, ApiRol> MngApiRol = new CallApies<viewMessageApp, ApiRol>();
+                viewMessageApp result = null;
+
+                MngApiRol.urlApi = "api/Rol/DeleteRol/" + idrolseleted;
+                MngApiRol.objectRequest = rol;
+                MngApiRol.CallPost();
+                result = MngApiRol.objectResponse;
+                if (result != null)
+                {
+                    cargaListaGRL();
+                    MessageBox.Show(result.Evento, this.Text.ToString());
+                }
+            }
+
         }
     }
 }
