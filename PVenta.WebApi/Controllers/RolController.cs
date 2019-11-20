@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
 
+
 namespace PVenta.WebApi.Controllers
 {
     public class RolController : ApiController
@@ -49,38 +50,59 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertRol(ApiRol rol)
+        public HttpResponseMessage InsertRol(ApiRol rol)
         {
-            MessageApp resultinsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Rol rolInsert = objMapper.CreateMapper().Map<Rol>(rol);
-                resultinsert = serviceRol.InsertRol(rolInsert);
+                result = serviceRol.InsertRol(rolInsert);
             }
-            return resultinsert;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateRol(ApiRol rol)
+        public HttpResponseMessage UpdateRol(ApiRol rol)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Rol rolUpdate = objMapper.CreateMapper().Map<Rol>(rol);
-                resultUpdate = serviceRol.UpdateRol(rolUpdate);
+                result = serviceRol.UpdateRol(rolUpdate);
             }
 
-            return resultUpdate;
-
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteRol(string id)
+        public HttpResponseMessage DeleteRol(string id)
         {
-            MessageApp resultDelete = null;
-            resultDelete = serviceRol.DeleteRol(id);
-           
-            return resultDelete;
+            MessageApp result = null;
+            result = serviceRol.DeleteRol(id);
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
