@@ -46,7 +46,7 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertMoneda(ApiMoneda moneda)
+        public HttpResponseMessage InsertMoneda(ApiMoneda moneda)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -55,11 +55,18 @@ namespace PVenta.WebApi.Controllers
                 result = serviceMoneda.InsertMoneda(monedaInsert);
             }
 
-            return result;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateMoneda(ApiMoneda moneda)
+        public HttpResponseMessage UpdateMoneda(ApiMoneda moneda)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -67,16 +74,31 @@ namespace PVenta.WebApi.Controllers
                 Moneda monedaUpdate = objMapper.CreateMapper().Map<Moneda>(moneda);
                 result = serviceMoneda.UpdateMoneda(monedaUpdate);
             }
-            return result;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteMoneda(string id)
+        public HttpResponseMessage DeleteMoneda(string id)
         {
             MessageApp result = null;
-            result = serviceMoneda.DeleteMoneda(id); 
+            result = serviceMoneda.DeleteMoneda(id);
 
-            return result;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
