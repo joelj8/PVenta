@@ -47,7 +47,7 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertFormaPago(ApiFormaPago formaPagoNew)
+        public HttpResponseMessage InsertFormaPago(ApiFormaPago formaPagoNew)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -56,11 +56,18 @@ namespace PVenta.WebApi.Controllers
                 result = serviceFormaPago.InsertFormaPago(formaPagoInsert);
             }
 
-            return result;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateFormaPago(ApiFormaPago formaPagoUpd)
+        public HttpResponseMessage UpdateFormaPago(ApiFormaPago formaPagoUpd)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -69,16 +76,30 @@ namespace PVenta.WebApi.Controllers
                 result = serviceFormaPago.UpdateFormaPago(formaPagoUpdate);
             }
 
-            return result;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteFormaPago(string id)
+        public HttpResponseMessage DeleteFormaPago(string id)
         {
             MessageApp result = null;
             result = serviceFormaPago.DeleteFormaPago(id);
 
-            return result;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
