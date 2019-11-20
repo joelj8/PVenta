@@ -46,7 +46,7 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public JsonResult<MessageApp> InsertErrorList(ApiErrorList errorListNew)
+        public HttpResponseMessage InsertErrorList(ApiErrorList errorListNew)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -54,11 +54,21 @@ namespace PVenta.WebApi.Controllers
                 ErrorList errorListInsert = objMapper.CreateMapper().Map<ErrorList>(errorListNew);
                 result = serviceErrorList.InsertErrorList(errorListInsert);
             }
-            return Json<MessageApp>(result);
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            
         }
 
         [HttpPost]
-        public JsonResult<MessageApp> UpdateErrorList(ApiErrorList errorListUpd)
+        public HttpResponseMessage UpdateErrorList(ApiErrorList errorListUpd)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -66,17 +76,32 @@ namespace PVenta.WebApi.Controllers
                 ErrorList errorListUpdate = objMapper.CreateMapper().Map<ErrorList>(errorListUpd);
                 result = serviceErrorList.UpdateErrorList(errorListUpdate);
             }
-            return Json<MessageApp>(result);
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public JsonResult<MessageApp> DeleteErrorList(string id)
+        public HttpResponseMessage DeleteErrorList(string id)
         {
             MessageApp result = null;
             
             result = serviceErrorList.DeleteErrorList(id);
-            
-            return Json<MessageApp>(result);
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
