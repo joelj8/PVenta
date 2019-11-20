@@ -15,6 +15,7 @@ namespace PVenta.WebApi.Repository
             CreateMap<ApiErrorList, ErrorList>()
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.ID))
                 .ForMember(dest => dest.Codigo, opts => opts.MapFrom(src => src.Codigo))
+                .ForMember(dest => dest.esError, opts => opts.MapFrom(src => src.esError))
                 .ForMember(dest => dest.MsgError, opts => opts.MapFrom(src => src.MsgError))
                 .ForMember(dest => dest.Inactivo, opts => opts.MapFrom(src => src.Inactivo));
 

@@ -18,11 +18,13 @@ namespace PVenta.Utility
             if (errorList != null)
             {
                 this.Codigo = errorList.Codigo;
+                this.esError = errorList.esError;
                 this.Evento = errorList.MsgError;
             }
         }
 
         public string Codigo { get; } = "N/D";
+        public bool esError { get; } = false;
         public string Evento { get; } = "N/D";
 
     }

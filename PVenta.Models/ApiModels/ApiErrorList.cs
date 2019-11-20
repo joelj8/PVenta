@@ -13,6 +13,8 @@ namespace PVenta.Models.ApiModels
         public string Codigo { get; set; }
 
         public string MsgError { get; set; }
+
+        public bool esError { get; set; }
         public bool Inactivo { get; set; }
     }
 }

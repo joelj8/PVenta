@@ -30,6 +30,9 @@ namespace PVenta.Models.Model
         [Required(ErrorMessage = "Mensaje de Error es Requerido")]
         public string MsgError { get; set; }
 
+        [DisplayName("Es un Error")]
+        public bool esError { get; set; }
+        
         public bool Inactivo { get; set; }
     }
 }

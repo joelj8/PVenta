@@ -10,6 +10,8 @@ namespace PVenta.Models.ViewModel
     {
 
         public string Codigo { get; set; }
+        public bool esError { get; set; }
+
         public string Evento { get; set; }
     }
 }

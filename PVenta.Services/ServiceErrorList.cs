@@ -104,6 +104,7 @@ namespace PVenta.Services
                     if (errorListUpdate != null)
                     {
                         errorListUpdate.Codigo = errorListUpd.Codigo;
+                        errorListUpdate.esError = errorListUpd.esError;
                         errorListUpdate.MsgError = errorListUpd.MsgError;
                         _dbcontext.Entry(errorListUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
