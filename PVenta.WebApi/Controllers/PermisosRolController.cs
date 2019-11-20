@@ -50,37 +50,59 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertPermisosRol(ApiPermisosRol permisosRolNew)
+        public HttpResponseMessage InsertPermisosRol(ApiPermisosRol permisosRolNew)
         {
-            MessageApp resultInsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 PermisosRol permisosRolInsert = objMapper.CreateMapper().Map<PermisosRol>(permisosRolNew);
-                resultInsert = servicePermisosRol.InsertPermisosRol(permisosRolInsert);
+                result = servicePermisosRol.InsertPermisosRol(permisosRolInsert);
             }
-            return resultInsert;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdatePermisosRol(ApiPermisosRol permisosRolUpd)
+        public HttpResponseMessage UpdatePermisosRol(ApiPermisosRol permisosRolUpd)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 PermisosRol permisosRolUpdate = objMapper.CreateMapper().Map<PermisosRol>(permisosRolUpd);
-                resultUpdate = servicePermisosRol.UpdatePermisosRol(permisosRolUpdate);
+                result = servicePermisosRol.UpdatePermisosRol(permisosRolUpdate);
             }
 
-            return resultUpdate;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeletePermisosRol(string id)
+        public HttpResponseMessage DeletePermisosRol(string id)
         {
-            MessageApp resultDelete = null;
-            resultDelete = servicePermisosRol.DeletePermisosRol(id);
+            MessageApp result = null;
+            result = servicePermisosRol.DeletePermisosRol(id);
 
-            return resultDelete;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     
