@@ -30,7 +30,6 @@ namespace PVenta.WebApi.Controllers
             objMapper = new MapperConfiguration(i => i.AddProfiles(profileList));
         }
     
-    
         public JsonResult<List<ApiMesa>> GetMesas()
         {
             List<Mesa> mesaLista = serviceMesa.GetMesas();
@@ -46,35 +45,60 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertMesa(ApiMesa mesa)
+        public HttpResponseMessage InsertMesa(ApiMesa mesa)
         {
-            MessageApp resultinsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Mesa mesaInsert = objMapper.CreateMapper().Map<Mesa>(mesa);
-                resultinsert = serviceMesa.InsertMesa(mesaInsert);
+                result = serviceMesa.InsertMesa(mesaInsert);
             }
-            return resultinsert;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateMesa(ApiMesa mesa)
+        public HttpResponseMessage UpdateMesa(ApiMesa mesa)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Mesa mesaUpdate = objMapper.CreateMapper().Map<Mesa>(mesa);
-                resultUpdate = serviceMesa.UpdateMesa(mesaUpdate);
+                result = serviceMesa.UpdateMesa(mesaUpdate);
             }
-            return resultUpdate;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
         }
 
         [HttpPost]
-        public MessageApp DeleteMesa(string id)
+        public HttpResponseMessage DeleteMesa(string id)
         {
-            MessageApp resultDelete = null;
-            resultDelete = serviceMesa.DeleteMesa(id);
-            return resultDelete;
+            MessageApp result = null;
+            result = serviceMesa.DeleteMesa(id);
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
