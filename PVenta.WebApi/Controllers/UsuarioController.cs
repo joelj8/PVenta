@@ -49,38 +49,59 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertUsuario(ApiUsuario usuario)
+        public HttpResponseMessage InsertUsuario(ApiUsuario usuario)
         {
-            MessageApp resultInsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid) {
                 Usuario usuarioInsert = objMapper.CreateMapper().Map<Usuario>(usuario);
-                resultInsert = serviceUsuario.InsertUsuario(usuarioInsert);
+                result = serviceUsuario.InsertUsuario(usuarioInsert);
             }
 
-                return resultInsert;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateUsuario(ApiUsuario usuario)
+        public HttpResponseMessage UpdateUsuario(ApiUsuario usuario)
         {
-            MessageApp resultUdpdate = null;
+            MessageApp result = null;
 
             if (ModelState.IsValid)
             {
                 Usuario usuarioUpdate = objMapper.CreateMapper().Map<Usuario>(usuario);
-                resultUdpdate = serviceUsuario.UpdateUsuario(usuarioUpdate);
+                result = serviceUsuario.UpdateUsuario(usuarioUpdate);
             }
 
-            return resultUdpdate;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteUsuario(string id)
+        public HttpResponseMessage DeleteUsuario(string id)
         {
-            MessageApp resultDelete = null;
-            resultDelete = serviceUsuario.DeleteUsuario(id);
+            MessageApp result = null;
+            result = serviceUsuario.DeleteUsuario(id);
 
-            return resultDelete;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
     }
 }
