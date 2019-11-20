@@ -27,9 +27,6 @@ namespace PVenta.WindForm.AdmForms
         {
             textFiltroMng("L");
             cargaListaGRL();
-
-            //setupDataGridViewRoles();
-            //setupDataGridViewRol();
         }
 
         private void cargaListaGRL()
