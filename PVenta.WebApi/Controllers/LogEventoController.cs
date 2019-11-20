@@ -56,23 +56,38 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertLogEvento(ApiLogEvento logEvento)
+        public HttpResponseMessage InsertLogEvento(ApiLogEvento logEvento)
         {
-            MessageApp resultinsert = null;
+            MessageApp result = null;
             LogEvento logEventoInsert = objMapper.CreateMapper().Map<LogEvento>(logEvento);
-            resultinsert = serviceLogEvento.InsertLogEvento(logEventoInsert);
-            return resultinsert;
+            result = serviceLogEvento.InsertLogEvento(logEventoInsert);
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateLogEvento(ApiLogEvento logEvento)
+        public HttpResponseMessage UpdateLogEvento(ApiLogEvento logEvento)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
 
             LogEvento logEventoUpdate = objMapper.CreateMapper().Map<LogEvento>(logEvento);
-            resultUpdate = serviceLogEvento.UpdateLogEvento(logEventoUpdate);
+            result = serviceLogEvento.UpdateLogEvento(logEventoUpdate);
 
-            return resultUpdate;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
 
         }
 
