@@ -82,7 +82,7 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertOrder(ApiOrderHeader orderHeader)
+        public HttpResponseMessage InsertOrder(ApiOrderHeader orderHeader)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -90,11 +90,19 @@ namespace PVenta.WebApi.Controllers
                 OrderHeader orderHeaderInsert = objMapper.CreateMapper().Map<OrderHeader>(orderHeader);
                 result = serviceOrder.InsertOrderHeader(orderHeaderInsert);
             }
-            return result;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateOrder(ApiOrderHeader orderHeader)
+        public HttpResponseMessage UpdateOrder(ApiOrderHeader orderHeader)
         {
             MessageApp result = null;
             if (ModelState.IsValid)
@@ -102,16 +110,31 @@ namespace PVenta.WebApi.Controllers
                 OrderHeader orderHeaderUpdate = objMapper.CreateMapper().Map<OrderHeader>(orderHeader);
                 result = serviceOrder.UpdateOrderHeader(orderHeaderUpdate);
             }
-            return result;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteOrder(string id)
+        public HttpResponseMessage DeleteOrder(string id)
         {
             MessageApp result = null;
             result = serviceOrder.DeleteOrderHeader(id);
 
-            return result;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
