@@ -25,18 +25,6 @@ namespace PVenta.WindForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/API_PVenta/")]
-        public string ApiURLPVenta {
-            get {
-                return ((string)(this["ApiURLPVenta"]));
-            }
-            set {
-                this["ApiURLPVenta"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("..... Filtrar Información .....")]
         public string TextoFiltro {
             get {
@@ -56,6 +44,18 @@ namespace PVenta.WindForm.Properties {
             }
             set {
                 this["ApiURLPVentaDev"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/API_PVenta/")]
+        public string ApiURLPVenta {
+            get {
+                return ((string)(this["ApiURLPVenta"]));
+            }
+            set {
+                this["ApiURLPVenta"] = value;
             }
         }
     }

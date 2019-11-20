@@ -35,19 +35,23 @@ namespace PVenta.WindForm.ApiCall
                 // HTTP POST
                 setClient();
                 HttpResponseMessage response =  client.PostAsJsonAsync(urlApi, objectRequest).Result;
-                response.EnsureSuccessStatusCode();
-
+                // response.EnsureSuccessStatusCode();
+                
                 if (response.IsSuccessStatusCode)
                 {
                     // Get the URI of the created resource.
-                    var retornado = response.Content.ReadAsAsync<TRespond>().Result;
-                    //result = response.Content.ReadAsAsync<TRespond>().Result;
-                    result = retornado;
+                    result = response.Content.ReadAsAsync<TRespond>().Result;
+                } 
+                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    result = response.Content.ReadAsAsync<TRespond>().Result;
                 }
+                
             }
             catch(Exception ex)
             {
                 // Error 
+                
             }
             objectResponse = result;
         }

@@ -71,7 +71,7 @@ namespace PVenta.WindForm.AdmForms
                         callRolEliminar(idrolseleted);
                         break;
                     default:
-                        MessageBox.Show(string.Format("El parametro {0} no es valido...", columnClick), "Administración Rol");
+                        //MessageBox.Show(string.Format("El parametro {0} no es valido...", columnClick), "Administración Rol");
                         break;
                 }
 
@@ -164,21 +164,24 @@ namespace PVenta.WindForm.AdmForms
             bool isValidated = Validations.validarID(idrolseleted, "Error en el parametro enviado...");
             if (isValidated)
             {
-                ApiRol rol = new ApiRol();
-                CallApies<viewMessageApp, ApiRol> MngApiRol = new CallApies<viewMessageApp, ApiRol>();
-                viewMessageApp result = null;
-
-                MngApiRol.urlApi = "api/Rol/DeleteRol/" + idrolseleted;
-                MngApiRol.objectRequest = rol;
-                MngApiRol.CallPost();
-                result = MngApiRol.objectResponse;
-                if (result != null)
+                DialogResult respuesta = MessageBox.Show("Seguro que desea eliminar este registro?", this.Text, MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (respuesta == System.Windows.Forms.DialogResult.Yes)
                 {
-                    cargaListaGRL();
-                    MessageBox.Show(result.Evento, this.Text.ToString());
+                    ApiRol rol = new ApiRol();
+                    CallApies<viewMessageApp, ApiRol> MngApiRol = new CallApies<viewMessageApp, ApiRol>();
+                    viewMessageApp result = null;
+
+                    MngApiRol.urlApi = "api/Rol/DeleteRol/" + idrolseleted;
+                    MngApiRol.objectRequest = rol;
+                    MngApiRol.CallPost();
+                    result = MngApiRol.objectResponse;
+                    if (result != null)
+                    {
+                        cargaListaGRL();
+                        MessageBox.Show(result.Evento, this.Text,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    }
                 }
             }
-
         }
     }
 }

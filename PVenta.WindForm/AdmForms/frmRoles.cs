@@ -58,10 +58,20 @@ namespace PVenta.WindForm.AdmForms
 
             if (result != null)
             {
-                MessageBox.Show(result.Evento, this.Text.ToString());
+                MessageBoxIcon msgIcon = result.esError ? MessageBoxIcon.Error : MessageBoxIcon.Information;
+                MessageBox.Show(result.Evento, this.Text.ToString(),MessageBoxButtons.OK, msgIcon);
+                if (!result.esError)
+                {
+                    this.Close();
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Error no controlado...", this.Text.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            this.Close();
+
+
         }
 
         private void editarRol()
