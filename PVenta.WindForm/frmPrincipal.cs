@@ -65,5 +65,12 @@ namespace PVenta.WindForm
             fRolesAdm.ShowDialog();
             fRolesAdm.Dispose();
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuariosAdm fUsuariosAdm = new frmUsuariosAdm();
+            fUsuariosAdm.ShowDialog();
+            fUsuariosAdm.Dispose();
+        }
     }
 }

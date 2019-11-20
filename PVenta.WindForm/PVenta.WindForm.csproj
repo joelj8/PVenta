@@ -70,6 +70,12 @@
     <Compile Include="AdmForms\frmRolesAdm.Designer.cs">
       <DependentUpon>frmRolesAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdmForms\frmUsuariosAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmForms\frmUsuariosAdm.Designer.cs">
+      <DependentUpon>frmUsuariosAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApiCall\CallApies.cs" />
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdmForms\frmRolesAdm.resx">
       <DependentUpon>frmRolesAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdmForms\frmUsuariosAdm.resx">
+      <DependentUpon>frmUsuariosAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

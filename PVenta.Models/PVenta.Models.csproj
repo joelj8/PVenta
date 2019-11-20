@@ -82,6 +82,7 @@
     <Compile Include="ViewModel\viewLogin.cs" />
     <Compile Include="ViewModel\viewMessageApp.cs" />
     <Compile Include="ViewModel\viewRol.cs" />
+    <Compile Include="ViewModel\viewUsuario.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
