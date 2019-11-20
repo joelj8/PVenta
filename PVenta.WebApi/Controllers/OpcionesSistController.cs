@@ -45,41 +45,60 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertOpcionesSist(ApiOpcionesSist opcionesSist)
+        public HttpResponseMessage InsertOpcionesSist(ApiOpcionesSist opcionesSist)
         {
-            MessageApp resultInsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 OpcionesSist opcionesSistInsert = objMapper.CreateMapper().Map<OpcionesSist>(opcionesSist);
-                resultInsert = serviceOpcionesSist.InsertOpcionesSist(opcionesSistInsert);
+                result = serviceOpcionesSist.InsertOpcionesSist(opcionesSistInsert);
             }
 
-            return resultInsert;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateOpcionesSist(ApiOpcionesSist opcionesSist)
+        public HttpResponseMessage UpdateOpcionesSist(ApiOpcionesSist opcionesSist)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 OpcionesSist opcionesSistUpdate = objMapper.CreateMapper().Map<OpcionesSist>(opcionesSist);
-                resultUpdate = serviceOpcionesSist.UpdateOpcionesSist(opcionesSistUpdate);
+                result = serviceOpcionesSist.UpdateOpcionesSist(opcionesSistUpdate);
             }
-            return resultUpdate;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteOpcionesSist(string id)
+        public HttpResponseMessage DeleteOpcionesSist(string id)
         {
-            MessageApp resultDelete = null;
-            OpcionesSist opcionesSistDelete = serviceOpcionesSist.GetOpcionesSist(id);
-            if (opcionesSistDelete != null)
-            {
-                resultDelete = serviceOpcionesSist.DeleteOpcionesSist(id);
-            }
+            MessageApp result = null;
 
-            return resultDelete;
+            result = serviceOpcionesSist.DeleteOpcionesSist(id);
+
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
