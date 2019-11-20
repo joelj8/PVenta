@@ -47,38 +47,59 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertCategoria(ApiCategoria categoria)
+        public HttpResponseMessage InsertCategoria(ApiCategoria categoria)
         {
-            MessageApp resultInsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Categoria categoriaInsert = objMapper.CreateMapper().Map<Categoria>(categoria);
-                resultInsert = serviceCategoria.InsertCategoria(categoriaInsert);
+                result = serviceCategoria.InsertCategoria(categoriaInsert);
             }
 
-            return resultInsert;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateCategoria(ApiCategoria categoria)
+        public HttpResponseMessage UpdateCategoria(ApiCategoria categoria)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Categoria categoriaUpdate = objMapper.CreateMapper().Map<Categoria>(categoria);
-                resultUpdate = serviceCategoria.UpdateCategoria(categoriaUpdate);
+                result = serviceCategoria.UpdateCategoria(categoriaUpdate);
             }
 
-            return resultUpdate;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteCategoria(string id)
+        public HttpResponseMessage DeleteCategoria(string id)
         {
-            MessageApp resultDelete = null;
-            resultDelete = serviceCategoria.DeleteCategoria(id);
+            MessageApp result = null;
+            result = serviceCategoria.DeleteCategoria(id);
 
-            return resultDelete;
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
     }
