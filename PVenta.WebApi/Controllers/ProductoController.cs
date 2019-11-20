@@ -47,35 +47,59 @@ namespace PVenta.WebApi.Controllers
         }
 
         [HttpPost]
-        public MessageApp InsertProducto(ApiProducto producto)
+        public HttpResponseMessage InsertProducto(ApiProducto producto)
         {
-            MessageApp resultInsert = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Producto productoInsert = objMapper.CreateMapper().Map<Producto>(producto);
-                resultInsert = serviceProducto.InsertProducto(productoInsert);
+                result = serviceProducto.InsertProducto(productoInsert);
             }
-            return resultInsert;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp UpdateProducto(ApiProducto producto)
+        public HttpResponseMessage UpdateProducto(ApiProducto producto)
         {
-            MessageApp resultUpdate = null;
+            MessageApp result = null;
             if (ModelState.IsValid)
             {
                 Producto productoUpdate = objMapper.CreateMapper().Map<Producto>(producto);
-                resultUpdate = serviceProducto.UpdateProducto(productoUpdate);
+                result = serviceProducto.UpdateProducto(productoUpdate);
             }
-            return resultUpdate;
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
 
         [HttpPost]
-        public MessageApp DeleteProducto(string id )
+        public HttpResponseMessage DeleteProducto(string id )
         {
-            MessageApp resultInsert = null;
-            resultInsert = serviceProducto.DeleteProducto(id);
-            return resultInsert;
+            MessageApp result = null;
+            result = serviceProducto.DeleteProducto(id);
+
+            if (result == null || result.esError)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
         }
     }
 }
