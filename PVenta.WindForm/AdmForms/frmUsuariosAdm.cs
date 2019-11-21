@@ -2,6 +2,7 @@
 using PVenta.Models.ViewModel;
 using PVenta.Utility;
 using PVenta.WindForm.ApiCall;
+using PVenta.WindForm.Define;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PVenta.WindForm.AdmForms
 {
-    public partial class frmUsuariosAdm : Form
+    public partial class frmUsuariosAdm : FormGRLA
     {
         private CallApies<viewUsuario, ApiUsuario> callApiUsuario = new CallApies<viewUsuario, ApiUsuario>();
         private List<viewUsuario> listUsuarios;

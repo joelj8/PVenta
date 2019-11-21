@@ -1,6 +1,7 @@
 ﻿using PVenta.Models.ApiModels;
 using PVenta.Models.ViewModel;
 using PVenta.WindForm.ApiCall;
+using PVenta.WindForm.Define;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace PVenta.WindForm.AdmForms
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : FormGRLA
     {
         static HttpClient client = new HttpClient();
         public viewLogin userSignIn = null;
@@ -29,9 +30,6 @@ namespace PVenta.WindForm.AdmForms
 
             userSignIn = valSign();
 
-            /*
-            userSignIn = await validSingIn();
-            */
             if (userSignIn != null)
             {
                 exit();
@@ -79,18 +77,6 @@ namespace PVenta.WindForm.AdmForms
 
         }
     
-        private void setClient()
-        {
-            if (client.BaseAddress == null )
-            {
-                string ulrapi = Properties.Settings.Default.ApiURLPVenta;
-                client.BaseAddress = new Uri(ulrapi);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            }
-            
-        }
-
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             autoSignIn(sender, e);
@@ -109,6 +95,11 @@ namespace PVenta.WindForm.AdmForms
                 this.btnSignin.PerformClick();
                 //btnSignin_Click(sender, e);
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

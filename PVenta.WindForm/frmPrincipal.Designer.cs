@@ -84,41 +84,41 @@
             // monedasToolStripMenuItem
             // 
             this.monedasToolStripMenuItem.Name = "monedasToolStripMenuItem";
-            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.monedasToolStripMenuItem.Text = "Monedas";
             // 
             // mesasToolStripMenuItem
             // 
             this.mesasToolStripMenuItem.Name = "mesasToolStripMenuItem";
-            this.mesasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mesasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.mesasToolStripMenuItem.Text = "Forma Pago";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(135, 6);
             // 
             // mesasToolStripMenuItem1
             // 
             this.mesasToolStripMenuItem1.Name = "mesasToolStripMenuItem1";
-            this.mesasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.mesasToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.mesasToolStripMenuItem1.Text = "Mesas";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(135, 6);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             // 
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.productosToolStripMenuItem.Text = "Productos";
             // 
             // administraciónToolStripMenuItem
@@ -136,32 +136,32 @@
             // rolesToolStripMenuItem
             // 
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.rolesToolStripMenuItem.Text = "Roles";
             this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(168, 22);
             this.toolStripMenuItem2.Text = "Opciones Sistema";
             // 
             // opcionesSistemaToolStripMenuItem
             // 
             this.opcionesSistemaToolStripMenuItem.Name = "opcionesSistemaToolStripMenuItem";
-            this.opcionesSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.opcionesSistemaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.opcionesSistemaToolStripMenuItem.Text = "Permisos Roles";
             // 
             // menAdministrativo
@@ -172,7 +172,8 @@
             this.administraciónToolStripMenuItem});
             this.menAdministrativo.Location = new System.Drawing.Point(0, 0);
             this.menAdministrativo.Name = "menAdministrativo";
-            this.menAdministrativo.Size = new System.Drawing.Size(800, 24);
+            this.menAdministrativo.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menAdministrativo.Size = new System.Drawing.Size(933, 24);
             this.menAdministrativo.TabIndex = 0;
             this.menAdministrativo.Visible = false;
             // 
@@ -182,7 +183,8 @@
             this.operacionesToolStripMenuItem});
             this.menCajeros.Location = new System.Drawing.Point(0, 0);
             this.menCajeros.Name = "menCajeros";
-            this.menCajeros.Size = new System.Drawing.Size(800, 24);
+            this.menCajeros.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menCajeros.Size = new System.Drawing.Size(933, 24);
             this.menCajeros.TabIndex = 1;
             this.menCajeros.Visible = false;
             // 
@@ -202,15 +204,14 @@
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 450);
             this.Controls.Add(this.menAdministrativo);
             this.Controls.Add(this.menCajeros);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menAdministrativo;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PVenta";

@@ -1,5 +1,6 @@
 ﻿using PVenta.Models.ViewModel;
 using PVenta.WindForm.AdmForms;
+using PVenta.WindForm.Define;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace PVenta.WindForm
 {
-    public partial class frmPrincipal : Form
+    public partial class frmPrincipal : FormGRLA
     {
         public viewLogin userApp = null;
         public frmPrincipal()
