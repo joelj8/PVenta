@@ -41,6 +41,8 @@
             this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEsCajero = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColInactivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,12 +69,15 @@
             this.ColRolID,
             this.ColRol,
             this.ColEsCajero,
-            this.ColInactivo});
+            this.ColInactivo,
+            this.ColEditar,
+            this.ColEliminar});
             this.dgvUsuarios.Location = new System.Drawing.Point(8, 39);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.Size = new System.Drawing.Size(619, 285);
             this.dgvUsuarios.TabIndex = 1;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // btnAgregar
             // 
@@ -82,6 +87,7 @@
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // ColID
             // 
@@ -97,6 +103,7 @@
             this.ColUserId.HeaderText = "User ID";
             this.ColUserId.Name = "ColUserId";
             this.ColUserId.ReadOnly = true;
+            this.ColUserId.Width = 80;
             // 
             // ColNombre
             // 
@@ -104,7 +111,7 @@
             this.ColNombre.HeaderText = "Nombre";
             this.ColNombre.Name = "ColNombre";
             this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 250;
+            this.ColNombre.Width = 180;
             // 
             // ColPwduser
             // 
@@ -136,7 +143,7 @@
             this.ColRol.HeaderText = "Rol";
             this.ColRol.Name = "ColRol";
             this.ColRol.ReadOnly = true;
-            this.ColRol.Width = 200;
+            this.ColRol.Width = 150;
             // 
             // ColEsCajero
             // 
@@ -155,6 +162,24 @@
             this.ColInactivo.Name = "ColInactivo";
             this.ColInactivo.ReadOnly = true;
             this.ColInactivo.Visible = false;
+            // 
+            // ColEditar
+            // 
+            this.ColEditar.HeaderText = "Editar";
+            this.ColEditar.Name = "ColEditar";
+            this.ColEditar.Text = "Editar...";
+            this.ColEditar.ToolTipText = "Pulse este botón para editar el usuario";
+            this.ColEditar.UseColumnTextForButtonValue = true;
+            this.ColEditar.Width = 70;
+            // 
+            // ColEliminar
+            // 
+            this.ColEliminar.HeaderText = "Eliminar";
+            this.ColEliminar.Name = "ColEliminar";
+            this.ColEliminar.Text = "Eliminar...";
+            this.ColEliminar.ToolTipText = "Pulse este botón para eliminar el usuario";
+            this.ColEliminar.UseColumnTextForButtonValue = true;
+            this.ColEliminar.Width = 70;
             // 
             // frmUsuariosAdm
             // 
@@ -193,5 +218,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRol;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColEsCajero;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColInactivo;
+        private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
+        private System.Windows.Forms.DataGridViewButtonColumn ColEliminar;
     }
 }
