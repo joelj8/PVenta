@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRolesAdm));
             this.dgvRoles = new System.Windows.Forms.DataGridView();
             this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColModificable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColInactivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +69,16 @@
             this.txtFiltro.Enter += new System.EventHandler(this.txtFiltro_Enter);
             this.txtFiltro.Leave += new System.EventHandler(this.txtFiltro_Leave);
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(413, 264);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // ColID
             // 
             this.ColID.DataPropertyName = "ID";
@@ -83,7 +93,7 @@
             this.ColNombre.HeaderText = "Nombre";
             this.ColNombre.Name = "ColNombre";
             this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 230;
+            this.ColNombre.Width = 250;
             // 
             // ColModificable
             // 
@@ -107,7 +117,7 @@
             this.ColEditar.Name = "ColEditar";
             this.ColEditar.Text = "Editar...";
             this.ColEditar.UseColumnTextForButtonValue = true;
-            this.ColEditar.Width = 80;
+            this.ColEditar.Width = 70;
             // 
             // ColEliminar
             // 
@@ -115,17 +125,7 @@
             this.ColEliminar.Name = "ColEliminar";
             this.ColEliminar.Text = "Eliminar...";
             this.ColEliminar.UseColumnTextForButtonValue = true;
-            this.ColEliminar.Width = 80;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(413, 264);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 2;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.ColEliminar.Width = 70;
             // 
             // frmRolesAdm
             // 
@@ -154,12 +154,12 @@
 
         private System.Windows.Forms.DataGridView dgvRoles;
         private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColModificable;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColInactivo;
         private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
         private System.Windows.Forms.DataGridViewButtonColumn ColEliminar;
-        private System.Windows.Forms.Button btnAgregar;
     }
 }

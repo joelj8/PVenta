@@ -40,56 +40,62 @@ namespace PVenta.WindForm.AdmForms
             {
                 callApiRol.urlApi = "api/Rol/GetRol/";
                 callApiRol.CallGet(RolID);
-                txtNombre.Text = callApiRol.objectResponse.Nombre;
-                chkModificable.Checked = callApiRol.objectResponse.Modificable;
+                if (callApiRol.objectResponse != null)
+                {
+                    txtNombre.Text = callApiRol.objectResponse.Nombre;
+                    chkModificable.Checked = callApiRol.objectResponse.Modificable;
+                }
+                
             }
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (modo == Modo.Agregar)
+            switch (modo)
             {
-                agregarRol();
-            }
-            else if (modo == Modo.Editar)
-            {
-                editarRol();
+                case Modo.Agregar:
+                    saveData("api/Rol/InsertRol");
+                    break;
+                case Modo.Editar:
+                    saveData("api/Rol/UpdateRol");
+                    break;
             }
 
+            msgResult();
+        }
+
+        private void msgResult()
+        {
             if (result != null)
             {
                 MessageBoxIcon msgIcon = result.esError ? MessageBoxIcon.Error : MessageBoxIcon.Information;
-                MessageBox.Show(result.Evento, this.Text.ToString(),MessageBoxButtons.OK, msgIcon);
+                MessageBox.Show(result.Evento, this.Text.ToString(), MessageBoxButtons.OK, msgIcon);
                 if (!result.esError)
                 {
                     this.Close();
                 }
-            } 
+            }
             else
             {
                 MessageBox.Show("Error no controlado...", this.Text.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
         }
 
-        private void editarRol()
+        private void prepareData()
         {
-            rol.ID = callApiRol.objectResponse.ID;
-            rol.Nombre = txtNombre.Text.ToString();
+            if (modo == Modo.Editar)
+            {
+                rol.ID = RolID;
+            }
+                
+            rol.Nombre = txtNombre.Text;
             rol.Modificable = chkModificable.Checked;
-            MngApiRol.urlApi = "api/Rol/UpdateRol";
-            MngApiRol.objectRequest = rol;
-            MngApiRol.CallPost();
-            result = MngApiRol.objectResponse;
         }
 
-        private void agregarRol()
+        private void saveData(string urlApi)
         {
-            rol.Nombre = txtNombre.Text.ToString();
-            rol.Modificable = chkModificable.Checked;
-            MngApiRol.urlApi = "api/Rol/InsertRol";
+            prepareData();
+            MngApiRol.urlApi = urlApi;
             MngApiRol.objectRequest = rol;
             MngApiRol.CallPost();
             result = MngApiRol.objectResponse;

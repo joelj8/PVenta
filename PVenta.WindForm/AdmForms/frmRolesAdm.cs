@@ -162,7 +162,7 @@ namespace PVenta.WindForm.AdmForms
             if (isValidated)
             {
                 DialogResult respuesta = MessageBox.Show("Seguro que desea eliminar este registro?", this.Text, MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                if (respuesta == System.Windows.Forms.DialogResult.Yes)
+                if (respuesta == DialogResult.Yes)
                 {
                     ApiRol rol = new ApiRol();
                     CallApies<viewMessageApp, ApiRol> MngApiRol = new CallApies<viewMessageApp, ApiRol>();
