@@ -22,7 +22,7 @@ namespace PVenta.Utility
         }
         public static string GetErrorList
         {
-            get { return "api/ErrorList/GetErrorList"; }
+            get { return "api/ErrorList/GetErrorList/"; }
         }
         public static string InsertErrorList
         {
@@ -34,7 +34,7 @@ namespace PVenta.Utility
         }
         public static string DeleteErrorList
         {
-            get { return "api/ErrorList/DeleteErrorList"; }
+            get { return "api/ErrorList/DeleteErrorList/"; }
         }
         #endregion
 
@@ -45,7 +45,7 @@ namespace PVenta.Utility
         }
         public static string GetLoegEvento
         {
-            get { return "api/LogEvento/GetLoegEvento"; }
+            get { return "api/LogEvento/GetLoegEvento/"; }
         }
         public static string InsertLoegEvento
         {
@@ -64,7 +64,7 @@ namespace PVenta.Utility
 
         public static string GetRol
         {
-            get { return "api/Rol/GetRol"; }
+            get { return "api/Rol/GetRol/"; }
         }
         public static string InsertRol
         {
@@ -76,7 +76,7 @@ namespace PVenta.Utility
         }
         public static string DeleteRol
         {
-            get { return "api/Rol/DeleteRol"; }
+            get { return "api/Rol/DeleteRol/"; }
         }
         #endregion
 
@@ -87,7 +87,7 @@ namespace PVenta.Utility
         }
         public static string GetUsuario
         {
-            get { return "api/Usuario/GetUsuario"; }
+            get { return "api/Usuario/GetUsuario/"; }
         }
         public static string InsertUsuario
         {
@@ -99,7 +99,7 @@ namespace PVenta.Utility
         }
         public static string DeleteUsuario
         {
-            get { return "api/Usuario/DeleteUsuario"; }
+            get { return "api/Usuario/DeleteUsuario/"; }
         }
         #endregion
 
@@ -110,7 +110,7 @@ namespace PVenta.Utility
         }
         public static string GetOpcionesSist
         {
-            get { return "api/OpcionesSist/GetOpcionesSist"; }
+            get { return "api/OpcionesSist/GetOpcionesSist/"; }
         }
         public static string InsertOpcionesSist
         {
@@ -122,7 +122,7 @@ namespace PVenta.Utility
         }
         public static string DeleteOpcionesSist
         {
-            get { return "api/OpcionesSist/DeleteOpcionesSist"; }
+            get { return "api/OpcionesSist/DeleteOpcionesSist/"; }
         }
         #endregion
 
@@ -133,7 +133,7 @@ namespace PVenta.Utility
         }
         public static string GetPermisosRol
         {
-            get { return "api/PermisosRol/GetPermisosRol"; }
+            get { return "api/PermisosRol/GetPermisosRol/"; }
         }
         public static string InsertPermisosRol
         {
@@ -145,7 +145,7 @@ namespace PVenta.Utility
         }
         public static string DeletePermisosRol
         {
-            get { return "api/PermisosRol/DeletePermisosRol"; }
+            get { return "api/PermisosRol/DeletePermisosRol/"; }
         }
         #endregion
 
@@ -156,7 +156,7 @@ namespace PVenta.Utility
         }
         public static string GetMesa
         {
-            get { return "api/Mesa/GetMesa"; }
+            get { return "api/Mesa/GetMesa/"; }
         }
         public static string InsertMesa
         {
@@ -168,7 +168,7 @@ namespace PVenta.Utility
         }
         public static string DeleteMesa
         {
-            get { return "api/Mesa/DeleteMesa"; }
+            get { return "api/Mesa/DeleteMesa/"; }
         }
         #endregion
 
@@ -179,7 +179,7 @@ namespace PVenta.Utility
         }
         public static string GetMoneda
         {
-            get { return "api/Moneda/GetMoneda"; }
+            get { return "api/Moneda/GetMoneda/"; }
         }
         public static string InsertMoneda
         {
@@ -191,7 +191,7 @@ namespace PVenta.Utility
         }
         public static string DeleteMoneda
         {
-            get { return "api/Moneda/DeleteMoneda"; }
+            get { return "api/Moneda/DeleteMoneda/"; }
         }
         #endregion
 
@@ -202,7 +202,7 @@ namespace PVenta.Utility
         }
         public static string GetFormaPago
         {
-            get { return "api/FormaPago/GetFormaPago"; }
+            get { return "api/FormaPago/GetFormaPago/"; }
         }
         public static string InsertFormaPago
         {
@@ -214,7 +214,7 @@ namespace PVenta.Utility
         }
         public static string DeleteFormaPago
         {
-            get { return "api/FormaPago/DeleteFormaPago"; }
+            get { return "api/FormaPago/DeleteFormaPago/"; }
         }
         #endregion
 
@@ -225,7 +225,7 @@ namespace PVenta.Utility
         }
         public static string GetCategoria
         {
-            get { return "api/Categoria/GetCategoria"; }
+            get { return "api/Categoria/GetCategoria/"; }
         }
         public static string InsertCategoria
         {
@@ -237,7 +237,7 @@ namespace PVenta.Utility
         }
         public static string DeleteCategoria
         {
-            get { return "api/Categoria/DeleteCategoria"; }
+            get { return "api/Categoria/DeleteCategoria/"; }
         }
         #endregion
 
@@ -248,7 +248,7 @@ namespace PVenta.Utility
         }
         public static string GetProducto
         {
-            get { return "api/Producto/GetProducto"; }
+            get { return "api/Producto/GetProducto/"; }
         }
         public static string InsertProducto
         {
@@ -260,7 +260,7 @@ namespace PVenta.Utility
         }
         public static string DeleteProducto
         {
-            get { return "api/Producto/DeleteProducto"; }
+            get { return "api/Producto/DeleteProducto/"; }
         }
         #endregion
 
@@ -271,7 +271,7 @@ namespace PVenta.Utility
         }
         public static string GetOrder
         {
-            get { return "api/Order/GetOrder"; }
+            get { return "api/Order/GetOrder/"; }
         }
         public static string InsertOrder
         {
@@ -283,7 +283,7 @@ namespace PVenta.Utility
         }
         public static string DeleteOrder
         {
-            get { return "api/Order/DeleteOrder"; }
+            get { return "api/Order/DeleteOrder/"; }
         }
         #endregion
 
