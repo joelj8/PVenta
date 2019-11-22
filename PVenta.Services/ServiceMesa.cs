@@ -20,7 +20,7 @@ namespace PVenta.Services
 
         public List<Mesa> GetMesas()
         {
-            var result = _dbcontext.Mesas.Where(x => !x.Inactivo).ToList();
+            var result = _dbcontext.Mesas.Where(x => !x.Inactivo).OrderBy(s => s.Orden).ToList();
             return result;
         }
 

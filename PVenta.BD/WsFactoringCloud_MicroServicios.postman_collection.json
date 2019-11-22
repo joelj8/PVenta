@@ -1,0 +1,1118 @@
+{
+	"info": {
+		"_postman_id": "8d13d168-1d10-449e-b0e8-de748725eea0",
+		"name": "WsFactoringCloud_MicroServicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TokenObtener",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Usuario\": \"Je167640\",\n    \"Clave\": \"PASS\"\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/TokenObtener/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"TokenObtener",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "_ParametrosObtener",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkplMTY3NjQwIiwibmJmIjoxNTY2NDgyODM3LCJleHAiOjE1NzAwODI4MzcsImlhdCI6MTU2NjQ4MjgzNywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkL0lzc3VlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC9BdWRpZW5jZSJ9.gE2e-cCQ8To7oRiH8aviE_Mf3XocbVqWK0EaFPSfooQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/ParametrosObtener/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"ParametrosObtener",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "_TokenValidar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IllQMjQzNzYwIiwibmJmIjoxNTQ4ODU5MTM5LCJleHAiOjE1NTI0NTkxMzksImlhdCI6MTU0ODg1OTEzOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkL0lzc3VlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC9BdWRpZW5jZSJ9.9vuxL1UUiP0VSYkm1_8TnUbv5ZRso80EKT_JtckOQcY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Token\": \"1234\"\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/TokenValidar/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"TokenValidar",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "_Log4NetLog",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Logger\": \"Prueba\",\n    \"Message\": \"Mensaje de prueba\",\n    \"LoggerLevel\": \"ERROR\"\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/Log4NetLog/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"Log4NetLog",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TarjetaDeClaveObtenerCoordenada",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"DocumentoID\": \"40224376042\"\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/TarjetaDeClaveObtenerCoordenada/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"TarjetaDeClaveObtenerCoordenada",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TarjetaDeClaveValidar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"DocumentoID\": \"40224376042\",\n    \"NumeroCoordenada\": 27,\n    \"ValorCoordenada\": 1300\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/TarjetaDeClaveValidar/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"TarjetaDeClaveValidar",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FacturaVender",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FunctionName\": \"MSGIV00001\",\n    \"Fecha\": \"20190117\",\n    \"Hora\": \"131500\",\n    \"_\": \"_\",\n    \"DocumentoID\": \"05601559593\",\n    \"NumeroCoordenada\": 11,\n    \"ValorCoordenada\": \"0\",\n    \"NombreProveedor\": \"MARIA ALTAGRACIA VARGAS\",\n    \"FlagEsClienteBanco\": false,\n    \"CodigoClienteAncla\": \"0470893\",\n    \"CodigoClienteProveedor\": \"000\",\n    \"CuentaCreditoRD\": \"10912420019\",\n    \"TipoCuentaRD\": \"CH\",\n    \"CodigoSwiftRD\": \"BCBHDOSDXXX\",\n    \"CuentaCreditoUS\": \"\",\n    \"TipoCuentaUS\": \"\",\n    \"CodigoSwiftUS\": \"\",\n    \"TotalBrutoRD\": 1,\n    \"TotalNetoRD\": 0.99,\n    \"TotalComisionesRD\": 0,\n    \"TotalInteresRD\": 0.01,\n    \"TotalBrutoUS\": 0,\n    \"TotalNetoUS\": 0,\n    \"TotalComisionesUS\": 0,\n    \"TotalInteresUS\": 0,\n    \"NumeroDeLote\": 560,\n    \"Facturas\": [\n        {\n            \"FacturaID\": \"12345678912345678912\",\n            \"FechaFactura\": \"20190405\",\n            \"NumeroFactura\": \"B121345678\",\n            \"MontoTotalFactura\": 1,\n            \"MontoComision\": 0,\n            \"MontoInteres\": 0.01,\n            \"MontoNetoFactura\": 0.99,\n            \"MonedaFactura\": \"000\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/FacturaVender/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"FacturaVender",
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Factura>Vender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNTMwNjIyNzE1LCJleHAiOjE1MzA2NTg3MTUsImlhdCI6MTUzMDYyMjcxNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC8ifQ.7d5HqaxUihfhcWHukymwEmZfo6Zt6FXqKOdwOliqvA4"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"DocumentoID\":\"00118606151\",\n\t\"NumeroCoordenada\": 2,\n\t\"ValorCoordenada\": 1234,\n\t\"NombreProveedor\": \"BANCO SANTANDER; AGUAS CALIENTES\",\n\t\"FlagEsClienteBanco\": \"true\",\n\t\"CodigoClienteAncla\": \"0003383\",\n\t\"CodigoClienteProveedor\": \"Cod1\",\n\t\"CuentaCreditoRD\": \"\",\n\t\"TipoCuentaRD\": \"\",\n\t\"CodigoSwiftRD\": \"\",\n\t\"CuentaCreditoUS\": \"01958000012\",\n\t\"TipoCuentaUS\": \"CC\",\n\t\"CodigoSwiftUS\": \"BCBHDOSDXXX\",\n\t\"TotalBrutoRD\": 0,\n\t\"TotalNetoRD\": 0,\n\t\"TotalComisionesRD\": 0,\n\t\"TotalInteresRD\": 0,\n\t\"TotalBrutoUS\": 1000,\n\t\"TotalNetoUS\": 960,\n\t\"TotalComisionesUS\": 25,\n\t\"TotalInteresUS\": 15,\n\t\"NumeroDeLote\": 101,\n\t\"Facturas\": [\n\t\t{\n\t\t\t\"FacturaID\":1,\n\t\t\t\"FechaFactura\":\"20180601\",\n\t\t\t\"NumeroFactura\":\"F00047\",\n\t\t\t\"MontoTotalFactura\":600,\n\t\t\t\"MontoComision\":15,\n\t\t\t\"MontoInteres\":9,\n\t\t\t\"MontoNetoFactura\":576,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t},\n\t\t{\n\t\t\t\"FacturaID\":2,\n\t\t\t\"FechaFactura\":\"20180602\",\n\t\t\t\"NumeroFactura\":\"F00048\",\n\t\t\t\"MontoTotalFactura\":400,\n\t\t\t\"MontoComision\":10,\n\t\t\t\"MontoInteres\":6,\n\t\t\t\"MontoNetoFactura\":384,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/WsFactoringCloud/api/factura/vender",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"WsFactoringCloud",
+								"api",
+								"factura",
+								"vender"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Jul 2018 14:04:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "-1",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/7.5",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319",
+							"name": "X-AspNet-Version",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ErrorCode\": \"MSGOK\",\n    \"ErrorText\": \"Proceso Satisfactorio.\",\n    \"Facturas\": [\n        {\n            \"NumeroFactura\": \"F00047\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00047 fue pagada anteriormente\"\n        },\n        {\n            \"NumeroFactura\": \"F00048\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00048 fue pagada anteriormente\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "FacturaVencimiento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FunctionName\": \"MSGIV00002\",\n    \"Fecha\": \"20190117\",\n    \"Hora\": \"131500\",\n    \"_\": \"_\",\n    \"CodigoClienteAncla\": \"0000051\",\n    \"CuentaAnclaRD\": \"\",\n    \"CuentaAnclaUS\": \"00000510041\",\n    \"DocumentoIDProveedor\": \"0000141\",\n    \"NombreProveedor\": \"MERCANTIL DEL CARIBE\",\n    \"CuentaCreditoRD\": \"\",\n    \"TipoCuentaRD\": \"\",\n    \"CodigoSwiftRD\": \"\",\n    \"CuentaCreditoUS\": \"00001410091\",\n    \"TipoCuentaUS\": \"CH\",\n    \"CodigoSwiftUS\": \"BCBHDOSDXXX\",\n    \"TotalBrutoRD\": 0,\n    \"TotalNetoRD\": 0,\n    \"TotalComisionesRD\": 0,\n    \"TotalMorasRD\": 0,\n    \"TotalInteresRD\": 0,\n    \"TotalIncentivoRD\": 0,\n    \"TotalBrutoUS\": 3000,\n    \"TotalNetoUS\": 2500,\n    \"TotalComisionesUS\": 300,\n    \"TotalMorasUS\": 0,\n    \"TotalInteresUS\": 200,\n    \"TotalIncentivoUS\": 100,\n    \"NumeroDeLote\": 101,\n    \"FlagFacturasVendidas\": true,\n    \"Facturas\": [\n        {\n            \"FacturaID\": 12345678912345678912,\n            \"NumeroFactura\": \"F-54658\",\n            \"MontoTotalFactura\": 3000,\n            \"MontoComision\": 300,\n            \"MontoInteres\": 200,\n            \"MontoNetoFactura\": 2500,\n            \"MontoIncentivo\": 100,\n            \"MonedaFactura\": \"034\",\n            \"MontoMora\": 0,\n            \"DiasDeMora\": 1,\n            \"FechaFactura\": \"20190405\"\n        },\n        {\n            \"FacturaID\": 12345678912345678912,\n            \"NumeroFactura\": \"F-54668\",\n            \"MontoTotalFactura\": 3000,\n            \"MontoComision\": 300,\n            \"MontoInteres\": 200,\n            \"MontoNetoFactura\": 2500,\n            \"MontoIncentivo\": 100,\n            \"MonedaFactura\": \"034\",\n            \"MontoMora\": 0,\n            \"DiasDeMora\": 1,\n            \"FechaFactura\": \"20190405\"\n        },\n        {\n            \"FacturaID\": 12345678912345678912,\n            \"NumeroFactura\": \"F-54678\",\n            \"MontoTotalFactura\": 3000,\n            \"MontoComision\": 300,\n            \"MontoInteres\": 200,\n            \"MontoNetoFactura\": 2500,\n            \"MontoIncentivo\": 100,\n            \"MonedaFactura\": \"034\",\n            \"MontoMora\": 0,\n            \"DiasDeMora\": 1,\n            \"FechaFactura\": \"20190405\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/FacturaVencimiento/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"FacturaVencimiento",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ClienteValidarClienteCuenta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FunctionName\": \"MSGIV00003\",\n    \"Fecha\": \"20190117\",\n    \"Hora\": \"131500\",\n    \"_\": \"_\",\n    \"NumeroClienteBanco\": \"0000077\",\n    \"CuentaRD\": \"00000770019\",\n    \"TipoCuentaRD\": \"CC\",\n    \"CuentaUS\": \"00000770035\",\n    \"TipoCuentaUS\": \"CH\"\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/ClienteValidarClienteCuenta/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"ClienteValidarClienteCuenta",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CupoValidacionYReserva",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"CodigoCliente\": \"0480059\",\n    \"MontoTotalFacturasPesos\": \"5500\",\n    \"MontoTotalFacturasDolares\": \"0.00\",\n    \"NumeroLote\": 101,\n    \"Cupos\": [\n        {\n            \"IDFactura\": \"1\",\n            \"NumeroFactura\": \"FPD0YPD145\",\n            \"MontoFactura\": \"5000.00\",\n            \"MonedaTransaccion\": \"000\",\n            \"FechaFactura\": \"20190508\"\n        },\n        {\n            \"IDFactura\": \"2\",\n            \"NumeroFactura\": \"FPD0YPD146\",\n            \"MontoFactura\": \"500.00\",\n            \"MonedaTransaccion\": \"000\",\n            \"FechaFactura\": \"20190508\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/CupoValidacionYReserva/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"CupoValidacionYReserva",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DocumentoValidarDocumentos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"NumeroDocumento\": \"130127476\",\n    \"TipoNegociacion\": \"RA\",\n    \"TipoDeDocumento\": \"003\",\n    \"Prestamos\": [\n        {\n            \"NumeroPrestamo\": \"1234567\"\n        },\n        {\n            \"NumeroPrestamo\": \"7654321\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/DocumentoValidarDocumentos/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"DocumentoValidarDocumentos",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FacturaPagoDistribuidores",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"CodigoClienteDistribuidor\": \"0000078\",\n    \"CuentaDistribuidorRD\": \"00000780014\",\n    \"CuentaDistribuidorUS\": \"\",\n    \"CodigoClienteAncla\": \"0000048\",\n    \"CuentaAnclaRD\": \"00000480061\",\n    \"CuentaAnclaUS\": \"\",\n    \"TotalBrutoFacturasRD\": 6000,\n    \"TotalBrutoFacturasUS\": 0,\n    \"TasaFinanciamientoRD\": 60,\n    \"TasaFinanciamientoUS\": 0,\n    \"PlazoFinanciamientoRD\": 12,\n    \"PlazoFinanciamientoUS\": 0,\n    \"PlazoPoolRD\": \"030\",\n    \"PlazoPoolUS\": \"\",\n    \"FacturasFinanciadas\": true,\n    \"NumeroDeLote\": 101,\n    \"Facturas\": [\n        {\n            \"FacturaID\": 1,\n            \"NumeroFactura\": \"FPD0YPD213\",\n            \"MontoTotalFactura\": \"4000\",\n            \"MonedaFactura\": \"000\",\n            \"FechaFactura\": \"20190520\",\n            \"FechaVencimientoFactura\": \"20190531\"\n        },\n        {\n            \"FacturaID\": \"2\",\n            \"NumeroFactura\": \"FPD0YPD214\",\n            \"MontoTotalFactura\": \"2000\",\n            \"MonedaFactura\": \"000\",\n            \"FechaFactura\": \"20190520\",\n            \"FechaVencimientoFactura\": \"20190531\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/FacturaPagoDistribuidores/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"FacturaPagoDistribuidores",
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Factura>Vender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNTMwNjIyNzE1LCJleHAiOjE1MzA2NTg3MTUsImlhdCI6MTUzMDYyMjcxNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC8ifQ.7d5HqaxUihfhcWHukymwEmZfo6Zt6FXqKOdwOliqvA4"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"DocumentoID\":\"00118606151\",\n\t\"NumeroCoordenada\": 2,\n\t\"ValorCoordenada\": 1234,\n\t\"NombreProveedor\": \"BANCO SANTANDER; AGUAS CALIENTES\",\n\t\"FlagEsClienteBanco\": \"true\",\n\t\"CodigoClienteAncla\": \"0003383\",\n\t\"CodigoClienteProveedor\": \"Cod1\",\n\t\"CuentaCreditoRD\": \"\",\n\t\"TipoCuentaRD\": \"\",\n\t\"CodigoSwiftRD\": \"\",\n\t\"CuentaCreditoUS\": \"01958000012\",\n\t\"TipoCuentaUS\": \"CC\",\n\t\"CodigoSwiftUS\": \"BCBHDOSDXXX\",\n\t\"TotalBrutoRD\": 0,\n\t\"TotalNetoRD\": 0,\n\t\"TotalComisionesRD\": 0,\n\t\"TotalInteresRD\": 0,\n\t\"TotalBrutoUS\": 1000,\n\t\"TotalNetoUS\": 960,\n\t\"TotalComisionesUS\": 25,\n\t\"TotalInteresUS\": 15,\n\t\"NumeroDeLote\": 101,\n\t\"Facturas\": [\n\t\t{\n\t\t\t\"FacturaID\":1,\n\t\t\t\"FechaFactura\":\"20180601\",\n\t\t\t\"NumeroFactura\":\"F00047\",\n\t\t\t\"MontoTotalFactura\":600,\n\t\t\t\"MontoComision\":15,\n\t\t\t\"MontoInteres\":9,\n\t\t\t\"MontoNetoFactura\":576,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t},\n\t\t{\n\t\t\t\"FacturaID\":2,\n\t\t\t\"FechaFactura\":\"20180602\",\n\t\t\t\"NumeroFactura\":\"F00048\",\n\t\t\t\"MontoTotalFactura\":400,\n\t\t\t\"MontoComision\":10,\n\t\t\t\"MontoInteres\":6,\n\t\t\t\"MontoNetoFactura\":384,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/WsFactoringCloud/api/factura/vender",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"WsFactoringCloud",
+								"api",
+								"factura",
+								"vender"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Jul 2018 14:04:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "-1",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/7.5",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319",
+							"name": "X-AspNet-Version",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ErrorCode\": \"MSGOK\",\n    \"ErrorText\": \"Proceso Satisfactorio.\",\n    \"Facturas\": [\n        {\n            \"NumeroFactura\": \"F00047\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00047 fue pagada anteriormente\"\n        },\n        {\n            \"NumeroFactura\": \"F00048\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00048 fue pagada anteriormente\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "FacturaPagoCredicuenta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IllQMjQzNzYwIiwibmJmIjoxNTUzMDk3MjcxLCJleHAiOjE1NTY2OTcyNzEsImlhdCI6MTU1MzA5NzI3MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkL0lzc3VlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC9BdWRpZW5jZSJ9.LaSRZI6Pie7LwDjYo7zl-OrMy8oZXDeagPL0xsNCdZk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FunctionName\": \"MSGIV00007\",\n    \"Fecha\": \"20190117\",\n    \"Hora\": \"131500\",\n    \"_\": \"_\",\n    \"CodigoClienteDistribuidor\": \"2474841\",\n    \"CodigoClienteAncla\": \"2474841\",\n    \"CuentaAnclaRD\": \"24748410011\",\n    \"CuentaAnclaUS\": \"\",\n    \"TotalBrutoFacturasRD\": 100,\n    \"TotalBrutoFacturasUS\": 0,\n    \"NumeroDeLote\": 333,\n    \"Facturas\": [\n        {\n            \"FacturaID\": \"12345678912345678912\",\n            \"NumeroFactura\": \"FPC0YPD003\",\n            \"MontoTotalFactura\": \"60\",\n            \"MonedaFactura\": \"000\",\n            \"FechaFactura\": \"20181001\",\n            \"FechaVencimientoFactura\": \"20181031\"\n        },\n        {\n            \"FacturaID\": \"2\",\n            \"NumeroFactura\": \"FPC0YPD004\",\n            \"MontoTotalFactura\": \"40\",\n            \"MonedaFactura\": \"000\",\n            \"FechaFactura\": \"20181001\",\n            \"FechaVencimientoFactura\": \"20181031\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/FacturaPagoCredicuenta/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"FacturaPagoCredicuenta",
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Factura>Vender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNTMwNjIyNzE1LCJleHAiOjE1MzA2NTg3MTUsImlhdCI6MTUzMDYyMjcxNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC8ifQ.7d5HqaxUihfhcWHukymwEmZfo6Zt6FXqKOdwOliqvA4"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"DocumentoID\":\"00118606151\",\n\t\"NumeroCoordenada\": 2,\n\t\"ValorCoordenada\": 1234,\n\t\"NombreProveedor\": \"BANCO SANTANDER; AGUAS CALIENTES\",\n\t\"FlagEsClienteBanco\": \"true\",\n\t\"CodigoClienteAncla\": \"0003383\",\n\t\"CodigoClienteProveedor\": \"Cod1\",\n\t\"CuentaCreditoRD\": \"\",\n\t\"TipoCuentaRD\": \"\",\n\t\"CodigoSwiftRD\": \"\",\n\t\"CuentaCreditoUS\": \"01958000012\",\n\t\"TipoCuentaUS\": \"CC\",\n\t\"CodigoSwiftUS\": \"BCBHDOSDXXX\",\n\t\"TotalBrutoRD\": 0,\n\t\"TotalNetoRD\": 0,\n\t\"TotalComisionesRD\": 0,\n\t\"TotalInteresRD\": 0,\n\t\"TotalBrutoUS\": 1000,\n\t\"TotalNetoUS\": 960,\n\t\"TotalComisionesUS\": 25,\n\t\"TotalInteresUS\": 15,\n\t\"NumeroDeLote\": 101,\n\t\"Facturas\": [\n\t\t{\n\t\t\t\"FacturaID\":1,\n\t\t\t\"FechaFactura\":\"20180601\",\n\t\t\t\"NumeroFactura\":\"F00047\",\n\t\t\t\"MontoTotalFactura\":600,\n\t\t\t\"MontoComision\":15,\n\t\t\t\"MontoInteres\":9,\n\t\t\t\"MontoNetoFactura\":576,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t},\n\t\t{\n\t\t\t\"FacturaID\":2,\n\t\t\t\"FechaFactura\":\"20180602\",\n\t\t\t\"NumeroFactura\":\"F00048\",\n\t\t\t\"MontoTotalFactura\":400,\n\t\t\t\"MontoComision\":10,\n\t\t\t\"MontoInteres\":6,\n\t\t\t\"MontoNetoFactura\":384,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/WsFactoringCloud/api/factura/vender",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"WsFactoringCloud",
+								"api",
+								"factura",
+								"vender"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Jul 2018 14:04:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "-1",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/7.5",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319",
+							"name": "X-AspNet-Version",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ErrorCode\": \"MSGOK\",\n    \"ErrorText\": \"Proceso Satisfactorio.\",\n    \"Facturas\": [\n        {\n            \"NumeroFactura\": \"F00047\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00047 fue pagada anteriormente\"\n        },\n        {\n            \"NumeroFactura\": \"F00048\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00048 fue pagada anteriormente\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "PrestamoRetornoPago",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FunctionName\": \"MSGIV00008\",\n    \"Fecha\": \"20190117\",\n    \"Hora\": \"131500\",\n    \"_\": \"_\",\n    \"CodigoClienteDistribuidor\": \"1016880\",\n    \"Prestamos\": [\n        {\n            \"NumeroPrestamo\": \"3708034\"\n        },\n        {\n            \"NumeroPrestamo\": \"3708034 \"\n        },\n        {\n            \"NumeroPrestamo\": \" 3708034\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/PrestamoRetornoPago/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"PrestamoRetornoPago",
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Factura>Vender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNTMwNjIyNzE1LCJleHAiOjE1MzA2NTg3MTUsImlhdCI6MTUzMDYyMjcxNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC8ifQ.7d5HqaxUihfhcWHukymwEmZfo6Zt6FXqKOdwOliqvA4"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"DocumentoID\":\"00118606151\",\n\t\"NumeroCoordenada\": 2,\n\t\"ValorCoordenada\": 1234,\n\t\"NombreProveedor\": \"BANCO SANTANDER; AGUAS CALIENTES\",\n\t\"FlagEsClienteBanco\": \"true\",\n\t\"CodigoClienteAncla\": \"0003383\",\n\t\"CodigoClienteProveedor\": \"Cod1\",\n\t\"CuentaCreditoRD\": \"\",\n\t\"TipoCuentaRD\": \"\",\n\t\"CodigoSwiftRD\": \"\",\n\t\"CuentaCreditoUS\": \"01958000012\",\n\t\"TipoCuentaUS\": \"CC\",\n\t\"CodigoSwiftUS\": \"BCBHDOSDXXX\",\n\t\"TotalBrutoRD\": 0,\n\t\"TotalNetoRD\": 0,\n\t\"TotalComisionesRD\": 0,\n\t\"TotalInteresRD\": 0,\n\t\"TotalBrutoUS\": 1000,\n\t\"TotalNetoUS\": 960,\n\t\"TotalComisionesUS\": 25,\n\t\"TotalInteresUS\": 15,\n\t\"NumeroDeLote\": 101,\n\t\"Facturas\": [\n\t\t{\n\t\t\t\"FacturaID\":1,\n\t\t\t\"FechaFactura\":\"20180601\",\n\t\t\t\"NumeroFactura\":\"F00047\",\n\t\t\t\"MontoTotalFactura\":600,\n\t\t\t\"MontoComision\":15,\n\t\t\t\"MontoInteres\":9,\n\t\t\t\"MontoNetoFactura\":576,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t},\n\t\t{\n\t\t\t\"FacturaID\":2,\n\t\t\t\"FechaFactura\":\"20180602\",\n\t\t\t\"NumeroFactura\":\"F00048\",\n\t\t\t\"MontoTotalFactura\":400,\n\t\t\t\"MontoComision\":10,\n\t\t\t\"MontoInteres\":6,\n\t\t\t\"MontoNetoFactura\":384,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/WsFactoringCloud/api/factura/vender",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"WsFactoringCloud",
+								"api",
+								"factura",
+								"vender"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Jul 2018 14:04:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "-1",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/7.5",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319",
+							"name": "X-AspNet-Version",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ErrorCode\": \"MSGOK\",\n    \"ErrorText\": \"Proceso Satisfactorio.\",\n    \"Facturas\": [\n        {\n            \"NumeroFactura\": \"F00047\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00047 fue pagada anteriormente\"\n        },\n        {\n            \"NumeroFactura\": \"F00048\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00048 fue pagada anteriormente\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "PrestamoEstatus",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FunctionName\": \"MSGIV00009\",\n    \"Fecha\": \"20190117\",\n    \"Hora\": \"131500\",\n    \"_\": \"_\",\n    \"CodigoClienteDistribuidor\": \"1016880\",\n    \"Prestamos\": [\n        {\n            \"NumeroPrestamo\": \"3708034\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/PrestamoEstatus/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"PrestamoEstatus",
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Factura>Vender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNTMwNjIyNzE1LCJleHAiOjE1MzA2NTg3MTUsImlhdCI6MTUzMDYyMjcxNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC8ifQ.7d5HqaxUihfhcWHukymwEmZfo6Zt6FXqKOdwOliqvA4"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"DocumentoID\":\"00118606151\",\n\t\"NumeroCoordenada\": 2,\n\t\"ValorCoordenada\": 1234,\n\t\"NombreProveedor\": \"BANCO SANTANDER; AGUAS CALIENTES\",\n\t\"FlagEsClienteBanco\": \"true\",\n\t\"CodigoClienteAncla\": \"0003383\",\n\t\"CodigoClienteProveedor\": \"Cod1\",\n\t\"CuentaCreditoRD\": \"\",\n\t\"TipoCuentaRD\": \"\",\n\t\"CodigoSwiftRD\": \"\",\n\t\"CuentaCreditoUS\": \"01958000012\",\n\t\"TipoCuentaUS\": \"CC\",\n\t\"CodigoSwiftUS\": \"BCBHDOSDXXX\",\n\t\"TotalBrutoRD\": 0,\n\t\"TotalNetoRD\": 0,\n\t\"TotalComisionesRD\": 0,\n\t\"TotalInteresRD\": 0,\n\t\"TotalBrutoUS\": 1000,\n\t\"TotalNetoUS\": 960,\n\t\"TotalComisionesUS\": 25,\n\t\"TotalInteresUS\": 15,\n\t\"NumeroDeLote\": 101,\n\t\"Facturas\": [\n\t\t{\n\t\t\t\"FacturaID\":1,\n\t\t\t\"FechaFactura\":\"20180601\",\n\t\t\t\"NumeroFactura\":\"F00047\",\n\t\t\t\"MontoTotalFactura\":600,\n\t\t\t\"MontoComision\":15,\n\t\t\t\"MontoInteres\":9,\n\t\t\t\"MontoNetoFactura\":576,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t},\n\t\t{\n\t\t\t\"FacturaID\":2,\n\t\t\t\"FechaFactura\":\"20180602\",\n\t\t\t\"NumeroFactura\":\"F00048\",\n\t\t\t\"MontoTotalFactura\":400,\n\t\t\t\"MontoComision\":10,\n\t\t\t\"MontoInteres\":6,\n\t\t\t\"MontoNetoFactura\":384,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/WsFactoringCloud/api/factura/vender",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"WsFactoringCloud",
+								"api",
+								"factura",
+								"vender"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Jul 2018 14:04:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "-1",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/7.5",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319",
+							"name": "X-AspNet-Version",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ErrorCode\": \"MSGOK\",\n    \"ErrorText\": \"Proceso Satisfactorio.\",\n    \"Facturas\": [\n        {\n            \"NumeroFactura\": \"F00047\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00047 fue pagada anteriormente\"\n        },\n        {\n            \"NumeroFactura\": \"F00048\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00048 fue pagada anteriormente\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "FacturaProvisionaYRecupera",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FunctionName\": \"MSGIV00010\",\n    \"Fecha\": \"20190117\",\n    \"Hora\": \"131500\",\n    \"_\": \"_\",\n    \"CodigoClienteAncla\": \"0000077\",\n    \"CuentaAnclaRD\": \"00000770019\",\n    \"CuentaAnclaUS\": \"\",\n    \"TotalBrutoFacturasRD\": 100,\n    \"TotalBrutoFacturasUS\": 0,\n    \"TotalProvRD\": 0,\n    \"TotalProvUS\": 0,\n    \"TotalRecupRD\": 0,\n    \"TotalRecupUS\": 0,\n    \"NumeroDeLote\": 10,\n    \"Facturas\": [\n        {\n            \"IDFactura\": \"12345678912345678912\",\n            \"NumeroFactura\": \"YPRYP0001\",\n            \"MontoFactura\": \"60\",\n            \"MontoProvRecup\": \"0\",\n            \"MonedaFactura\": \"000\",\n            \"FechaFactura\": \"20190320\",\n            \"EstatusVencimiento\": \"VI\",\n            \"FlagProvRecup\": \"P\"\n        },\n        {\n            \"IDFactura\": \"2\",\n            \"NumeroFactura\": \"YPRYP0001\",\n            \"MontoFactura\": \"40\",\n            \"MontoProvRecup\": \"0\",\n            \"MonedaFactura\": \"000\",\n            \"FechaFactura\": \"20190320\",\n            \"EstatusVencimiento\": \"VE\",\n            \"FlagProvRecup\": \"P\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/FacturaProvisionaYRecupera/api",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"FacturaProvisionaYRecupera",
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Factura>Vender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNTMwNjIyNzE1LCJleHAiOjE1MzA2NTg3MTUsImlhdCI6MTUzMDYyMjcxNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC8ifQ.7d5HqaxUihfhcWHukymwEmZfo6Zt6FXqKOdwOliqvA4"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"DocumentoID\":\"00118606151\",\n\t\"NumeroCoordenada\": 2,\n\t\"ValorCoordenada\": 1234,\n\t\"NombreProveedor\": \"BANCO SANTANDER; AGUAS CALIENTES\",\n\t\"FlagEsClienteBanco\": \"true\",\n\t\"CodigoClienteAncla\": \"0003383\",\n\t\"CodigoClienteProveedor\": \"Cod1\",\n\t\"CuentaCreditoRD\": \"\",\n\t\"TipoCuentaRD\": \"\",\n\t\"CodigoSwiftRD\": \"\",\n\t\"CuentaCreditoUS\": \"01958000012\",\n\t\"TipoCuentaUS\": \"CC\",\n\t\"CodigoSwiftUS\": \"BCBHDOSDXXX\",\n\t\"TotalBrutoRD\": 0,\n\t\"TotalNetoRD\": 0,\n\t\"TotalComisionesRD\": 0,\n\t\"TotalInteresRD\": 0,\n\t\"TotalBrutoUS\": 1000,\n\t\"TotalNetoUS\": 960,\n\t\"TotalComisionesUS\": 25,\n\t\"TotalInteresUS\": 15,\n\t\"NumeroDeLote\": 101,\n\t\"Facturas\": [\n\t\t{\n\t\t\t\"FacturaID\":1,\n\t\t\t\"FechaFactura\":\"20180601\",\n\t\t\t\"NumeroFactura\":\"F00047\",\n\t\t\t\"MontoTotalFactura\":600,\n\t\t\t\"MontoComision\":15,\n\t\t\t\"MontoInteres\":9,\n\t\t\t\"MontoNetoFactura\":576,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t},\n\t\t{\n\t\t\t\"FacturaID\":2,\n\t\t\t\"FechaFactura\":\"20180602\",\n\t\t\t\"NumeroFactura\":\"F00048\",\n\t\t\t\"MontoTotalFactura\":400,\n\t\t\t\"MontoComision\":10,\n\t\t\t\"MontoInteres\":6,\n\t\t\t\"MontoNetoFactura\":384,\n\t\t\t\"MonedaFactura\":\"034\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/WsFactoringCloud/api/factura/vender",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"WsFactoringCloud",
+								"api",
+								"factura",
+								"vender"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Jul 2018 14:04:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "-1",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/7.5",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319",
+							"name": "X-AspNet-Version",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ErrorCode\": \"MSGOK\",\n    \"ErrorText\": \"Proceso Satisfactorio.\",\n    \"Facturas\": [\n        {\n            \"NumeroFactura\": \"F00047\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00047 fue pagada anteriormente\"\n        },\n        {\n            \"NumeroFactura\": \"F00048\",\n            \"CodigoError\": \"MQ50042\",\n            \"DescripcionError\": \"Esta Factura: F00048 fue pagada anteriormente\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "CupoConsultaDisponibilidad",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"TipoNegociacion\": \"CC\",\r\n\t\"MonedaCupo\": \"000\",\r\n    \"CodigoCliente\": \"2300606\"\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "http://serwebppd01/CupoDisponibilidadWS/api/Cupo",
+					"protocol": "http",
+					"host": [
+						"serwebppd01"
+					],
+					"path": [
+						"CupoDisponibilidadWS",
+						"api",
+						"Cupo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkplMTY3NjQwIiwibmJmIjoxNTcwMTM2ODEyLCJleHAiOjE1NzM3MzY4MTIsImlhdCI6MTU3MDEzNjgxMiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9Xc0ZhY3RvcmluZ0Nsb3VkL0lzc3VlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3QvV3NGYWN0b3JpbmdDbG91ZC9BdWRpZW5jZSJ9.-wZbVzKdOwjTGCoXVNnrs3Uv8V9duwMJCw7fU74UV7k",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e9519a00-8fdb-4c29-a4ed-76c80fdc87f3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4fe026a9-7f2a-4891-9568-a3b68b817bf6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
