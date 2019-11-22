@@ -70,6 +70,7 @@ namespace PVenta.Services
                     if (mesaUpdate != null)
                     {
                         mesaUpdate.Descripcion = mesaUpd.Descripcion;
+                        mesaUpdate.Orden = mesaUpd.Orden;
                         _dbcontext.Entry(mesaUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
                         result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
