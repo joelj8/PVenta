@@ -39,7 +39,7 @@ namespace PVenta.WindForm.AdmForms
         {
             if (RolID != string.Empty)
             {
-                callApiRol.urlApi = "api/Rol/GetRol/";
+                callApiRol.urlApi = CollectAPI.GetRol;
                 callApiRol.CallGet(RolID);
                 if (callApiRol.objectResponse != null)
                 {
@@ -55,10 +55,10 @@ namespace PVenta.WindForm.AdmForms
             switch (modo)
             {
                 case Modo.Agregar:
-                    saveData("api/Rol/InsertRol");
+                    saveData(CollectAPI.InsertRol);
                     break;
                 case Modo.Editar:
-                    saveData("api/Rol/UpdateRol");
+                    saveData(CollectAPI.UpdateRol);
                     break;
             }
 

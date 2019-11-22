@@ -39,7 +39,7 @@ namespace PVenta.WindForm.MantForms
         {
             if (MesaID != string.Empty)
             {
-                callApiMesa.urlApi = "api/Mesa/GetMesa/";
+                callApiMesa.urlApi = CollectAPI.GetMesa;
                 callApiMesa.CallGet(MesaID);
                 if (callApiMesa.objectResponse != null)
                 {
@@ -55,10 +55,10 @@ namespace PVenta.WindForm.MantForms
             switch (modo)
             {
                 case Modo.Agregar:
-                    saveData("api/Mesa/InsertMesa");
+                    saveData(CollectAPI.InsertMesa);
                     break;
                 case Modo.Editar:
-                    saveData("api/Mesa/UpdateMesa");
+                    saveData(CollectAPI.UpdateMesa);
                     break;
             }
 

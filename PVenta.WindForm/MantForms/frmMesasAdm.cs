@@ -34,7 +34,7 @@ namespace PVenta.WindForm.MantForms
 
         private void cargaListaGRL()
         {
-            callApiMesa.urlApi = "api/Mesa/GetMesas/";
+            callApiMesa.urlApi = CollectAPI.GetMesas;
             callApiMesa.CallGetList();
             listMesas = callApiMesa.listaResponse.ToList();
             setDataSourceGrid();
@@ -137,7 +137,7 @@ namespace PVenta.WindForm.MantForms
                     CallApies<viewMessageApp, ApiMesa> MngApiRol = new CallApies<viewMessageApp, ApiMesa>();
                     viewMessageApp result = null;
 
-                    MngApiRol.urlApi = "api/Mesa/DeleteMesa/" + idmesaselected;
+                    MngApiRol.urlApi = CollectAPI.DeleteMesa + idmesaselected;
                     MngApiRol.CallPost();
                     result = MngApiRol.objectResponse;
                     if (result != null)

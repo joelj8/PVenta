@@ -1,5 +1,6 @@
 ﻿using PVenta.Models.ApiModels;
 using PVenta.Models.ViewModel;
+using PVenta.Utility;
 using PVenta.WindForm.ApiCall;
 using PVenta.WindForm.Define;
 using System;
@@ -36,8 +37,6 @@ namespace PVenta.WindForm.AdmForms
             }
             else
             {
-                
-                
                 var result = MessageBox.Show("Usuario y/o Password invalido", "Login...",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -58,13 +57,13 @@ namespace PVenta.WindForm.AdmForms
             userlg.Usuario = txtUsuario.Text;
             userlg.Password = txtPassword.Text;
 
-            callApi.urlApi = "api/Login/singin";
+            callApi.urlApi =  CollectAPI.SignIn;
             callApi.objectRequest = userlg;
             callApi.CallPost();
 
             result = callApi.objectResponse;
 
-            callApi.urlApi = "api/Login/singin/";
+            callApi.urlApi = CollectAPI.SignIn;
             /*
              //Ejemplo de como llamar las API's
             CallApies<ApiUsuario, ApiUsuario> callApiUser = new CallApies<ApiUsuario, ApiUsuario>();
