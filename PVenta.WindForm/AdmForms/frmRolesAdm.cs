@@ -73,7 +73,8 @@ namespace PVenta.WindForm.AdmForms
                         break;
                 }
 
-            } else
+            } 
+            else
             {
                 MessageBox.Show(string.Format("El rol {0} no se puede {1}...",nombreRol, columnClick.ToLower()), "Administración Rol");
             }
@@ -165,12 +166,10 @@ namespace PVenta.WindForm.AdmForms
                 DialogResult respuesta = MessageBox.Show("Seguro que desea eliminar este registro?", this.Text, MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
                 {
-                    ApiRol rol = new ApiRol();
                     CallApies<viewMessageApp, ApiRol> MngApiRol = new CallApies<viewMessageApp, ApiRol>();
                     viewMessageApp result = null;
 
                     MngApiRol.urlApi = "api/Rol/DeleteRol/" + idrolseleted;
-                    MngApiRol.objectRequest = rol;
                     MngApiRol.CallPost();
                     result = MngApiRol.objectResponse;
                     if (result != null)

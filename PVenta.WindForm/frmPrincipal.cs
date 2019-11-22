@@ -1,6 +1,7 @@
 ﻿using PVenta.Models.ViewModel;
 using PVenta.WindForm.AdmForms;
 using PVenta.WindForm.Define;
+using PVenta.WindForm.MantForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,6 +73,13 @@ namespace PVenta.WindForm
             frmUsuariosAdm fUsuariosAdm = new frmUsuariosAdm();
             fUsuariosAdm.ShowDialog();
             fUsuariosAdm.Dispose();
+        }
+
+        private void mesasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmMesasAdm fMesasAdm = new frmMesasAdm();
+            fMesasAdm.ShowDialog();
+            fMesasAdm.Dispose();
         }
     }
 }
