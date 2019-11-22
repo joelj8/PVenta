@@ -15,6 +15,7 @@ namespace PVenta.WebApi.Repository
             CreateMap<Mesa,ApiMesa>()
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.ID))
                 .ForMember(dest => dest.Descripcion, opts => opts.MapFrom(src => src.Descripcion))
+                .ForMember(dest => dest.Orden, opts => opts.MapFrom(src => src.Orden))
                 .ForMember(dest => dest.Inactivo, opts => opts.MapFrom(src => src.Inactivo));
         }
     }

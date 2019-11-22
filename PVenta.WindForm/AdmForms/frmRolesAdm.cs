@@ -2,6 +2,7 @@
 using PVenta.Models.ViewModel;
 using PVenta.Utility;
 using PVenta.WindForm.ApiCall;
+using PVenta.WindForm.Define;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PVenta.WindForm.AdmForms
 {
-    public partial class frmRolesAdm : Form
+    public partial class frmRolesAdm : FormGRLA
     {
         private  CallApies<viewRol, ApiRol> callApiRol = new CallApies<viewRol, ApiRol>();
         private List<viewRol> listRoles;
@@ -31,7 +32,7 @@ namespace PVenta.WindForm.AdmForms
 
         private void cargaListaGRL()
         {
-            callApiRol.urlApi = "api/Rol/GetRoles/";
+            callApiRol.urlApi = CollectAPI.GetRoles;
             callApiRol.CallGetList();
             listRoles = callApiRol.listaResponse.ToList();
             setDataSourceGrid();
@@ -72,7 +73,8 @@ namespace PVenta.WindForm.AdmForms
                         break;
                 }
 
-            } else
+            } 
+            else
             {
                 MessageBox.Show(string.Format("El rol {0} no se puede {1}...",nombreRol, columnClick.ToLower()), "Administración Rol");
             }
@@ -164,12 +166,10 @@ namespace PVenta.WindForm.AdmForms
                 DialogResult respuesta = MessageBox.Show("Seguro que desea eliminar este registro?", this.Text, MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
                 {
-                    ApiRol rol = new ApiRol();
                     CallApies<viewMessageApp, ApiRol> MngApiRol = new CallApies<viewMessageApp, ApiRol>();
                     viewMessageApp result = null;
 
-                    MngApiRol.urlApi = "api/Rol/DeleteRol/" + idrolseleted;
-                    MngApiRol.objectRequest = rol;
+                    MngApiRol.urlApi = CollectAPI.DeleteRol + idrolseleted;
                     MngApiRol.CallPost();
                     result = MngApiRol.objectResponse;
                     if (result != null)

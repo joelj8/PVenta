@@ -13,40 +13,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PVenta.WindForm.AdmForms
+namespace PVenta.WindForm.MantForms
 {
-    public partial class frmRoles : FormGRLA
+    public partial class frmMesas : FormGRLA
     {
-        public string RolID { get; set; }
         public Modo modo { get; set; }
+        public string MesaID { get; set; }
         private viewMessageApp result = null;
-        private ApiRol rol = new ApiRol();
+        private ApiMesa mesa = new ApiMesa();
 
-        private CallApies<viewRol, ApiRol> callApiRol = new CallApies<viewRol, ApiRol>();
-        private CallApies<viewMessageApp, ApiRol> MngApiRol = new CallApies<viewMessageApp, ApiRol>();
+        private CallApies<viewMesa, ApiMesa> callApiMesa = new CallApies<viewMesa, ApiMesa>();
+        private CallApies<viewMessageApp, ApiMesa> MngApiMesa = new CallApies<viewMessageApp, ApiMesa>();
 
-        public frmRoles()
+        public frmMesas()
         {
             InitializeComponent();
         }
 
-        private void frmRoles_Load(object sender, EventArgs e)
+        private void frmMesas_Load(object sender, EventArgs e)
         {
 
         }
 
         public void setData()
         {
-            if (RolID != string.Empty)
+            if (MesaID != string.Empty)
             {
-                callApiRol.urlApi = CollectAPI.GetRol;
-                callApiRol.CallGet(RolID);
-                if (callApiRol.objectResponse != null)
+                callApiMesa.urlApi = CollectAPI.GetMesa;
+                callApiMesa.CallGet(MesaID);
+                if (callApiMesa.objectResponse != null)
                 {
-                    txtNombre.Text = callApiRol.objectResponse.Nombre;
-                    chkModificable.Checked = callApiRol.objectResponse.Modificable;
+                    txtDescripcion.Text = callApiMesa.objectResponse.Descripcion;
+                    numOrden.Value = callApiMesa.objectResponse.Orden;
                 }
-                
+
             }
         }
 
@@ -55,10 +55,10 @@ namespace PVenta.WindForm.AdmForms
             switch (modo)
             {
                 case Modo.Agregar:
-                    saveData(CollectAPI.InsertRol);
+                    saveData(CollectAPI.InsertMesa);
                     break;
                 case Modo.Editar:
-                    saveData(CollectAPI.UpdateRol);
+                    saveData(CollectAPI.UpdateMesa);
                     break;
             }
 
@@ -82,24 +82,24 @@ namespace PVenta.WindForm.AdmForms
             }
         }
 
+        private void saveData(string urlApi)
+        {
+            prepareData();
+            MngApiMesa.urlApi = urlApi;
+            MngApiMesa.objectRequest = mesa;
+            MngApiMesa.CallPost();
+            result = MngApiMesa.objectResponse;
+        }
+
         private void prepareData()
         {
             if (modo == Modo.Editar)
             {
-                rol.ID = RolID;
+                mesa.ID = MesaID;
             }
-                
-            rol.Nombre = txtNombre.Text;
-            rol.Modificable = chkModificable.Checked;
-        }
 
-        private void saveData(string urlApi)
-        {
-            prepareData();
-            MngApiRol.urlApi = urlApi;
-            MngApiRol.objectRequest = rol;
-            MngApiRol.CallPost();
-            result = MngApiRol.objectResponse;
+            mesa.Descripcion = txtDescripcion.Text;
+            mesa.Orden = int.Parse(numOrden.Value.ToString());
         }
     }
 }

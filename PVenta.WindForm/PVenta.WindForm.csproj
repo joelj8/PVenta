@@ -95,6 +95,18 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantForms\frmMesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmMesas.Designer.cs">
+      <DependentUpon>frmMesas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantForms\frmMesasAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmMesasAdm.Designer.cs">
+      <DependentUpon>frmMesasAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdmForms\frmLogin.resx">
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmMesas.resx">
+      <DependentUpon>frmMesas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmMesasAdm.resx">
+      <DependentUpon>frmMesasAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

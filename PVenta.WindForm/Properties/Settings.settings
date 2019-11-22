@@ -9,10 +9,7 @@
       <Value Profile="(Default)">http://localhost:44343/</Value>
     </Setting>
     <Setting Name="ApiURLPVenta" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://localhost:4343/</Value>
-    </Setting>
-    <Setting Name="Setting" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">http://localhost/API_PVenta/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -43,7 +43,7 @@ namespace PVenta.WindForm.AdmForms
 
             if (UsuarioID != string.Empty)
             {
-                callApiUsuario.urlApi = "api/Usuario/GetUsuario/";
+                callApiUsuario.urlApi = CollectAPI.GetUsuario;
                 callApiUsuario.CallGet(UsuarioID);
                 if (callApiUsuario.objectResponse != null)
                 {
@@ -65,7 +65,7 @@ namespace PVenta.WindForm.AdmForms
         {
             //cboRol.DataSource = string.Empty;
 
-            callApiRol.urlApi = "api/Rol/GetRoles";
+            callApiRol.urlApi = CollectAPI.GetRoles;
             callApiRol.CallGetList();
             if (callApiRol.listaResponse != null)
             {
@@ -86,10 +86,10 @@ namespace PVenta.WindForm.AdmForms
                 switch (this.modo)
                 {
                     case Modo.Agregar:
-                        saveData("api/Usuario/InsertUsuario");
+                        saveData(CollectAPI.InsertUsuario);
                         break;
                     case Modo.Editar:
-                        saveData("api/Usuario/UpdateUsuario");
+                        saveData(CollectAPI.UpdateUsuario);
                         break;
                 }
 
@@ -190,7 +190,7 @@ namespace PVenta.WindForm.AdmForms
 
             // validando el UserId
             string usuariorId = txtUserID.Text;
-            callApiUsuario.urlApi = "api/Usuario/GetUsuarios/";
+            callApiUsuario.urlApi = CollectAPI.GetUsuarios;
             callApiUsuario.CallGetList();
             int cantUserExist = (from dt in callApiUsuario.listaResponse
                             where dt.ID != UsuarioID && 

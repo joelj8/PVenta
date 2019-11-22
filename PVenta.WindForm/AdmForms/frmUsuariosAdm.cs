@@ -2,6 +2,7 @@
 using PVenta.Models.ViewModel;
 using PVenta.Utility;
 using PVenta.WindForm.ApiCall;
+using PVenta.WindForm.Define;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PVenta.WindForm.AdmForms
 {
-    public partial class frmUsuariosAdm : Form
+    public partial class frmUsuariosAdm : FormGRLA
     {
         private CallApies<viewUsuario, ApiUsuario> callApiUsuario = new CallApies<viewUsuario, ApiUsuario>();
         private List<viewUsuario> listUsuarios;
@@ -32,7 +33,7 @@ namespace PVenta.WindForm.AdmForms
 
         private void cargaListaGRL()
         {
-            callApiUsuario.urlApi = "api/Usuario/GetUsuarios/";
+            callApiUsuario.urlApi = CollectAPI.GetUsuarios;
             callApiUsuario.CallGetList();
             listUsuarios = callApiUsuario.listaResponse.ToList();
             setDataSourceGrid();
@@ -136,7 +137,7 @@ namespace PVenta.WindForm.AdmForms
                     CallApies<viewMessageApp, ApiUsuario> MngApiRol = new CallApies<viewMessageApp, ApiUsuario>();
                     viewMessageApp result = null;
 
-                    MngApiRol.urlApi = "api/Usuario/DeleteUsuario/" + idUsuarioSelected;
+                    MngApiRol.urlApi = CollectAPI.DeleteUsuario + idUsuarioSelected;
                     MngApiRol.objectRequest = usuario;
                     MngApiRol.CallPost();
                     result = MngApiRol.objectResponse;

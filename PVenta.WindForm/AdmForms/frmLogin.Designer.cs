@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 31);
+            this.label1.Location = new System.Drawing.Point(14, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 18);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 77);
+            this.label2.Location = new System.Drawing.Point(14, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 18);
             this.label2.TabIndex = 1;
@@ -58,27 +58,27 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(121, 32);
+            this.txtUsuario.Location = new System.Drawing.Point(141, 32);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(222, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(258, 21);
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(121, 75);
+            this.txtPassword.Location = new System.Drawing.Point(141, 75);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(222, 20);
+            this.txtPassword.Size = new System.Drawing.Size(258, 21);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnSignin
             // 
             this.btnSignin.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignin.Location = new System.Drawing.Point(268, 133);
+            this.btnSignin.Location = new System.Drawing.Point(313, 133);
             this.btnSignin.Name = "btnSignin";
-            this.btnSignin.Size = new System.Drawing.Size(75, 23);
+            this.btnSignin.Size = new System.Drawing.Size(87, 23);
             this.btnSignin.TabIndex = 4;
             this.btnSignin.Text = "Aceptar";
             this.btnSignin.UseVisualStyleBackColor = true;
@@ -86,20 +86,19 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 165);
+            this.ClientSize = new System.Drawing.Size(428, 165);
             this.Controls.Add(this.btnSignin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login...";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

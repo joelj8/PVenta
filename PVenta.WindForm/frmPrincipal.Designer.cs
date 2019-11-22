@@ -103,6 +103,7 @@
             this.mesasToolStripMenuItem1.Name = "mesasToolStripMenuItem1";
             this.mesasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.mesasToolStripMenuItem1.Text = "Mesas";
+            this.mesasToolStripMenuItem1.Click += new System.EventHandler(this.mesasToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
@@ -172,7 +173,8 @@
             this.administraciónToolStripMenuItem});
             this.menAdministrativo.Location = new System.Drawing.Point(0, 0);
             this.menAdministrativo.Name = "menAdministrativo";
-            this.menAdministrativo.Size = new System.Drawing.Size(800, 24);
+            this.menAdministrativo.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menAdministrativo.Size = new System.Drawing.Size(933, 24);
             this.menAdministrativo.TabIndex = 0;
             this.menAdministrativo.Visible = false;
             // 
@@ -182,7 +184,8 @@
             this.operacionesToolStripMenuItem});
             this.menCajeros.Location = new System.Drawing.Point(0, 0);
             this.menCajeros.Name = "menCajeros";
-            this.menCajeros.Size = new System.Drawing.Size(800, 24);
+            this.menCajeros.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menCajeros.Size = new System.Drawing.Size(933, 24);
             this.menCajeros.TabIndex = 1;
             this.menCajeros.Visible = false;
             // 
@@ -202,15 +205,14 @@
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 450);
             this.Controls.Add(this.menAdministrativo);
             this.Controls.Add(this.menCajeros);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menAdministrativo;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PVenta";
