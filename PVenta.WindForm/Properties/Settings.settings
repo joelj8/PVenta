@@ -5,11 +5,17 @@
     <Setting Name="TextoFiltro" Type="System.String" Scope="User">
       <Value Profile="(Default)">..... Filtrar Información .....</Value>
     </Setting>
-    <Setting Name="ApiURLPVentaDev" Type="System.String" Scope="User">
+    <Setting Name="APIURL1DEV" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://localhost:44343/</Value>
     </Setting>
     <Setting Name="ApiURLPVenta" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:4343/</Value>
+    </Setting>
+    <Setting Name="APIURL1QA" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://localhost/API_PVenta/</Value>
+    </Setting>
+    <Setting Name="APIURL2QA" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:4343/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

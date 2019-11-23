@@ -12,7 +12,7 @@ namespace PVenta.WindForm.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -38,24 +38,48 @@ namespace PVenta.WindForm.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44343/")]
-        public string ApiURLPVentaDev {
+        public string APIURL1DEV {
             get {
-                return ((string)(this["ApiURLPVentaDev"]));
+                return ((string)(this["APIURL1DEV"]));
             }
             set {
-                this["ApiURLPVentaDev"] = value;
+                this["APIURL1DEV"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/API_PVenta/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4343/")]
         public string ApiURLPVenta {
             get {
                 return ((string)(this["ApiURLPVenta"]));
             }
             set {
                 this["ApiURLPVenta"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/API_PVenta/")]
+        public string APIURL1QA {
+            get {
+                return ((string)(this["APIURL1QA"]));
+            }
+            set {
+                this["APIURL1QA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4343/")]
+        public string APIURL2QA {
+            get {
+                return ((string)(this["APIURL2QA"]));
+            }
+            set {
+                this["APIURL2QA"] = value;
             }
         }
     }
