@@ -81,5 +81,12 @@ namespace PVenta.WindForm
             fMesasAdm.ShowDialog();
             fMesasAdm.Dispose();
         }
+
+        private void monedasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMonedasAdm fMonedasAdm = new frmMonedasAdm();
+            fMonedasAdm.ShowDialog();
+            fMonedasAdm.Dispose();
+        }
     }
 }
