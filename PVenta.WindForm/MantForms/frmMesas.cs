@@ -21,7 +21,7 @@ namespace PVenta.WindForm.MantForms
         public string MesaID { get; set; }
         private viewMessageApp result = null;
         private ApiMesa mesa = new ApiMesa();
-
+        
         private CallApies<viewMesa, ApiMesa> callApiMesa = new CallApies<viewMesa, ApiMesa>();
         private CallApies<viewMessageApp, ApiMesa> MngApiMesa = new CallApies<viewMessageApp, ApiMesa>();
 
@@ -32,7 +32,7 @@ namespace PVenta.WindForm.MantForms
 
         private void frmMesas_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public void setData()
@@ -97,7 +97,6 @@ namespace PVenta.WindForm.MantForms
             {
                 mesa.ID = MesaID;
             }
-
             mesa.Descripcion = txtDescripcion.Text;
             mesa.Orden = int.Parse(numOrden.Value.ToString());
         }

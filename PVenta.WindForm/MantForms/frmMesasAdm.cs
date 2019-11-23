@@ -28,7 +28,7 @@ namespace PVenta.WindForm.MantForms
 
         private void frmMesasAdm_Load(object sender, EventArgs e)
         {
-            textFiltroMng("L");
+            textFiltroMng("L",true);
             cargaListaGRL();
         }
 
@@ -48,8 +48,13 @@ namespace PVenta.WindForm.MantForms
             }
         }
 
-        private void textFiltroMng(string modo)
+        private void textFiltroMng(string modo, bool reiniciar = false)
         {
+            if (reiniciar)
+            {
+                txtFiltro.Text = string.Empty;
+            }
+
             string txtvalue = txtFiltro.Text.ToString();
             string textCompara = modo == "L" ? string.Empty : Properties.Settings.Default.TextoFiltro.ToString();
             string textAsigna = modo == "L" ? Properties.Settings.Default.TextoFiltro.ToString() : string.Empty;
@@ -103,6 +108,7 @@ namespace PVenta.WindForm.MantForms
             fMesas.modo = Modo.Agregar;
             fMesas.ShowDialog();
             fMesas.Dispose();
+            textFiltroMng("L",true);
             cargaListaGRL();
         }
 
@@ -142,6 +148,7 @@ namespace PVenta.WindForm.MantForms
                     result = MngApiRol.objectResponse;
                     if (result != null)
                     {
+                        textFiltroMng("L", true);
                         cargaListaGRL();
                         MessageBox.Show(result.Evento, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -160,6 +167,7 @@ namespace PVenta.WindForm.MantForms
                 fMesas.setData();
                 fMesas.ShowDialog();
                 fMesas.Dispose();
+                textFiltroMng("L", true);
                 cargaListaGRL();
             }
         }
