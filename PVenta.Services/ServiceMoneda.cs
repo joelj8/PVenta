@@ -20,7 +20,7 @@ namespace PVenta.Services
    
         public List<Moneda> GetMonedas()
         {
-            var result = _dbcontext.Monedas.Where(x => !x.Inactivo).ToList();
+            var result = _dbcontext.Monedas.Where(x => !x.Inactivo).OrderBy(s => s.Valor).ToList();
             return result;
         }
 

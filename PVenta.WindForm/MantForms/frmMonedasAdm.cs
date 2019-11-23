@@ -17,7 +17,7 @@ namespace PVenta.WindForm.MantForms
 {
     public partial class frmMonedasAdm : FormGRLA
     {
-        private CallApies<viewMoneda, ApiMoneda> callApiMoneda = new CallApies<viewMoneda, ApiMoneda>();
+        private CallApies<viewMoneda, ApiMesa> callApiMoneda = new CallApies<viewMoneda, ApiMesa>();
         private List<viewMoneda> listMonedas;
 
         public frmMonedasAdm()
@@ -48,8 +48,13 @@ namespace PVenta.WindForm.MantForms
             }
         }
 
-        private void textFiltroMng(string modo)
+        private void textFiltroMng(string modo, bool reiniciar = false)
         {
+            if (reiniciar)
+            {
+                txtFiltro.Text = string.Empty;
+            }
+
             string txtvalue = txtFiltro.Text.ToString();
             string textCompara = modo == "L" ? string.Empty : Properties.Settings.Default.TextoFiltro.ToString();
             string textAsigna = modo == "L" ? Properties.Settings.Default.TextoFiltro.ToString() : string.Empty;
@@ -104,6 +109,7 @@ namespace PVenta.WindForm.MantForms
             fMonedas.modo = Modo.Agregar;
             fMonedas.ShowDialog();
             fMonedas.Dispose();
+            textFiltroMng("L",true);
             cargaListaGRL();
         }
 
@@ -134,7 +140,7 @@ namespace PVenta.WindForm.MantForms
                 DialogResult respuesta = MessageBox.Show("Seguro que desea eliminar este registro?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
                 {
-                    CallApies<viewMessageApp, ApiMoneda> MngApiMoneda = new CallApies<viewMessageApp, ApiMoneda>();
+                    CallApies<viewMessageApp, ApiMesa> MngApiMoneda = new CallApies<viewMessageApp, ApiMesa>();
                     viewMessageApp result = null;
 
                     MngApiMoneda.urlApi = CollectAPI.DeleteMoneda + idmonedaselected;
@@ -142,6 +148,7 @@ namespace PVenta.WindForm.MantForms
                     result = MngApiMoneda.objectResponse;
                     if (result != null)
                     {
+                        textFiltroMng("L",true);
                         cargaListaGRL();
                         MessageBox.Show(result.Evento, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -149,17 +156,18 @@ namespace PVenta.WindForm.MantForms
             }
         }
 
-        private void callEditar(string idmesaselected)
+        private void callEditar(string idmonedaselected)
         {
-            bool isValidated = Validations.validarID(idmesaselected, "Error en el parametro enviado...");
+            bool isValidated = Validations.validarID(idmonedaselected, "Error en el parametro enviado...");
             if (isValidated)
             {
                 frmMonedas fMonedas = new frmMonedas();
                 fMonedas.modo = Modo.Editar;
-                fMonedas.MonedaID = idmesaselected;
+                fMonedas.MonedaID = idmonedaselected;
                 fMonedas.setData();
                 fMonedas.ShowDialog();
                 fMonedas.Dispose();
+                textFiltroMng("L",true);
                 cargaListaGRL();
             }
         }

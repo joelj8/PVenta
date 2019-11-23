@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.dgvMonedas = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColInactivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonedas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +69,16 @@
             this.dgvMonedas.TabIndex = 1;
             this.dgvMonedas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonedas_CellContentClick);
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(412, 265);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // ColID
             // 
             this.ColID.DataPropertyName = "ID";
@@ -82,11 +93,14 @@
             this.ColDescripcion.HeaderText = "Descripción";
             this.ColDescripcion.Name = "ColDescripcion";
             this.ColDescripcion.ReadOnly = true;
-            this.ColDescripcion.Width = 250;
+            this.ColDescripcion.Width = 230;
             // 
             // ColValor
             // 
             this.ColValor.DataPropertyName = "valor";
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.ColValor.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColValor.HeaderText = "Valor";
             this.ColValor.Name = "ColValor";
             this.ColValor.ReadOnly = true;
@@ -118,16 +132,6 @@
             this.ColEliminar.UseColumnTextForButtonValue = true;
             this.ColEliminar.Width = 70;
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(412, 265);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 2;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // frmMonedasAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -149,12 +153,12 @@
 
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.DataGridView dgvMonedas;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColInactivo;
         private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
         private System.Windows.Forms.DataGridViewButtonColumn ColEliminar;
-        private System.Windows.Forms.Button btnAgregar;
     }
 }
