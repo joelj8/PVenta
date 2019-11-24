@@ -27,7 +27,7 @@ namespace PVenta.WindForm.MantForms
 
         private void frmMonedasAdm_Load(object sender, EventArgs e)
         {
-            textFiltroMng("L");
+            textFiltroMng("L",true);
             cargaListaGRL();
 
         }
