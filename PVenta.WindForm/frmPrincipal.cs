@@ -95,5 +95,12 @@ namespace PVenta.WindForm
             fFormaPagosAdm.ShowDialog();
             fFormaPagosAdm.Dispose();
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoriasAdm fCategoriasAdm = new frmCategoriasAdm();
+            fCategoriasAdm.ShowDialog();
+            fCategoriasAdm.Dispose();
+        }
     }
 }
