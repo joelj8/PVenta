@@ -15,5 +15,10 @@ namespace PVenta.Models.ViewModel
         public bool ImpComanda { get; set; }
 
         public bool Inactivo { get; set; }
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

@@ -102,5 +102,12 @@ namespace PVenta.WindForm
             fCategoriasAdm.ShowDialog();
             fCategoriasAdm.Dispose();
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductosAdm fProductosAdm = new frmProductosAdm();
+            fProductosAdm.ShowDialog();
+            fProductosAdm.Dispose();
+        }
     }
 }
