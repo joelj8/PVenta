@@ -23,19 +23,8 @@ namespace PVenta.Models.Model
         [DisplayName("Header de Factura")]
         public string FacturaHID { get; set; }
 
-        [NotMapped]
         [ForeignKey("FacturaHID")]
         public FacturaHeader FacturaHeader { get; set; }
-
-        [Column("FacturaDID", TypeName = "varchar")]
-        [Required(ErrorMessage = "Detalle de Factura es requerida")]
-        [MaxLength(50)]
-        [DisplayName("Detalle de Factura")]
-        public string FacturaDID { get; set; }
-
-        [NotMapped]
-        [ForeignKey("FacturaDID")]
-        public FacturaDetail FacturaDetail { get; set; }
 
         [Required(ErrorMessage = "Usuario Pago de Factura es requerido")]
         [Column("UserId", TypeName = "varchar")]
@@ -52,8 +41,5 @@ namespace PVenta.Models.Model
         public decimal MontoPago { get; set; }
 
         public bool Inactivo { get; set; }
-
-        
-
     }
 }

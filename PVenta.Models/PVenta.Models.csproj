@@ -47,6 +47,9 @@
   <ItemGroup>
     <Compile Include="ApiModels\ApiCategoria.cs" />
     <Compile Include="ApiModels\ApiErrorList.cs" />
+    <Compile Include="ApiModels\ApiFacturaDetail.cs" />
+    <Compile Include="ApiModels\ApiFacturaHeader.cs" />
+    <Compile Include="ApiModels\ApiFacturaPayment.cs" />
     <Compile Include="ApiModels\ApiFormaPago.cs" />
     <Compile Include="ApiModels\ApiLogEvento.cs" />
     <Compile Include="ApiModels\ApiLogin.cs" />
@@ -80,6 +83,9 @@
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\viewCategoria.cs" />
+    <Compile Include="ViewModel\viewFacturaDetail.cs" />
+    <Compile Include="ViewModel\viewFacturaHeader.cs" />
+    <Compile Include="ViewModel\viewFacturaPayment.cs" />
     <Compile Include="ViewModel\viewFormaPagos.cs" />
     <Compile Include="ViewModel\viewLogin.cs" />
     <Compile Include="ViewModel\viewMesa.cs" />
