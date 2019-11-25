@@ -108,6 +108,7 @@ namespace PVenta.WindForm.MantForms
         {
             frmProductos fProductos = new frmProductos();
             fProductos.modo = Modo.Agregar;
+            fProductos.setData();
             fProductos.ShowDialog();
             fProductos.Dispose();
             textFiltroMng("L", true);
@@ -164,12 +165,12 @@ namespace PVenta.WindForm.MantForms
             bool isValidated = Validations.validarID(idproductoselected, "Error en el parametro enviado...");
             if (isValidated)
             {
-                frmProductos fCategorias = new frmProductos();
-                fCategorias.modo = Modo.Editar;
-                fCategorias.CategoriaID = idproductoselected;
-                fCategorias.setData();
-                fCategorias.ShowDialog();
-                fCategorias.Dispose();
+                frmProductos fProductos = new frmProductos();
+                fProductos.modo = Modo.Editar;
+                fProductos.ProductoID = idproductoselected;
+                fProductos.setData();
+                fProductos.ShowDialog();
+                fProductos.Dispose();
                 textFiltroMng("L", true);
                 cargaListaGRL();
             }

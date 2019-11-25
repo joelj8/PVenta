@@ -36,7 +36,7 @@ namespace PVenta.Models.Model
 
         [Column("Precio")]
         [DisplayName("Precio Producto")]
-        public string Precio { get; set; }
+        public decimal Precio { get; set; }
 
         [Column("CategoriaId", TypeName = "varchar")]
         [Required(ErrorMessage = "Categoria del Producto es requerida")]
