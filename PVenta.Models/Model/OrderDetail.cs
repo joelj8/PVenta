@@ -56,5 +56,7 @@ namespace PVenta.Models.Model
         public bool Impreso { get; set; }
 
         public bool Inactivo { get; set; }
+
+        public decimal Orden { get; set; }
     }
 }
