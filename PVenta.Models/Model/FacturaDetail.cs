@@ -37,6 +37,7 @@ namespace PVenta.Models.Model
         [DisplayName("Producto de Factura")]
         public string ProductoID { get; set; }
 
+        [ForeignKey("ProductoID")]
         public virtual Producto producto { get; set; }
 
         [Column("Cantidad")]

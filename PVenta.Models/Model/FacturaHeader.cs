@@ -22,9 +22,6 @@ namespace PVenta.Models.Model
         [DisplayName("Header de Orden")]
         public string OrderHID { get; set; }
 
-        [ForeignKey("OrderHID")]
-        public OrderHeader OrderHeader { get; set; }
-
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Fecha de Factura es requerida")]
@@ -65,11 +62,9 @@ namespace PVenta.Models.Model
 
         public bool Inactivo { get; set; }
 
-        [NotMapped]
         [ForeignKey("FacturaHID")]
         public ICollection<FacturaDetail> FacturaDetails { get; set; }
 
-        [NotMapped]
         [ForeignKey("FacturaHID")]
         public ICollection<FacturaPayment> FacturaPayments { get; set; }
 

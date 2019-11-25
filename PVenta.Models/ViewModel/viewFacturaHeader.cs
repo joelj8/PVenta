@@ -10,7 +10,6 @@ namespace PVenta.Models.ViewModel
     {
         public string ID { get; set; }
         public string OrderHID { get; set; }
-        public viewOrderHeader OrderHeader { get; set; }
         public DateTime Fecha { get; set; }
         public string UserId { get; set; }
         public string MesaId { get; set; }

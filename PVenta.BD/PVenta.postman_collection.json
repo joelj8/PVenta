@@ -98,7 +98,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"ID\": \"c7ec70dc-7d60-4a93-8a75-8cc9e7379e40\",\r\n        \"Nombre\": \"Prueba Error\",\r\n        \"Modificable\": true,\r\n        \"Inactivo\": true\r\n    }",
+					"raw": "{\r\n        \"ID\": \"546515151351325132512\",\r\n        \"Nombre\": \"Borrar\",\r\n        \"Modificable\": true,\r\n        \"Inactivo\": false\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -134,7 +134,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"true\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"Nombre\": \"Borrar\",\r\n\t\"Modificable\": true,\r\n\t\"Inactivo\": false\r\n }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -265,7 +265,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"\",\n\t\"UserId\": \"Adm\",\n\t\"Nombre\": \"Administrador\",\n\t\"Pwduser\": \"*********\",\n\t\"Email\": \"Adm@pventa.com.do\",\n\t\"RolId\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"esCajero\": \"False\"\n\n}",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"UserId\": \"CAJA01\",\n\t\"Nombre\": \"Cajero 01\",\n\t\"Pwduser\": \"adm\",\n\t\"Email\": \"caja01@pventa.com.do\",\n\t\"RolId\": \"f9a4dfd5-bf16-4e70-9df8-d1dd684a9b28\",\n\t\"esCajero\": \"true\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -424,7 +424,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{domain}}/api/LogEvento/GetLogEvento/76b83931-acda-4858-9480-8d54e8645bf1",
+					"raw": "http://{{domain}}/api/LogEvento/GetLogEvento/1487b575-276d-4687-bc26-368bc472c1ab",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -433,7 +433,7 @@
 						"api",
 						"LogEvento",
 						"GetLogEvento",
-						"76b83931-acda-4858-9480-8d54e8645bf1"
+						"1487b575-276d-4687-bc26-368bc472c1ab"
 					]
 				}
 			},
@@ -453,7 +453,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Inicializando el Sistema\"\n\t\n\t\n}",
+					"raw": "{\n\t\"ID\": \"\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\n\t\"ErrorListId\": \"88acf6e8-c2cc-4298-8964-2ba933841021\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"MsgError\": \"Inicializando el Sistema\"\n\t\n\t\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -489,7 +489,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"ID\": \"76b83931-acda-4858-9480-8d54e8645bf1\",\n\t\"Fecha\": \"10/29/2019\",\n\t\"UserId\": \"08aa9765-76e5-4347-9392-ac447fdf835b\",\n\t\"TipoEvento\": \"Sistema\",\n\t\"Evento\": \"Finalizando el Sistema\"\n\t\n\t\n}",
+					"raw": "{\r\n    \"ID\": \"1487b575-276d-4687-bc26-368bc472c1ab\",\r\n    \"Fecha\": \"2019-10-29T00:00:00\",\r\n    \"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\r\n    \"TipoEvento\": \"Sistema\",\r\n    \"ErrorListId\": \"88acf6e8-c2cc-4298-8964-2ba933841021\",\r\n    \"msgError\": \"Inicializando el Sistema\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1306,7 +1306,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{domain}}/api/ErrorList/GetErrorList/554e7066-0f9c-4387-b0d0-2758826d1240",
+					"raw": "http://{{domain}}/api/ErrorList/GetErrorList/e327e483-4263-4128-acdb-2a576506958c",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -1315,7 +1315,7 @@
 						"api",
 						"ErrorList",
 						"GetErrorList",
-						"554e7066-0f9c-4387-b0d0-2758826d1240"
+						"e327e483-4263-4128-acdb-2a576506958c"
 					]
 				}
 			},
@@ -1335,7 +1335,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ID\": \"\",\r\n    \"Codigo\": \"RH00001\",\r\n    \"MsgError\": \"Registrado Duplicado\"\r\n}",
+					"raw": "{\r\n    \"ID\": \"\",\r\n    \"Codigo\": \"EL00001\",\r\n    \"esError\": true,\r\n    \"MsgError\": \"Registrado Duplicado\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1371,7 +1371,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"ID\": \"554e7066-0f9c-4387-b0d0-2758826d1240\",\r\n        \"Codigo\": \"EL00002\",\r\n        \"MsgError\": \"Error, Este Codigo / Descripción  yá existe.\",\r\n        \"Inactivo\": false\r\n    }",
+					"raw": "{\r\n    \"ID\": \"e327e483-4263-4128-acdb-c\",\r\n    \"Codigo\": \"EL00001\",\r\n    \"MsgError\": \"Error, Este registro no existe.\",\r\n    \"esError\": true,\r\n    \"Inactivo\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1914,7 +1914,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"Usuario\": \"Adm\",\n\t\"Password\": \"ADm\"\n}",
+					"raw": "{\n\t\"Usuario\": \"Adm\",\n\t\"Password\": \"adm\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1931,6 +1931,284 @@
 						"api",
 						"Login",
 						"singin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta By IP",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "da9ba960-fcb9-4460-a23a-0d7ffe39c448",
+						"exec": [
+							"// Set Date\r",
+							"pm.environment.set(\"date\", new Date(\"Fri, 15 Nov 2019 17:21\").toUTCString());\r",
+							"\r",
+							"\r",
+							"//pm.environment.set(\"date\", \"Thu, 16 May 2019 14:00:43 GMT\");\r",
+							"var date = pm.environment.get(\"date\");\r",
+							"\r",
+							"\r",
+							"// Get Environment variables\r",
+							"var publicKey = '243fe439bd150fc775d2afe96b19f1aa'; //pm.environment.get(\"public_key\");\r",
+							"var privateKey = 'Fr/3lUUBF8j8uwmxD1IKuozf3eHTFppxUrNtnSgXgQ+uuJri/5mWU6eF2qw2sn/EPFuANxTLm4kStDfq1465RA==';//pm.environment.get(\"private_key\");\r",
+							"\r",
+							"// Set your headers here\r",
+							"var headersMap = new Map();\r",
+							"headersMap.set('date', date);\r",
+							"headersMap.set('content-type', 'application/json');\r",
+							"\r",
+							"// iterate over the headers map and create the header string\r",
+							"var headersArr = [];\r",
+							"var headersNames = [];\r",
+							"headersMap.forEach(function(value, key) {\r",
+							"    headersArr.push(key + ': ' + value);\r",
+							"    headersNames.push(key);\r",
+							"});\r",
+							"var sHeaders = headersArr.join('\\n');\r",
+							"var headersLabel = headersNames.join(' ');\r",
+							"\r",
+							"// sign the header string\r",
+							"//var signature = generateSignature(sHeaders, privateKey);\r",
+							"var signature = generateSignature('application/json,,/bill/consult,'+date, privateKey);\r",
+							"//signature = 'v1yi0YfWxCBTmxAndsDmX0ScpO8=';\r",
+							"\r",
+							"// generate authorization string\r",
+							"//var authorization = 'Signature keyid=\"' + publicKey + '\",algorithm=\"hmac-sha1\",headers=\"' + headersLabel + '\",signature=\"' + signature + '\"';\r",
+							"var authorization = 'APIAuth '+ publicKey +':'+ signature;\r",
+							"// log results for debugging\r",
+							"console.log('signature: ' + signature);\r",
+							"console.log('authorization: ' + authorization);\r",
+							"console.log(\"APIAuth 243fe439bd150fc775d2afe96b19f1aa:A00/0l609Ja0t66jRDKvVrVhDbY=\");\r",
+							"console.log(date);\r",
+							"console.log(typeof date);\r",
+							"// finally, set the authorization signature\r",
+							"pm.environment.set(\"authString\", authorization);\r",
+							"\r",
+							"// functions\r",
+							"function generateSignature(message, key) {\r",
+							"    console.log('generateSignature(\"' + message + '\", ' + key + ');');\r",
+							"    var enc = CryptoJS.HmacSHA1(message, key).toString(CryptoJS.enc.Base64);\r",
+							"    return enc;\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Signature keyid=\"243fe439bd150fc775d2afe96b19f1aa\",algorithm=\"hmac-sha1\",headers=\"date content-type\",signature=\"QFcf+ey+7M80NCX3EZHdsXzyy7U=\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.regalii.v1.6+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-MD5",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{date}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authString}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"biller_id\": 6891,\r\n  \"account_number\": \"501137463144\"\r\n}"
+				},
+				"url": {
+					"raw": "https://44.226.138.186/bill/consult",
+					"protocol": "https",
+					"host": [
+						"44",
+						"226",
+						"138",
+						"186"
+					],
+					"path": [
+						"bill",
+						"consult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFacturas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{domain}}/api/Factura/getFacturas",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"Factura",
+						"getFacturas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFactura",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{domain}}/api/Factura/getFactura/2f3996a6-f19a-483e-9372-843afddf1959",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"Factura",
+						"getFactura",
+						"2f3996a6-f19a-483e-9372-843afddf1959"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertFactura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"OrderHID\": \"\",\r\n  \"Fecha\": \"2019-11-25T16:53:19.1540724-04:00\",\r\n  \"UserId\": \"UsuarioID\",\r\n  \"MesaId\": \"MesaID\",\r\n  \"ClientePrincipal\": \"Cliente Principal\",\r\n  \"Itbis\": true,\r\n  \"ItbisPorc\": 18.0,\r\n  \"DescMonto\": 0.0,\r\n  \"DescPorc\": 0.0,\r\n  \"FechaRegistro\": \"2019-11-25T16:53:19.1540724-04:00\",\r\n  \"Impreso\": false,\r\n  \"Inactivo\": false,\r\n  \"FacturaDetails\": [],\r\n  \"FacturaPayments\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/Factura/InsertFactura",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"Factura",
+						"InsertFactura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateFactura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": \"2f3996a6-f19a-483e-9372-843afddf1959\",\r\n    \"OrderHID\": \"\",\r\n    \"Fecha\": \"2019-11-25T16:53:19.153\",\r\n    \"UserId\": \"UsuarioID - Update\",\r\n    \"MesaId\": \"MesaID - Update\",\r\n    \"ClientePrincipal\": \"Cliente Principal - Update\",\r\n    \"Itbis\": true,\r\n    \"ItbisPorc\": 8.00,\r\n    \"DescMonto\": 0.00,\r\n    \"DescPorc\": 0.00,\r\n    \"FechaRegistro\": \"2019-11-25T17:05:38.947\",\r\n    \"Impreso\": false,\r\n    \"Inactivo\": false,\r\n    \"FacturaDetails\": [],\r\n    \"FacturaPayments\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/Factura/UpdateFactura",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"Factura",
+						"UpdateFactura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteFactura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{domain}}/api/Factura/DeleteFactura/a08cafa2-2a60-40d0-9aa9-9024f62ac07c",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"Factura",
+						"DeleteFactura",
+						"a08cafa2-2a60-40d0-9aa9-9024f62ac07c"
 					]
 				}
 			},
