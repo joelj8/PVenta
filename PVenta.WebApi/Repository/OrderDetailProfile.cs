@@ -23,7 +23,8 @@ namespace PVenta.WebApi.Repository
                 .ForMember(dest => dest.OrderHeader, opts => opts.MapFrom(src => src.OrderHeader))
                 .ForMember(dest => dest.Precio, opts => opts.MapFrom(src => src.Precio))
                 .ForMember(dest => dest.ProductoID, opts => opts.MapFrom(src => src.ProductoID))
-                .ForMember(dest => dest.producto, opts => opts.MapFrom(src => src.producto));
+                .ForMember(dest => dest.producto, opts => opts.MapFrom(src => src.producto))
+                .ForMember(dest => dest.Orden, opts => opts.MapFrom(src => src.Orden));
 
         }
     }

@@ -133,6 +133,7 @@ namespace PVenta.Services
                     orderHeaderUpdate.Itbis = orderHeader.Itbis;
                     orderHeaderUpdate.ItbisPorc = orderHeader.ItbisPorc;
                     orderHeaderUpdate.MesaId = orderHeader.MesaId;
+                    
                     //orderHeaderUpdate.OrderDetails = orderHeader.OrderDetails;
 
                     foreach(OrderDetail ordExist in orderHeaderUpdate.OrderDetails)
@@ -149,6 +150,7 @@ namespace PVenta.Services
                                 ordExist.Precio = orderData.Precio;
                                 ordExist.ImpComanda = orderData.ImpComanda;
                                 ordExist.ProductoID = orderData.ProductoID;
+                                ordExist.Orden = orderData.Orden;
                                 regUpdated = true;
                             }
                         }
