@@ -61,8 +61,7 @@ namespace PVenta.Models.Model
 
         public bool Inactivo { get; set; }
 
-
-
+        public decimal Orden { get; set; }
 
     }
 }
