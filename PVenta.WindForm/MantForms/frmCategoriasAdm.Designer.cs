@@ -107,6 +107,7 @@
             // 
             // ColInactivo
             // 
+            this.ColInactivo.DataPropertyName = "Inactivo";
             this.ColInactivo.HeaderText = "Inactivo";
             this.ColInactivo.Name = "ColInactivo";
             this.ColInactivo.ReadOnly = true;
