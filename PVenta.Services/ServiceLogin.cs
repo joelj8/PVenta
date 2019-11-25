@@ -35,7 +35,7 @@ namespace PVenta.Services
                     result.RolID = userReg.RolId;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // Registrar en el log de Errores
             }

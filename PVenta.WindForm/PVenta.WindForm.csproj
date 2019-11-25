@@ -95,6 +95,30 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantForms\frmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmCategorias.Designer.cs">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantForms\frmCategoriasAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmCategoriasAdm.Designer.cs">
+      <DependentUpon>frmCategoriasAdm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantForms\frmFormaPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmFormaPagos.Designer.cs">
+      <DependentUpon>frmFormaPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantForms\frmFormaPagosAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmFormaPagosAdm.Designer.cs">
+      <DependentUpon>frmFormaPagosAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantForms\frmMesas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +143,18 @@
     <Compile Include="MantForms\frmMonedasAdm.Designer.cs">
       <DependentUpon>frmMonedasAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantForms\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantForms\frmProductosAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantForms\frmProductosAdm.Designer.cs">
+      <DependentUpon>frmProductosAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdmForms\frmLogin.resx">
@@ -142,6 +178,18 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmCategorias.resx">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmCategoriasAdm.resx">
+      <DependentUpon>frmCategoriasAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmFormaPagos.resx">
+      <DependentUpon>frmFormaPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmFormaPagosAdm.resx">
+      <DependentUpon>frmFormaPagosAdm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantForms\frmMesas.resx">
       <DependentUpon>frmMesas.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +201,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantForms\frmMonedasAdm.resx">
       <DependentUpon>frmMonedasAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantForms\frmProductosAdm.resx">
+      <DependentUpon>frmProductosAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
