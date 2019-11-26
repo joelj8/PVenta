@@ -2,6 +2,7 @@
 using PVenta.WindForm.AdmForms;
 using PVenta.WindForm.Define;
 using PVenta.WindForm.MantForms;
+using PVenta.WindForm.OperForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -108,6 +109,14 @@ namespace PVenta.WindForm
             frmProductosAdm fProductosAdm = new frmProductosAdm();
             fProductosAdm.ShowDialog();
             fProductosAdm.Dispose();
+        }
+
+        private void ordenesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOrdenesAdm fOrdenesAdm = new frmOrdenesAdm();
+            fOrdenesAdm.CargaDataOrdenes();
+            fOrdenesAdm.ShowDialog();
+            fOrdenesAdm.Dispose();
         }
     }
 }
