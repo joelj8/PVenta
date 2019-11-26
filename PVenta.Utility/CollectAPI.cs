@@ -287,5 +287,31 @@ namespace PVenta.Utility
         }
         #endregion
 
+        #region
+        public static string GetFacturas
+        {
+            get { return "api/Factura/GetFacturas/"; }
+        }
+        public static string GetFactura
+        {
+            get { return "api/Factura/GetFactura/"; }
+        }
+        public static string GetFacturasByOrder
+        {
+            get { return "api/Factura/GetFacturasByOrder/"; }
+        }
+        public static string InsertFactura
+        {
+            get { return "api/Factura/InsertFactura/"; }
+        }
+        public static string UpdateFactura
+        {
+            get { return "api/Factura/UpdateFactura/"; }
+        }
+        public static string DeleteFactura
+        {
+            get { return "api/Factura/DeleteFactura/"; }
+        }
+        #endregion
     }
 }

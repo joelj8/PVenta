@@ -109,6 +109,32 @@ namespace PVenta.WindForm.ApiCall
             listaResponse = result.ToList();
         }
 
+        public void CallGetList(string id)
+        {
+            setClient();
+
+            IEnumerable<TRespond> result = null;
+
+            try
+            {
+                // HTTP GET
+                setClient();
+                HttpResponseMessage response = client.GetAsync(urlApi+id).Result;
+
+                response.EnsureSuccessStatusCode();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Get the URI of the created resource.
+                    result = response.Content.ReadAsAsync<IEnumerable<TRespond>>().Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Error 
+            }
+            listaResponse = result.ToList();
+        }
         private void setClient()
         {
             if (client.BaseAddress == null)

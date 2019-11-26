@@ -59,6 +59,12 @@ namespace PVenta.WebApi.Controllers
             return Json<List<ApiFacturaHeader>>(factura, jsonsettings);
         }
 
+        public JsonResult<List<ApiFacturaHeader>> GetFacturasByOrder(string id)
+        {
+            List<FacturaHeader> facturaLista = serviceFactura.GetFacturasByOrder(id);
+            List<ApiFacturaHeader> factura = objMapper.CreateMapper().Map<List<ApiFacturaHeader>>(facturaLista);
+            return Json<List<ApiFacturaHeader>>(factura, jsonsettings);
+        }
 
         public JsonResult<ApiFacturaHeader> GetFactura(string id)
         {
