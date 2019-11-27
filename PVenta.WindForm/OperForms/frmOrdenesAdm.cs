@@ -69,7 +69,8 @@ namespace PVenta.WindForm.OperForms
             {
                 var listMesas = (from lmes in listOrdenes
                                  orderby lmes.Fecha, lmes.FechaRegistro
-                                 select new { Mesa = lmes.Mesa.Descripcion + " - "+ lmes.ClientePrincipal , lmes.ID }).ToList();
+                                 select new { Mesa = lmes.Mesa.Descripcion + " - "+ lmes.ClientePrincipal +
+                                              " ["+lmes.NumOrden+"]", lmes.ID }).ToList();
                 dgvMesas.DataSource = listMesas;
             }
         }
@@ -81,8 +82,10 @@ namespace PVenta.WindForm.OperForms
                 var listMesas = (from lmes in listOrdenes
                                  orderby lmes.Fecha,lmes.FechaRegistro
                                  where lmes.Mesa.Descripcion.ToLower().Contains(filtroText.ToLower()) ||
-                                       lmes.ClientePrincipal.ToLower().Contains(filtroText.ToLower())
-                                 select new { Mesa = lmes.Mesa.Descripcion + " - " + lmes.ClientePrincipal, lmes.ID }).ToList();
+                                       lmes.ClientePrincipal.ToLower().Contains(filtroText.ToLower()) ||
+                                       lmes.NumOrden.ToString().Contains(filtroText)
+                                 select new { Mesa = lmes.Mesa.Descripcion + " - " + lmes.ClientePrincipal +
+                                             " [" + lmes.NumOrden + "]", lmes.ID }).ToList();
                 dgvMesas.DataSource = listMesas;
             }
         }
@@ -147,9 +150,11 @@ namespace PVenta.WindForm.OperForms
         {
             bool lpagadoVisible;
             dgvOrderDetail.DataSource = listOrderGrid;
+            txtNoOrden.Text = "# " + orderSel.NumOrden;
             txtFecha.Text = orderSel.Fecha.ToString();
             txtCliente.Text = orderSel.ClientePrincipal;
             txtMesa.Text = orderSel.Mesa.Descripcion;
+
 
             txtSubTotal.Text = valSubTotal.ToString("C");
             txtDescuento.Text = valDescuento.ToString("C");

@@ -1,9 +1,8 @@
-** Consume Web Api **
+﻿** Consume Web Api **
 https://docs.microsoft.com/en-us/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client?WT.mc_id=DT-MVP-5003235
 https://www.c-sharpcorner.com/article/create-a-web-api-and-call-it-using-a-desktop-client-application/
 https://stackoverflow.com/questions/10732644/best-practice-to-return-errors-in-asp-net-web-api
 https://stackoverflow.com/questions/32716174/call-and-consume-web-api-in-winform-using-c-net
-
 
 ** GIT **
 https://blog.desdelinux.net/tips-mas-de-40berias-conocer/
