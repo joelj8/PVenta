@@ -20,8 +20,9 @@ namespace PVenta.WindForm.OperForms
         private CallApies<viewOrderHeader, ApiOrderHeader> callApiOrdenes = new CallApies<viewOrderHeader, ApiOrderHeader>();
         private CallApies<viewFacturaHeader, ApiFacturaHeader> callApiFacturas = new CallApies<viewFacturaHeader, ApiFacturaHeader>();
         private List<viewOrderHeader> listOrdenes;
-        private decimal valOrdenPagado = 0;
-
+        private decimal valOrdenPagado = 0, valSubTotal = 0, valDescuento = 0, valITBIS = 0, calcITBIS = 0;
+        private List<viewOrderGrid> listOrderGrid;
+        private string idOrderSelected = string.Empty;
         public frmOrdenesAdm()
         {
             InitializeComponent();
@@ -44,7 +45,22 @@ namespace PVenta.WindForm.OperForms
             callApiOrdenes.urlApi = CollectAPI.GetOrders;
             callApiOrdenes.CallGetList();
             listOrdenes = callApiOrdenes.listaResponse.ToList();
+            excludePaidOrder();
             setDataSourceMesaGrid();
+        }
+
+        private void excludePaidOrder()
+        {
+            foreach(viewOrderHeader orderReview in callApiOrdenes.listaResponse)
+            {
+                
+                // Codigo para excluir las Ordenes que fueron Pagadas
+                cargaListOrden(orderReview.ID, true);
+                if (valSubTotal <= 0)
+                {
+                    listOrdenes.Remove(orderReview);
+                }
+            }
         }
 
         private void setDataSourceMesaGrid()
@@ -73,80 +89,92 @@ namespace PVenta.WindForm.OperForms
 
         private void dgvMesas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string idOrdenSelected = dgvMesas.Rows[e.RowIndex].Cells["ColID"].Value.ToString();
-
-            cargaListOrden(idOrdenSelected);
+  
         }
 
-        private void cargaListOrden(string idOrdenSelected)
+        private void cargaListOrden(string idOrdenSelected, bool soloCalcular = false)
         {
-            valOrdenPagado = 0;
+            CleanInfoGRLA();
+            
             if (listOrdenes != null)
             {
                 viewOrderHeader orderSel = listOrdenes.FirstOrDefault(x => x.ID == idOrdenSelected);
                 List<viewOrderDetail> orderDetailSel = orderSel.OrderDetails.ToList();
-
                 List<viewOrderDetail> orderDetailUpdated = new List<viewOrderDetail>();
-                orderDetailUpdated = orderDetailSel.Select(i=> new viewOrderDetail
+                foreach (viewOrderDetail ordDeta in orderDetailSel)
                 {
-                    ID = i.ID,
-                    ClientePedido = i.ClientePedido,
-                    Cantidad = i.Cantidad,
-                    ImpComanda = i.ImpComanda,
-                    Impreso = i.Impreso,
-                    Inactivo = i.Inactivo,
-                    Orden = i.Orden,
-                    OrderHID = i.OrderHID,
-                    Precio = i.Precio,
-                    ProductoID = i.ProductoID,
-                    OrderHeader = i.OrderHeader,
-                    producto = i.producto
-                }).ToList();
+                    viewOrderDetail ordDetaCopy = ordDeta.Clone() as viewOrderDetail;
+                    orderDetailUpdated.Add(ordDetaCopy);
+
+                }
 
                 facturadoParcial(orderDetailUpdated);
 
-                var listOrden = (from lDeta in orderDetailUpdated
-                                 select new { Producto = lDeta.producto.Nombre,
-                                              lDeta.producto.Referencia,
-                                              lDeta.Cantidad, lDeta.Precio,
-                                              Total = lDeta.Cantidad* lDeta.Precio}).ToList();
+                listOrderGrid = (from lDeta in orderDetailUpdated
+                                 orderby lDeta.Orden
+                                 select new viewOrderGrid
+                                 {
+                                     Producto = lDeta.producto.Nombre,
+                                     Referencia = lDeta.producto.Referencia,
+                                     Orden = lDeta.Orden,
+                                     Cantidad = lDeta.Cantidad,
+                                     Precio = lDeta.Precio,
+                                     Total = lDeta.Cantidad * lDeta.Precio,
+                                     ID = lDeta.ID
+                                 }).ToList();
 
-                dgvOrderDetail.DataSource = listOrden;
-                txtFecha.Text = orderSel.Fecha.ToString();
-                txtCliente.Text = orderSel.ClientePrincipal;
-                txtMesa.Text = orderSel.Mesa.Descripcion;
-                bool lpagadoVisible;
-                decimal valSubTotal = listOrden.Sum(x => x.Cantidad * x.Precio);
-                decimal valDescuento = (valSubTotal * (orderSel.DescPorc / 100)) + orderSel.DescMonto;
-                decimal calcITBIS = orderSel.Itbis ? 1 : 0;
-                decimal valITBIS = (valSubTotal * (orderSel.ItbisPorc / 100) * calcITBIS);
+                valSubTotal = listOrderGrid.Sum(x => x.Cantidad * x.Precio);
+                valDescuento = (valSubTotal * (orderSel.DescPorc / 100)) + orderSel.DescMonto;
+                calcITBIS = orderSel.Itbis ? 1 : 0;
+                valITBIS = (valSubTotal * (orderSel.ItbisPorc / 100) * calcITBIS);
 
-                txtSubTotal.Text = valSubTotal.ToString("C");
-                txtDescuento.Text = valDescuento.ToString("C");
-                txtITBIS.Text = valITBIS.ToString("C");
-                txtTotal.Text = (valSubTotal - valDescuento + valITBIS).ToString("C");
-
-                // Muestra la parte Pagada de la Orden Segun sus Facturas Relacionadas
-                if (valOrdenPagado > 0)
+                if (!soloCalcular)
                 {
-                    decimal valRestante = ((valSubTotal - valDescuento + valITBIS) + valOrdenPagado);
-                    txtPagado.Text = valOrdenPagado.ToString("C");
-                    txtTotalORG.Text = valRestante.ToString("C");
-                    lpagadoVisible = true;
+                    muestraInfoResumen(orderSel);
                 }
-                else
-                {
-                    valOrdenPagado = 0;
-                    txtPagado.Text = valOrdenPagado.ToString("C");
-                    lpagadoVisible = false;
-                }
-
-                txtPagado.Visible = lpagadoVisible;
-                lblPagado.Visible = lpagadoVisible;
-                txtTotalORG.Visible = lpagadoVisible;
-                lblTotalORG.Visible = lpagadoVisible;
 
             }
+        }
+
+        private void CleanInfoGRLA()
+        {
+            lblInfo.Visible = false;
+            valOrdenPagado = 0;
+            //idOrderSelected = string.Empty;
+        }
+
+        private void muestraInfoResumen(viewOrderHeader orderSel)
+        {
+            bool lpagadoVisible;
+            dgvOrderDetail.DataSource = listOrderGrid;
+            txtFecha.Text = orderSel.Fecha.ToString();
+            txtCliente.Text = orderSel.ClientePrincipal;
+            txtMesa.Text = orderSel.Mesa.Descripcion;
+
+            txtSubTotal.Text = valSubTotal.ToString("C");
+            txtDescuento.Text = valDescuento.ToString("C");
+            txtITBIS.Text = valITBIS.ToString("C");
+            txtTotal.Text = (valSubTotal - valDescuento + valITBIS).ToString("C");
+
+            // Muestra la parte Pagada de la Orden Segun sus Facturas Relacionadas
+            if (valOrdenPagado > 0)
+            {
+                decimal valRestante = ((valSubTotal - valDescuento + valITBIS) + valOrdenPagado);
+                txtPagado.Text = valOrdenPagado.ToString("C");
+                txtTotalORG.Text = valRestante.ToString("C");
+                lpagadoVisible = true;
+            }
+            else
+            {
+                valOrdenPagado = 0;
+                txtPagado.Text = valOrdenPagado.ToString("C");
+                lpagadoVisible = false;
+            }
+
+            txtPagado.Visible = lpagadoVisible;
+            lblPagado.Visible = lpagadoVisible;
+            txtTotalORG.Visible = false;
+            lblTotalORG.Visible = false;
         }
 
         private List<viewOrderDetail> facturadoParcial(List<viewOrderDetail> orderDetailSel)
@@ -182,7 +210,7 @@ namespace PVenta.WindForm.OperForms
                             pagoByProduct -= pagoByProduct >= descMontoByFactura ? descMontoByFactura : pagoByProduct;
                             descMontoByFactura -= pagoByProduct >= descMontoByFactura ? descMontoByFactura : pagoByProduct;
                             pagoByProduct -= pagoByProduct == 0 ? 0 : (pagoByProduct * descPorcByFactura);
-                            pagoByProduct += pagoByProduct * (1 + itbisPorcByFactura);
+                            pagoByProduct += (pagoByProduct * itbisPorcByFactura);
                             valOrdenPagado += pagoByProduct ;
                         }
                     }
@@ -204,6 +232,31 @@ namespace PVenta.WindForm.OperForms
                 setDataSourceMesaGrid(filtroText);
 
             }
+        }
+
+        private void dgvOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblInfo.Text = string.Empty;
+            lblInfo.Visible = false;
+            string idOrderDetailGrid = dgvOrderDetail.Rows[e.RowIndex].Cells["ColIDGrid"].Value.ToString();
+            viewOrderHeader orderSelected = callApiOrdenes.listaResponse.FirstOrDefault(x => x.ID == this.idOrderSelected);
+            if (orderSelected != null)
+            {
+                int cantidadOriginal = (int)orderSelected.OrderDetails.FirstOrDefault(x => x.ID == idOrderDetailGrid).Cantidad;
+                decimal cantidadPendiente = decimal.Parse(dgvOrderDetail.Rows[e.RowIndex].Cells["ColCant"].Value.ToString());
+                string nombProducto = dgvOrderDetail.Rows[e.RowIndex].Cells["ColProducto"].Value.ToString();
+                if (cantidadPendiente != cantidadOriginal)
+                {
+                    lblInfo.Text = string.Format("{0} cantidad previo al pago fue {1}", nombProducto,cantidadOriginal);
+                    lblInfo.Visible = true;
+                }
+            }
+            
         }
 
         private void txtFiltro_Enter(object sender, EventArgs e)
@@ -242,6 +295,12 @@ namespace PVenta.WindForm.OperForms
                 txtFiltro.Font = new Font(txtFiltro.Font, FontStyle.Regular);
                 txtFiltro.ForeColor = Color.Black;
             }
+        }
+
+        private void dgvMesas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idOrderSelected = dgvMesas.Rows[e.RowIndex].Cells["ColID"].Value.ToString();
+            cargaListOrden(idOrderSelected);
         }
     }
 }

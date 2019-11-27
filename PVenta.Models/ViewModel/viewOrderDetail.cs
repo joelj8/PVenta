@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.ViewModel
 {
-    public class viewOrderDetail
+    public class viewOrderDetail : ICloneable
     {
         public string ID { get; set; }
         public string OrderHID { get; set; }
@@ -20,5 +20,10 @@ namespace PVenta.Models.ViewModel
         public bool Impreso { get; set; }
         public bool Inactivo { get; set; }
         public decimal Orden { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

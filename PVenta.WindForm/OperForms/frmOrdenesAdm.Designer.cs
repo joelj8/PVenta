@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnNueva = new System.Windows.Forms.Button();
@@ -49,6 +49,7 @@
             this.lblITBIS = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.txtMesa = new System.Windows.Forms.TextBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
@@ -56,16 +57,18 @@
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.lblMesa = new System.Windows.Forms.Label();
             this.dgvOrderDetail = new System.Windows.Forms.DataGridView();
-            this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColReferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMesas = new System.Windows.Forms.DataGridView();
             this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColReferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
@@ -152,6 +155,7 @@
             // 
             // txtPagado
             // 
+            this.txtPagado.BackColor = System.Drawing.SystemColors.Control;
             this.txtPagado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPagado.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPagado.ForeColor = System.Drawing.Color.Red;
@@ -268,6 +272,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Controls.Add(this.txtMesa);
             this.panel1.Controls.Add(this.lblFecha);
             this.panel1.Controls.Add(this.txtCliente);
@@ -278,6 +283,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(415, 253);
             this.panel1.TabIndex = 17;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblInfo.Location = new System.Drawing.Point(13, 229);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(34, 13);
+            this.lblInfo.TabIndex = 24;
+            this.lblInfo.Text = "Info";
+            this.lblInfo.Visible = false;
             // 
             // txtMesa
             // 
@@ -349,62 +366,18 @@
             this.dgvOrderDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColProducto,
             this.ColReferencia,
+            this.ColOrden,
             this.ColCant,
             this.ColPrecio,
-            this.ColTotal});
+            this.ColTotal,
+            this.colIDGrid});
             this.dgvOrderDetail.Location = new System.Drawing.Point(263, 12);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.RowHeadersVisible = false;
             this.dgvOrderDetail.Size = new System.Drawing.Size(900, 349);
             this.dgvOrderDetail.TabIndex = 2;
-            // 
-            // ColProducto
-            // 
-            this.ColProducto.DataPropertyName = "Producto";
-            this.ColProducto.HeaderText = "Producto";
-            this.ColProducto.Name = "ColProducto";
-            this.ColProducto.ReadOnly = true;
-            this.ColProducto.Width = 350;
-            // 
-            // ColReferencia
-            // 
-            this.ColReferencia.DataPropertyName = "Referencia";
-            this.ColReferencia.HeaderText = "Referencia";
-            this.ColReferencia.Name = "ColReferencia";
-            this.ColReferencia.ReadOnly = true;
-            this.ColReferencia.Width = 200;
-            // 
-            // ColCant
-            // 
-            this.ColCant.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.ColCant.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColCant.HeaderText = "Cantidad";
-            this.ColCant.Name = "ColCant";
-            this.ColCant.ReadOnly = true;
-            // 
-            // ColPrecio
-            // 
-            this.ColPrecio.DataPropertyName = "Precio";
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColPrecio.HeaderText = "Precio";
-            this.ColPrecio.Name = "ColPrecio";
-            this.ColPrecio.ReadOnly = true;
-            this.ColPrecio.Width = 110;
-            // 
-            // ColTotal
-            // 
-            this.ColTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ColTotal.HeaderText = "Total";
-            this.ColTotal.Name = "ColTotal";
-            this.ColTotal.ReadOnly = true;
-            this.ColTotal.Width = 130;
+            this.dgvOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellClick);
+            this.dgvOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellContentClick);
             // 
             // dgvMesas
             // 
@@ -418,13 +391,13 @@
             this.dgvMesas.RowHeadersVisible = false;
             this.dgvMesas.Size = new System.Drawing.Size(254, 581);
             this.dgvMesas.TabIndex = 1;
-            this.dgvMesas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMesas_CellContentClick);
+            this.dgvMesas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMesas_CellClick);
             // 
             // ColID
             // 
             this.ColID.DataPropertyName = "ID";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColID.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColID.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColID.HeaderText = "ID";
             this.ColID.Name = "ColID";
             this.ColID.ReadOnly = true;
@@ -458,6 +431,70 @@
             this.btnAgregar.TabIndex = 22;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // ColProducto
+            // 
+            this.ColProducto.DataPropertyName = "Producto";
+            this.ColProducto.HeaderText = "Producto";
+            this.ColProducto.Name = "ColProducto";
+            this.ColProducto.ReadOnly = true;
+            this.ColProducto.Width = 350;
+            // 
+            // ColReferencia
+            // 
+            this.ColReferencia.DataPropertyName = "Referencia";
+            this.ColReferencia.HeaderText = "Referencia";
+            this.ColReferencia.Name = "ColReferencia";
+            this.ColReferencia.ReadOnly = true;
+            this.ColReferencia.Width = 200;
+            // 
+            // ColOrden
+            // 
+            this.ColOrden.DataPropertyName = "Orden";
+            this.ColOrden.HeaderText = "Orden";
+            this.ColOrden.Name = "ColOrden";
+            this.ColOrden.ReadOnly = true;
+            this.ColOrden.Visible = false;
+            // 
+            // ColCant
+            // 
+            this.ColCant.DataPropertyName = "Cantidad";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.ColCant.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColCant.HeaderText = "Cantidad";
+            this.ColCant.Name = "ColCant";
+            this.ColCant.ReadOnly = true;
+            // 
+            // ColPrecio
+            // 
+            this.ColPrecio.DataPropertyName = "Precio";
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColPrecio.HeaderText = "Precio";
+            this.ColPrecio.Name = "ColPrecio";
+            this.ColPrecio.ReadOnly = true;
+            this.ColPrecio.Width = 110;
+            // 
+            // ColTotal
+            // 
+            this.ColTotal.DataPropertyName = "Total";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColTotal.HeaderText = "Total";
+            this.ColTotal.Name = "ColTotal";
+            this.ColTotal.ReadOnly = true;
+            this.ColTotal.Width = 130;
+            // 
+            // colIDGrid
+            // 
+            this.colIDGrid.DataPropertyName = "ID";
+            this.colIDGrid.HeaderText = "ID";
+            this.colIDGrid.Name = "colIDGrid";
+            this.colIDGrid.ReadOnly = true;
+            this.colIDGrid.Visible = false;
             // 
             // frmOrdenesAdm
             // 
@@ -511,11 +548,6 @@
         private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColReferencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColMesa;
         private System.Windows.Forms.TextBox txtPagado;
@@ -523,5 +555,13 @@
         private System.Windows.Forms.TextBox txtTotalORG;
         private System.Windows.Forms.Label lblTotalORG;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColReferencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIDGrid;
     }
 }

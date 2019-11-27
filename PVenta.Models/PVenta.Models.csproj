@@ -92,6 +92,7 @@
     <Compile Include="ViewModel\viewMessageApp.cs" />
     <Compile Include="ViewModel\viewMoneda.cs" />
     <Compile Include="ViewModel\viewOrderDetail.cs" />
+    <Compile Include="ViewModel\viewOrderGrid.cs" />
     <Compile Include="ViewModel\viewOrderHeader.cs" />
     <Compile Include="ViewModel\viewProducto.cs" />
     <Compile Include="ViewModel\viewRol.cs" />
