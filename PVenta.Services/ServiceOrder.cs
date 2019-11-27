@@ -93,14 +93,16 @@ namespace PVenta.Services
                 Guid newIdDetail;
                 orderHeader.ID = newId.ToString();
                 orderHeader.FechaRegistro = System.DateTime.Now;
-                orderHeader.UserId = "4a123d40-fdc6-4723-b341-bb2cec1ef255";
+                orderHeader.NumOrden = 0;
+
                 foreach(OrderDetail od in orderHeader.OrderDetails)
                 {
                     newIdDetail = Guid.NewGuid();
                     od.ID = newIdDetail.ToString();
                     od.OrderHID = newId.ToString();
                 }
-
+                //_dbcontext.IsDbGenerated = true;
+                
                 _dbcontext.OrderHeaders.Add(orderHeader);
                 _dbcontext.SaveChanges();
                 result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));

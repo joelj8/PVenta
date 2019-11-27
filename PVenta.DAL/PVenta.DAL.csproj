@@ -152,6 +152,14 @@
     <Compile Include="Migrations\201911252102104_JEv025.designer.cs">
       <DependentUpon>201911252102104_JEv025.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911271815091_JEv026.cs" />
+    <Compile Include="Migrations\201911271815091_JEv026.designer.cs">
+      <DependentUpon>201911271815091_JEv026.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911271910058_JEv027.cs" />
+    <Compile Include="Migrations\201911271910058_JEv027.designer.cs">
+      <DependentUpon>201911271910058_JEv027.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -240,6 +248,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911252102104_JEv025.resx">
       <DependentUpon>201911252102104_JEv025.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911271815091_JEv026.resx">
+      <DependentUpon>201911271815091_JEv026.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911271910058_JEv027.resx">
+      <DependentUpon>201911271910058_JEv027.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

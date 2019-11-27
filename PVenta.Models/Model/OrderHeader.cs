@@ -16,6 +16,9 @@ namespace PVenta.Models.Model
         [Column("ID", TypeName = "varchar")]
         [MaxLength(50)]
         public string ID { get; set; }
+        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int NumOrden { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]

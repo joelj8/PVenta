@@ -10,7 +10,7 @@ namespace PVenta.Models.ApiModels
     public class ApiOrderHeader
     {
         public string ID { get; set; }
-
+        public int NumOrden { get; set; }
         public DateTime Fecha { get; set; }
 
         public string UserId { get; set; }

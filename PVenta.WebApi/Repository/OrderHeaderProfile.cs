@@ -14,6 +14,7 @@ namespace PVenta.WebApi.Repository
         {
             CreateMap<ApiOrderHeader, OrderHeader>()
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.ID))
+                .ForMember(dest => dest.NumOrden, opts => opts.MapFrom(src => src.NumOrden))
                 .ForMember(dest => dest.ClientePrincipal, opts => opts.MapFrom(src => src.ClientePrincipal))
                 .ForMember(dest => dest.DescMonto, opts => opts.MapFrom(src => src.DescMonto))
                 .ForMember(dest => dest.DescPorc, opts => opts.MapFrom(src => src.DescPorc))
