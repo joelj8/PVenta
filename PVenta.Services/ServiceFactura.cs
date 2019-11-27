@@ -138,6 +138,7 @@ namespace PVenta.Services
                 Guid newIdDetail;
                 facturaHeader.ID = newId.ToString();
                 facturaHeader.FechaRegistro = System.DateTime.Now;
+                facturaHeader.NumFactura = 0;
                 
                 foreach (FacturaDetail od in facturaHeader.FacturaDetails)
                 {

@@ -17,6 +17,9 @@ namespace PVenta.Models.Model
         [MaxLength(50)]
         public string ID { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int NumFactura { get; set; }
+
         [Column("OrderHID", TypeName = "varchar")]
         [MaxLength(50)]
         [DisplayName("Header de Orden")]
