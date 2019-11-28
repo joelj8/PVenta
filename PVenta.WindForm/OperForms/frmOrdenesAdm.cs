@@ -17,6 +17,7 @@ namespace PVenta.WindForm.OperForms
 {
     public partial class frmOrdenesAdm : FormGRLA
     {
+        public viewLogin userApp = null;
         private CallApies<viewOrderHeader, ApiOrderHeader> callApiOrdenes = new CallApies<viewOrderHeader, ApiOrderHeader>();
         private CallApies<viewFacturaHeader, ApiFacturaHeader> callApiFacturas = new CallApies<viewFacturaHeader, ApiFacturaHeader>();
         private List<viewOrderHeader> listOrdenes;
@@ -262,6 +263,17 @@ namespace PVenta.WindForm.OperForms
                 }
             }
             
+        }
+
+        private void btnNueva_Click(object sender, EventArgs e)
+        {
+            frmOrdenes fOrdenes = new frmOrdenes();
+            fOrdenes.modo = Modo.Agregar;
+            fOrdenes.userApp = this.userApp;
+            fOrdenes.InitNewOrder();
+
+            fOrdenes.ShowDialog();
+            fOrdenes.Dispose();
         }
 
         private void txtFiltro_Enter(object sender, EventArgs e)

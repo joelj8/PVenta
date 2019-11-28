@@ -109,6 +109,7 @@
             this.btnNueva.TabIndex = 19;
             this.btnNueva.Text = "NUEVA";
             this.btnNueva.UseVisualStyleBackColor = true;
+            this.btnNueva.Click += new System.EventHandler(this.btnNueva_Click);
             // 
             // panel2
             // 

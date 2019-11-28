@@ -114,6 +114,16 @@ namespace PVenta.WindForm
         private void ordenesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmOrdenesAdm fOrdenesAdm = new frmOrdenesAdm();
+            fOrdenesAdm.userApp = this.userApp;
+            fOrdenesAdm.CargaDataOrdenes();
+            fOrdenesAdm.ShowDialog();
+            fOrdenesAdm.Dispose();
+        }
+
+        private void ordenesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmOrdenesAdm fOrdenesAdm = new frmOrdenesAdm();
+            fOrdenesAdm.userApp = this.userApp;
             fOrdenesAdm.CargaDataOrdenes();
             fOrdenesAdm.ShowDialog();
             fOrdenesAdm.Dispose();

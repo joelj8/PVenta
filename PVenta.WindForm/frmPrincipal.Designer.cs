@@ -205,8 +205,9 @@
             // ordenesToolStripMenuItem1
             // 
             this.ordenesToolStripMenuItem1.Name = "ordenesToolStripMenuItem1";
-            this.ordenesToolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
+            this.ordenesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ordenesToolStripMenuItem1.Text = "Ordenes";
+            this.ordenesToolStripMenuItem1.Click += new System.EventHandler(this.ordenesToolStripMenuItem1_Click);
             // 
             // frmPrincipal
             // 
