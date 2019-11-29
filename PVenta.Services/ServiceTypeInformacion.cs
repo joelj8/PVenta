@@ -9,21 +9,20 @@ using System.Threading.Tasks;
 
 namespace PVenta.Services
 {
-    public class ServiceRol
+    public class ServiceTypeInformacion
     {
         private readonly DBPVentaContext _dbcontext;
-
-        public ServiceRol()
+        public ServiceTypeInformacion()
         {
-            _dbcontext = new DBPVentaContext();
+             _dbcontext = new DBPVentaContext();
         }
 
-        public List<Rol> GetRoles()
+        public List<TypeInformacion> GetTypeInformacions()
         {
-            List<Rol> result = null;
+            List<TypeInformacion> result = null;
             try
             {
-                result = _dbcontext.Rols.Where(x => !x.Inactivo).ToList();
+                result = _dbcontext.TypeInformaciones.Where(x => !x.Inactivo).ToList();
             }
             catch (Exception)
             {
@@ -33,31 +32,32 @@ namespace PVenta.Services
             return result;
         }
 
-        public Rol GetRol(string id)
+        public TypeInformacion GetTypeInformacion(string id)
         {
-            Rol result = null;
+            TypeInformacion result = null;
             try
             {
-                result = _dbcontext.Rols.FirstOrDefault(x => x.ID == id && !x.Inactivo);
+                result = _dbcontext.TypeInformaciones.FirstOrDefault(x => !x.Inactivo && x.ID == id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Registrar en el log de errores
             }
+
             return result;
         }
 
-        public MessageApp InsertRol(Rol rolNew)
+        public MessageApp InsertTypeInformacion(TypeInformacion typeInformacionnew)
         {
             MessageApp result = null;
-            List<Rol> listRolByNombre = findRolNombre(rolNew);
-            if (listRolByNombre != null && listRolByNombre.Count == 0)
+            List<TypeInformacion> listTypeInformacionByNombre = findTypeInformacionNombre(typeInformacionnew);
+            if (listTypeInformacionByNombre != null && listTypeInformacionByNombre.Count == 0)
             {
                 try
                 {
                     Guid newId = Guid.NewGuid();
-                    rolNew.ID = newId.ToString();
-                    _dbcontext.Rols.Add(rolNew);
+                    typeInformacionnew.ID = newId.ToString();
+                    _dbcontext.TypeInformaciones.Add(typeInformacionnew);
                     _dbcontext.SaveChanges();
                     result = new MessageApp(ServiceEventApp.GetEventByCode("RS00001"));
                 }
@@ -75,20 +75,19 @@ namespace PVenta.Services
             return result;
         }
 
-        public MessageApp UpdateRol(Rol rolUpd)
+        public MessageApp UpdateTypeInformacion(TypeInformacion typeInformacionupd)
         {
             MessageApp result = null;
-            List<Rol> listRolByNombre = findRolNombre(rolUpd);
-            if (listRolByNombre != null && listRolByNombre.Count == 0)
-            { 
+            List<TypeInformacion> listTypeInformacionByNombre = findTypeInformacionNombre(typeInformacionupd);
+            if (listTypeInformacionByNombre != null && listTypeInformacionByNombre.Count == 0)
+            {
                 try
                 {
-                    Rol rolUpdate = GetRol(rolUpd.ID);
-                    if (rolUpdate != null)
+                    TypeInformacion typeInformacionUpdate  = GetTypeInformacion(typeInformacionupd.ID);
+                    if (typeInformacionUpdate != null)
                     {
-                        rolUpdate.Nombre = rolUpd.Nombre;
-                        rolUpdate.Modificable = rolUpd.Modificable;
-                        _dbcontext.Entry(rolUpdate).State = System.Data.Entity.EntityState.Modified;
+                        typeInformacionUpdate.Descripcion = typeInformacionupd.Descripcion;
+                        _dbcontext.Entry(typeInformacionUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
                         result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));
                     }
@@ -100,9 +99,9 @@ namespace PVenta.Services
                 catch (Exception ex)
                 {
                     result = new MessageApp(ServiceEventApp.GetEventByCode("ER00002"));
-                    // Registrar en el log de errores
+                    // Registrar en el log de Errores
                 }
-            } 
+            }
             else
             {
                 result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
@@ -111,17 +110,16 @@ namespace PVenta.Services
             return result;
         }
 
-        public MessageApp DeleteRol(string id)
+        public MessageApp DeleteTypeInformacion(string id)
         {
             MessageApp result = null;
-
             try
             {
-                Rol rolDelete = GetRol(id);
-                if (rolDelete != null)
+                TypeInformacion typeInformacionUpdate = GetTypeInformacion(id);
+                if (typeInformacionUpdate != null)
                 {
-                    rolDelete.Inactivo = true;
-                    _dbcontext.Entry(rolDelete).State = System.Data.Entity.EntityState.Modified;
+                    typeInformacionUpdate.Inactivo = true;
+                    _dbcontext.Entry(typeInformacionUpdate).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
                     result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
                 }
@@ -133,28 +131,27 @@ namespace PVenta.Services
             catch (Exception ex)
             {
                 result = new MessageApp(ServiceEventApp.GetEventByCode("ER00003"));
-                // Registrar en el log de errores
+                // Registrar en el log de Errores
             }
-            
 
             return result;
         }
 
-        public List<Rol> findRolNombre(Rol rolfind)
+        private List<TypeInformacion> findTypeInformacionNombre(TypeInformacion typeInformacionfind)
         {
-            List<Rol> rolLista = null;
+            List<TypeInformacion> typeInformacionLista = null;
             try
             {
-                rolLista = _dbcontext.Rols.Where(x => !x.Inactivo && x.ID != rolfind.ID &&
-                                                 x.Nombre.ToLower().Equals(rolfind.Nombre.ToLower())).ToList();
-
+                typeInformacionLista = _dbcontext.TypeInformaciones
+                                       .Where(x => !x.Inactivo && 
+                                       x.ID != typeInformacionfind.ID &&
+                                       x.Descripcion.ToLower().Equals(typeInformacionfind.Descripcion.ToLower())).ToList();
             }
             catch (Exception)
             {
                 // Registrar en el log de errores
             }
-            return rolLista;
+            return typeInformacionLista;
         }
-
     }
 }

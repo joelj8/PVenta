@@ -33,7 +33,7 @@ namespace PVenta.DAL
         public virtual DbSet<CuadreDetail> CuadreDetails { get; set; }
         public virtual DbSet<ErrorList> ErrorLists { get; set; }
         public virtual DbSet<FormaPago> FormaPagos { get; set; }
-        public virtual DbSet<TypeInformacion> TypeInfos { get; set; }
+        public virtual DbSet<TypeInformacion> TypeInformaciones { get; set; }
         public virtual DbSet<InfoDigital> InfoDigitals { get; set; }
         public virtual DbSet<ConfigSistema> ConfigSistemas { get; set; }
 
