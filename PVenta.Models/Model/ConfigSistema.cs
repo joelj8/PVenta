@@ -46,7 +46,7 @@ namespace PVenta.Models.Model
         public string RelacionID { get; set; }
 
         [ForeignKey("RelacionID")]
-        public InfoDigital InfoDigital { get; set; }
+        public ICollection<InfoDigital> InfoDigitals { get; set; }
 
         [DisplayName("Calcula ITBIS")]
         public bool CalcITBIS { get; set; }

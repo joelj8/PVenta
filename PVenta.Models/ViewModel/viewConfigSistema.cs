@@ -16,7 +16,7 @@ namespace PVenta.Models.ViewModel
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string RelacionID { get; set; }
-        public viewInfoDigital InfoDigital { get; set; }
+        public ICollection<viewInfoDigital> InfoDigitals { get; set; }
         public bool CalcITBIS { get; set; }
         public decimal PorcITBIS { get; set; }
         public string ComprobanteFiscal { get; set; }
