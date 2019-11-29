@@ -22,7 +22,7 @@ namespace PVenta.Services
             List<TypeInformacion> result = null;
             try
             {
-                result = _dbcontext.TypeInformaciones.Where(x => !x.Inactivo).ToList();
+                result = _dbcontext.TypeInformaciones.OrderBy(s => s.Orden).Where(x => !x.Inactivo).ToList();
             }
             catch (Exception)
             {
@@ -87,6 +87,7 @@ namespace PVenta.Services
                     if (typeInformacionUpdate != null)
                     {
                         typeInformacionUpdate.Descripcion = typeInformacionupd.Descripcion;
+                        typeInformacionUpdate.Orden = typeInformacionupd.Orden;
                         _dbcontext.Entry(typeInformacionUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
                         result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));

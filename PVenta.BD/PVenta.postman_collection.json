@@ -1630,7 +1630,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{domain}}/api/Order/getOrder/8bea282e-0922-4d36-816a-1c1a99802a23",
+					"raw": "http://{{domain}}/api/Order/getOrder/23c7e0a2-913d-4ad9-84f6-e3eea9b6bd3b",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -1639,7 +1639,7 @@
 						"api",
 						"Order",
 						"getOrder",
-						"8bea282e-0922-4d36-816a-1c1a99802a23"
+						"23c7e0a2-913d-4ad9-84f6-e3eea9b6bd3b"
 					]
 				}
 			},
@@ -1659,7 +1659,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"Fecha\": \"11/15/2019\",\r\n\t\"UserId\": \"4a123d40-fdc6-4723-b341-bb2cec1ef255\",\r\n\t\"MesaId\": \"8f0192cb-f074-4e09-81b0-0bfa79894025\",\r\n\t\"ClientePrincipal\": \"Ana Perez\",\r\n\t\"itbis\": true,\r\n\t\"itbisPorc\": 18,\r\n\t\"DescMonto\": 0,\r\n\t\"DescPorc\": 0,\r\n\t\"FechaRegistro\" : \"11/15/2019\",\r\n\t\"impreso\": false,\r\n\t\"inactivo\": false,\r\n\t\"OrderDetails\": [ \r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n\t\t\t\"Cantidad\": 2, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Ana Perez\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"b0e267d6-87c9-4064-932a-a0cac8252834\",\r\n\t\t\t\"Cantidad\": 4, \r\n\t\t\t\"Precio\": 300,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Jose Yan\", \r\n\t\t\t\"Impreso\": false\r\n\t\t}\t\t\r\n\t]\r\n}",
+					"raw": "{\r\n\t\"ID\": \"\",\r\n\t\"NumOrden\":0,\r\n\t\"Fecha\": \"11/27/2019\",\r\n\t\"UserId\": \"15150e88-171c-4895-9c34-70b4144576f0\",\r\n\t\"MesaId\": \"c27dadcc-3b7c-4bb5-928b-66427037d930\",\r\n\t\"ClientePrincipal\": \"Julio Matos\",\r\n\t\"itbis\": true,\r\n\t\"itbisPorc\": 18,\r\n\t\"DescMonto\": 0,\r\n\t\"DescPorc\": 0,\r\n\t\"FechaRegistro\" : \"11/27/2019\",\r\n\t\"impreso\": false,\r\n\t\"inactivo\": false,\r\n\t\"OrderDetails\": [ \r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"678bf9e3-a007-4940-a099-8f0da1d80e9e\",\r\n\t\t\t\"Cantidad\": 2, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Julio Matos\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"9ac83e5f-417c-4b81-b10f-2c6ea3a3d4fa\",\r\n\t\t\t\"Cantidad\": 2, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Jose Yan\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"b0e267d6-87c9-4064-932a-a0cac8252834\",\r\n\t\t\t\"Cantidad\": 2, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Jose Yan\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"b41a9f75-fb4e-4614-9b93-225fee8e4770\",\r\n\t\t\t\"Cantidad\": 4, \r\n\t\t\t\"Precio\": 200,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Jose Yan\", \r\n\t\t\t\"Impreso\": false\r\n\t\t},\r\n\t\t\t\t{\r\n\t\t\t\"ID\": \"\"\t, \r\n\t\t\t\"OrderHID\": \"\", \r\n\t\t\t\"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n\t\t\t\"Cantidad\": 6, \r\n\t\t\t\"Precio\": 150,\r\n\t\t\t\"ImpComanda\": true,\r\n\t\t\t\"ClientePedido\": \"Jose Yan\", \r\n\t\t\t\"Impreso\": false\r\n\t\t}\r\n\t]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2099,7 +2099,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{domain}}/api/Factura/getFactura/2f3996a6-f19a-483e-9372-843afddf1959",
+					"raw": "http://{{domain}}/api/Factura/getFactura/e1f7b91a-9365-4118-813b-5e1b8a2463b5",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -2108,7 +2108,7 @@
 						"api",
 						"Factura",
 						"getFactura",
-						"2f3996a6-f19a-483e-9372-843afddf1959"
+						"e1f7b91a-9365-4118-813b-5e1b8a2463b5"
 					]
 				}
 			},
@@ -2128,7 +2128,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"ID\": \"\",\r\n  \"OrderHID\": \"\",\r\n  \"Fecha\": \"2019-11-25T16:53:19.1540724-04:00\",\r\n  \"UserId\": \"UsuarioID\",\r\n  \"MesaId\": \"MesaID\",\r\n  \"ClientePrincipal\": \"Cliente Principal\",\r\n  \"Itbis\": true,\r\n  \"ItbisPorc\": 18.0,\r\n  \"DescMonto\": 0.0,\r\n  \"DescPorc\": 0.0,\r\n  \"FechaRegistro\": \"2019-11-25T16:53:19.1540724-04:00\",\r\n  \"Impreso\": false,\r\n  \"Inactivo\": false,\r\n  \"FacturaDetails\": [],\r\n  \"FacturaPayments\": []\r\n}",
+					"raw": "{\r\n\t\"ID\": \"\",\r\n    \"OrderHID\": \"23c7e0a2-913d-4ad9-84f6-e3eea9b6bd3b\",\r\n    \"Fecha\": \"2019-11-29T15:20:49.933\",\r\n    \"UserId\": \"15150e88-171c-4895-9c34-70b4144576f0\",\r\n    \"MesaId\": \"c27dadcc-3b7c-4bb5-928b-66427037d930\",\r\n    \"ClientePrincipal\": \"Carlos Santana\",\r\n    \"Itbis\": true,\r\n    \"ItbisPorc\": 18.00,\r\n    \"DescMonto\": 0.00,\r\n    \"DescPorc\": 0.00,\r\n    \"FechaRegistro\": \"2019-11-29T15:20:49.933\",\r\n    \"Impreso\": false,\r\n    \"Inactivo\": false,\r\n    \"FacturaDetails\": [\r\n        {\r\n            \"ID\": \"\",\r\n            \"FacturaHID\": \"\",\r\n            \"ProductoID\": \"b0e267d6-87c9-4064-932a-a0cac8252834\",\r\n            \"Cantidad\": 1.00,\r\n            \"Precio\": 200.00,\r\n            \"ImpComanda\": false,\r\n            \"ClientePedido\": \"Carlos Santana\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false,\r\n\t\t\t\"OrderDID\": \"0b971bfe-b6e3-4a80-bdfc-8a970443f9d2\",\r\n            \"Orden\": 1.00\r\n        },\r\n        {\r\n            \"ID\": \"\",\r\n            \"OrderHID\": \"\",\r\n            \"ProductoID\": \"67040759-abe3-4d08-9e1a-d1d0889c1892\",\r\n            \"Cantidad\": 1.00,\r\n            \"Precio\": 150.00,\r\n            \"ImpComanda\": true,\r\n            \"ClientePedido\": \"Carlos Santana\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false,\r\n\t\t\t\"OrderDID\":\"1d6fcc0e-e634-4e3a-817b-43cb7ca1a05e\",\r\n            \"Orden\": 2.00\r\n        },\r\n        {\r\n            \"ID\": \"\",\r\n            \"OrderHID\": \"\",\r\n            \"ProductoID\": \"b41a9f75-fb4e-4614-9b93-225fee8e4770\",\r\n            \"Cantidad\": 1.00,\r\n            \"Precio\": 200.00,\r\n            \"ImpComanda\": true,\r\n            \"ClientePedido\": \"Carlos Santana\",\r\n            \"Impreso\": false,\r\n            \"Inactivo\": false,\r\n\t\t\t\"OrderDID\":\"5e5f838e-15e7-4f81-a04b-d6053f3291cd\",\r\n            \"Orden\": 3.00\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2209,6 +2209,206 @@
 						"Factura",
 						"DeleteFactura",
 						"a08cafa2-2a60-40d0-9aa9-9024f62ac07c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFacturasByOrder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{domain}}/api/Factura/getFacturasByOrder/23c7e0a2-913d-4ad9-84f6-e3eea9b6bd3b",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"Factura",
+						"getFacturasByOrder",
+						"23c7e0a2-913d-4ad9-84f6-e3eea9b6bd3b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTypeInformaciones",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/TypeInformacion/getTypeInformaciones",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"TypeInformacion",
+						"getTypeInformaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTypeInformacion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\": \"dd4a7cc0-4799-49a6-93e8-c862dd5996a4\",\n\t\"Nombre\": \"Administrador\",\n\t\"Modificable\": \"False\",\n\t\"Inactivo\": \"False\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/TypeInformacion/getTypeInformacion/5520eec9-31e2-4072-8a68-3f839f7107dc",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"TypeInformacion",
+						"getTypeInformacion",
+						"5520eec9-31e2-4072-8a68-3f839f7107dc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertTypeInformacion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"\",\r\n  \"Descripcion\": \"Facebook\",\r\n  \"Orden\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/TypeInformacion/InsertTypeInformacion",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"TypeInformacion",
+						"InsertTypeInformacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTypeInformacion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": \"5520eec9-31e2-4072-8a68-3f839f7107dc\",\r\n    \"Descripcion\": \"Email\",\r\n    \"Orden\": 1,\r\n    \"Inactivo\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/TypeInformacion/UpdateTypeInformacion",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"TypeInformacion",
+						"UpdateTypeInformacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTypeInformacion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{domain}}/api/TypeInformacion/DeleteTypeInformacion/7959a0e0-2ad6-4988-8335-e2b3ced1c244",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"TypeInformacion",
+						"DeleteTypeInformacion",
+						"7959a0e0-2ad6-4988-8335-e2b3ced1c244"
 					]
 				}
 			},

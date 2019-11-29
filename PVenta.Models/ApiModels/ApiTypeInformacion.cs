@@ -10,6 +10,7 @@ namespace PVenta.Models.ApiModels
     {
         public string ID { get; set; }
         public string Descripcion { get; set; }
+        public int Orden { get; set; }
         public bool Inactivo { get; set; }
     }
 }

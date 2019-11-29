@@ -176,6 +176,10 @@
     <Compile Include="Migrations\201911291944417_JEv031.designer.cs">
       <DependentUpon>201911291944417_JEv031.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911292130417_JEv032.cs" />
+    <Compile Include="Migrations\201911292130417_JEv032.designer.cs">
+      <DependentUpon>201911292130417_JEv032.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911291944417_JEv031.resx">
       <DependentUpon>201911291944417_JEv031.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911292130417_JEv032.resx">
+      <DependentUpon>201911292130417_JEv032.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

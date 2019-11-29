@@ -19,7 +19,7 @@ namespace PVenta.Models.Model
         [Column("Descripcion", TypeName = "varchar")]
         [MaxLength(50)]
         public string Descripcion { get; set; }
-
+        public int Orden { get; set; }
         public bool Inactivo { get; set; }
     }
 }
