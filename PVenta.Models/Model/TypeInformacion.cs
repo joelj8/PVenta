@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.Model
 {
-    [Table("TypeInfos")]
-    public class TypeInfo
+    [Table("TypeInformaciones")]
+    public class TypeInformacion
     {
         [Key]
         [Column("ID", TypeName = "varchar")]

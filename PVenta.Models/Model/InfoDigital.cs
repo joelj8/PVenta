@@ -25,7 +25,7 @@ namespace PVenta.Models.Model
         public string TypeInfoID { get; set; }
 
         [ForeignKey("TypeInfoID")]
-        public TypeInfo TypeInfo { get; set; }
+        public TypeInformacion TypeInfo { get; set; }
 
         [MaxLength(50)]
         public string Descripcion { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.ApiModels
 {
-    public class ApiTypeInfo
+    public class ApiTypeInformacion
     {
         public string ID { get; set; }
         public string Descripcion { get; set; }

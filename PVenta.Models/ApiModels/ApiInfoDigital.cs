@@ -11,7 +11,7 @@ namespace PVenta.Models.ApiModels
         public string ID { get; set; }
         public string RelacionID { get; set; }
         public string TypeInfoID { get; set; }
-        public ApiTypeInfo TypeInfo { get; set; }
+        public ApiTypeInformacion TypeInfo { get; set; }
         public string Descripcion { get; set; }
         public bool Inactivo { get; set; }
     }
