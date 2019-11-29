@@ -46,11 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiModels\ApiCategoria.cs" />
+    <Compile Include="ApiModels\ApiConfigSistema.cs" />
     <Compile Include="ApiModels\ApiErrorList.cs" />
     <Compile Include="ApiModels\ApiFacturaDetail.cs" />
     <Compile Include="ApiModels\ApiFacturaHeader.cs" />
     <Compile Include="ApiModels\ApiFacturaPayment.cs" />
     <Compile Include="ApiModels\ApiFormaPago.cs" />
+    <Compile Include="ApiModels\ApiInfoDigital.cs" />
     <Compile Include="ApiModels\ApiLogEvento.cs" />
     <Compile Include="ApiModels\ApiLogin.cs" />
     <Compile Include="ApiModels\ApiMesa.cs" />
@@ -62,8 +64,10 @@
     <Compile Include="ApiModels\ApiProducto.cs" />
     <Compile Include="ApiModels\ApiRol.cs" />
     <Compile Include="ApiModels\ApiSignIn.cs" />
+    <Compile Include="ApiModels\ApiTypeInfo.cs" />
     <Compile Include="ApiModels\ApiUsuario.cs" />
     <Compile Include="Model\Categoria.cs" />
+    <Compile Include="Model\ConfigSistema.cs" />
     <Compile Include="Model\CuadreDetail.cs" />
     <Compile Include="Model\CuadreHeader.cs" />
     <Compile Include="Model\ErrorList.cs" />
@@ -71,6 +75,7 @@
     <Compile Include="Model\FacturaHeader.cs" />
     <Compile Include="Model\FacturaPayment.cs" />
     <Compile Include="Model\FormaPago.cs" />
+    <Compile Include="Model\InfoDigital.cs" />
     <Compile Include="Model\LogEvento.cs" />
     <Compile Include="Model\Mesa.cs" />
     <Compile Include="Model\Moneda.cs" />
@@ -80,13 +85,16 @@
     <Compile Include="Model\PermisosRol.cs" />
     <Compile Include="Model\Producto.cs" />
     <Compile Include="Model\Rol.cs" />
+    <Compile Include="Model\TypeInfo.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\viewCategoria.cs" />
+    <Compile Include="ViewModel\viewConfigSistema.cs" />
     <Compile Include="ViewModel\viewFacturaDetail.cs" />
     <Compile Include="ViewModel\viewFacturaHeader.cs" />
     <Compile Include="ViewModel\viewFacturaPayment.cs" />
     <Compile Include="ViewModel\viewFormaPagos.cs" />
+    <Compile Include="ViewModel\viewInfoDigital.cs" />
     <Compile Include="ViewModel\viewLogin.cs" />
     <Compile Include="ViewModel\viewMesa.cs" />
     <Compile Include="ViewModel\viewMessageApp.cs" />
@@ -96,6 +104,7 @@
     <Compile Include="ViewModel\viewOrderHeader.cs" />
     <Compile Include="ViewModel\viewProducto.cs" />
     <Compile Include="ViewModel\viewRol.cs" />
+    <Compile Include="ViewModel\viewTypeInfo.cs" />
     <Compile Include="ViewModel\viewUsuario.cs" />
   </ItemGroup>
   <ItemGroup />
