@@ -80,6 +80,54 @@ namespace PVenta.Utility
         }
         #endregion
 
+        #region TypeInformacion
+        public static string GetTypeInformaciones
+        {
+            get { return "api/TypeInformacion/GetTypeInformaciones"; }
+        }
+
+        public static string GetTypeInformacion
+        {
+            get { return "api/TypeInformacion/GetTypeInformacion/"; }
+        }
+        public static string InsertTypeInformacion
+        {
+            get { return "api/TypeInformacion/InsertTypeInformacion"; }
+        }
+        public static string UpdateTypeInformacion
+        {
+            get { return "api/TypeInformacion/UpdateTypeInformacion"; }
+        }
+        public static string DeleteTypeInformacion
+        {
+            get { return "api/TypeInformacion/DeleteTypeInformacion/"; }
+        }
+        #endregion
+
+        #region ConfigSistema
+        public static string GetConfigSistemas
+        {
+            get { return "api/TypeInformacion/GetConfigSistemas"; }
+        }
+
+        public static string GetConfigSistema
+        {
+            get { return "api/TypeInformacion/GetConfigSistema/"; }
+        }
+        public static string InsertConfigSistema
+        {
+            get { return "api/TypeInformacion/InsertConfigSistema"; }
+        }
+        public static string UpdateConfigSistema
+        {
+            get { return "api/TypeInformacion/UpdateConfigSistema"; }
+        }
+        public static string DeleteConfigSistema
+        {
+            get { return "api/TypeInformacion/DeleteConfigSistema/"; }
+        }
+        #endregion
+
         #region Usuario
         public static string GetUsuarios
         {
@@ -287,7 +335,7 @@ namespace PVenta.Utility
         }
         #endregion
 
-        #region
+        #region Factura
         public static string GetFacturas
         {
             get { return "api/Factura/GetFacturas/"; }
@@ -313,5 +361,6 @@ namespace PVenta.Utility
             get { return "api/Factura/DeleteFactura/"; }
         }
         #endregion
+
     }
 }

@@ -70,6 +70,18 @@
     <Compile Include="AdmForms\frmRolesAdm.Designer.cs">
       <DependentUpon>frmRolesAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdmForms\frmTypeInformacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmForms\frmTypeInformacion.Designer.cs">
+      <DependentUpon>frmTypeInformacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdmForms\frmTypeInformacionesAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmForms\frmTypeInformacionesAdm.Designer.cs">
+      <DependentUpon>frmTypeInformacionesAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdmForms\frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdmForms\frmRolesAdm.resx">
       <DependentUpon>frmRolesAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdmForms\frmTypeInformacion.resx">
+      <DependentUpon>frmTypeInformacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdmForms\frmTypeInformacionesAdm.resx">
+      <DependentUpon>frmTypeInformacionesAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdmForms\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>

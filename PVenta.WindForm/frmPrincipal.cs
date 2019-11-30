@@ -128,5 +128,12 @@ namespace PVenta.WindForm
             fOrdenesAdm.ShowDialog();
             fOrdenesAdm.Dispose();
         }
+
+        private void tipoInformaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTypeInformacionesAdm fTypeInformacionesAdm = new frmTypeInformacionesAdm();
+            fTypeInformacionesAdm.ShowDialog();
+            fTypeInformacionesAdm.Dispose();
+        }
     }
 }
