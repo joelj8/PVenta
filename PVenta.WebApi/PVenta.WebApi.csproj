@@ -195,6 +195,7 @@
     <Compile Include="Repository\FacturaHeaderProfile.cs" />
     <Compile Include="Repository\FacturaPaymentProfile.cs" />
     <Compile Include="Repository\FormaPagoProfile.cs" />
+    <Compile Include="Repository\InfoDigitalProfile.cs" />
     <Compile Include="Repository\LogEventoProfile.cs" />
     <Compile Include="Repository\MCategoriaProfile.cs" />
     <Compile Include="Repository\MConfigSistemaProfile.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Repository\MFacturaHeaderProfile.cs" />
     <Compile Include="Repository\MFacturaPaymentProfile.cs" />
     <Compile Include="Repository\MFormaPagoProfile.cs" />
+    <Compile Include="Repository\MInfoDigitalProfile.cs" />
     <Compile Include="Repository\MLogEventoProfile.cs" />
     <Compile Include="Repository\MMesaProfile.cs" />
     <Compile Include="Repository\MMonedaProfile.cs" />
