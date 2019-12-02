@@ -116,11 +116,11 @@ namespace PVenta.Services
             MessageApp result = null;
             try
             {
-                TypeInformacion typeInformacionUpdate = GetTypeInformacion(id);
-                if (typeInformacionUpdate != null)
+                TypeInformacion typeInformacionDelete = GetTypeInformacion(id);
+                if (typeInformacionDelete != null)
                 {
-                    typeInformacionUpdate.Inactivo = true;
-                    _dbcontext.Entry(typeInformacionUpdate).State = System.Data.Entity.EntityState.Modified;
+                    typeInformacionDelete.Inactivo = true;
+                    _dbcontext.Entry(typeInformacionDelete).State = System.Data.Entity.EntityState.Modified;
                     _dbcontext.SaveChanges();
                     result = new MessageApp(ServiceEventApp.GetEventByCode("RS00003"));
                 }

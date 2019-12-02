@@ -205,7 +205,7 @@ namespace PVenta.Services
 
             try
             {
-                OrderHeader orderHeaderDelete = GetOrderHeader(id);
+                OrderHeader orderHeaderDelete = GetOrderHeaderORG(id);
                 if (orderHeaderDelete != null)
                 {
                     orderHeaderDelete.Inactivo = true;
