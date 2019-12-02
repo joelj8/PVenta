@@ -22,7 +22,8 @@ namespace PVenta.Services
             List<ConfigSistema> result = null;
             try
             {
-                result = _dbcontext.ConfigSistemas.Include("InfoDigital").Where(x => !x.Inactivo).ToList();
+                result = _dbcontext.ConfigSistemas.Include("InfoDigitals")
+                         .Where(x => !x.Inactivo).ToList();
                 foreach (ConfigSistema confSistEvalua in result)
                 {
                     // Preparar la lista de InfoDigital con los registros que no estan inactivos
@@ -48,7 +49,7 @@ namespace PVenta.Services
             ConfigSistema result = null;
             try
             {
-                result = GetConfigSistema(id);
+                result = GetConfigSistemaORG(id);
 
                 // Preparar la lista de InfoDigital con los registros que no estan inactivos
                 List<InfoDigital> listDetail = (from confDet in result.InfoDigitals
@@ -72,7 +73,8 @@ namespace PVenta.Services
             ConfigSistema result = null;
             try
             {
-                result = _dbcontext.ConfigSistemas.Include("InfoDigital").FirstOrDefault(x => !x.Inactivo && x.ID == id);
+                result = _dbcontext.ConfigSistemas.Include("InfoDigitals")
+                    .FirstOrDefault(x => !x.Inactivo && x.ID == id);
             }
             catch (Exception ex)
             {
@@ -87,7 +89,7 @@ namespace PVenta.Services
             MessageApp result = null;
             List<ConfigSistema> listConfigSistemas = GetConfigSistemas();
             List<ConfigSistema> listConfigSistemasByNombre = findConfigSistemasNombre(configSistemaNew);
-            if ((listConfigSistemas != null && listConfigSistemas.Count == 0) || (listConfigSistemasByNombre != null && listConfigSistemasByNombre.Count == 0))
+            if ((listConfigSistemas != null && listConfigSistemas.Count == 0) && (listConfigSistemasByNombre != null && listConfigSistemasByNombre.Count == 0))
             {
                 try
                 {
@@ -114,14 +116,15 @@ namespace PVenta.Services
             }
             else
             {
-                if (listConfigSistemas != null && listConfigSistemas.Count == 0)
-                {
-                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
-                } 
-                else if (listConfigSistemasByNombre != null && listConfigSistemasByNombre.Count == 0)
+                if (listConfigSistemas == null || listConfigSistemas.Count != 0)
                 {
                     // Existe una Compañia Registrada
                     result = new MessageApp(ServiceEventApp.GetEventByCode("EL00003"));
+                } 
+                else if (listConfigSistemasByNombre == null || listConfigSistemasByNombre.Count != 0)
+                {
+                    
+                    result = new MessageApp(ServiceEventApp.GetEventByCode("EL00002"));
                 }
             }
 

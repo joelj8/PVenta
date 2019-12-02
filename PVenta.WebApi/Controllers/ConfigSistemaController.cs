@@ -30,7 +30,8 @@ namespace PVenta.WebApi.Controllers
             profileList.Add(new MConfigSistemaProfile());
             profileList.Add(new InfoDigitalProfile());
             profileList.Add(new MInfoDigitalProfile());
-
+            profileList.Add(new TypeInformacionProfile());
+            profileList.Add(new MTypeInformacionProfile());
 
             objMapper = new MapperConfiguration(i => i.AddProfiles(profileList));
 

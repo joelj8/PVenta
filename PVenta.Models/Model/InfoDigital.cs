@@ -17,15 +17,18 @@ namespace PVenta.Models.Model
         [MaxLength(50)]
         public string ID { get; set; }
 
-        [Column("IDRelacion", TypeName = "varchar")]
+        [Column("RelacionID", TypeName = "varchar")]
         [MaxLength(50)]
         public string RelacionID { get; set; }
-        
+
+        [ForeignKey("RelacionID")]
+        public ConfigSistema ConfigSistema { get; set; }
+
         [MaxLength(50)]
         public string TypeInfoID { get; set; }
 
         [ForeignKey("TypeInfoID")]
-        public TypeInformacion TypeInfo { get; set; }
+        public virtual TypeInformacion TypeInfo { get; set; }
 
         [MaxLength(50)]
         public string Descripcion { get; set; }
