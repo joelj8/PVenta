@@ -25,6 +25,8 @@ namespace PVenta.WebApi.Repository
             .ForMember(dest => dest.FechaRegistro, post => post.MapFrom(src => src.FechaRegistro))
             .ForMember(dest => dest.Impreso, post => post.MapFrom(src => src.Impreso))
             .ForMember(dest => dest.Inactivo, post => post.MapFrom(src => src.Inactivo))
+            .ForMember(dest => dest.Servicio, post => post.MapFrom(src => src.Servicio))
+            .ForMember(dest => dest.ServicioPorc, post => post.MapFrom(src => src.ServicioPorc))
             .ForMember(dest => dest.OrderHID, post => post.MapFrom(src => src.OrderHID))
             .ForMember(dest => dest.FacturaDetails, post => post.MapFrom(src => src.FacturaDetails))
             .ForMember(dest => dest.FacturaPayments, post => post.MapFrom(src => src.FacturaPayments));

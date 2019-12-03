@@ -65,6 +65,11 @@ namespace PVenta.Models.Model
 
         public bool Inactivo { get; set; }
 
+        public bool Servicio { get; set; }
+
+        [Column("ServicioPorc")]
+        public decimal ServicioPorc { get; set; }
+
         [ForeignKey("FacturaHID")]
         public ICollection<FacturaDetail> FacturaDetails { get; set; }
 

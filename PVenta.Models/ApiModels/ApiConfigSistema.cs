@@ -19,6 +19,8 @@ namespace PVenta.Models.ApiModels
         public ICollection<ApiInfoDigital> InfoDigitals { get; set; }
         public bool CalcITBIS { get; set; }
         public decimal PorcITBIS { get; set; }
+        public bool CalcServicio { get; set; }
+        public decimal PorcServicio { get; set; }
         public string ComprobanteFiscal { get; set; }
         public int NumComprobanteFiscal { get; set; }
         public string MensajeOrden { get; set; }

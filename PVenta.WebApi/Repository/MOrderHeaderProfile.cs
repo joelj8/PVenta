@@ -24,6 +24,8 @@ namespace PVenta.WebApi.Repository
             .ForMember(dest => dest.Inactivo, opts => opts.MapFrom(src => src.Inactivo))
             .ForMember(dest => dest.Itbis, opts => opts.MapFrom(src => src.Itbis))
             .ForMember(dest => dest.ItbisPorc, opts => opts.MapFrom(src => src.ItbisPorc))
+            .ForMember(dest => dest.Servicio, post => post.MapFrom(src => src.Servicio))
+            .ForMember(dest => dest.ServicioPorc, post => post.MapFrom(src => src.ServicioPorc))
             .ForMember(dest => dest.MesaId, opts => opts.MapFrom(src => src.MesaId))
             .ForMember(dest => dest.Mesa, opts => opts.MapFrom(src => src.Mesa))
             .ForMember(dest => dest.OrderDetails, opts => opts.MapFrom(src => src.OrderDetails));

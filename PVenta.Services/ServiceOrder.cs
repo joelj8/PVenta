@@ -134,6 +134,8 @@ namespace PVenta.Services
                     orderHeaderUpdate.Impreso = orderHeader.Impreso;
                     orderHeaderUpdate.Itbis = orderHeader.Itbis;
                     orderHeaderUpdate.ItbisPorc = orderHeader.ItbisPorc;
+                    orderHeaderUpdate.Servicio = orderHeader.Servicio;
+                    orderHeaderUpdate.ServicioPorc = orderHeader.ServicioPorc;
                     orderHeaderUpdate.MesaId = orderHeader.MesaId;
                     
                     //orderHeaderUpdate.OrderDetails = orderHeader.OrderDetails;

@@ -107,6 +107,7 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalInfo\gConfigSistema.cs" />
     <Compile Include="MantForms\frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>

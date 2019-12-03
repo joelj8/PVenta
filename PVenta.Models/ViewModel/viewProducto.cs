@@ -28,6 +28,11 @@ namespace PVenta.Models.ViewModel
 
         public bool Inactivo { get; set; }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
 
     }
 }

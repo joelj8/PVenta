@@ -33,6 +33,8 @@ namespace PVenta.Models.ApiModels
         public bool Impreso { get; set; }
 
         public bool Inactivo { get; set; }
+        public bool Servicio { get; set; }
+        public decimal ServicioPorc { get; set; }
 
         //[JsonIgnore]
         public ICollection<ApiOrderDetail> OrderDetails { get; set; }

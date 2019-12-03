@@ -22,6 +22,8 @@ namespace PVenta.Models.ViewModel
         public DateTime FechaRegistro { get; set; }
         public bool Impreso { get; set; }
         public bool Inactivo { get; set; }
+        public bool Servicio { get; set; }
+        public decimal ServicioPorc { get; set; }
         public ICollection<viewFacturaDetail> FacturaDetails { get; set; }
         public ICollection<viewFacturaPayment> FacturaPayments { get; set; }
     }

@@ -31,6 +31,7 @@ namespace PVenta.WebApi.Repository
                 .ForMember(dest => dest.NombreNeg, opts => opts.MapFrom(src => src.NombreNeg))
                 .ForMember(dest => dest.NumComprobanteFiscal, opts => opts.MapFrom(src => src.NumComprobanteFiscal))
                 .ForMember(dest => dest.PorcITBIS, opts => opts.MapFrom(src => src.PorcITBIS))
+                .ForMember(dest => dest.PorcServicio, opts => opts.MapFrom(src => src.PorcServicio))
                 .ForMember(dest => dest.RNC, opts => opts.MapFrom(src => src.RNC))
                 .ForMember(dest => dest.Telefono, opts => opts.MapFrom(src => src.Telefono));
         }

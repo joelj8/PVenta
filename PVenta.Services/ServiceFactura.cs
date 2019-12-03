@@ -178,6 +178,8 @@ namespace PVenta.Services
                     facturaHeaderUpdate.Impreso = facturaHeader.Impreso;
                     facturaHeaderUpdate.Itbis = facturaHeader.Itbis;
                     facturaHeaderUpdate.ItbisPorc = facturaHeader.ItbisPorc;
+                    facturaHeaderUpdate.Servicio = facturaHeader.Servicio;
+                    facturaHeaderUpdate.ServicioPorc = facturaHeader.ServicioPorc;
                     facturaHeaderUpdate.MesaId = facturaHeader.MesaId;
 
                     #region FacturaDetail

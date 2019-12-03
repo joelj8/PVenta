@@ -53,6 +53,12 @@ namespace PVenta.Models.Model
         [DisplayName("Porcentaje ITBIS")]
         public decimal PorcITBIS { get; set; }
 
+        [DisplayName("Calcula Servicio")]
+        public bool CalcServicio { get; set; }
+
+        [DisplayName("Porcentaje Servicio")]
+        public decimal PorcServicio { get; set; }
+
         [DisplayName("Comprobante Fiscal")]
         [MaxLength(50)]
         public string ComprobanteFiscal { get; set; }
