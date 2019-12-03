@@ -107,24 +107,24 @@ namespace PVenta.Utility
         #region ConfigSistema
         public static string GetConfigSistemas
         {
-            get { return "api/TypeInformacion/GetConfigSistemas"; }
+            get { return "api/ConfigSistema/GetConfigSistemas"; }
         }
 
         public static string GetConfigSistema
         {
-            get { return "api/TypeInformacion/GetConfigSistema/"; }
+            get { return "api/ConfigSistema/GetConfigSistema/"; }
         }
         public static string InsertConfigSistema
         {
-            get { return "api/TypeInformacion/InsertConfigSistema"; }
+            get { return "api/ConfigSistema/InsertConfigSistema"; }
         }
         public static string UpdateConfigSistema
         {
-            get { return "api/TypeInformacion/UpdateConfigSistema"; }
+            get { return "api/ConfigSistema/UpdateConfigSistema"; }
         }
         public static string DeleteConfigSistema
         {
-            get { return "api/TypeInformacion/DeleteConfigSistema/"; }
+            get { return "api/ConfigSistema/DeleteConfigSistema/"; }
         }
         #endregion
 
