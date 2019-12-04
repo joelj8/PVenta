@@ -159,7 +159,7 @@ namespace PVenta.WindForm.OperForms
                 newOrdDetail.ProductoID = txtID.Text;
                 newOrdDetail.ClientePedido = string.Empty;
                 
-                newOrdDetail.Orden = 0;
+                newOrdDetail.Orden = nextOrdenNo(gridOrderDetail);
                 newOrdDetail.OrderHID = string.Empty;
 
                 newOrdDetail.Cantidad = numCant.Value;
@@ -177,11 +177,19 @@ namespace PVenta.WindForm.OperForms
             }
         }
 
+        private decimal nextOrdenNo(List<viewOrderDetailGrid> OrderDetailEvalua)
+        {
+            decimal resultado = 0;
+            resultado = OrderDetailEvalua.Count(x => (int)x.Orden - x.Orden == 0) + 1;
+            return resultado;
+        }
+
         private void setOrderDetail()
         {
             if (gridOrderDetail != null)
             {
-                this.dgvOrderDetail.DataSource = gridOrderDetail.ToList();
+                var listGrid = gridOrderDetail.OrderByDescending(s => s.Orden).ToList();
+                this.dgvOrderDetail.DataSource = listGrid;
             }
             calculateOrder();
         }
