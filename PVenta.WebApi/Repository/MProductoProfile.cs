@@ -22,6 +22,7 @@ namespace PVenta.WebApi.Repository
                 .ForMember(dest => dest.Categoria, opts => opts.MapFrom(src => src.Categoria))
                 .ForMember(dest => dest.ImpComanda, opts => opts.MapFrom(src => src.ImpComanda))
                 .ForMember(dest => dest.esAdicional, opts => opts.MapFrom(src => src.esAdicional))
+                .ForMember(dest => dest.permiteAdicional, opts => opts.MapFrom(src => src.permiteAdicional))
                 .ForMember(dest => dest.Inactivo, opts => opts.MapFrom(src => src.Inactivo));
         }
     }

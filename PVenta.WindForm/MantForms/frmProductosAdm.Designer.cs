@@ -44,6 +44,7 @@
             this.ColInactivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColPermiteAdicional = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,8 @@
             this.ColEsAdicional,
             this.ColInactivo,
             this.ColEditar,
-            this.ColEliminar});
+            this.ColEliminar,
+            this.ColPermiteAdicional});
             this.dgvProductos.Location = new System.Drawing.Point(12, 36);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersVisible = false;
@@ -138,7 +140,7 @@
             this.ColCategoria.HeaderText = "Categoria";
             this.ColCategoria.Name = "ColCategoria";
             this.ColCategoria.ReadOnly = true;
-            this.ColCategoria.Width = 150;
+            this.ColCategoria.Width = 130;
             // 
             // ColCategoriaID
             // 
@@ -188,6 +190,14 @@
             this.ColEliminar.UseColumnTextForButtonValue = true;
             this.ColEliminar.Width = 70;
             // 
+            // ColPermiteAdicional
+            // 
+            this.ColPermiteAdicional.DataPropertyName = "PermiteAdicional";
+            this.ColPermiteAdicional.HeaderText = "Permite Adicional";
+            this.ColPermiteAdicional.Name = "ColPermiteAdicional";
+            this.ColPermiteAdicional.ReadOnly = true;
+            this.ColPermiteAdicional.Visible = false;
+            // 
             // frmProductosAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -222,5 +232,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColInactivo;
         private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
         private System.Windows.Forms.DataGridViewButtonColumn ColEliminar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColPermiteAdicional;
     }
 }

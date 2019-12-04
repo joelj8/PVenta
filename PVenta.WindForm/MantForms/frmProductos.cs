@@ -48,6 +48,7 @@ namespace PVenta.WindForm.MantForms
                     numPrecio.Value = callApiProducto.objectResponse.Precio;
                     cboCategoria.SelectedValue = callApiProducto.objectResponse.Categoria.ID;
                     chkAdicional.Checked = callApiProducto.objectResponse.esAdicional;
+                    chkPermiteAdicional.Checked = callApiProducto.objectResponse.permiteAdicional;
                     chkComanda.Checked = callApiProducto.objectResponse.ImpComanda;
 
 
@@ -139,7 +140,9 @@ namespace PVenta.WindForm.MantForms
             producto.CategoriaId = cboCategoria.SelectedValue.ToString();
             producto.Precio = numPrecio.Value;
             producto.esAdicional = chkAdicional.Checked;
+            producto.permiteAdicional = chkPermiteAdicional.Checked;
             producto.ImpComanda = chkComanda.Checked;
+
             
         }
 
@@ -185,6 +188,26 @@ namespace PVenta.WindForm.MantForms
             }
 
             return validaResult;
+        }
+
+        private void chkPermiteAdicional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPermiteAdicional.Checked && chkAdicional.Checked)
+            {
+                MessageBox.Show("No puede marcar 'Permitir Adicional' y ser un 'Producto Adicional' simultaneamente.", 
+                                this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                chkPermiteAdicional.Checked = false;
+            }
+        }
+
+        private void chkAdicional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAdicional.Checked && chkPermiteAdicional.Checked)
+            {
+                MessageBox.Show("No puede marcar 'Permitir Adicional' y ser un 'Producto Adicional' simultaneamente.",
+                                this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                chkAdicional.Checked = false;
+            }
         }
     }
 }

@@ -92,6 +92,7 @@ namespace PVenta.Services
                         productoUpdate.Precio = productoUpd.Precio;
                         productoUpdate.CategoriaId = productoUpd.CategoriaId;
                         productoUpdate.esAdicional = productoUpd.esAdicional;
+                        productoUpdate.permiteAdicional = productoUpd.permiteAdicional;
                         productoUpdate.ImpComanda = productoUpd.ImpComanda;
                         _dbcontext.Entry(productoUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();

@@ -144,6 +144,7 @@ namespace PVenta.Services
                     {
                         configSistemaUpdate.CalcITBIS = configSistemaUpd.CalcITBIS;
                         configSistemaUpdate.PorcITBIS = configSistemaUpd.PorcITBIS;
+                        configSistemaUpdate.CalcServicio = configSistemaUpd.CalcServicio;
                         configSistemaUpdate.PorcServicio = configSistemaUpd.PorcServicio;
                         configSistemaUpdate.CodigoSegInactivar = configSistemaUpd.CodigoSegInactivar;
                         configSistemaUpdate.ComprobanteFiscal = configSistemaUpd.ComprobanteFiscal;

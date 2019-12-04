@@ -43,6 +43,8 @@
             this.chkAdicional = new System.Windows.Forms.CheckBox();
             this.chkComanda = new System.Windows.Forms.CheckBox();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.lblPermiteAdicional = new System.Windows.Forms.Label();
+            this.chkPermiteAdicional = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,6 +169,7 @@
             this.chkAdicional.Size = new System.Drawing.Size(15, 14);
             this.chkAdicional.TabIndex = 12;
             this.chkAdicional.UseVisualStyleBackColor = true;
+            this.chkAdicional.CheckedChanged += new System.EventHandler(this.chkAdicional_CheckedChanged);
             // 
             // chkComanda
             // 
@@ -174,7 +177,7 @@
             this.chkComanda.Location = new System.Drawing.Point(132, 186);
             this.chkComanda.Name = "chkComanda";
             this.chkComanda.Size = new System.Drawing.Size(15, 14);
-            this.chkComanda.TabIndex = 13;
+            this.chkComanda.TabIndex = 14;
             this.chkComanda.UseVisualStyleBackColor = true;
             // 
             // btnGrabar
@@ -183,16 +186,38 @@
             this.btnGrabar.Location = new System.Drawing.Point(270, 207);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 14;
+            this.btnGrabar.TabIndex = 15;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // lblPermiteAdicional
+            // 
+            this.lblPermiteAdicional.AutoSize = true;
+            this.lblPermiteAdicional.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPermiteAdicional.Location = new System.Drawing.Point(179, 162);
+            this.lblPermiteAdicional.Name = "lblPermiteAdicional";
+            this.lblPermiteAdicional.Size = new System.Drawing.Size(122, 13);
+            this.lblPermiteAdicional.TabIndex = 15;
+            this.lblPermiteAdicional.Text = "Permite Adicional";
+            // 
+            // chkPermiteAdicional
+            // 
+            this.chkPermiteAdicional.AutoSize = true;
+            this.chkPermiteAdicional.Location = new System.Drawing.Point(330, 162);
+            this.chkPermiteAdicional.Name = "chkPermiteAdicional";
+            this.chkPermiteAdicional.Size = new System.Drawing.Size(15, 14);
+            this.chkPermiteAdicional.TabIndex = 13;
+            this.chkPermiteAdicional.UseVisualStyleBackColor = true;
+            this.chkPermiteAdicional.CheckedChanged += new System.EventHandler(this.chkPermiteAdicional_CheckedChanged);
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 246);
+            this.Controls.Add(this.chkPermiteAdicional);
+            this.Controls.Add(this.lblPermiteAdicional);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.chkComanda);
             this.Controls.Add(this.chkAdicional);
@@ -234,5 +259,7 @@
         private System.Windows.Forms.CheckBox chkAdicional;
         private System.Windows.Forms.CheckBox chkComanda;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Label lblPermiteAdicional;
+        private System.Windows.Forms.CheckBox chkPermiteAdicional;
     }
 }

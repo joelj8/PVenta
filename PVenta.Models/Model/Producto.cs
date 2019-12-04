@@ -52,6 +52,8 @@ namespace PVenta.Models.Model
         [DisplayName("Adicional/Producto")]
         public bool esAdicional { get; set; }
 
+        [DisplayName("Permitir Adicionar Productos")]
+        public bool permiteAdicional { get; set; }
         public bool Inactivo { get; set; }
 
 
