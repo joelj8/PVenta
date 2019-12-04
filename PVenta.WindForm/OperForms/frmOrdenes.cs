@@ -296,5 +296,6 @@ namespace PVenta.WindForm.OperForms
         {
             calculateOrder();
         }
+
     }
 }

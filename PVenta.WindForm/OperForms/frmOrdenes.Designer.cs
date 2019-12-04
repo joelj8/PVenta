@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlGeneral = new System.Windows.Forms.Panel();
+            this.chkServicio = new System.Windows.Forms.CheckBox();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.numDescPorc = new System.Windows.Forms.NumericUpDown();
             this.numDescMonto = new System.Windows.Forms.NumericUpDown();
@@ -71,17 +72,17 @@
             this.ColOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColOrderHID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblSubTotal = new System.Windows.Forms.Label();
-            this.lblDescuento = new System.Windows.Forms.Label();
-            this.lblITBIS = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.txtSubTotal = new System.Windows.Forms.TextBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.txtITBIS = new System.Windows.Forms.TextBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.lblServicio = new System.Windows.Forms.Label();
+            this.pnlResumen = new System.Windows.Forms.Panel();
             this.txtServicio = new System.Windows.Forms.TextBox();
-            this.chkServicio = new System.Windows.Forms.CheckBox();
+            this.lblServicio = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtITBIS = new System.Windows.Forms.TextBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.txtSubTotal = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblITBIS = new System.Windows.Forms.Label();
+            this.lblDescuento = new System.Windows.Forms.Label();
+            this.lblSubTotal = new System.Windows.Forms.Label();
             this.pnlGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDescPorc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDescMonto)).BeginInit();
@@ -90,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
+            this.pnlResumen.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGeneral
@@ -114,6 +116,18 @@
             this.pnlGeneral.Name = "pnlGeneral";
             this.pnlGeneral.Size = new System.Drawing.Size(817, 100);
             this.pnlGeneral.TabIndex = 2;
+            // 
+            // chkServicio
+            // 
+            this.chkServicio.AutoSize = true;
+            this.chkServicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkServicio.Location = new System.Drawing.Point(608, 67);
+            this.chkServicio.Name = "chkServicio";
+            this.chkServicio.Size = new System.Drawing.Size(80, 18);
+            this.chkServicio.TabIndex = 20;
+            this.chkServicio.Text = "Servicio";
+            this.chkServicio.UseVisualStyleBackColor = true;
+            this.chkServicio.CheckedChanged += new System.EventHandler(this.chkServicio_CheckedChanged);
             // 
             // btnGrabar
             // 
@@ -430,9 +444,9 @@
             // ColCant
             // 
             this.ColCant.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle7.Format = "N0";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.ColCant.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.ColCant.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColCant.HeaderText = "Cantidad";
             this.ColCant.Name = "ColCant";
             this.ColCant.ReadOnly = true;
@@ -441,9 +455,9 @@
             // ColPrecio
             // 
             this.ColPrecio.DataPropertyName = "Precio";
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = "0";
-            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColPrecio.HeaderText = "Precio";
             this.ColPrecio.Name = "ColPrecio";
             this.ColPrecio.ReadOnly = true;
@@ -451,10 +465,10 @@
             // ColTotal
             // 
             this.ColTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = "0";
-            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColTotal.HeaderText = "Total";
             this.ColTotal.Name = "ColTotal";
             this.ColTotal.ReadOnly = true;
@@ -533,112 +547,23 @@
             this.ColProductoID.ReadOnly = true;
             this.ColProductoID.Visible = false;
             // 
-            // lblSubTotal
+            // pnlResumen
             // 
-            this.lblSubTotal.AutoSize = true;
-            this.lblSubTotal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblSubTotal.Location = new System.Drawing.Point(537, 448);
-            this.lblSubTotal.Name = "lblSubTotal";
-            this.lblSubTotal.Size = new System.Drawing.Size(106, 23);
-            this.lblSubTotal.TabIndex = 16;
-            this.lblSubTotal.Text = "SubTotal";
-            // 
-            // lblDescuento
-            // 
-            this.lblDescuento.AutoSize = true;
-            this.lblDescuento.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblDescuento.Location = new System.Drawing.Point(537, 477);
-            this.lblDescuento.Name = "lblDescuento";
-            this.lblDescuento.Size = new System.Drawing.Size(124, 23);
-            this.lblDescuento.TabIndex = 17;
-            this.lblDescuento.Text = "Descuento";
-            // 
-            // lblITBIS
-            // 
-            this.lblITBIS.AutoSize = true;
-            this.lblITBIS.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblITBIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblITBIS.Location = new System.Drawing.Point(537, 532);
-            this.lblITBIS.Name = "lblITBIS";
-            this.lblITBIS.Size = new System.Drawing.Size(71, 23);
-            this.lblITBIS.TabIndex = 18;
-            this.lblITBIS.Text = "ITBIS";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblTotal.Location = new System.Drawing.Point(537, 559);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(65, 23);
-            this.lblTotal.TabIndex = 19;
-            this.lblTotal.Text = "Total";
-            // 
-            // txtSubTotal
-            // 
-            this.txtSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSubTotal.Enabled = false;
-            this.txtSubTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSubTotal.Location = new System.Drawing.Point(674, 452);
-            this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.ReadOnly = true;
-            this.txtSubTotal.Size = new System.Drawing.Size(155, 20);
-            this.txtSubTotal.TabIndex = 20;
-            this.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescuento.Enabled = false;
-            this.txtDescuento.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDescuento.Location = new System.Drawing.Point(674, 481);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.ReadOnly = true;
-            this.txtDescuento.Size = new System.Drawing.Size(155, 20);
-            this.txtDescuento.TabIndex = 21;
-            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtITBIS
-            // 
-            this.txtITBIS.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtITBIS.Enabled = false;
-            this.txtITBIS.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtITBIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtITBIS.Location = new System.Drawing.Point(674, 533);
-            this.txtITBIS.Name = "txtITBIS";
-            this.txtITBIS.ReadOnly = true;
-            this.txtITBIS.Size = new System.Drawing.Size(155, 20);
-            this.txtITBIS.TabIndex = 22;
-            this.txtITBIS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.txtTotal.Location = new System.Drawing.Point(674, 563);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(155, 20);
-            this.txtTotal.TabIndex = 23;
-            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblServicio
-            // 
-            this.lblServicio.AutoSize = true;
-            this.lblServicio.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblServicio.Location = new System.Drawing.Point(537, 505);
-            this.lblServicio.Name = "lblServicio";
-            this.lblServicio.Size = new System.Drawing.Size(96, 23);
-            this.lblServicio.TabIndex = 24;
-            this.lblServicio.Text = "Servicio";
+            this.pnlResumen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlResumen.Controls.Add(this.txtServicio);
+            this.pnlResumen.Controls.Add(this.lblServicio);
+            this.pnlResumen.Controls.Add(this.txtTotal);
+            this.pnlResumen.Controls.Add(this.txtITBIS);
+            this.pnlResumen.Controls.Add(this.txtDescuento);
+            this.pnlResumen.Controls.Add(this.txtSubTotal);
+            this.pnlResumen.Controls.Add(this.lblTotal);
+            this.pnlResumen.Controls.Add(this.lblITBIS);
+            this.pnlResumen.Controls.Add(this.lblDescuento);
+            this.pnlResumen.Controls.Add(this.lblSubTotal);
+            this.pnlResumen.Location = new System.Drawing.Point(475, 441);
+            this.pnlResumen.Name = "pnlResumen";
+            this.pnlResumen.Size = new System.Drawing.Size(354, 155);
+            this.pnlResumen.TabIndex = 26;
             // 
             // txtServicio
             // 
@@ -646,40 +571,126 @@
             this.txtServicio.Enabled = false;
             this.txtServicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtServicio.Location = new System.Drawing.Point(674, 509);
+            this.txtServicio.Location = new System.Drawing.Point(167, 66);
             this.txtServicio.Name = "txtServicio";
             this.txtServicio.ReadOnly = true;
             this.txtServicio.Size = new System.Drawing.Size(155, 20);
-            this.txtServicio.TabIndex = 25;
+            this.txtServicio.TabIndex = 46;
             this.txtServicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // chkServicio
+            // lblServicio
             // 
-            this.chkServicio.AutoSize = true;
-            this.chkServicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkServicio.Location = new System.Drawing.Point(608, 67);
-            this.chkServicio.Name = "chkServicio";
-            this.chkServicio.Size = new System.Drawing.Size(80, 18);
-            this.chkServicio.TabIndex = 20;
-            this.chkServicio.Text = "Servicio";
-            this.chkServicio.UseVisualStyleBackColor = true;
-            this.chkServicio.CheckedChanged += new System.EventHandler(this.chkServicio_CheckedChanged);
+            this.lblServicio.AutoSize = true;
+            this.lblServicio.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblServicio.Location = new System.Drawing.Point(30, 62);
+            this.lblServicio.Name = "lblServicio";
+            this.lblServicio.Size = new System.Drawing.Size(96, 23);
+            this.lblServicio.TabIndex = 45;
+            this.lblServicio.Text = "Servicio";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.txtTotal.Location = new System.Drawing.Point(167, 120);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(155, 20);
+            this.txtTotal.TabIndex = 44;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtITBIS
+            // 
+            this.txtITBIS.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtITBIS.Enabled = false;
+            this.txtITBIS.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtITBIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtITBIS.Location = new System.Drawing.Point(167, 90);
+            this.txtITBIS.Name = "txtITBIS";
+            this.txtITBIS.ReadOnly = true;
+            this.txtITBIS.Size = new System.Drawing.Size(155, 20);
+            this.txtITBIS.TabIndex = 43;
+            this.txtITBIS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescuento.Enabled = false;
+            this.txtDescuento.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDescuento.Location = new System.Drawing.Point(167, 38);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.ReadOnly = true;
+            this.txtDescuento.Size = new System.Drawing.Size(155, 20);
+            this.txtDescuento.TabIndex = 42;
+            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSubTotal.Enabled = false;
+            this.txtSubTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSubTotal.Location = new System.Drawing.Point(167, 9);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.ReadOnly = true;
+            this.txtSubTotal.Size = new System.Drawing.Size(155, 20);
+            this.txtSubTotal.TabIndex = 41;
+            this.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblTotal.Location = new System.Drawing.Point(30, 116);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(65, 23);
+            this.lblTotal.TabIndex = 40;
+            this.lblTotal.Text = "Total";
+            // 
+            // lblITBIS
+            // 
+            this.lblITBIS.AutoSize = true;
+            this.lblITBIS.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblITBIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblITBIS.Location = new System.Drawing.Point(30, 89);
+            this.lblITBIS.Name = "lblITBIS";
+            this.lblITBIS.Size = new System.Drawing.Size(71, 23);
+            this.lblITBIS.TabIndex = 39;
+            this.lblITBIS.Text = "ITBIS";
+            // 
+            // lblDescuento
+            // 
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDescuento.Location = new System.Drawing.Point(30, 34);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(124, 23);
+            this.lblDescuento.TabIndex = 38;
+            this.lblDescuento.Text = "Descuento";
+            // 
+            // lblSubTotal
+            // 
+            this.lblSubTotal.AutoSize = true;
+            this.lblSubTotal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSubTotal.Location = new System.Drawing.Point(30, 5);
+            this.lblSubTotal.Name = "lblSubTotal";
+            this.lblSubTotal.Size = new System.Drawing.Size(106, 23);
+            this.lblSubTotal.TabIndex = 37;
+            this.lblSubTotal.Text = "SubTotal";
             // 
             // frmOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 590);
-            this.Controls.Add(this.txtServicio);
-            this.Controls.Add(this.lblServicio);
-            this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.txtITBIS);
-            this.Controls.Add(this.txtDescuento);
-            this.Controls.Add(this.txtSubTotal);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.lblITBIS);
-            this.Controls.Add(this.lblDescuento);
-            this.Controls.Add(this.lblSubTotal);
+            this.ClientSize = new System.Drawing.Size(836, 600);
+            this.Controls.Add(this.pnlResumen);
             this.Controls.Add(this.dgvOrderDetail);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlGeneral);
@@ -696,8 +707,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).EndInit();
+            this.pnlResumen.ResumeLayout(false);
+            this.pnlResumen.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -743,16 +755,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColOrderHID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProductoID;
-        private System.Windows.Forms.Label lblSubTotal;
-        private System.Windows.Forms.Label lblDescuento;
-        private System.Windows.Forms.Label lblITBIS;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.TextBox txtSubTotal;
-        private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.TextBox txtITBIS;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Label lblServicio;
-        private System.Windows.Forms.TextBox txtServicio;
         private System.Windows.Forms.CheckBox chkServicio;
+        private System.Windows.Forms.Panel pnlResumen;
+        private System.Windows.Forms.TextBox txtServicio;
+        private System.Windows.Forms.Label lblServicio;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtITBIS;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.TextBox txtSubTotal;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblITBIS;
+        private System.Windows.Forms.Label lblDescuento;
+        private System.Windows.Forms.Label lblSubTotal;
     }
 }
