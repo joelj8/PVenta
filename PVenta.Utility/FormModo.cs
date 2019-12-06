@@ -9,5 +9,6 @@ namespace PVenta.Utility
 {
     public enum Modo { Agregar, Editar, Eliminar }
 
+    public enum TipoForm { Orden, Factura }
    
 }

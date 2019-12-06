@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.chkServicio = new System.Windows.Forms.CheckBox();
             this.btnGrabar = new System.Windows.Forms.Button();
@@ -416,6 +416,7 @@
             this.dgvOrderDetail.RowHeadersVisible = false;
             this.dgvOrderDetail.Size = new System.Drawing.Size(817, 281);
             this.dgvOrderDetail.TabIndex = 15;
+            this.dgvOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellContentClick);
             this.dgvOrderDetail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvOrderDetail_KeyPress);
             // 
             // ColID
@@ -444,9 +445,9 @@
             // ColCant
             // 
             this.ColCant.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.ColCant.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.ColCant.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColCant.HeaderText = "Cantidad";
             this.ColCant.Name = "ColCant";
             this.ColCant.ReadOnly = true;
@@ -455,9 +456,9 @@
             // ColPrecio
             // 
             this.ColPrecio.DataPropertyName = "Precio";
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColPrecio.HeaderText = "Precio";
             this.ColPrecio.Name = "ColPrecio";
             this.ColPrecio.ReadOnly = true;
@@ -465,10 +466,10 @@
             // ColTotal
             // 
             this.ColTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColTotal.HeaderText = "Total";
             this.ColTotal.Name = "ColTotal";
             this.ColTotal.ReadOnly = true;

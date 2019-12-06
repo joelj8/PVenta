@@ -168,6 +168,12 @@
     <Compile Include="MantForms\frmProductosAdm.Designer.cs">
       <DependentUpon>frmProductosAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OperForms\frmAdicional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperForms\frmAdicional.Designer.cs">
+      <DependentUpon>frmAdicional.cs</DependentUpon>
+    </Compile>
     <Compile Include="OperForms\frmOrdenes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantForms\frmProductosAdm.resx">
       <DependentUpon>frmProductosAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperForms\frmAdicional.resx">
+      <DependentUpon>frmAdicional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperForms\frmOrdenes.resx">
       <DependentUpon>frmOrdenes.cs</DependentUpon>

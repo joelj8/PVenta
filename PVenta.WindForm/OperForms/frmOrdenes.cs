@@ -21,6 +21,7 @@ namespace PVenta.WindForm.OperForms
         public viewLogin userApp = null;
         public Modo modo { get; set; }
         public string OrderID { get; set; }
+        
         private CallApies<viewUsuario, ApiUsuario> callApiUsuario = new CallApies<viewUsuario, ApiUsuario>();
         private CallApies<viewMesa, ApiMesa> callApiMesa = new CallApies<viewMesa, ApiMesa>();
         private CallApies<viewProducto, ApiProducto> callApiProducto = new CallApies<viewProducto, ApiProducto>();
@@ -80,19 +81,19 @@ namespace PVenta.WindForm.OperForms
 
         private void txtReferencia_Validated(object sender, EventArgs e)
         {
-            findProduct();
+            findProductByReferencia();
         }
 
         private void txtReferencia_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13 )
             {
-                findProduct();
+                findProductByReferencia();
             }
             
         }
 
-        private void findProduct()
+        private void findProductByReferencia()
         {
             string findProductRef = txtReferencia.Text.Trim().ToLower();
             if (findProductRef != string.Empty)
@@ -101,13 +102,27 @@ namespace PVenta.WindForm.OperForms
                 if (callApiProducto.listaResponse != null)
                 {
                     viewProducto ProductSelect = (from lprod in callApiProducto.listaResponse
-                                         where lprod.Referencia.Trim().ToLower().Contains(findProductRef)
+                                         where lprod.Referencia.Trim().ToLower().Equals(findProductRef) &&
+                                               !lprod.esAdicional 
                                          orderby lprod.Referencia
                                          select lprod).FirstOrDefault();
 
                     setProductoInfo(ProductSelect);
+
                 }
             }
+        }
+
+        private viewProducto findProductByID(string idProducto)
+        {
+            viewProducto productSelect = null;
+            if (callApiProducto.listaResponse != null)
+            {
+                productSelect = (from lprod in callApiProducto.listaResponse
+                                 where lprod.ID == idProducto
+                                 select lprod).FirstOrDefault();
+            }
+            return productSelect;
         }
 
         private void setProductoInfo(viewProducto productSelect)
@@ -180,7 +195,15 @@ namespace PVenta.WindForm.OperForms
         private decimal nextOrdenNo(List<viewOrderDetailGrid> OrderDetailEvalua)
         {
             decimal resultado = 0;
-            resultado = OrderDetailEvalua.Count(x => (int)x.Orden - x.Orden == 0) + 1;
+            if (OrderDetailEvalua != null && OrderDetailEvalua.Count > 0)
+            {
+                resultado = (from ordDeta in OrderDetailEvalua
+                             where (int)ordDeta.Orden - ordDeta.Orden == 0
+                             select ordDeta.Orden).Max();
+            }
+            
+            
+            resultado += 1;
             return resultado;
         }
 
@@ -188,7 +211,7 @@ namespace PVenta.WindForm.OperForms
         {
             if (gridOrderDetail != null)
             {
-                var listGrid = gridOrderDetail.OrderByDescending(s => s.Orden).ToList();
+                var listGrid = gridOrderDetail.OrderBy(s => s.Orden).ToList();
                 this.dgvOrderDetail.DataSource = listGrid;
             }
             calculateOrder();
@@ -237,10 +260,12 @@ namespace PVenta.WindForm.OperForms
                 {
                     int dgvRowSelect = dgvOrderDetail.SelectedCells[0].RowIndex;
                     string idOrderGrid = dgvOrderDetail.Rows[dgvRowSelect].Cells["ColID"].Value.ToString();
+                    string productoID = dgvOrderDetail.Rows[dgvRowSelect].Cells["ColProductoID"].Value.ToString();
                     string nombreProducto = dgvOrderDetail.Rows[dgvRowSelect].Cells["ColProducto"].Value.ToString();
                     string cantidadProducto = dgvOrderDetail.Rows[dgvRowSelect].Cells["ColCant"].Value.ToString();
                     bool infoImpreso = (bool)dgvOrderDetail.Rows[dgvRowSelect].Cells["ColImpreso"].Value;
-                    if (!infoImpreso)
+                    viewProducto productoSelect = findProductByID(productoID);
+                    if (!infoImpreso && !productoSelect.esAdicional)
                     {
                         DialogResult respuesta = MessageBox.Show(string.Format("Desea eliminar el producto {0} Cantidad {1}?", nombreProducto, cantidadProducto), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (respuesta == DialogResult.Yes)
@@ -260,12 +285,24 @@ namespace PVenta.WindForm.OperForms
                 viewOrderDetailGrid ordDetElimina = (from gODElim in gridOrderDetail
                                                      where gODElim.ID == idOrderGrid
                                                      select gODElim).FirstOrDefault();
+
                 if (ordDetElimina != null)
                 {
                     gridOrderDetail.Remove(ordDetElimina);
+
+                    decimal noOrdenRelacionado = decimal.Truncate(ordDetElimina.Orden);
+                    List<viewOrderDetailGrid> ordDetaEliminaAdicionales = (from goElimAdic in gridOrderDetail
+                                                                           where (int)goElimAdic.Orden == noOrdenRelacionado
+                                                                           select goElimAdic).ToList();
+
+                    foreach (viewOrderDetailGrid ordDetaElimAdicional in ordDetaEliminaAdicionales)
+                    {
+                        gridOrderDetail.Remove(ordDetaElimAdicional);
+                    }
+
+
                     setOrderDetail();
                 }
-                
             }
         }
 
@@ -273,7 +310,6 @@ namespace PVenta.WindForm.OperForms
         {
             numCant.Select(0, numCant.Text.Length);
         }
-
 
         private void numCant_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -305,5 +341,54 @@ namespace PVenta.WindForm.OperForms
             calculateOrder();
         }
 
+        private void dgvOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            decimal numOrdenPadre = decimal.Parse(dgvOrderDetail.Rows[e.RowIndex].Cells["ColOrden"].Value.ToString());
+            string idProducto = dgvOrderDetail.Rows[e.RowIndex].Cells["ColProductoID"].Value.ToString();
+            string columnClick = dgvOrderDetail.Columns[e.ColumnIndex].HeaderText.ToString();
+
+            switch (columnClick.ToUpper())
+            {
+                case "AGREGAR":
+                    callAgregarAdicional(idProducto, numOrdenPadre);
+                    break;
+                case "DIVIDIR":
+                    callDividir();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void callAgregarAdicional(string idProducto, decimal numOrdenPadre)
+        {
+            viewProducto checkProducto = findProductByID(idProducto);
+
+            if (checkProducto == null || !checkProducto.permiteAdicional)
+            {
+                string nombProducto = checkProducto == null ? string.Empty : checkProducto.Nombre;
+
+                MessageBox.Show(string.Format("El producto '{0}' no permite agregar productos adicionales.", nombProducto), 
+                           this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                frmAdicional fAdicional = new frmAdicional();
+                fAdicional.TipoForm = TipoForm.Orden;
+                fAdicional.numOrden = numOrdenPadre;
+                fAdicional.gridOrderDetailMng = gridOrderDetail;
+                fAdicional.setDataAdicional();
+                fAdicional.ShowDialog();
+                fAdicional.Dispose();
+                setOrderDetail();
+            }
+            
+
+        }
+
+        private void callDividir()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
