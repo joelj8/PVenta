@@ -80,13 +80,13 @@ namespace PVenta.WindForm.MantForms
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             string textFiltroDefault = Properties.Settings.Default.TextoFiltro.ToString();
-            string filtroText = txtFiltro.Text;
+            string filtroText = txtFiltro.Text.ToLower();
             if (callApiCategoria.listaResponse != null && textFiltroDefault != filtroText)
             {
                 var result = (from l in callApiCategoria.listaResponse
-                              where l.Nombre.Contains(filtroText) ||
-                                    l.Referencia.Contains(filtroText) ||
-                                    l.Categoria.Descripcion.Contains(filtroText)
+                              where l.Nombre.ToLower().Contains(filtroText) ||
+                                    l.Referencia.ToLower().Contains(filtroText) ||
+                                    l.Categoria.Descripcion.ToLower().Contains(filtroText)
                               select l).ToList();
 
                 listCategorias = result;

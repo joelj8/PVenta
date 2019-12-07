@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.ViewModel
 {
-    public class viewProducto
+    public class viewProducto : ICloneable
     {
         public string ID { get; set; }
         public string Nombre { get; set; }
@@ -21,7 +21,12 @@ namespace PVenta.Models.ViewModel
         public bool Inactivo { get; set; }
         public override string ToString()
         {
-            return Nombre;
+            string nombreRetornar = esAdicional ? "      " + Nombre.Trim() : Nombre.Trim();
+            return nombreRetornar;
+        }
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

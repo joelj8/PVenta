@@ -209,5 +209,13 @@ namespace PVenta.WindForm.MantForms
                 chkAdicional.Checked = false;
             }
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (this.modo == Modo.Agregar)
+            {
+                txtNombreCorto.Text = txtNombre.Text;
+            }
+        }
     }
 }

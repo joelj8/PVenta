@@ -8,8 +8,16 @@ namespace PVenta.Models.ApiModels
 {
     public class ApiProducto
     {
+        private string _nombre;
         public string ID { get; set; }
-        public string Nombre { get; set; }
+        public string Nombre {
+            get
+            {
+                string nombreRetornar = esAdicional ? "      " + _nombre.Trim() : _nombre.Trim();
+                return nombreRetornar;
+            }
+            set { _nombre = value.Trim(); }
+        }
         public string NombreCorto { get; set; }
         public string Referencia { get; set; }
         public decimal Precio { get; set; }

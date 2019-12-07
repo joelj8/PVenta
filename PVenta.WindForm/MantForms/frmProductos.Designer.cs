@@ -124,6 +124,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(213, 21);
             this.txtNombre.TabIndex = 7;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtNombreCorto
             // 
@@ -134,6 +135,7 @@
             // 
             // txtReferencia
             // 
+            this.txtReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReferencia.Location = new System.Drawing.Point(132, 70);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(213, 21);
