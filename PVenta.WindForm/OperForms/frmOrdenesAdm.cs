@@ -108,7 +108,9 @@ namespace PVenta.WindForm.OperForms
                 foreach (viewOrderDetail ordDeta in orderDetailSel)
                 {
                     viewOrderDetail ordDetaCopy = ordDeta.Clone() as viewOrderDetail;
+                   
                     orderDetailUpdated.Add(ordDetaCopy);
+                    
 
                 }
 
@@ -186,7 +188,7 @@ namespace PVenta.WindForm.OperForms
         private List<viewOrderDetail> facturadoParcial(List<viewOrderDetail> orderDetailSel)
         {
             string idHOrder = orderDetailSel.FirstOrDefault().OrderHID;
-
+            
             callApiFacturas.urlApi = CollectAPI.GetFacturasByOrder;
             callApiFacturas.CallGetList(idHOrder);
             //listOrdenes = callApiOrdenes.listaResponse.ToList();
@@ -274,7 +276,26 @@ namespace PVenta.WindForm.OperForms
 
             fOrdenes.ShowDialog();
             fOrdenes.Dispose();
+            CargaDataOrdenes();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if(idOrderSelected != string.Empty)
+            {
+                frmOrdenes fOrdenes = new frmOrdenes();
+                fOrdenes.modo = Modo.Editar;
+                fOrdenes.OrderID = idOrderSelected;
+                fOrdenes.userApp = this.userApp;
+                fOrdenes.InitEditOrder();
+
+                fOrdenes.ShowDialog();
+                fOrdenes.Dispose();
+                CargaDataOrdenes();
+                cargaListOrden(idOrderSelected);
+            }
+        }
+
 
         private void txtFiltro_Enter(object sender, EventArgs e)
         {

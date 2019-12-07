@@ -139,6 +139,7 @@
             this.btnGrabar.TabIndex = 19;
             this.btnGrabar.Text = "GRABAR";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // numDescPorc
             // 
@@ -147,6 +148,7 @@
             this.numDescPorc.Name = "numDescPorc";
             this.numDescPorc.Size = new System.Drawing.Size(64, 21);
             this.numDescPorc.TabIndex = 7;
+            this.numDescPorc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numDescPorc.Validated += new System.EventHandler(this.numDescPorc_Validated);
             // 
             // numDescMonto
@@ -161,6 +163,7 @@
             this.numDescMonto.Name = "numDescMonto";
             this.numDescMonto.Size = new System.Drawing.Size(101, 21);
             this.numDescMonto.TabIndex = 6;
+            this.numDescMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numDescMonto.ThousandsSeparator = true;
             this.numDescMonto.Validated += new System.EventHandler(this.numDescMonto_Validated);
             // 
@@ -384,6 +387,7 @@
             // 
             // txtReferencia
             // 
+            this.txtReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReferencia.Location = new System.Drawing.Point(81, 5);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(77, 21);
@@ -441,31 +445,35 @@
             this.ColReferencia.HeaderText = "Referencia";
             this.ColReferencia.Name = "ColReferencia";
             this.ColReferencia.ReadOnly = true;
+            this.ColReferencia.Width = 125;
             // 
             // ColCant
             // 
             this.ColCant.DataPropertyName = "Cantidad";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
             dataGridViewCellStyle1.Format = "N0";
             dataGridViewCellStyle1.NullValue = "0";
             this.ColCant.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColCant.HeaderText = "Cantidad";
             this.ColCant.Name = "ColCant";
             this.ColCant.ReadOnly = true;
-            this.ColCant.Width = 90;
             // 
             // ColPrecio
             // 
             this.ColPrecio.DataPropertyName = "Precio";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
             dataGridViewCellStyle2.Format = "N2";
             dataGridViewCellStyle2.NullValue = "0";
             this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColPrecio.HeaderText = "Precio";
             this.ColPrecio.Name = "ColPrecio";
             this.ColPrecio.ReadOnly = true;
+            this.ColPrecio.Width = 120;
             // 
             // ColTotal
             // 
             this.ColTotal.DataPropertyName = "Total";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.Format = "N2";
             dataGridViewCellStyle3.NullValue = "0";
@@ -473,6 +481,7 @@
             this.ColTotal.HeaderText = "Total";
             this.ColTotal.Name = "ColTotal";
             this.ColTotal.ReadOnly = true;
+            this.ColTotal.Width = 120;
             // 
             // ColAgregar
             // 
@@ -488,6 +497,7 @@
             this.ColDividir.Name = "ColDividir";
             this.ColDividir.Text = "Div...";
             this.ColDividir.UseColumnTextForButtonValue = true;
+            this.ColDividir.Visible = false;
             this.ColDividir.Width = 75;
             // 
             // ColClientePedido
@@ -741,6 +751,18 @@
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.DataGridView dgvOrderDetail;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.CheckBox chkServicio;
+        private System.Windows.Forms.Panel pnlResumen;
+        private System.Windows.Forms.TextBox txtServicio;
+        private System.Windows.Forms.Label lblServicio;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtITBIS;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.TextBox txtSubTotal;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblITBIS;
+        private System.Windows.Forms.Label lblDescuento;
+        private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColReferencia;
@@ -756,17 +778,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColOrderHID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProductoID;
-        private System.Windows.Forms.CheckBox chkServicio;
-        private System.Windows.Forms.Panel pnlResumen;
-        private System.Windows.Forms.TextBox txtServicio;
-        private System.Windows.Forms.Label lblServicio;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox txtITBIS;
-        private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.TextBox txtSubTotal;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label lblITBIS;
-        private System.Windows.Forms.Label lblDescuento;
-        private System.Windows.Forms.Label lblSubTotal;
     }
 }

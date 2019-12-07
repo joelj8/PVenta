@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnNueva = new System.Windows.Forms.Button();
@@ -432,9 +432,9 @@
             // ColCant
             // 
             this.ColCant.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.ColCant.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.ColCant.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColCant.HeaderText = "Cantidad";
             this.ColCant.Name = "ColCant";
             this.ColCant.ReadOnly = true;
@@ -442,9 +442,9 @@
             // ColPrecio
             // 
             this.ColPrecio.DataPropertyName = "Precio";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColPrecio.HeaderText = "Precio";
             this.ColPrecio.Name = "ColPrecio";
             this.ColPrecio.ReadOnly = true;
@@ -453,9 +453,9 @@
             // ColTotal
             // 
             this.ColTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = "0";
+            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle7;
             this.ColTotal.HeaderText = "Total";
             this.ColTotal.Name = "ColTotal";
             this.ColTotal.ReadOnly = true;
@@ -482,12 +482,13 @@
             this.dgvMesas.Size = new System.Drawing.Size(254, 581);
             this.dgvMesas.TabIndex = 1;
             this.dgvMesas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMesas_CellClick);
+            
             // 
             // ColID
             // 
             this.ColID.DataPropertyName = "ID";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColID.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColID.DefaultCellStyle = dataGridViewCellStyle8;
             this.ColID.HeaderText = "ID";
             this.ColID.Name = "ColID";
             this.ColID.ReadOnly = true;
@@ -521,6 +522,7 @@
             this.btnAgregar.TabIndex = 22;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // frmOrdenesAdm
             // 

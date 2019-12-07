@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.numTotal = new System.Windows.Forms.NumericUpDown();
@@ -41,6 +41,7 @@
             this.lblBuscar = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.dgvAdicionales = new System.Windows.Forms.DataGridView();
+            this.btnGrabar = new System.Windows.Forms.Button();
             this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColReferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@
             this.ColImpComanda = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColImpreso = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnGrabar = new System.Windows.Forms.Button();
             this.pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).BeginInit();
@@ -99,6 +99,7 @@
             this.numTotal.ReadOnly = true;
             this.numTotal.Size = new System.Drawing.Size(94, 21);
             this.numTotal.TabIndex = 5;
+            this.numTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numTotal.ThousandsSeparator = true;
             // 
             // numPrecio
@@ -115,6 +116,7 @@
             this.numPrecio.ReadOnly = true;
             this.numPrecio.Size = new System.Drawing.Size(81, 21);
             this.numPrecio.TabIndex = 4;
+            this.numPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numPrecio.ThousandsSeparator = true;
             // 
             // numCantidad
@@ -128,6 +130,7 @@
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(70, 21);
             this.numCantidad.TabIndex = 3;
+            this.numCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numCantidad.ThousandsSeparator = true;
             this.numCantidad.ValueChanged += new System.EventHandler(this.numCantidad_ValueChanged);
             this.numCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numCantidad_KeyPress);
@@ -143,6 +146,7 @@
             // 
             // txtReferencia
             // 
+            this.txtReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReferencia.Location = new System.Drawing.Point(60, 4);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(82, 21);
@@ -192,6 +196,17 @@
             this.dgvAdicionales.TabIndex = 1;
             this.dgvAdicionales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvAdicionales_KeyPress);
             // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabar.Location = new System.Drawing.Point(680, 357);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
+            this.btnGrabar.TabIndex = 2;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
             // ColID
             // 
             this.ColID.DataPropertyName = "ID";
@@ -219,9 +234,10 @@
             // ColCant
             // 
             this.ColCant.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle7.Format = "N0";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.ColCant.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.ColCant.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColCant.HeaderText = "Cantidad";
             this.ColCant.Name = "ColCant";
             this.ColCant.ReadOnly = true;
@@ -230,9 +246,10 @@
             // ColPrecio
             // 
             this.ColPrecio.DataPropertyName = "Precio";
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = "0";
-            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColPrecio.HeaderText = "Precio";
             this.ColPrecio.Name = "ColPrecio";
             this.ColPrecio.ReadOnly = true;
@@ -240,10 +257,11 @@
             // ColTotal
             // 
             this.ColTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = "0";
-            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColTotal.HeaderText = "Total";
             this.ColTotal.Name = "ColTotal";
             this.ColTotal.ReadOnly = true;
@@ -281,17 +299,6 @@
             this.ColProductoID.ReadOnly = true;
             this.ColProductoID.Visible = false;
             // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabar.Location = new System.Drawing.Point(680, 357);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 2;
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
-            // 
             // frmAdicional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -325,6 +332,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgvAdicionales;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColReferencia;
@@ -335,6 +343,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColImpComanda;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColImpreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProductoID;
-        private System.Windows.Forms.Button btnGrabar;
     }
 }

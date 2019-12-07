@@ -23,6 +23,7 @@ namespace PVenta.WindForm.OperForms
         private List<viewAdicionalDetailGrid> gridAdicionales = new List<viewAdicionalDetailGrid>();
         public List<viewOrderDetailGrid> gridOrderDetailMng = null;
         
+        
         public decimal numOrden = 0;
         public frmAdicional()
         {
@@ -90,6 +91,7 @@ namespace PVenta.WindForm.OperForms
             if (hardClear)
             {
                 txtReferencia.Text = string.Empty;
+                txtID.Text = string.Empty;
             }
             txtProducto.Text = string.Empty;
             numCantidad.Value = decimal.Zero;
@@ -134,7 +136,7 @@ namespace PVenta.WindForm.OperForms
         {
             if (gridAdicionales != null)
             {
-                var listGrid = gridAdicionales.OrderByDescending(s => s.Orden).ToList();
+                var listGrid = gridAdicionales.OrderBy(s => s.Orden).ToList();
                 this.dgvAdicionales.DataSource = listGrid;
             }
 
@@ -211,7 +213,7 @@ namespace PVenta.WindForm.OperForms
                 foreach (viewOrderDetailGrid DataGrid in gridOrderDetailMng)
                 {
 
-                    if (DataGrid.Orden - decimal.Truncate(DataGrid.Orden)  > 0)
+                    if (DataGrid.Orden - decimal.Truncate(DataGrid.Orden)  > 0 && decimal.Truncate(DataGrid.Orden) == numOrden )
                     {
                         found = false;
                         foreach (viewAdicionalDetailGrid Data in gridAdicionales)
@@ -259,7 +261,7 @@ namespace PVenta.WindForm.OperForms
                 ordDetailNew.Precio = Data.Precio;
                 ordDetailNew.ProductoID = Data.ProductoID;
                 ordDetailNew.Referencia = Data.Referencia;
-                ordDetailNew.producto =  "      "+Data.producto;
+                ordDetailNew.producto =  Data.producto;
                 gridOrderDetailMng.Add(ordDetailNew);
         }
 

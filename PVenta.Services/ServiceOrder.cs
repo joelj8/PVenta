@@ -171,8 +171,9 @@ namespace PVenta.Services
                     foreach (OrderDetail orderNew in orderHeader.OrderDetails)
                     {
                         string idNew = orderNew.ID;
+                        bool regExiste = orderHeaderUpdate.OrderDetails.Count(x => x.ID == idNew) > 0;
                         // En caso de un nuevo registro
-                        if (idNew == null || idNew == string.Empty)
+                        if (!regExiste)
                         {
                             newIdDetail = Guid.NewGuid().ToString();
                             orderNew.ID = newIdDetail;

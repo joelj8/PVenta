@@ -24,8 +24,13 @@ namespace PVenta.WindForm.OperForms
         
         private CallApies<viewUsuario, ApiUsuario> callApiUsuario = new CallApies<viewUsuario, ApiUsuario>();
         private CallApies<viewMesa, ApiMesa> callApiMesa = new CallApies<viewMesa, ApiMesa>();
+        private CallApies<ApiMesa, ApiMesa> callApiMesaEsp = new CallApies<ApiMesa, ApiMesa>();
         private CallApies<viewProducto, ApiProducto> callApiProducto = new CallApies<viewProducto, ApiProducto>();
+        private CallApies<ApiProducto, ApiProducto> callApiProdEdit = new CallApies<ApiProducto, ApiProducto>();
+        private CallApies<viewOrderHeader, ApiOrderHeader> callApiOrder = new CallApies<viewOrderHeader, ApiOrderHeader>();
         private List<viewOrderDetailGrid> gridOrderDetail = new List<viewOrderDetailGrid>();
+        private ApiOrderHeader dataOrderHeader;
+
         public frmOrdenes()
         {
             InitializeComponent();
@@ -44,8 +49,49 @@ namespace PVenta.WindForm.OperForms
             cboUsuario.SelectedValue = this.userApp.ID;
             chkITBIS.Checked = gConfigSistema.configSistemaInfo.CalcITBIS;
             chkServicio.Checked = gConfigSistema.configSistemaInfo.CalcServicio;
-            //txtClientePrincipal.Text = gConfigSistema.configSistemaInfo.PorcITBIS.ToString();
+        }
 
+        public void InitEditOrder()
+        {
+            dataOrderHeader = new ApiOrderHeader();
+
+            setDataCombo();
+
+
+            callApiOrder.urlApi = CollectAPI.GetOrder;
+            callApiOrder.CallGet(this.OrderID);
+
+            txtFecha.Text = callApiOrder.objectResponse.Fecha.ToShortDateString();
+            chkITBIS.Checked = callApiOrder.objectResponse.Itbis;
+            cboUsuario.SelectedValue = callApiOrder.objectResponse.UserId;
+            txtClientePrincipal.Text = callApiOrder.objectResponse.ClientePrincipal;
+            numDescMonto.Value = callApiOrder.objectResponse.DescMonto;
+            numDescPorc.Value = callApiOrder.objectResponse.DescPorc;
+            cboMesa.SelectedValue = callApiOrder.objectResponse.MesaId;
+            chkServicio.Checked = callApiOrder.objectResponse.Servicio;
+            
+            gridOrderDetail = new List<viewOrderDetailGrid>();
+
+            foreach (viewOrderDetail ordDetail in callApiOrder.objectResponse.OrderDetails)
+            {
+                viewOrderDetailGrid dataOrdDetailGrid = new viewOrderDetailGrid();
+                dataOrdDetailGrid.ID = ordDetail.ID;
+                dataOrdDetailGrid.OrderHID = dataOrderHeader.ID;
+                dataOrdDetailGrid.ImpComanda = ordDetail.ImpComanda;
+                dataOrdDetailGrid.Orden = ordDetail.Orden;
+                dataOrdDetailGrid.Precio = ordDetail.Precio;
+                dataOrdDetailGrid.ProductoID = ordDetail.ProductoID;
+                dataOrdDetailGrid.producto = ordDetail.producto.Nombre;
+                dataOrdDetailGrid.Referencia = ordDetail.producto.Referencia;
+                dataOrdDetailGrid.Cantidad = ordDetail.Cantidad;
+                dataOrdDetailGrid.ClientePedido = ordDetail.ClientePedido;
+                dataOrdDetailGrid.Impreso = ordDetail.Impreso;
+                dataOrdDetailGrid.Inactivo = ordDetail.Inactivo;
+                gridOrderDetail.Add(dataOrdDetailGrid);
+                
+            }
+
+            setOrderDetail();
         }
 
         public void setDataCombo()
@@ -150,6 +196,7 @@ namespace PVenta.WindForm.OperForms
             if (hardClean)
             {
                 txtReferencia.Text = string.Empty;
+                txtID.Text = string.Empty;
             }
             txtProducto.Text = string.Empty;
             numCant.Value = decimal.Zero;
@@ -389,6 +436,99 @@ namespace PVenta.WindForm.OperForms
         private void callDividir()
         {
             throw new NotImplementedException();
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            if (prepareData())
+            {
+                if (this.modo == Modo.Agregar)
+                {
+                    callApiOrder.urlApi = CollectAPI.InsertOrder;
+
+                }
+                else if (this.modo == Modo.Editar)
+                {
+                    callApiOrder.urlApi = CollectAPI.UpdateOrder;
+                }
+
+                callApiOrder.objectRequest = dataOrderHeader;
+                callApiOrder.CallPost();
+                this.Close();
+            } 
+            else
+            {
+                MessageBox.Show("Ocurrio un error al intentar de grabar la información", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private bool prepareData()
+        {
+            bool resultPrepare = false;
+            try
+            {
+                dataOrderHeader = new ApiOrderHeader();
+
+                if (this.modo == Modo.Agregar)
+                {
+                    dataOrderHeader.FechaRegistro = DateTime.Now;
+                    dataOrderHeader.ID = Guid.NewGuid().ToString();
+                    dataOrderHeader.ItbisPorc = gConfigSistema.configSistemaInfo.PorcITBIS;
+                    dataOrderHeader.ServicioPorc = gConfigSistema.configSistemaInfo.PorcServicio;
+                    dataOrderHeader.UserId = userApp.ID;
+                }
+                else
+                {
+                    callApiOrder.urlApi = CollectAPI.GetOrder;
+                    callApiOrder.CallGet(this.OrderID);
+                    dataOrderHeader.FechaRegistro = callApiOrder.objectResponse.FechaRegistro;
+                    dataOrderHeader.ID = callApiOrder.objectResponse.ID;
+                    dataOrderHeader.ItbisPorc = callApiOrder.objectResponse.ItbisPorc;
+                    dataOrderHeader.ServicioPorc = callApiOrder.objectResponse.ServicioPorc;
+                    dataOrderHeader.UserId = callApiOrder.objectResponse.UserId;
+
+                }
+
+
+                dataOrderHeader.ClientePrincipal = txtClientePrincipal.Text;
+                dataOrderHeader.DescMonto = numDescMonto.Value;
+                dataOrderHeader.DescPorc = numDescPorc.Value;
+                dataOrderHeader.Fecha = DateTime.Parse(txtFecha.Text);
+                dataOrderHeader.Itbis = chkITBIS.Checked;
+                dataOrderHeader.MesaId = cboMesa.SelectedValue.ToString();
+                dataOrderHeader.Servicio = chkServicio.Checked;
+
+                dataOrderHeader.OrderDetails = new List<ApiOrderDetail>();
+
+                foreach (viewOrderDetailGrid ordDetail in gridOrderDetail)
+                {
+
+                    ApiOrderDetail dataOrderDetail = new ApiOrderDetail();
+                    dataOrderDetail.ID = ordDetail.ID;
+                    dataOrderDetail.ImpComanda = ordDetail.ImpComanda;
+                    dataOrderDetail.Orden = ordDetail.Orden;
+                    dataOrderDetail.OrderHID = dataOrderHeader.ID;
+                    dataOrderDetail.Precio = ordDetail.Precio;
+                    dataOrderDetail.ProductoID = ordDetail.ProductoID;
+                    dataOrderDetail.Cantidad = ordDetail.Cantidad;
+                    dataOrderDetail.ClientePedido = ordDetail.ClientePedido;
+                    dataOrderHeader.OrderDetails.Add(dataOrderDetail);
+                }
+
+                resultPrepare = true;
+            }
+            catch (Exception ex)
+            {
+
+                resultPrepare = false;
+            }
+
+
+            return resultPrepare;
+            
+
         }
     }
 }

@@ -24,7 +24,7 @@ namespace PVenta.Models.Model
         public string OrderHID { get; set; }
 
         [ForeignKey("OrderHID")]
-        public OrderHeader OrderHeader { get; set; }
+        public virtual OrderHeader OrderHeader { get; set; }
 
         [Column("ProductoID", TypeName = "varchar")]
         [Required(ErrorMessage = "Producto es requerido")]
