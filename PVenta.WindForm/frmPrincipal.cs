@@ -135,5 +135,14 @@ namespace PVenta.WindForm
             fTypeInformacionesAdm.ShowDialog();
             fTypeInformacionesAdm.Dispose();
         }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFacturasAdm fFacturasAdm = new frmFacturasAdm();
+            fFacturasAdm.userApp = this.userApp;
+            fFacturasAdm.CargaDataFacturas();
+            fFacturasAdm.ShowDialog();
+            fFacturasAdm.Dispose();
+        }
     }
 }

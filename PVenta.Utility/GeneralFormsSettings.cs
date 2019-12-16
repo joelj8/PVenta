@@ -15,6 +15,14 @@ namespace PVenta.Utility
                 return  new Font("Verdana", 10F, FontStyle.Bold);
             }  
         }
+
+        public static string FormatDatePicker
+        {
+            get
+            {
+                return "dd/MM/yyyy";
+            }
+        }
         
     }
 }

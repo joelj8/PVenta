@@ -14,6 +14,7 @@ namespace PVenta.Models.ViewModel
         public DateTime Fecha { get; set; }
         public string UserId { get; set; }
         public string MesaId { get; set; }
+        public viewMesa Mesa { get; set; }
         public string ClientePrincipal { get; set; }
         public bool Itbis { get; set; }
         public decimal ItbisPorc { get; set; }

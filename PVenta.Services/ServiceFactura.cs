@@ -24,6 +24,7 @@ namespace PVenta.Services
             {
                 result = _dbcontext.FacturaHeaders.Include("FacturaDetails")
                         .Include("FacturaPayments")
+                        .Include("Mesa")
                         .Where(x => !x.Inactivo).ToList();
 
                 foreach (FacturaHeader factEvalua in result)
@@ -57,6 +58,7 @@ namespace PVenta.Services
             {
                 result = _dbcontext.FacturaHeaders.Include("FacturaDetails")
                         .Include("FacturaPayments")
+                        .Include("Mesa")
                         .Where(x => !x.Inactivo && x.OrderHID == id).ToList();
 
                 foreach (FacturaHeader factEvalua in result)
@@ -118,6 +120,7 @@ namespace PVenta.Services
             {
                 result = _dbcontext.FacturaHeaders.Include("FacturaDetails")
                     .Include("FacturaPayments")
+                    .Include("Mesa")
                     .FirstOrDefault(x => !x.Inactivo && x.ID.Contains(id));
             }
             catch (Exception ex)

@@ -14,9 +14,11 @@ namespace PVenta.WebApi.Repository
         {
             CreateMap<ApiFacturaHeader, FacturaHeader>()
                 .ForMember(dest => dest.ID, post => post.MapFrom(src => src.ID))
+                .ForMember(dest => dest.NumFactura, post => post.MapFrom(src => src.NumFactura))
                 .ForMember(dest => dest.Fecha, post => post.MapFrom(src => src.Fecha))
                 .ForMember(dest => dest.UserId, post => post.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.MesaId, post => post.MapFrom(src => src.MesaId))
+                .ForMember(dest => dest.Mesa, post => post.MapFrom(src => src.Mesa))
                 .ForMember(dest => dest.ClientePrincipal, post => post.MapFrom(src => src.ClientePrincipal))
                 .ForMember(dest => dest.Itbis, post => post.MapFrom(src => src.Itbis))
                 .ForMember(dest => dest.ItbisPorc, post => post.MapFrom(src => src.ItbisPorc))

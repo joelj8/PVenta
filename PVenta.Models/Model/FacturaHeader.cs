@@ -40,6 +40,9 @@ namespace PVenta.Models.Model
         [MaxLength(50)]
         public string MesaId { get; set; }
 
+        [ForeignKey("MesaId")]
+        public Mesa Mesa { get; set; }
+
         [Column("ClientePrinc", TypeName = "varchar")]
         [MaxLength(50)]
         [DisplayName("Cliente Principal")]
