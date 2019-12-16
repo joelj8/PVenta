@@ -153,7 +153,9 @@ namespace PVenta.Services
                         configSistemaUpdate.ImprimeOrdenAuto = configSistemaUpd.ImprimeOrdenAuto;
                         configSistemaUpdate.ImprimeFacturaAuto = configSistemaUpd.ImprimeFacturaAuto;
                         configSistemaUpdate.MensajeFactura = configSistemaUpd.MensajeFactura;
+                        configSistemaUpdate.DiasFactura = configSistemaUpd.DiasFactura;
                         configSistemaUpdate.MensajeOrden = configSistemaUpd.MensajeOrden;
+                        configSistemaUpdate.DiasOrden = configSistemaUpd.DiasOrden;
                         configSistemaUpdate.NumComprobanteFiscal = configSistemaUpd.NumComprobanteFiscal;
                         configSistemaUpdate.Telefono = configSistemaUpd.Telefono;
 

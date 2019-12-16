@@ -56,6 +56,39 @@ namespace PVenta.WindForm.ApiCall
             objectResponse = result;
         }
 
+        public void CallPostList()
+        {
+            setClient();
+
+            IEnumerable<TRespond> result = null;
+
+            try
+            {
+                //"api/Login/singin"
+                // HTTP POST
+                setClient();
+                HttpResponseMessage response = client.PostAsJsonAsync(urlApi, objectRequest).Result;
+                // response.EnsureSuccessStatusCode();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Get the URI of the created resource.
+                    result = response.Content.ReadAsAsync<IEnumerable<TRespond>>().Result;
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    result = response.Content.ReadAsAsync<IEnumerable<TRespond>>().Result;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                // Error 
+
+            }
+            listaResponse = result;
+        }
+
         public void CallGet(string id)
         {
             setClient();

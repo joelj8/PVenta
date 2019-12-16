@@ -24,7 +24,9 @@ namespace PVenta.Models.ViewModel
         public string ComprobanteFiscal { get; set; }
         public int NumComprobanteFiscal { get; set; }
         public string MensajeOrden { get; set; }
+        public int DiasOrden { get; set; }
         public string MensajeFactura { get; set; }
+        public int DiasFactura { get; set; }
         public bool ImprimeComandaAuto { get; set; }
         public bool ImprimeOrdenAuto { get; set; }
         public bool ImprimeFacturaAuto { get; set; }

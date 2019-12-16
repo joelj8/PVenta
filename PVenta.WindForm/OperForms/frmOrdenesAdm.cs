@@ -22,7 +22,7 @@ namespace PVenta.WindForm.OperForms
         private CallApies<viewFacturaHeader, ApiFacturaHeader> callApiFacturas = new CallApies<viewFacturaHeader, ApiFacturaHeader>();
         private List<viewOrderHeader> listOrdenes;
         private decimal valOrdenPagado = 0, valSubTotal = 0, valDescuento = 0, valITBIS = 0, calcITBIS = 0;
-        private List<viewOrderGrid> listOrderGrid;
+        private List<viewDetalleGrid> listOrderGrid;
         private string idOrderSelected = string.Empty;
         public frmOrdenesAdm()
         {
@@ -118,7 +118,7 @@ namespace PVenta.WindForm.OperForms
 
                 listOrderGrid = (from lDeta in orderDetailUpdated
                                  orderby lDeta.Orden
-                                 select new viewOrderGrid
+                                 select new viewDetalleGrid
                                  {
                                      Producto = lDeta.producto.Nombre,
                                      Referencia = lDeta.producto.Referencia,
@@ -230,8 +230,6 @@ namespace PVenta.WindForm.OperForms
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-
-            
 
             string textFiltroDefault = Properties.Settings.Default.TextoFiltro.ToString();
             string filtroText = txtFiltro.Text;

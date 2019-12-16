@@ -40,6 +40,8 @@ namespace PVenta.WebApi.Controllers
             profileList.Add(new MCategoriaProfile());
             profileList.Add(new MesaProfile());
             profileList.Add(new MMesaProfile());
+            profileList.Add(new FechaRangoProfile());
+            profileList.Add(new MFechaRangoProfile());
 
             objMapper = new MapperConfiguration(i => i.AddProfiles(profileList));
         }
@@ -65,6 +67,16 @@ namespace PVenta.WebApi.Controllers
             List<ApiFacturaHeader> factura = objMapper.CreateMapper().Map<List<ApiFacturaHeader>>(facturaLista);
             return Json<List<ApiFacturaHeader>>(factura, jsonsettings);
         }
+
+        [HttpPost]
+        public JsonResult<List<ApiFacturaHeader>> GetFacturasByFechas(ApiFechaRango paramFechas)
+        {
+            FechaRango paramFechRango = objMapper.CreateMapper().Map<FechaRango>(paramFechas);
+            List<FacturaHeader> facturaLista = serviceFactura.GetFacturasByFecha(paramFechRango);
+            List<ApiFacturaHeader> facturas = objMapper.CreateMapper().Map<List<ApiFacturaHeader>>(facturaLista);
+            return Json<List<ApiFacturaHeader>>(facturas, jsonsettings);
+        }
+        
 
         public JsonResult<ApiFacturaHeader> GetFactura(string id)
         {

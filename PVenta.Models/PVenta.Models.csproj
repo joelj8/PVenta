@@ -51,6 +51,7 @@
     <Compile Include="ApiModels\ApiFacturaDetail.cs" />
     <Compile Include="ApiModels\ApiFacturaHeader.cs" />
     <Compile Include="ApiModels\ApiFacturaPayment.cs" />
+    <Compile Include="ApiModels\ApiFechaRango.cs" />
     <Compile Include="ApiModels\ApiFormaPago.cs" />
     <Compile Include="ApiModels\ApiInfoDigital.cs" />
     <Compile Include="ApiModels\ApiLogEvento.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Model\FacturaDetail.cs" />
     <Compile Include="Model\FacturaHeader.cs" />
     <Compile Include="Model\FacturaPayment.cs" />
+    <Compile Include="Model\FechaRango.cs" />
     <Compile Include="Model\FormaPago.cs" />
     <Compile Include="Model\InfoDigital.cs" />
     <Compile Include="Model\LogEvento.cs" />
@@ -102,7 +104,7 @@
     <Compile Include="ViewModel\viewMoneda.cs" />
     <Compile Include="ViewModel\viewOrderDetail.cs" />
     <Compile Include="ViewModel\viewOrderDetailGrid.cs" />
-    <Compile Include="ViewModel\viewOrderGrid.cs" />
+    <Compile Include="ViewModel\viewDetalleGrid.cs" />
     <Compile Include="ViewModel\viewOrderHeader.cs" />
     <Compile Include="ViewModel\viewProducto.cs" />
     <Compile Include="ViewModel\viewRol.cs" />

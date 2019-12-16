@@ -70,9 +70,15 @@ namespace PVenta.Models.Model
         [MaxLength(150)]
         public string MensajeOrden { get; set; }
 
+        [DisplayName("Cantidad de Dias Previos Consulta Ordenes")]
+        public int DiasOrden { get; set; }
+
         [DisplayName("Mensaje Factura")]
         [MaxLength(150)]
         public string MensajeFactura { get; set; }
+
+        [DisplayName("Cantidad de Dias Previos Consulta Facturas")]
+        public int DiasFactura { get; set; }
 
         [DisplayName("Imprimir Comanda al Grabar")]
         public bool ImprimeComandaAuto { get; set; }

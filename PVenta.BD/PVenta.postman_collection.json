@@ -2519,7 +2519,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ID\": \"1bb5dc0c-d047-4eb5-a281-68565d6a0736\",\r\n    \"FechaInicio\": \"2019-12-02T16:15:55.143\",\r\n    \"NombreNeg\": \"FoodTruck Bella Vista\",\r\n    \"NombreComercial\": \"Nombre Comercial\",\r\n    \"RNC\": \"1-02-4586-7\",\r\n    \"Telefono\": \"809-553-5533\",\r\n    \"Direccion\": \"Sector Millon\",\r\n    \"RelacionID\": \"c66eaa9e-3df0-4b9f-b342-2ef7b9dd40c6\",\r\n    \"InfoDigitals\": [\r\n        {\r\n            \"ID\": \"94a67790-65de-4071-a04b-a5262be8ad16\",\r\n            \"RelacionID\": \"1bb5dc0c-d047-4eb5-a281-68565d6a0736\",\r\n            \"TypeInfoID\": \"5520eec9-31e2-4072-8a68-3f839f7107dc\",\r\n            \"Descripcion\": \"ventasBellaVista@FoodTruck.com\",\r\n            \"Inactivo\": false\r\n        },\r\n                {\r\n            \"ID\": \"\",\r\n            \"RelacionID\": \"\",\r\n            \"TypeInfoID\": \"b2487f8b-32c7-432c-ab49-ed8bddb6768f\",\r\n            \"Descripcion\": \"FoodTruck.BellaVista\"\r\n\r\n        }\r\n    ],\r\n    \"CalcITBIS\": true,\r\n    \"PorcITBIS\": 18.00,\r\n    \"ComprobanteFiscal\": \"Comprobante\",\r\n    \"NumComprobanteFiscal\": 987654,\r\n    \"MensajeOrden\": \"Msg Orden\",\r\n    \"MensajeFactura\": \"Msg Factura\",\r\n    \"ImprimeComandaAuto\": true,\r\n    \"ImprimeOrdenAuto\": true,\r\n    \"ImprimeFacturaAuto\": true,\r\n    \"CodigoSegInactivar\": \"14072019\",\r\n    \"Inactivo\": false\r\n}",
+					"raw": "{\r\n    \"ID\": \"1bb5dc0c-d047-4eb5-a281-68565d6a0736\",\r\n    \"FechaInicio\": \"2019-12-02T16:15:55.143\",\r\n    \"NombreNeg\": \"FoodTruck Millon\",\r\n    \"NombreComercial\": \"Nombre Comercial\",\r\n    \"RNC\": \"1-02-4586-7\",\r\n    \"Telefono\": \"809-553-5533\",\r\n    \"Direccion\": \"Sector Millon\",\r\n    \"RelacionID\": \"c66eaa9e-3df0-4b9f-b342-2ef7b9dd40c6\",\r\n    \"InfoDigitals\": [\r\n        {\r\n            \"ID\": \"94a67790-65de-4071-a04b-a5262be8ad16\",\r\n            \"RelacionID\": \"1bb5dc0c-d047-4eb5-a281-68565d6a0736\",\r\n            \"TypeInfoID\": \"5520eec9-31e2-4072-8a68-3f839f7107dc\",\r\n            \"TypeInfo\": {\r\n                \"ID\": \"5520eec9-31e2-4072-8a68-3f839f7107dc\",\r\n                \"Descripcion\": \"Email\",\r\n                \"Orden\": 1,\r\n                \"Inactivo\": false\r\n            },\r\n            \"Descripcion\": \"ventasBellaVista@FoodTruck.com\",\r\n            \"Inactivo\": false\r\n        },\r\n        {\r\n            \"ID\": \"9b95c33f-713f-4bef-8645-763d2e75e5f3\",\r\n            \"RelacionID\": \"1bb5dc0c-d047-4eb5-a281-68565d6a0736\",\r\n            \"TypeInfoID\": \"b2487f8b-32c7-432c-ab49-ed8bddb6768f\",\r\n            \"TypeInfo\": {\r\n                \"ID\": \"b2487f8b-32c7-432c-ab49-ed8bddb6768f\",\r\n                \"Descripcion\": \"Instagram\",\r\n                \"Orden\": 4,\r\n                \"Inactivo\": false\r\n            },\r\n            \"Descripcion\": \"FoodTruck.BellaVista\",\r\n            \"Inactivo\": false\r\n        }\r\n    ],\r\n    \"CalcITBIS\": true,\r\n    \"PorcITBIS\": 18.00,\r\n    \"CalcServicio\": true,\r\n    \"PorcServicio\": 10.00,\r\n    \"ComprobanteFiscal\": \"Comprobante\",\r\n    \"NumComprobanteFiscal\": 987654,\r\n    \"MensajeOrden\": \"Msg Orden\",\r\n\t\"DiasOrden\": 0,\r\n    \"MensajeFactura\": \"Msg Factura\",\r\n    \"DiasFactura\": 3,\r\n    \"ImprimeComandaAuto\": true,\r\n    \"ImprimeOrdenAuto\": true,\r\n    \"ImprimeFacturaAuto\": true,\r\n    \"CodigoSegInactivar\": \"14072019\",\r\n    \"Inactivo\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2564,6 +2564,42 @@
 						"ConfigSistema",
 						"DeleteConfigSistema",
 						"fcb20acd-f49a-4e3f-96e1-720720c727e2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFacturasByFechas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"FechaInicio\" : \"2018/12/16\",\n\t\"FechaFin\" : \"2019/12/16\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/api/Factura/getFacturasByFechas",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"Factura",
+						"getFacturasByFechas"
 					]
 				}
 			},

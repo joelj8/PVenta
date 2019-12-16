@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.ViewModel
 {
-    public class viewOrderGrid
+    public class viewDetalleGrid
     {
         public string Producto { get; set; }
         public string Referencia { get; set; }

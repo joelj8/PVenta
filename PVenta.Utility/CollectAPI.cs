@@ -340,6 +340,7 @@ namespace PVenta.Utility
         {
             get { return "api/Factura/GetFacturas/"; }
         }
+
         public static string GetFactura
         {
             get { return "api/Factura/GetFactura/"; }
@@ -347,6 +348,10 @@ namespace PVenta.Utility
         public static string GetFacturasByOrder
         {
             get { return "api/Factura/GetFacturasByOrder/"; }
+        }
+        public static string GetFacturasByFechas
+        {
+            get { return "api/Factura/GetFacturasByFechas/"; }
         }
         public static string InsertFactura
         {

@@ -85,6 +85,41 @@ namespace PVenta.Services
             return result;
         }
 
+        public List<FacturaHeader> GetFacturasByFecha(FechaRango paramFechRango)
+        {
+            List<FacturaHeader> result = null;
+            try
+            {
+                result = _dbcontext.FacturaHeaders.Include("FacturaDetails")
+                        .Include("FacturaPayments")
+                        .Include("Mesa")
+                        .Where(x => !x.Inactivo && x.Fecha >= paramFechRango.FechaInicio &&
+                               x.Fecha <= paramFechRango.FechaFin).ToList();
+
+                foreach (FacturaHeader factEvalua in result)
+                {
+                    // Preparar la lista de FacturaDetail con los registros que no estan inactivos
+                    List<FacturaDetail> listDetail = (from factDet in factEvalua.FacturaDetails
+                                                      where !factDet.Inactivo
+                                                      select factDet).ToList();
+
+                    // Preparar la lista de FacturaPayment con los registros que no estan inactivos
+                    List<FacturaPayment> listPayment = (from factPay in factEvalua.FacturaPayments
+                                                        where !factPay.Inactivo
+                                                        select factPay).ToList();
+
+                    // Reasignar la lista de FacturaDetails y FacturaPayments con las listas de previamente creadas
+                    factEvalua.FacturaDetails = listDetail;
+                    factEvalua.FacturaPayments = listPayment;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Registrar en el log de errores
+            }
+            return result;
+        }
+
         public FacturaHeader GetFactura(string id)
         {
             FacturaHeader result = null;
