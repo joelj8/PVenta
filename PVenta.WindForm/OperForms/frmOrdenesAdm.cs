@@ -247,19 +247,22 @@ namespace PVenta.WindForm.OperForms
 
         private void dgvOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            lblInfo.Text = string.Empty;
-            lblInfo.Visible = false;
-            string idOrderDetailGrid = dgvOrderDetail.Rows[e.RowIndex].Cells["ColIDGrid"].Value.ToString();
-            viewOrderHeader orderSelected = callApiOrdenes.listaResponse.FirstOrDefault(x => x.ID == this.idOrderSelected);
-            if (orderSelected != null)
+            if (e.RowIndex >= 0)
             {
-                int cantidadOriginal = (int)orderSelected.OrderDetails.FirstOrDefault(x => x.ID == idOrderDetailGrid).Cantidad;
-                decimal cantidadPendiente = decimal.Parse(dgvOrderDetail.Rows[e.RowIndex].Cells["ColCant"].Value.ToString());
-                string nombProducto = dgvOrderDetail.Rows[e.RowIndex].Cells["ColProducto"].Value.ToString();
-                if (cantidadPendiente != cantidadOriginal)
+                lblInfo.Text = string.Empty;
+                lblInfo.Visible = false;
+                string idOrderDetailGrid = dgvOrderDetail.Rows[e.RowIndex].Cells["ColIDGrid"].Value.ToString();
+                viewOrderHeader orderSelected = callApiOrdenes.listaResponse.FirstOrDefault(x => x.ID == this.idOrderSelected);
+                if (orderSelected != null)
                 {
-                    lblInfo.Text = string.Format("{0} cantidad previo al pago fue {1}", nombProducto,cantidadOriginal);
-                    lblInfo.Visible = true;
+                    int cantidadOriginal = (int)orderSelected.OrderDetails.FirstOrDefault(x => x.ID == idOrderDetailGrid).Cantidad;
+                    decimal cantidadPendiente = decimal.Parse(dgvOrderDetail.Rows[e.RowIndex].Cells["ColCant"].Value.ToString());
+                    string nombProducto = dgvOrderDetail.Rows[e.RowIndex].Cells["ColProducto"].Value.ToString();
+                    if (cantidadPendiente != cantidadOriginal)
+                    {
+                        lblInfo.Text = string.Format("{0} cantidad previo al pago fue {1}", nombProducto, cantidadOriginal);
+                        lblInfo.Visible = true;
+                    }
                 }
             }
             
@@ -335,8 +338,16 @@ namespace PVenta.WindForm.OperForms
 
         private void dgvMesas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            idOrderSelected = dgvMesas.Rows[e.RowIndex].Cells["ColID"].Value.ToString();
-            cargaListOrden(idOrderSelected);
+            if (e.RowIndex >= 0)
+            {
+                idOrderSelected = dgvMesas.Rows[e.RowIndex].Cells["ColID"].Value.ToString();
+                if (idOrderSelected != string.Empty)
+                {
+                    cargaListOrden(idOrderSelected);
+                }
+            }
+            
+            
         }
     }
 }

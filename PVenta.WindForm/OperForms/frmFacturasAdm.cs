@@ -87,8 +87,15 @@ namespace PVenta.WindForm.OperForms
 
         private void dgvMesas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            idFacturaSelected = dgvMesas.Rows[e.RowIndex].Cells["ColID"].Value.ToString();
-            cargaListFactura(idFacturaSelected);
+            if (e.RowIndex >= 0)
+            {
+                idFacturaSelected = dgvMesas.Rows[e.RowIndex].Cells["ColID"].Value.ToString();
+                if (idFacturaSelected != string.Empty)
+                {
+                    cargaListFactura(idFacturaSelected);
+                }
+            }
+            
         }
 
         private void cargaListFactura(string idFacturaSelected, bool soloCalcular = false)
