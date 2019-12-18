@@ -74,6 +74,8 @@ namespace PVenta.WindForm.OperForms
                                               " ["+lmes.NumOrden+"]", lmes.ID }).ToList();
                 dgvMesas.DataSource = listMesas;
             }
+            listOrderGrid = new List<viewDetalleGrid>();
+
         }
 
         private void setDataSourceMesaGrid(string filtroText)
@@ -102,43 +104,50 @@ namespace PVenta.WindForm.OperForms
             
             if (listOrdenes != null)
             {
+                
                 viewOrderHeader orderSel = listOrdenes.FirstOrDefault(x => x.ID == idOrdenSelected);
-                List<viewOrderDetail> orderDetailSel = orderSel.OrderDetails.ToList();
                 List<viewOrderDetail> orderDetailUpdated = new List<viewOrderDetail>();
-                foreach (viewOrderDetail ordDeta in orderDetailSel)
+
+                if (orderSel != null)
                 {
-                    viewOrderDetail ordDetaCopy = ordDeta.Clone() as viewOrderDetail;
-                   
-                    orderDetailUpdated.Add(ordDetaCopy);
-                    
+                    List<viewOrderDetail> orderDetailSel = orderSel.OrderDetails.ToList();
+                    foreach (viewOrderDetail ordDeta in orderDetailSel)
+                    {
+                        viewOrderDetail ordDetaCopy = ordDeta.Clone() as viewOrderDetail;
+                        orderDetailUpdated.Add(ordDetaCopy);
+                    }
 
+                    facturadoParcial(orderDetailUpdated);
+
+                    listOrderGrid = (from lDeta in orderDetailUpdated
+                                     orderby lDeta.Orden
+                                     select new viewDetalleGrid
+                                     {
+                                         ProductoID = lDeta.ProductoID,
+                                         Producto = lDeta.producto.Nombre,
+                                         Referencia = lDeta.producto.Referencia,
+                                         Orden = lDeta.Orden,
+                                         Cantidad = lDeta.Cantidad,
+                                         Precio = lDeta.Precio,
+                                         Total = lDeta.Cantidad * lDeta.Precio,
+                                         ID = lDeta.ID
+                                     }).ToList();
+
+                    valSubTotal = listOrderGrid.Sum(x => x.Cantidad * x.Precio);
+                    valDescuento = (valSubTotal * (orderSel.DescPorc / 100)) + orderSel.DescMonto;
+                    calcITBIS = orderSel.Itbis ? 1 : 0;
+                    valITBIS = (valSubTotal * (orderSel.ItbisPorc / 100) * calcITBIS);
+
+                    if (!soloCalcular)
+                    {
+                        muestraInfoResumen(orderSel);
+                    }
                 }
-
-                facturadoParcial(orderDetailUpdated);
-
-                listOrderGrid = (from lDeta in orderDetailUpdated
-                                 orderby lDeta.Orden
-                                 select new viewDetalleGrid
-                                 {
-                                     Producto = lDeta.producto.Nombre,
-                                     Referencia = lDeta.producto.Referencia,
-                                     Orden = lDeta.Orden,
-                                     Cantidad = lDeta.Cantidad,
-                                     Precio = lDeta.Precio,
-                                     Total = lDeta.Cantidad * lDeta.Precio,
-                                     ID = lDeta.ID
-                                 }).ToList();
-
-                valSubTotal = listOrderGrid.Sum(x => x.Cantidad * x.Precio);
-                valDescuento = (valSubTotal * (orderSel.DescPorc / 100)) + orderSel.DescMonto;
-                calcITBIS = orderSel.Itbis ? 1 : 0;
-                valITBIS = (valSubTotal * (orderSel.ItbisPorc / 100) * calcITBIS);
-
-                if (!soloCalcular)
+                else
                 {
-                    muestraInfoResumen(orderSel);
+                    listOrderGrid = new List<viewDetalleGrid>();
+                    dgvOrderDetail.DataSource = listOrderGrid;
                 }
-
             }
         }
 
@@ -276,8 +285,11 @@ namespace PVenta.WindForm.OperForms
             fOrdenes.InitNewOrder();
 
             fOrdenes.ShowDialog();
+            idOrderSelected = fOrdenes.OrdenIDCreada;
             fOrdenes.Dispose();
             CargaDataOrdenes();
+            gridMesaSel(idOrderSelected);
+            cargaListOrden(idOrderSelected);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -293,10 +305,37 @@ namespace PVenta.WindForm.OperForms
                 fOrdenes.ShowDialog();
                 fOrdenes.Dispose();
                 CargaDataOrdenes();
+                gridMesaSel(idOrderSelected);
                 cargaListOrden(idOrderSelected);
+                
             }
         }
 
+        private void gridMesaSel(string idOrderSelected)
+        {
+            
+            foreach( DataGridViewRow dgr in dgvMesas.Rows)
+            {
+                string idEvaluado = dgr.Cells["ColID"].Value.ToString();
+                dgvMesas.Rows[dgr.Index].Selected =  idEvaluado == idOrderSelected; 
+            }
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            if (idOrderSelected != string.Empty)
+            {
+                frmFacturas fFacturaByOrden = new frmFacturas();
+                fFacturaByOrden.modo = Modo.Agregar;
+                fFacturaByOrden.userApp = this.userApp;
+                fFacturaByOrden.InitFacturaByOrder(idOrderSelected,listOrderGrid);
+                fFacturaByOrden.ShowDialog();
+                fFacturaByOrden.Dispose();
+                CargaDataOrdenes();
+                gridMesaSel(idOrderSelected);
+                cargaListOrden(idOrderSelected);
+            }
+        }
 
         private void txtFiltro_Enter(object sender, EventArgs e)
         {

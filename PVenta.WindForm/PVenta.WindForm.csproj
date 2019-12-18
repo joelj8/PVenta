@@ -174,6 +174,12 @@
     <Compile Include="OperForms\frmAdicional.Designer.cs">
       <DependentUpon>frmAdicional.cs</DependentUpon>
     </Compile>
+    <Compile Include="OperForms\frmFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperForms\frmFacturas.Designer.cs">
+      <DependentUpon>frmFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="OperForms\frmFacturasAdm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OperForms\frmAdicional.resx">
       <DependentUpon>frmAdicional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperForms\frmFacturas.resx">
+      <DependentUpon>frmFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperForms\frmFacturasAdm.resx">
       <DependentUpon>frmFacturasAdm.cs</DependentUpon>

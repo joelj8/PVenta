@@ -172,7 +172,7 @@ namespace PVenta.Services
 
             try
             {
-                Guid newId = Guid.NewGuid();
+                string newId = ValidateID(facturaHeader.ID);
                 Guid newIdDetail;
                 facturaHeader.ID = newId.ToString();
                 facturaHeader.FechaRegistro = System.DateTime.Now;
@@ -196,6 +196,17 @@ namespace PVenta.Services
             }
 
             return result;
+        }
+
+        private string ValidateID(string id)
+        {
+            string valIDReturn = id;
+            FacturaHeader orderIDCreated = GetFactura(id);
+            if (orderIDCreated != null)
+            {
+                valIDReturn = Guid.NewGuid().ToString();
+            }
+            return valIDReturn;
         }
 
         public MessageApp UpdateFacturaHeader(FacturaHeader facturaHeader)

@@ -28,7 +28,6 @@ namespace PVenta.WindForm.OperForms
         private decimal valOrdenPagado = 0, valSubTotal = 0, valDescuento = 0, valITBIS = 0, calcITBIS = 0;
         
         private string idFacturaSelected = string.Empty;
-        private string idOrderSelected = string.Empty;
 
         public frmFacturasAdm()
         {
@@ -39,19 +38,22 @@ namespace PVenta.WindForm.OperForms
         {
             dgvFacturaDetail.ColumnHeadersDefaultCellStyle.Font = GeneralFormsSettings.FontHeaderGrid;
             dgvMesas.ColumnHeadersDefaultCellStyle.Font = GeneralFormsSettings.FontHeaderGrid;
-            
+
             dtpFechaIni.Format = DateTimePickerFormat.Custom;
             dtpFechaIni.CustomFormat = GeneralFormsSettings.FormatDatePicker;
-            
 
             dtpFechaFin.Format = DateTimePickerFormat.Custom;
             dtpFechaFin.CustomFormat = GeneralFormsSettings.FormatDatePicker;
         }
 
-        public void CargaDataFacturas()
+        public void CargaDataFacturas(bool actulizarFechaInicio = false)
         {
-            int diasprevios = (gConfigSistema.configSistemaInfo.DiasFactura * -1);
-            dtpFechaIni.Value = DateTime.Now.AddDays(diasprevios);
+            if (actulizarFechaInicio)
+            {
+                int diasprevios = (gConfigSistema.configSistemaInfo.DiasFactura * -1);
+                dtpFechaIni.Value = DateTime.Now.AddDays(diasprevios);
+            }
+            
             CargaListMesas();
         }
 
@@ -105,38 +107,47 @@ namespace PVenta.WindForm.OperForms
             if (listFacturas != null)
             {
                 viewFacturaHeader facturaSel = listFacturas.FirstOrDefault(x => x.ID == idFacturaSelected);
-                List<viewFacturaDetail> facturaDetailSel = facturaSel.FacturaDetails.ToList();
                 List<viewFacturaDetail> facturaDetailUpdated = new List<viewFacturaDetail>();
-                foreach (viewFacturaDetail factDeta in facturaDetailSel)
-                {
-                    viewFacturaDetail factDetaCopy = factDeta.Clone() as viewFacturaDetail;
 
-                    facturaDetailUpdated.Add(factDetaCopy);
+                if (facturaSel != null)
+                {
+                    List<viewFacturaDetail> facturaDetailSel = facturaSel.FacturaDetails.ToList();
+
+                    foreach (viewFacturaDetail factDeta in facturaDetailSel)
+                    {
+                        viewFacturaDetail factDetaCopy = factDeta.Clone() as viewFacturaDetail;
+
+                        facturaDetailUpdated.Add(factDetaCopy);
+                    }
+
+                    listFacturaGrid = (from lDeta in facturaDetailUpdated
+                                       orderby lDeta.Orden
+                                       select new viewDetalleGrid
+                                       {
+                                           ProductoID = lDeta.ProductoID,
+                                           Producto = lDeta.producto.Nombre,
+                                           Referencia = lDeta.producto.Referencia,
+                                           Orden = lDeta.Orden,
+                                           Cantidad = lDeta.Cantidad,
+                                           Precio = lDeta.Precio,
+                                           Total = lDeta.Cantidad * lDeta.Precio,
+                                           ID = lDeta.ID
+                                       }).ToList();
+
+                    valSubTotal = listFacturaGrid.Sum(x => x.Cantidad * x.Precio);
+                    valDescuento = (valSubTotal * (facturaSel.DescPorc / 100)) + facturaSel.DescMonto;
+                    calcITBIS = facturaSel.Itbis ? 1 : 0;
+                    valITBIS = (valSubTotal * (facturaSel.ItbisPorc / 100) * calcITBIS);
+
+                    if (!soloCalcular)
+                    {
+                        muestraInfoResumen(facturaSel);
+                    }
                 }
-
-                //facturadoParcial(facturaDetailUpdated);
-
-                listFacturaGrid = (from lDeta in facturaDetailUpdated
-                                 orderby lDeta.Orden
-                                 select new viewDetalleGrid
-                                 {
-                                     Producto = lDeta.producto.Nombre,
-                                     Referencia = lDeta.producto.Referencia,
-                                     Orden = lDeta.Orden,
-                                     Cantidad = lDeta.Cantidad,
-                                     Precio = lDeta.Precio,
-                                     Total = lDeta.Cantidad * lDeta.Precio,
-                                     ID = lDeta.ID
-                                 }).ToList();
-
-                valSubTotal = listFacturaGrid.Sum(x => x.Cantidad * x.Precio);
-                valDescuento = (valSubTotal * (facturaSel.DescPorc / 100)) + facturaSel.DescMonto;
-                calcITBIS = facturaSel.Itbis ? 1 : 0;
-                valITBIS = (valSubTotal * (facturaSel.ItbisPorc / 100) * calcITBIS);
-
-                if (!soloCalcular)
+                else
                 {
-                    muestraInfoResumen(facturaSel);
+                    listFacturaGrid = new List<viewDetalleGrid>();
+                    dgvFacturaDetail.DataSource = listFacturaGrid;
                 }
 
             }
@@ -183,6 +194,47 @@ namespace PVenta.WindForm.OperForms
             // lblInfo.Visible = false;
             valOrdenPagado = 0;
             //idOrderSelected = string.Empty;
+        }
+
+        private void gridMesaSel(string idFacturaSelected)
+        {
+            foreach (DataGridViewRow dgr in dgvMesas.Rows)
+            {
+                string idEvaluado = dgr.Cells["ColID"].Value.ToString();
+                dgvMesas.Rows[dgr.Index].Selected = idEvaluado == idFacturaSelected;
+            }
+        }
+
+        private void btnNueva_Click(object sender, EventArgs e)
+        {
+            frmFacturas fFacturas = new frmFacturas();
+            fFacturas.modo = Modo.Agregar;
+            fFacturas.userApp = this.userApp;
+            fFacturas.InitNewFactura();
+
+            fFacturas.ShowDialog();
+            string idFacturaCreada = fFacturas.FacturaIDCreada;
+            fFacturas.Dispose();
+            CargaDataFacturas();
+            gridMesaSel(idFacturaCreada);
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (idFacturaSelected != string.Empty)
+            {
+                frmFacturas fFacturas = new frmFacturas();
+                fFacturas.modo = Modo.Editar;
+                fFacturas.FacturaID = idFacturaSelected;
+                fFacturas.userApp = this.userApp;
+                fFacturas.InitEditFactura();
+
+                fFacturas.ShowDialog();
+                fFacturas.Dispose();
+                CargaDataFacturas();
+                gridMesaSel(idFacturaSelected);
+                cargaListFactura(idFacturaSelected);
+            }
         }
 
         private void CargaListMesas()

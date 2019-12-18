@@ -21,9 +21,9 @@ namespace PVenta.WindForm.OperForms
 
         private CallApies<viewProducto, ApiProducto> callApiProducto = new CallApies<viewProducto, ApiProducto>();
         private List<viewAdicionalDetailGrid> gridAdicionales = new List<viewAdicionalDetailGrid>();
-        public List<viewOrderDetailGrid> gridOrderDetailMng = null;
-        
-        
+        public List<viewOrderDetailGrid> gridOrderDetailMng=null;
+        public List<viewFacturaDetailGrid> gridFacturaDetailMng=null;
+
         public decimal numOrden = 0;
         public frmAdicional()
         {
@@ -182,6 +182,7 @@ namespace PVenta.WindForm.OperForms
                     result = registrarDetalleOrden();
                     break;
                 case TipoForm.Factura:
+                    result = registrarDetalleFactura();
                     break;
             }
 
@@ -195,58 +196,139 @@ namespace PVenta.WindForm.OperForms
         {
             bool result = false;
             bool found = false;
-
-            try
+            if (TipoForm == TipoForm.Orden)
             {
-                foreach (viewAdicionalDetailGrid Data in gridAdicionales)
+                try
                 {
-                    bool regExiste = gridOrderDetailMng.Count(x => x.ID == Data.ID) > 0;
-
-                    if (!regExiste)
+                    foreach (viewAdicionalDetailGrid Data in gridAdicionales)
                     {
-                        registrarNewDetOrden(Data);
-                    }
-                }
+                        bool regExiste;
+                        regExiste = gridOrderDetailMng.Count(x => x.ID == Data.ID) > 0;
 
-                List<viewOrderDetailGrid> gridExcluir = new List<viewOrderDetailGrid>();
-
-                foreach (viewOrderDetailGrid DataGrid in gridOrderDetailMng)
-                {
-
-                    if (DataGrid.Orden - decimal.Truncate(DataGrid.Orden)  > 0 && decimal.Truncate(DataGrid.Orden) == numOrden )
-                    {
-                        found = false;
-                        foreach (viewAdicionalDetailGrid Data in gridAdicionales)
+                        if (!regExiste && Data.Cantidad > 0)
                         {
-                            if (DataGrid.ID == Data.ID)
+                            registrarNewDetOrden(Data);
+                        }
+                    }
+
+                    List<viewOrderDetailGrid> gridExcluir = new List<viewOrderDetailGrid>();
+
+                    foreach (viewOrderDetailGrid DataGrid in gridOrderDetailMng)
+                    {
+
+                        if (DataGrid.Orden - decimal.Truncate(DataGrid.Orden) > 0 && decimal.Truncate(DataGrid.Orden) == numOrden)
+                        {
+                            found = false;
+                            foreach (viewAdicionalDetailGrid Data in gridAdicionales)
                             {
-                                found = true;
+                                if (DataGrid.ID == Data.ID && Data.Cantidad > 0)
+                                {
+                                    found = true;
+                                }
+                            }
+
+                            // Solo debe excluir a los hijos del producto padre
+                            if (!found)
+                            {
+                                viewOrderDetailGrid dataAdd = DataGrid; //DataGrid.Clone() as viewOrderDetailGrid;
+                                gridExcluir.Add(dataAdd);
                             }
                         }
-
-                        // Solo debe excluir a los hijos del producto padre
-                        if (!found)
-                        {
-                            viewOrderDetailGrid dataAdd = DataGrid; //DataGrid.Clone() as viewOrderDetailGrid;
-                            gridExcluir.Add(dataAdd);
-                        }
                     }
-                }
 
-                foreach (viewOrderDetailGrid DataDel in gridExcluir)
+                    foreach (viewOrderDetailGrid DataDel in gridExcluir)
+                    {
+                        gridOrderDetailMng.Remove(DataDel);
+                    }
+
+                    result = true;
+                }
+                catch (Exception ex)
                 {
-                    gridOrderDetailMng.Remove(DataDel);
+                    //Registr
+                    result = false;
                 }
-
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                //Registr
-                result = false;
             }
 
             return result;
+        }
+
+        private bool registrarDetalleFactura()
+        {
+            bool result = false;
+            bool found = false;
+
+            if (TipoForm == TipoForm.Factura)
+            {
+                try
+                {
+                    foreach (viewAdicionalDetailGrid Data in gridAdicionales)
+                    {
+                        bool regExiste;
+                        regExiste = gridFacturaDetailMng.Count(x => x.ID == Data.ID) > 0;
+
+                        if (!regExiste && Data.Cantidad > 0)
+                        {
+                            registrarNewDetFactura(Data);
+                        }
+                    }
+
+                    List<viewFacturaDetailGrid> gridExcluir = new List<viewFacturaDetailGrid>();
+
+                    foreach (viewFacturaDetailGrid DataGrid in gridFacturaDetailMng)
+                    {
+
+                        if (DataGrid.Orden - decimal.Truncate(DataGrid.Orden) > 0 && decimal.Truncate(DataGrid.Orden) == numOrden)
+                        {
+                            found = false;
+                            foreach (viewAdicionalDetailGrid Data in gridAdicionales)
+                            {
+                                if (DataGrid.ID == Data.ID && Data.Cantidad > 0)
+                                {
+                                    found = true;
+                                }
+                            }
+
+                            // Solo debe excluir a los hijos del producto padre
+                            if (!found)
+                            {
+                                viewFacturaDetailGrid dataAdd = DataGrid; //DataGrid.Clone() as viewOrderDetailGrid;
+                                gridExcluir.Add(dataAdd);
+                            }
+                        }
+                    }
+
+                    foreach (viewFacturaDetailGrid DataDel in gridExcluir)
+                    {
+                        gridFacturaDetailMng.Remove(DataDel);
+                    }
+
+                    result = true;
+                }
+                catch (Exception ex)
+                {
+                    //Registr
+                    result = false;
+                }
+            }
+            
+            return result;
+        }
+
+        private void registrarNewDetFactura(viewAdicionalDetailGrid data)
+        {
+
+            viewFacturaDetailGrid factDetailNew = new viewFacturaDetailGrid();
+            factDetailNew.ID = data.ID;
+            factDetailNew.ImpComanda = data.ImpComanda;
+            factDetailNew.Impreso = data.Impreso;
+            factDetailNew.Orden = data.Orden;
+            factDetailNew.Cantidad = data.Cantidad;
+            factDetailNew.Precio = data.Precio;
+            factDetailNew.ProductoID = data.ProductoID;
+            factDetailNew.Referencia = data.Referencia;
+            factDetailNew.producto = data.producto;
+            gridFacturaDetailMng.Add(factDetailNew);
         }
 
         private void registrarNewDetOrden(viewAdicionalDetailGrid Data)
@@ -265,7 +347,7 @@ namespace PVenta.WindForm.OperForms
                 gridOrderDetailMng.Add(ordDetailNew);
         }
 
-        public void setDataAdicional()
+        public void setDataAdicionalOrden()
         {
             List<viewOrderDetailGrid> regAdicionales = (from addDetail in gridOrderDetailMng
                                                       where (int)addDetail.Orden == (int)this.numOrden &&
@@ -273,6 +355,33 @@ namespace PVenta.WindForm.OperForms
                                                       select addDetail).ToList();
 
             foreach(viewOrderDetailGrid regPrev in regAdicionales)
+            {
+                viewAdicionalDetailGrid adicionalesReg = new viewAdicionalDetailGrid();
+
+                adicionalesReg.Cantidad = regPrev.Cantidad;
+                adicionalesReg.ID = regPrev.ID;
+                adicionalesReg.ImpComanda = regPrev.ImpComanda;
+                adicionalesReg.Impreso = regPrev.Impreso;
+                adicionalesReg.Orden = regPrev.Orden;
+                adicionalesReg.Precio = regPrev.Precio;
+                adicionalesReg.producto = regPrev.producto.Trim();
+                adicionalesReg.ProductoID = regPrev.ProductoID;
+                adicionalesReg.Referencia = regPrev.Referencia;
+
+                gridAdicionales.Add(adicionalesReg);
+            }
+
+            setOrderDetail();
+        }
+
+        public void setDataAdicionalFactura()
+        {
+            List<viewFacturaDetailGrid> regAdicionales = (from addDetail in gridFacturaDetailMng
+                                                        where (int)addDetail.Orden == (int)this.numOrden &&
+                                                              (int)addDetail.Orden - addDetail.Orden != 0
+                                                        select addDetail).ToList();
+
+            foreach (viewFacturaDetailGrid regPrev in regAdicionales)
             {
                 viewAdicionalDetailGrid adicionalesReg = new viewAdicionalDetailGrid();
 

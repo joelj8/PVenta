@@ -38,13 +38,6 @@
             this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvFacturaDetail = new System.Windows.Forms.DataGridView();
-            this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColReferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColIDFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlResumen = new System.Windows.Forms.Panel();
             this.txtMesa = new System.Windows.Forms.TextBox();
             this.txtCliente = new System.Windows.Forms.TextBox();
@@ -71,6 +64,15 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnNueva = new System.Windows.Forms.Button();
+            this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColReferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIDFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIDRelaciona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturaDetail)).BeginInit();
             this.pnlResumen.SuspendLayout();
@@ -141,85 +143,19 @@
             this.dgvFacturaDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacturaDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColProducto,
+            this.ColProductoID,
             this.ColReferencia,
             this.ColOrden,
             this.ColCantidad,
             this.ColPrecio,
             this.ColTotal,
-            this.ColIDFactura});
+            this.ColIDFactura,
+            this.ColIDRelaciona});
             this.dgvFacturaDetail.Location = new System.Drawing.Point(258, 12);
             this.dgvFacturaDetail.Name = "dgvFacturaDetail";
             this.dgvFacturaDetail.RowHeadersVisible = false;
             this.dgvFacturaDetail.Size = new System.Drawing.Size(900, 349);
             this.dgvFacturaDetail.TabIndex = 4;
-            // 
-            // ColProducto
-            // 
-            this.ColProducto.DataPropertyName = "Producto";
-            this.ColProducto.HeaderText = "Producto";
-            this.ColProducto.Name = "ColProducto";
-            this.ColProducto.ReadOnly = true;
-            this.ColProducto.Width = 350;
-            // 
-            // ColReferencia
-            // 
-            this.ColReferencia.DataPropertyName = "Referencia";
-            this.ColReferencia.HeaderText = "Referencia";
-            this.ColReferencia.Name = "ColReferencia";
-            this.ColReferencia.ReadOnly = true;
-            this.ColReferencia.Width = 200;
-            // 
-            // ColOrden
-            // 
-            this.ColOrden.DataPropertyName = "Orden";
-            this.ColOrden.HeaderText = "Orden";
-            this.ColOrden.Name = "ColOrden";
-            this.ColOrden.ReadOnly = true;
-            this.ColOrden.Visible = false;
-            // 
-            // ColCantidad
-            // 
-            this.ColCantidad.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.ColCantidad.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColCantidad.HeaderText = "Cantidad";
-            this.ColCantidad.Name = "ColCantidad";
-            this.ColCantidad.ReadOnly = true;
-            // 
-            // ColPrecio
-            // 
-            this.ColPrecio.DataPropertyName = "Precio";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColPrecio.HeaderText = "Precio";
-            this.ColPrecio.Name = "ColPrecio";
-            this.ColPrecio.ReadOnly = true;
-            this.ColPrecio.Width = 110;
-            // 
-            // ColTotal
-            // 
-            this.ColTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColTotal.HeaderText = "Total";
-            this.ColTotal.Name = "ColTotal";
-            this.ColTotal.ReadOnly = true;
-            this.ColTotal.Width = 130;
-            // 
-            // ColIDFactura
-            // 
-            this.ColIDFactura.DataPropertyName = "ID";
-            this.ColIDFactura.HeaderText = "ID";
-            this.ColIDFactura.Name = "ColIDFactura";
-            this.ColIDFactura.ReadOnly = true;
-            this.ColIDFactura.Visible = false;
             // 
             // pnlResumen
             // 
@@ -493,6 +429,7 @@
             this.btnAgregar.TabIndex = 26;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnImprimir
             // 
@@ -526,6 +463,91 @@
             this.btnNueva.TabIndex = 23;
             this.btnNueva.Text = "NUEVA";
             this.btnNueva.UseVisualStyleBackColor = true;
+            this.btnNueva.Click += new System.EventHandler(this.btnNueva_Click);
+            // 
+            // ColProducto
+            // 
+            this.ColProducto.DataPropertyName = "Producto";
+            this.ColProducto.HeaderText = "Producto";
+            this.ColProducto.Name = "ColProducto";
+            this.ColProducto.ReadOnly = true;
+            this.ColProducto.Width = 350;
+            // 
+            // ColProductoID
+            // 
+            this.ColProductoID.DataPropertyName = "ProductoID";
+            this.ColProductoID.HeaderText = "Producto ID";
+            this.ColProductoID.Name = "ColProductoID";
+            this.ColProductoID.ReadOnly = true;
+            this.ColProductoID.Visible = false;
+            // 
+            // ColReferencia
+            // 
+            this.ColReferencia.DataPropertyName = "Referencia";
+            this.ColReferencia.HeaderText = "Referencia";
+            this.ColReferencia.Name = "ColReferencia";
+            this.ColReferencia.ReadOnly = true;
+            this.ColReferencia.Width = 200;
+            // 
+            // ColOrden
+            // 
+            this.ColOrden.DataPropertyName = "Orden";
+            this.ColOrden.HeaderText = "Orden";
+            this.ColOrden.Name = "ColOrden";
+            this.ColOrden.ReadOnly = true;
+            this.ColOrden.Visible = false;
+            // 
+            // ColCantidad
+            // 
+            this.ColCantidad.DataPropertyName = "Cantidad";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.ColCantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColCantidad.HeaderText = "Cantidad";
+            this.ColCantidad.Name = "ColCantidad";
+            this.ColCantidad.ReadOnly = true;
+            // 
+            // ColPrecio
+            // 
+            this.ColPrecio.DataPropertyName = "Precio";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.ColPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColPrecio.HeaderText = "Precio";
+            this.ColPrecio.Name = "ColPrecio";
+            this.ColPrecio.ReadOnly = true;
+            this.ColPrecio.Width = 110;
+            // 
+            // ColTotal
+            // 
+            this.ColTotal.DataPropertyName = "Total";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.ColTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColTotal.HeaderText = "Total";
+            this.ColTotal.Name = "ColTotal";
+            this.ColTotal.ReadOnly = true;
+            this.ColTotal.Width = 130;
+            // 
+            // ColIDFactura
+            // 
+            this.ColIDFactura.DataPropertyName = "ID";
+            this.ColIDFactura.HeaderText = "ID";
+            this.ColIDFactura.Name = "ColIDFactura";
+            this.ColIDFactura.ReadOnly = true;
+            this.ColIDFactura.Visible = false;
+            // 
+            // ColIDRelaciona
+            // 
+            this.ColIDRelaciona.DataPropertyName = "IDRelaciona";
+            this.ColIDRelaciona.HeaderText = "ID Relaciona";
+            this.ColIDRelaciona.Name = "ColIDRelaciona";
+            this.ColIDRelaciona.ReadOnly = true;
+            this.ColIDRelaciona.Visible = false;
             // 
             // frmFacturasAdm
             // 
@@ -566,13 +588,6 @@
         private System.Windows.Forms.DataGridView dgvFacturaDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColMesa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColReferencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColOrden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColIDFactura;
         private System.Windows.Forms.Panel pnlResumen;
         private System.Windows.Forms.Label lblNoFactura;
         private System.Windows.Forms.TextBox txtNoFactura;
@@ -599,5 +614,14 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Button btnNueva;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColProductoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColReferencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColIDFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColIDRelaciona;
     }
 }

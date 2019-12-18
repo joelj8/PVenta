@@ -8,6 +8,7 @@ namespace PVenta.Models.ViewModel
 {
     public class viewDetalleGrid
     {
+        public string ProductoID { get; set; }
         public string Producto { get; set; }
         public string Referencia { get; set; }
         public decimal Orden { get; set; }
@@ -15,6 +16,7 @@ namespace PVenta.Models.ViewModel
         public decimal Precio { get; set; }
         public decimal Total { get; set; }
         public string ID { get; set; }
+        public string IDRelaciona { get; set; }
 
     }
 }

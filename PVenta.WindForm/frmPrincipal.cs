@@ -140,7 +140,7 @@ namespace PVenta.WindForm
         {
             frmFacturasAdm fFacturasAdm = new frmFacturasAdm();
             fFacturasAdm.userApp = this.userApp;
-            fFacturasAdm.CargaDataFacturas();
+            fFacturasAdm.CargaDataFacturas(true);
             fFacturasAdm.ShowDialog();
             fFacturasAdm.Dispose();
         }

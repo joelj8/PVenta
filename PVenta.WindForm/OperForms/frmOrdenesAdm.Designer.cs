@@ -65,12 +65,14 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColReferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIDGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIDRelaciona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCalculo.SuspendLayout();
             this.pnlResumen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
@@ -98,6 +100,7 @@
             this.btnFacturar.TabIndex = 20;
             this.btnFacturar.Text = "FACTURAR";
             this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
             // btnNueva
             // 
@@ -391,12 +394,14 @@
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColProducto,
+            this.ColProductoID,
             this.ColReferencia,
             this.ColOrden,
             this.ColCant,
             this.ColPrecio,
             this.ColTotal,
-            this.colIDGrid});
+            this.colIDGrid,
+            this.ColIDRelaciona});
             this.dgvOrderDetail.Location = new System.Drawing.Point(263, 12);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.RowHeadersVisible = false;
@@ -467,6 +472,14 @@
             this.ColProducto.ReadOnly = true;
             this.ColProducto.Width = 350;
             // 
+            // ColProductoID
+            // 
+            this.ColProductoID.DataPropertyName = "ProductoID";
+            this.ColProductoID.HeaderText = "Producto ID";
+            this.ColProductoID.Name = "ColProductoID";
+            this.ColProductoID.ReadOnly = true;
+            this.ColProductoID.Visible = false;
+            // 
             // ColReferencia
             // 
             this.ColReferencia.DataPropertyName = "Referencia";
@@ -525,6 +538,14 @@
             this.colIDGrid.Name = "colIDGrid";
             this.colIDGrid.ReadOnly = true;
             this.colIDGrid.Visible = false;
+            // 
+            // ColIDRelaciona
+            // 
+            this.ColIDRelaciona.DataPropertyName = "IDRelaciona";
+            this.ColIDRelaciona.HeaderText = "ID Relaciona";
+            this.ColIDRelaciona.Name = "ColIDRelaciona";
+            this.ColIDRelaciona.ReadOnly = true;
+            this.ColIDRelaciona.Visible = false;
             // 
             // frmOrdenesAdm
             // 
@@ -589,11 +610,13 @@
         private System.Windows.Forms.TextBox txtNoOrden;
         private System.Windows.Forms.Label lblNoOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColProductoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColReferencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCant;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColIDRelaciona;
     }
 }

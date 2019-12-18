@@ -89,7 +89,7 @@ namespace PVenta.Services
 
             try
             {
-                Guid newId = Guid.NewGuid();
+                string newId = ValidateID(orderHeader.ID);
                 Guid newIdDetail;
                 orderHeader.ID = newId.ToString();
                 orderHeader.FechaRegistro = System.DateTime.Now;
@@ -114,6 +114,17 @@ namespace PVenta.Services
             }
             
             return result;
+        }
+
+        private string ValidateID(string id)
+        {
+            string valIDReturn = id;
+            OrderHeader orderIDCreated = GetOrderHeader(id);
+            if (orderIDCreated != null)
+            {
+                valIDReturn = Guid.NewGuid().ToString();
+            }
+            return valIDReturn;
         }
 
         public MessageApp UpdateOrderHeader(OrderHeader orderHeader)

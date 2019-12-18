@@ -21,6 +21,7 @@ namespace PVenta.WindForm.OperForms
         public viewLogin userApp = null;
         public Modo modo { get; set; }
         public string OrderID { get; set; }
+        public string OrdenIDCreada { get; set; }
         
         private CallApies<viewUsuario, ApiUsuario> callApiUsuario = new CallApies<viewUsuario, ApiUsuario>();
         private CallApies<viewMesa, ApiMesa> callApiMesa = new CallApies<viewMesa, ApiMesa>();
@@ -424,7 +425,7 @@ namespace PVenta.WindForm.OperForms
                 fAdicional.TipoForm = TipoForm.Orden;
                 fAdicional.numOrden = numOrdenPadre;
                 fAdicional.gridOrderDetailMng = gridOrderDetail;
-                fAdicional.setDataAdicional();
+                fAdicional.setDataAdicionalOrden();
                 fAdicional.ShowDialog();
                 fAdicional.Dispose();
                 setOrderDetail();
@@ -478,6 +479,7 @@ namespace PVenta.WindForm.OperForms
                     dataOrderHeader.ItbisPorc = gConfigSistema.configSistemaInfo.PorcITBIS;
                     dataOrderHeader.ServicioPorc = gConfigSistema.configSistemaInfo.PorcServicio;
                     dataOrderHeader.UserId = userApp.ID;
+                    this.OrdenIDCreada = dataOrderHeader.ID;
                 }
                 else
                 {
@@ -504,17 +506,19 @@ namespace PVenta.WindForm.OperForms
 
                 foreach (viewOrderDetailGrid ordDetail in gridOrderDetail)
                 {
-
-                    ApiOrderDetail dataOrderDetail = new ApiOrderDetail();
-                    dataOrderDetail.ID = ordDetail.ID;
-                    dataOrderDetail.ImpComanda = ordDetail.ImpComanda;
-                    dataOrderDetail.Orden = ordDetail.Orden;
-                    dataOrderDetail.OrderHID = dataOrderHeader.ID;
-                    dataOrderDetail.Precio = ordDetail.Precio;
-                    dataOrderDetail.ProductoID = ordDetail.ProductoID;
-                    dataOrderDetail.Cantidad = ordDetail.Cantidad;
-                    dataOrderDetail.ClientePedido = ordDetail.ClientePedido;
-                    dataOrderHeader.OrderDetails.Add(dataOrderDetail);
+                    if (ordDetail.Cantidad > 0)
+                    {
+                        ApiOrderDetail dataOrderDetail = new ApiOrderDetail();
+                        dataOrderDetail.ID = ordDetail.ID;
+                        dataOrderDetail.ImpComanda = ordDetail.ImpComanda;
+                        dataOrderDetail.Orden = ordDetail.Orden;
+                        dataOrderDetail.OrderHID = dataOrderHeader.ID;
+                        dataOrderDetail.Precio = ordDetail.Precio;
+                        dataOrderDetail.ProductoID = ordDetail.ProductoID;
+                        dataOrderDetail.Cantidad = ordDetail.Cantidad;
+                        dataOrderDetail.ClientePedido = ordDetail.ClientePedido;
+                        dataOrderHeader.OrderDetails.Add(dataOrderDetail);
+                    }
                 }
 
                 resultPrepare = true;
