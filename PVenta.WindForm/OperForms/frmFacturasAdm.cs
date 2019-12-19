@@ -46,12 +46,16 @@ namespace PVenta.WindForm.OperForms
             dtpFechaFin.CustomFormat = GeneralFormsSettings.FormatDatePicker;
         }
 
-        public void CargaDataFacturas(bool actulizarFechaInicio = false)
+        public void CargaDataFacturas(bool actulizarFechaInicio = false, bool actualizarFechaFin = false)
         {
             if (actulizarFechaInicio)
             {
                 int diasprevios = (gConfigSistema.configSistemaInfo.DiasFactura * -1);
                 dtpFechaIni.Value = DateTime.Now.AddDays(diasprevios);
+            }
+            if (actualizarFechaFin)
+            {
+                dtpFechaFin.Value = DateTime.Now;
             }
             
             CargaListMesas();
@@ -215,8 +219,9 @@ namespace PVenta.WindForm.OperForms
             fFacturas.ShowDialog();
             string idFacturaCreada = fFacturas.FacturaIDCreada;
             fFacturas.Dispose();
-            CargaDataFacturas();
+            CargaDataFacturas(false,true);
             gridMesaSel(idFacturaCreada);
+            cargaListFactura(idFacturaCreada);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

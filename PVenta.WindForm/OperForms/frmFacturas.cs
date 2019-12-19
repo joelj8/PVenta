@@ -97,7 +97,7 @@ namespace PVenta.WindForm.OperForms
             callApiFactura.urlApi = CollectAPI.GetFactura;
             callApiFactura.CallGet(this.FacturaID);
 
-            txtFecha.Text = callApiFactura.objectResponse.Fecha.ToShortDateString();
+            txtFecha.Text = callApiFactura.objectResponse.Fecha.ToString();
             chkITBIS.Checked = callApiFactura.objectResponse.Itbis;
             cboUsuario.SelectedValue = callApiFactura.objectResponse.UserId;
             txtClientePrincipal.Text = callApiFactura.objectResponse.ClientePrincipal;
@@ -143,7 +143,7 @@ namespace PVenta.WindForm.OperForms
             this.callApiOrden.CallGet(this.OrdenID);
 
             
-            txtFecha.Text = callApiOrden.objectResponse.Fecha.ToShortDateString();
+            txtFecha.Text = DateTime.Now.ToString();
             chkITBIS.Checked = callApiOrden.objectResponse.Itbis;
             cboUsuario.SelectedValue = callApiOrden.objectResponse.UserId;
             txtClientePrincipal.Text = callApiOrden.objectResponse.ClientePrincipal;

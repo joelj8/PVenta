@@ -62,7 +62,7 @@ namespace PVenta.WindForm.OperForms
             callApiOrder.urlApi = CollectAPI.GetOrder;
             callApiOrder.CallGet(this.OrderID);
 
-            txtFecha.Text = callApiOrder.objectResponse.Fecha.ToShortDateString();
+            txtFecha.Text = callApiOrder.objectResponse.Fecha.ToString();
             chkITBIS.Checked = callApiOrder.objectResponse.Itbis;
             cboUsuario.SelectedValue = callApiOrder.objectResponse.UserId;
             txtClientePrincipal.Text = callApiOrder.objectResponse.ClientePrincipal;
