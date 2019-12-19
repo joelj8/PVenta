@@ -77,15 +77,15 @@ namespace PVenta.WindForm.AdmForms
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            string textFiltroDefault = Properties.Settings.Default.TextoFiltro.ToString();
-            string filtroText = txtFiltro.Text;
+            string textFiltroDefault = Properties.Settings.Default.TextoFiltro.ToString().ToLower();
+            string filtroText = txtFiltro.Text.ToLower();
             if (callApiUsuario.listaResponse != null && textFiltroDefault != filtroText)
             {
                 var result = (from l in callApiUsuario.listaResponse
                               where l.UserId.Contains(filtroText) ||
-                              l.Nombre.Contains(filtroText) ||
-                              l.Email.Contains(filtroText) ||
-                              l.Rol.Nombre.Contains(filtroText)
+                              l.Nombre.ToLower().Contains(filtroText) ||
+                              l.Email.ToLower().Contains(filtroText) ||
+                              l.Rol.Nombre.ToLower().Contains(filtroText)
                               select l).ToList();
 
                 listUsuarios = result;

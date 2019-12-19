@@ -79,7 +79,7 @@ namespace PVenta.WindForm.MantForms
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            string textFiltroDefault = Properties.Settings.Default.TextoFiltro.ToString();
+            string textFiltroDefault = Properties.Settings.Default.TextoFiltro.ToString().ToLower();
             string filtroText = txtFiltro.Text.ToLower();
             if (callApiCategoria.listaResponse != null && textFiltroDefault != filtroText)
             {
