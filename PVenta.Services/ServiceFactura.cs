@@ -174,6 +174,7 @@ namespace PVenta.Services
             {
                 string newId = ValidateID(facturaHeader.ID);
                 Guid newIdDetail;
+                Guid newIdPayment;
                 facturaHeader.ID = newId.ToString();
                 facturaHeader.FechaRegistro = System.DateTime.Now;
                 facturaHeader.NumFactura = 0;
@@ -183,6 +184,13 @@ namespace PVenta.Services
                     newIdDetail = Guid.NewGuid();
                     od.ID = newIdDetail.ToString();
                     od.FacturaHID = newId.ToString();
+                }
+
+                foreach(FacturaPayment op in facturaHeader.FacturaPayments)
+                {
+                    newIdPayment = Guid.NewGuid();
+                    op.ID = newIdPayment.ToString();
+                    op.FacturaHID = newId.ToString();
                 }
 
                 _dbcontext.FacturaHeaders.Add(facturaHeader);
@@ -286,6 +294,8 @@ namespace PVenta.Services
                             {
                                 factExist.FechaPago = facturaData.FechaPago;
                                 factExist.MontoPago = facturaData.MontoPago;
+                                factExist.FormaPagoId = facturaData.FormaPagoId;
+                                factExist.InfoPago = facturaData.InfoPago;
                                 regUpdated = true;
                             }
                         }

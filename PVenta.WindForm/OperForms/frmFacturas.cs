@@ -35,6 +35,8 @@ namespace PVenta.WindForm.OperForms
         private CallApies<viewOrderHeader, ApiOrderHeader> callApiOrden = new CallApies<viewOrderHeader, ApiOrderHeader>();
         private CallApies<viewFacturaHeader, ApiFacturaHeader> callApiFactura = new CallApies<viewFacturaHeader, ApiFacturaHeader>();
         private List<viewFacturaDetailGrid> gridFacturaDetail = new List<viewFacturaDetailGrid>();
+        private List<viewFacturaPayment> gridFacturaPayment = new List<viewFacturaPayment>();
+
         private ApiFacturaHeader dataFacturaHeader;
         private ApiOrderHeader dataOrderHeader;
 

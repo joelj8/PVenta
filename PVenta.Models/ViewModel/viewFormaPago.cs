@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PVenta.Models.ViewModel
 {
-    public class viewFormaPagos
+    public class viewFormaPago
     {
         public string ID { get; set; }
         public string Descripcion { get; set; }

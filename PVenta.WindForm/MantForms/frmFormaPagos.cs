@@ -22,7 +22,7 @@ namespace PVenta.WindForm.MantForms
         private viewMessageApp result = null;
         private ApiFormaPago formaPago = new ApiFormaPago();
 
-        private CallApies<viewFormaPagos, ApiFormaPago> callApiFormaPago = new CallApies<viewFormaPagos, ApiFormaPago>();
+        private CallApies<viewFormaPago, ApiFormaPago> callApiFormaPago = new CallApies<viewFormaPago, ApiFormaPago>();
         private CallApies<viewMessageApp, ApiFormaPago> MngApiFormaPago = new CallApies<viewMessageApp, ApiFormaPago>();
 
         public frmFormaPagos()

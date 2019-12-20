@@ -17,8 +17,8 @@ namespace PVenta.WindForm.MantForms
 {
     public partial class frmFormaPagosAdm : FormGRLA
     {
-        private CallApies<viewFormaPagos, ApiFormaPago> callApiFormaPagos = new CallApies<viewFormaPagos, ApiFormaPago>();
-        private List<viewFormaPagos> listFormaPagos;
+        private CallApies<viewFormaPago, ApiFormaPago> callApiFormaPagos = new CallApies<viewFormaPago, ApiFormaPago>();
+        private List<viewFormaPago> listFormaPagos;
 
         public frmFormaPagosAdm()
         {

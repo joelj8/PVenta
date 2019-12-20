@@ -14,6 +14,9 @@ namespace PVenta.Models.ViewModel
         public string UserId { get; set; }
         public DateTime FechaPago { get; set; }
         public decimal MontoPago { get; set; }
+        public string FormaPagoId { get; set; }
+        public viewFormaPago FormaPago { get; set; }
+        public string InfoPago { get; set; }
         public bool Inactivo { get; set; }
     }
 }
