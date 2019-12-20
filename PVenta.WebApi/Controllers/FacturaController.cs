@@ -42,6 +42,8 @@ namespace PVenta.WebApi.Controllers
             profileList.Add(new MMesaProfile());
             profileList.Add(new FechaRangoProfile());
             profileList.Add(new MFechaRangoProfile());
+            profileList.Add(new FormaPagoProfile());
+            profileList.Add(new MFormaPagoProfile());
 
             objMapper = new MapperConfiguration(i => i.AddProfiles(profileList));
         }

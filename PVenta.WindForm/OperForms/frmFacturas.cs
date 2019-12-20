@@ -557,6 +557,8 @@ namespace PVenta.WindForm.OperForms
                     }
                 }
 
+                // Make
+
                 resultPrepare = true;
             }
             catch (Exception ex)

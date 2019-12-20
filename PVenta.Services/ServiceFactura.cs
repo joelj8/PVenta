@@ -294,6 +294,7 @@ namespace PVenta.Services
                             {
                                 factExist.FechaPago = facturaData.FechaPago;
                                 factExist.MontoPago = facturaData.MontoPago;
+                                factExist.MontoDevolver = facturaData.MontoDevolver;
                                 factExist.FormaPagoId = facturaData.FormaPagoId;
                                 factExist.InfoPago = facturaData.InfoPago;
                                 regUpdated = true;

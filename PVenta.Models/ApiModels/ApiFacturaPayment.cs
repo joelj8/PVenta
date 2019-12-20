@@ -14,6 +14,7 @@ namespace PVenta.Models.ApiModels
         public string UserId { get; set; }
         public DateTime FechaPago { get; set; }
         public decimal MontoPago { get; set; }
+        public decimal MontoDevolver { get; set; }
         public string FormaPagoId { get; set; }
         public ApiFormaPago FormaPago { get; set; }
         public string InfoPago { get; set; }

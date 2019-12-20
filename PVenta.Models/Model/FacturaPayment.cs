@@ -40,6 +40,10 @@ namespace PVenta.Models.Model
         [DisplayName("Monto del Pago")]
         public decimal MontoPago { get; set; }
 
+        [Column("MontoDevolver")]
+        [DisplayName("Monto a Devolver")]
+        public decimal MontoDevolver { get; set; }
+
         public string FormaPagoId { get; set; }
 
         [ForeignKey("FormaPagoId")]

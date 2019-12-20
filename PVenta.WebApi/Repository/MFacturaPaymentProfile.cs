@@ -18,6 +18,9 @@ namespace PVenta.WebApi.Repository
                 .ForMember(dest => dest.FacturaHeader, opts => opts.MapFrom(src => src.FacturaHeader))
                 .ForMember(dest => dest.FechaPago, opts => opts.MapFrom(src => src.FechaPago))
                 .ForMember(dest => dest.MontoPago, opts => opts.MapFrom(src => src.MontoPago))
+                .ForMember(dest => dest.MontoDevolver, opts => opts.MapFrom(src => src.MontoDevolver))
+                .ForMember(dest => dest.FormaPago, opts => opts.MapFrom(src => src.FormaPago))
+                .ForMember(dest => dest.FormaPagoId, opts => opts.MapFrom(src => src.FormaPagoId))
                 .ForMember(dest => dest.UserId, opts => opts.MapFrom(src => src.UserId))
                 .ForMember(dest => dest.Inactivo, opts => opts.MapFrom(src => src.Inactivo));
         }
