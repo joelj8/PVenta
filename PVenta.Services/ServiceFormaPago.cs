@@ -87,6 +87,7 @@ namespace PVenta.Services
                     {
                         formaPagoUpdate.Descripcion = formaPagoUpd.Descripcion;
                         formaPagoUpdate.MonedaID = formaPagoUpd.MonedaID;
+                        formaPagoUpdate.AceptaCambio = formaPagoUpd.AceptaCambio;
                         _dbcontext.Entry(formaPagoUpdate).State = System.Data.Entity.EntityState.Modified;
                         _dbcontext.SaveChanges();
                         result = new MessageApp(ServiceEventApp.GetEventByCode("RS00002"));

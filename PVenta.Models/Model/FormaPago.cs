@@ -25,6 +25,8 @@ namespace PVenta.Models.Model
         [DisplayName("Nombre Moneda")]
         public string MonedaID { get; set; }
 
+        [DisplayName("Acepta Cambio")]
+        public bool AceptaCambio { get; set; }
         public bool Inactivo { get; set; }
 
     }

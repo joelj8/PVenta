@@ -31,6 +31,8 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.lblAceptaCambio = new System.Windows.Forms.Label();
+            this.chkAceptaCambio = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblDescripcion
@@ -45,9 +47,9 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(125, 20);
+            this.txtDescripcion.Location = new System.Drawing.Point(147, 20);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(222, 21);
+            this.txtDescripcion.Size = new System.Drawing.Size(199, 21);
             this.txtDescripcion.TabIndex = 1;
             // 
             // btnGrabar
@@ -61,11 +63,32 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
+            // lblAceptaCambio
+            // 
+            this.lblAceptaCambio.AutoSize = true;
+            this.lblAceptaCambio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAceptaCambio.Location = new System.Drawing.Point(24, 65);
+            this.lblAceptaCambio.Name = "lblAceptaCambio";
+            this.lblAceptaCambio.Size = new System.Drawing.Size(104, 13);
+            this.lblAceptaCambio.TabIndex = 3;
+            this.lblAceptaCambio.Text = "Acepta Cambio";
+            // 
+            // chkAceptaCambio
+            // 
+            this.chkAceptaCambio.AutoSize = true;
+            this.chkAceptaCambio.Location = new System.Drawing.Point(147, 61);
+            this.chkAceptaCambio.Name = "chkAceptaCambio";
+            this.chkAceptaCambio.Size = new System.Drawing.Size(15, 14);
+            this.chkAceptaCambio.TabIndex = 4;
+            this.chkAceptaCambio.UseVisualStyleBackColor = true;
+            // 
             // frmFormaPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 112);
+            this.Controls.Add(this.chkAceptaCambio);
+            this.Controls.Add(this.lblAceptaCambio);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblDescripcion);
@@ -82,5 +105,7 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Label lblAceptaCambio;
+        private System.Windows.Forms.CheckBox chkAceptaCambio;
     }
 }

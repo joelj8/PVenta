@@ -16,6 +16,7 @@ namespace PVenta.WebApi.Repository
                 .ForMember(dest => dest.ID, opts => opts.MapFrom(src => src.ID))
                 .ForMember(dest => dest.Descripcion, opts => opts.MapFrom(src => src.Descripcion))
                 .ForMember(dest => dest.MonedaID, opts => opts.MapFrom(src => src.MonedaID))
+                .ForMember(dest => dest.AceptaCambio, opts => opts.MapFrom(src => src.AceptaCambio))
                 .ForMember(dest => dest.Inactivo, opts => opts.MapFrom(src => src.Inactivo));
 
 

@@ -44,6 +44,7 @@ namespace PVenta.WindForm.MantForms
                 if (callApiFormaPago.objectResponse != null)
                 {
                     txtDescripcion.Text = callApiFormaPago.objectResponse.Descripcion;
+                    chkAceptaCambio.Checked = callApiFormaPago.objectResponse.AceptaCambio;
                     
                 }
 
@@ -98,6 +99,7 @@ namespace PVenta.WindForm.MantForms
                 formaPago.ID = FormaPagoID;
             }
             formaPago.Descripcion = txtDescripcion.Text;
+            formaPago.AceptaCambio = chkAceptaCambio.Checked;
             
         }
     

@@ -37,6 +37,7 @@
             this.ColInactivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColAceptaCambio = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonedas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,8 @@
             this.ColMonedaID,
             this.ColInactivo,
             this.ColEditar,
-            this.ColEliminar});
+            this.ColEliminar,
+            this.ColAceptaCambio});
             this.dgvMonedas.Location = new System.Drawing.Point(12, 34);
             this.dgvMonedas.Name = "dgvMonedas";
             this.dgvMonedas.RowHeadersVisible = false;
@@ -128,6 +130,14 @@
             this.ColEliminar.UseColumnTextForButtonValue = true;
             this.ColEliminar.Width = 70;
             // 
+            // ColAceptaCambio
+            // 
+            this.ColAceptaCambio.DataPropertyName = "AceptaCambio";
+            this.ColAceptaCambio.HeaderText = "Acepta Cambio";
+            this.ColAceptaCambio.Name = "ColAceptaCambio";
+            this.ColAceptaCambio.ReadOnly = true;
+            this.ColAceptaCambio.Visible = false;
+            // 
             // frmFormaPagosAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -156,5 +166,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColInactivo;
         private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
         private System.Windows.Forms.DataGridViewButtonColumn ColEliminar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColAceptaCambio;
     }
 }
