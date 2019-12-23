@@ -23,8 +23,6 @@ namespace PVenta.WindForm.OperForms
         public decimal montServicio { get; set; }
         public decimal montTotal { get; set; }
 
-        public viewLogin userApp = null;
-
         private CallApies<viewFormaPago, ApiFormaPago> callApiFormaPago = new CallApies<viewFormaPago, ApiFormaPago>();
 
         List<viewFacturaPaymentGrid> facturaPagoGrid = new List<viewFacturaPaymentGrid>();
@@ -67,6 +65,48 @@ namespace PVenta.WindForm.OperForms
                 cboFormaPago.DisplayMember = "Descripcion";
                 cboFormaPago.ValueMember = "ID";
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            viewFacturaPaymentGrid regPago = new viewFacturaPaymentGrid();
+            regPago.FormaPagoId = cboFormaPago.SelectedItem.ToString();
+            regPago.FormaPago = cboFormaPago.Text;
+            regPago.MontoPago = numMontPago.Value;
+            regPago.InfoPago = txtInfoPago.Text;
+            regPago.MontoDevolver = montTotal > numMontPago.Value ? 0 : numMontPago.Value - montTotal;
+
+            facturaPagoGrid.Add(regPago);
+
+
+            setDataPagoGrid();
+            clearInfoPago(true);
+
+            cboFormaPago.Focus();
+        }
+
+        private void setDataPagoGrid()
+        {
+            if (facturaPagoGrid != null)
+            {
+                var listGrid = facturaPagoGrid.OrderBy(s => s.FormaPago).ToList();
+                this.dgvFacturaPagos.DataSource = listGrid;
+            }
+            calcPagoInfo();
+        }
+
+        private void clearInfoPago(bool hardclear)
+        {
+            numMontPago.Value = 0;
+            cboFormaPago.SelectedItem = "";
+            txtInfoPago.Clear();
+
+        }
+
+        private void calcPagoInfo()
+        {
+            decimal totalPago = facturaPagoGrid.Sum(x => x.MontoPago);
+            txtDevolver.Text = (montTotal > totalPago ? 0 : totalPago - montTotal).ToString("c");
         }
     }
 }

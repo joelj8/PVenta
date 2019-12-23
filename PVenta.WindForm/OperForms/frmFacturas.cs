@@ -558,6 +558,14 @@ namespace PVenta.WindForm.OperForms
                 }
 
                 // Make
+                frmFacturaPayment fFacturaPay = new frmFacturaPayment();
+                fFacturaPay.montSubTotal = decimal.Parse(txtSubTotal.Text.Replace('$', ' '));
+                fFacturaPay.montDescuento = decimal.Parse(txtDescuento.Text.Replace('$', ' '));
+                fFacturaPay.montITBIS = decimal.Parse(txtITBIS.Text.Replace('$', ' '));
+                fFacturaPay.montServicio = decimal.Parse(txtServicio.Text.Replace('$', ' '));
+                fFacturaPay.montTotal = decimal.Parse(txtTotal.Text.Replace('$', ' '));
+                fFacturaPay.setDataPago();
+                fFacturaPay.ShowDialog();
 
                 resultPrepare = true;
             }

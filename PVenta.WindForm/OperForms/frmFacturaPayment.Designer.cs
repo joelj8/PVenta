@@ -39,20 +39,20 @@
             this.lblDescuento = new System.Windows.Forms.Label();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.pnlResumen = new System.Windows.Forms.Panel();
+            this.txtDevolver = new System.Windows.Forms.TextBox();
+            this.lblDevolver = new System.Windows.Forms.Label();
             this.pnlPago = new System.Windows.Forms.Panel();
-            this.cboFormaPago = new System.Windows.Forms.ComboBox();
-            this.numMontPago = new System.Windows.Forms.NumericUpDown();
-            this.txtInfoPago = new System.Windows.Forms.TextBox();
-            this.dgvFacturaPagos = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnPagar = new System.Windows.Forms.Button();
+            this.txtInfoPago = new System.Windows.Forms.TextBox();
+            this.numMontPago = new System.Windows.Forms.NumericUpDown();
+            this.cboFormaPago = new System.Windows.Forms.ComboBox();
+            this.dgvFacturaPagos = new System.Windows.Forms.DataGridView();
             this.ColFormaPagoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFormaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColInfoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMontoDevolver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDevolver = new System.Windows.Forms.TextBox();
-            this.lblDevolver = new System.Windows.Forms.Label();
+            this.btnPagar = new System.Windows.Forms.Button();
             this.pnlResumen.SuspendLayout();
             this.pnlPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMontPago)).BeginInit();
@@ -65,7 +65,7 @@
             this.txtServicio.Enabled = false;
             this.txtServicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtServicio.Location = new System.Drawing.Point(167, 66);
+            this.txtServicio.Location = new System.Drawing.Point(303, 66);
             this.txtServicio.Name = "txtServicio";
             this.txtServicio.ReadOnly = true;
             this.txtServicio.Size = new System.Drawing.Size(155, 20);
@@ -89,7 +89,7 @@
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.txtTotal.Location = new System.Drawing.Point(167, 120);
+            this.txtTotal.Location = new System.Drawing.Point(303, 120);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(155, 20);
@@ -102,7 +102,7 @@
             this.txtITBIS.Enabled = false;
             this.txtITBIS.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtITBIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtITBIS.Location = new System.Drawing.Point(167, 90);
+            this.txtITBIS.Location = new System.Drawing.Point(303, 90);
             this.txtITBIS.Name = "txtITBIS";
             this.txtITBIS.ReadOnly = true;
             this.txtITBIS.Size = new System.Drawing.Size(155, 20);
@@ -115,7 +115,7 @@
             this.txtDescuento.Enabled = false;
             this.txtDescuento.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDescuento.Location = new System.Drawing.Point(167, 38);
+            this.txtDescuento.Location = new System.Drawing.Point(303, 38);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.ReadOnly = true;
             this.txtDescuento.Size = new System.Drawing.Size(155, 20);
@@ -128,7 +128,7 @@
             this.txtSubTotal.Enabled = false;
             this.txtSubTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSubTotal.Location = new System.Drawing.Point(167, 9);
+            this.txtSubTotal.Location = new System.Drawing.Point(303, 9);
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.ReadOnly = true;
             this.txtSubTotal.Size = new System.Drawing.Size(155, 20);
@@ -199,6 +199,30 @@
             this.pnlResumen.Size = new System.Drawing.Size(497, 190);
             this.pnlResumen.TabIndex = 31;
             // 
+            // txtDevolver
+            // 
+            this.txtDevolver.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDevolver.Enabled = false;
+            this.txtDevolver.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDevolver.ForeColor = System.Drawing.Color.Red;
+            this.txtDevolver.Location = new System.Drawing.Point(303, 149);
+            this.txtDevolver.Name = "txtDevolver";
+            this.txtDevolver.ReadOnly = true;
+            this.txtDevolver.Size = new System.Drawing.Size(155, 30);
+            this.txtDevolver.TabIndex = 48;
+            this.txtDevolver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblDevolver
+            // 
+            this.lblDevolver.AutoSize = true;
+            this.lblDevolver.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDevolver.ForeColor = System.Drawing.Color.Red;
+            this.lblDevolver.Location = new System.Drawing.Point(10, 155);
+            this.lblDevolver.Name = "lblDevolver";
+            this.lblDevolver.Size = new System.Drawing.Size(133, 29);
+            this.lblDevolver.TabIndex = 47;
+            this.lblDevolver.Text = "Devolver";
+            // 
             // pnlPago
             // 
             this.pnlPago.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -211,20 +235,15 @@
             this.pnlPago.Size = new System.Drawing.Size(497, 30);
             this.pnlPago.TabIndex = 32;
             // 
-            // cboFormaPago
+            // btnAdd
             // 
-            this.cboFormaPago.FormattingEnabled = true;
-            this.cboFormaPago.Location = new System.Drawing.Point(3, 3);
-            this.cboFormaPago.Name = "cboFormaPago";
-            this.cboFormaPago.Size = new System.Drawing.Size(98, 21);
-            this.cboFormaPago.TabIndex = 0;
-            // 
-            // numMontPago
-            // 
-            this.numMontPago.Location = new System.Drawing.Point(107, 4);
-            this.numMontPago.Name = "numMontPago";
-            this.numMontPago.Size = new System.Drawing.Size(120, 21);
-            this.numMontPago.TabIndex = 1;
+            this.btnAdd.Location = new System.Drawing.Point(462, -1);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(31, 27);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtInfoPago
             // 
@@ -232,6 +251,28 @@
             this.txtInfoPago.Name = "txtInfoPago";
             this.txtInfoPago.Size = new System.Drawing.Size(225, 21);
             this.txtInfoPago.TabIndex = 2;
+            // 
+            // numMontPago
+            // 
+            this.numMontPago.DecimalPlaces = 2;
+            this.numMontPago.Location = new System.Drawing.Point(107, 4);
+            this.numMontPago.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numMontPago.Name = "numMontPago";
+            this.numMontPago.Size = new System.Drawing.Size(120, 21);
+            this.numMontPago.TabIndex = 1;
+            // 
+            // cboFormaPago
+            // 
+            this.cboFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFormaPago.FormattingEnabled = true;
+            this.cboFormaPago.Location = new System.Drawing.Point(3, 3);
+            this.cboFormaPago.Name = "cboFormaPago";
+            this.cboFormaPago.Size = new System.Drawing.Size(98, 21);
+            this.cboFormaPago.TabIndex = 0;
             // 
             // dgvFacturaPagos
             // 
@@ -248,25 +289,6 @@
             this.dgvFacturaPagos.RowHeadersVisible = false;
             this.dgvFacturaPagos.Size = new System.Drawing.Size(497, 203);
             this.dgvFacturaPagos.TabIndex = 33;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(462, -1);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(31, 27);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "+";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnPagar
-            // 
-            this.btnPagar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagar.Location = new System.Drawing.Point(515, 389);
-            this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(82, 75);
-            this.btnPagar.TabIndex = 34;
-            this.btnPagar.Text = "Pagar";
-            this.btnPagar.UseVisualStyleBackColor = true;
             // 
             // ColFormaPagoID
             // 
@@ -308,29 +330,15 @@
             this.ColMontoDevolver.ReadOnly = true;
             this.ColMontoDevolver.Visible = false;
             // 
-            // txtDevolver
+            // btnPagar
             // 
-            this.txtDevolver.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDevolver.Enabled = false;
-            this.txtDevolver.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDevolver.ForeColor = System.Drawing.Color.Red;
-            this.txtDevolver.Location = new System.Drawing.Point(167, 149);
-            this.txtDevolver.Name = "txtDevolver";
-            this.txtDevolver.ReadOnly = true;
-            this.txtDevolver.Size = new System.Drawing.Size(155, 30);
-            this.txtDevolver.TabIndex = 48;
-            this.txtDevolver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblDevolver
-            // 
-            this.lblDevolver.AutoSize = true;
-            this.lblDevolver.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDevolver.ForeColor = System.Drawing.Color.Red;
-            this.lblDevolver.Location = new System.Drawing.Point(10, 155);
-            this.lblDevolver.Name = "lblDevolver";
-            this.lblDevolver.Size = new System.Drawing.Size(133, 29);
-            this.lblDevolver.TabIndex = 47;
-            this.lblDevolver.Text = "Devolver";
+            this.btnPagar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.Location = new System.Drawing.Point(515, 389);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(82, 75);
+            this.btnPagar.TabIndex = 34;
+            this.btnPagar.Text = "Pagar";
+            this.btnPagar.UseVisualStyleBackColor = true;
             // 
             // frmFacturaPayment
             // 
