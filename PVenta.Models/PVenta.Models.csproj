@@ -97,6 +97,7 @@
     <Compile Include="ViewModel\viewFacturaDetailGrid.cs" />
     <Compile Include="ViewModel\viewFacturaHeader.cs" />
     <Compile Include="ViewModel\viewFacturaPayment.cs" />
+    <Compile Include="ViewModel\viewFacturaPaymentGrid.cs" />
     <Compile Include="ViewModel\viewFormaPago.cs" />
     <Compile Include="ViewModel\viewInfoDigital.cs" />
     <Compile Include="ViewModel\viewLogin.cs" />
